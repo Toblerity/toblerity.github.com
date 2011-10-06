@@ -1,0 +1,23 @@
+.. _home:
+
+.. include:: README.txt
+
+Documentation
+..............................................................................
+
+.. toctree::
+   :maxdepth: 2
+   
+   install
+   tutorial
+   Mailing List <http://lists.gispython.org/mailman/listinfo/community>
+   class
+   changes
+   performance
+   examples
+   history
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
