@@ -1,0 +1,203 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Shapely &mdash; Shapely 1.2.13 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.2.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="Shapely 1.2.13 documentation" href="index.html" />
+    <link rel="next" title="The Shapely User Manual" href="manual.html" />
+    <link rel="prev" title="Welcome to Shapely’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>Shapely 1.2.13 documentation</span></a></h1>
+        <h2 class="heading"><span>Shapely</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Welcome to Shapely&#8217;s documentation!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="manual.html">The Shapely User Manual</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="shapely">
+<h1>Shapely<a class="headerlink" href="#shapely" title="Permalink to this headline">¶</a></h1>
+<p>PostGIS-ish operations outside a database context for Pythoneers and Pythonistas</p>
+<img alt="http://farm3.static.flickr.com/2738/4511827859_b5822043b7_o_d.png" src="http://farm3.static.flickr.com/2738/4511827859_b5822043b7_o_d.png" style="width: 800px; height: 400px;" />
+<p>Shapely is a BSD-licensed Python package for manipulation and analysis of
+planar geometric objects. It is based on the widely deployed <a class="reference external" href="http://trac.osgeo.org/geos/">GEOS</a> (the engine
+of <a class="reference external" href="http://postgis.org">PostGIS</a>) and <a class="reference external" href="http://www.vividsolutions.com/jts/jtshome.htm">JTS</a> (from which GEOS is ported) libraries. This C dependency
+is traded for the ability to execute with blazing speed. Shapely is not
+concerned with data formats or coordinate systems, but can be readily
+integrated with packages that are. For more details, see:</p>
+<ul class="simple">
+<li>Shapely <a class="reference external" href="http://trac.gispython.org/lab/wiki/Shapely">wiki</a></li>
+<li>Shapely <a class="reference external" href="http://toblerity.github.com/shapely/manual.html">manual</a></li>
+<li>Shapely <a class="reference external" href="http://trac.gispython.org/lab/wiki/Examples">example apps</a></li>
+</ul>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Shapely 1.2 depends on:</p>
+<ul class="simple">
+<li>Python &gt;=2.5,&lt;3</li>
+<li>libgeos_c &gt;=3.1 (3.0 and below have not been tested, YMMV)</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Windows users should use the executable installer, which contains the required
+GEOS DLL. Other users should acquire libgeos_c by any means, make sure that it
+is on the system library path, and install from the Python package index:</p>
+<div class="highlight-python"><pre>$ pip install Shapely</pre>
+</div>
+<p>or from a source distribution with the setup script:</p>
+<div class="highlight-python"><pre>$ python setup.py install</pre>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Here is the canonical example of building an approximately circular patch by
+buffering a point:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">patch</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">patch</span>
+<span class="go">&lt;shapely.geometry.polygon.Polygon object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">patch</span><span class="o">.</span><span class="n">area</span>
+<span class="go">313.65484905459385</span>
+</pre></div>
+</div>
+<p>See the <a class="reference external" href="http://toblerity.github.com/shapely/manual.html">manual</a> for comprehensive usage snippets and the dissolve.py and
+intersect.py <a class="reference external" href="http://trac.gispython.org/lab/wiki/Examples">example apps</a>.</p>
+</div>
+<div class="section" id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
+<p>Shapely does not read or write data files, but it can serialize and deserialize
+using several well known formats and protocols. The shapely.wkb and shapely.wkt
+modules provide dumpers and loaders inspired by Python&#8217;s pickle module.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.wkt</span> <span class="kn">import</span> <span class="n">dumps</span><span class="p">,</span> <span class="n">loads</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dumps</span><span class="p">(</span><span class="n">loads</span><span class="p">(</span><span class="s">&#39;POINT (0 0)&#39;</span><span class="p">))</span>
+<span class="go">&#39;POINT (0.0000000000000000 0.0000000000000000)&#39;</span>
+</pre></div>
+</div>
+<p>All linear objects, such as the rings of a polygon (like <tt class="docutils literal"><span class="pre">patch</span></tt> above),
+provide the Numpy array interface.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">asarray</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ag</span> <span class="o">=</span> <span class="n">asarray</span><span class="p">(</span><span class="n">patch</span><span class="o">.</span><span class="n">exterior</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ag</span>
+<span class="go">array([[  1.00000000e+01,   0.00000000e+00],</span>
+<span class="go">       [  9.95184727e+00,  -9.80171403e-01],</span>
+<span class="go">       [  9.80785280e+00,  -1.95090322e+00],</span>
+<span class="go">       ...</span>
+<span class="go">       [  1.00000000e+01,   0.00000000e+00]])</span>
+</pre></div>
+</div>
+<p>That yields a numpy array of [x, y] arrays. This is not always exactly what one
+wants for plotting shapes with Matplotlib (for example), so Shapely 1.2 adds
+a <cite>xy</cite> property for obtaining separate arrays of coordinate x and y values.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">xy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span> <span class="o">=</span> <span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span>
+<span class="go">array([  1.00000000e+01,   9.95184727e+00,   9.80785280e+00,  ...])</span>
+</pre></div>
+</div>
+<p>Numpy arrays can also be adapted to Shapely linestrings:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">asLineString</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asLineString</span><span class="p">(</span><span class="n">ag</span><span class="p">)</span><span class="o">.</span><span class="n">length</span>
+<span class="go">62.806623139095073</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">asLineString</span><span class="p">(</span><span class="n">ag</span><span class="p">)</span><span class="o">.</span><span class="n">wkt</span>
+<span class="go">&#39;LINESTRING (10.0000000000000000 0.0000000000000000, ...)&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Shapely uses a Zope-stye suite of unittests and doctests, exercised via
+setup.py.:</p>
+<div class="highlight-python"><pre>$ python setup.py test</pre>
+</div>
+<p>Nosetests won&#8217;t run the tests properly; Zope doctest suites are not currently
+supported well by nose.</p>
+</div>
+<div class="section" id="support">
+<h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
+<p>Bugs may be reported and questions asked via <a class="reference external" href="https://github.com/Toblerity/Shapely">https://github.com/Toblerity/Shapely</a>.</p>
+</div>
+<div class="section" id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<p>Shapely is written by:</p>
+<ul class="simple">
+<li>Sean Gillies</li>
+<li>Aron Bierbaum</li>
+<li>Kai Lautaportti</li>
+</ul>
+<p>Patches contributed by:</p>
+<ul class="simple">
+<li>Howard Butler</li>
+<li>Frédéric Junod</li>
+<li>Éric Lemoine</li>
+<li>Jonathan Tartley</li>
+<li>Kristian Thy</li>
+<li>Oliver Tonnhofer</li>
+</ul>
+<p>Additional help from:</p>
+<ul class="simple">
+<li>Justin Bronn (GeoDjango) for ctypes inspiration</li>
+<li>Martin Davis (JTS)</li>
+<li>Jaakko Salli for the Windows distributions</li>
+<li>Sandro Santilli, Mateusz Loskot, Paul Ramsey, et al (<a class="reference external" href="http://trac.osgeo.org/geos/">GEOS</a> Project)</li>
+</ul>
+<p>Major portions of this work were supported by a grant (for <a class="reference external" href="http://pleiades.stoa.org">Pleiades</a>) from the
+U.S. National Endowment for the Humanities (<a class="reference external" href="http://www.neh.gov">http://www.neh.gov</a>).</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Welcome to Shapely&#8217;s documentation!</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="manual.html">The Shapely User Manual</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2011, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1pre.
+    </div>
+  </body>
+</html>
