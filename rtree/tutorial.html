@@ -78,6 +78,12 @@ construction:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">idx</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">Index</span><span class="p">()</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">While the default construction is useful in many cases, if you want to
+manipulate how the index is constructed you will need pass in a
+<a class="reference internal" href="class.html#rtree.index.Property" title="rtree.index.Property"><tt class="xref py py-class docutils literal"><span class="pre">rtree.index.Property</span></tt></a> instance when creating the index.</p>
+</div>
 </div>
 <div class="section" id="create-a-bounding-box">
 <h3>Create a bounding box<a class="headerlink" href="#create-a-bounding-box" title="Permalink to this headline">¶</a></h3>
@@ -85,6 +91,15 @@ construction:</p>
 insert into the index:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">left</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The coordinate ordering for all functions are sensitive the the index&#8217;s
+<tt class="xref py py-attr docutils literal"><span class="pre">interleaved</span></tt> data member. If
+<tt class="xref py py-attr docutils literal"><span class="pre">interleaved</span></tt> is False, the coordinates must
+be in the form [xmin, xmax, ymin, ymax, ..., ..., kmin, kmax]. If
+<tt class="xref py py-attr docutils literal"><span class="pre">interleaved</span></tt> is True, the coordinates must be
+in the form [xmin, ymin, ..., kmin, xmax, ymax, ..., kmax].</p>
 </div>
 </div>
 <div class="section" id="insert-records-into-the-index">
@@ -173,6 +188,14 @@ described <a class="reference internal" href="#clustered"><em>here</em></a>:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">file_idx</span><span class="o">.</span><span class="n">intersection</span><span class="p">((</span><span class="n">left</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">top</span><span class="p">))]</span>
 <span class="go">[1, 2]</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">By default, if an index file with the given name <cite>rtree</cite> in the example
+above already exists on the file system, it will be opened in append mode
+and not be re-created. You can control this behavior with the
+<a class="reference internal" href="class.html#rtree.index.Property.overwrite" title="rtree.index.Property.overwrite"><tt class="xref py py-attr docutils literal"><span class="pre">rtree.index.Property.overwrite</span></tt></a> property of the index property
+that can be given to the <a class="reference internal" href="class.html#rtree.index.Index" title="rtree.index.Index"><tt class="xref py py-class docutils literal"><span class="pre">rtree.index.Index</span></tt></a> constructor.</p>
 </div>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
@@ -267,7 +290,7 @@ storage backend for <a class="reference external" href="http://www.zodb.org/">ZO
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -298,7 +321,7 @@ storage backend for <a class="reference external" href="http://www.zodb.org/">ZO
     </div>
     <div class="footer">
         &copy; Copyright 2011, Howard Butler, Brent Pedersen, Sean Gilles, and others..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1pre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2pre/65e4c29a24e4.
     </div>
   </body>
 </html>

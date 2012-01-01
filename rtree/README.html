@@ -44,7 +44,7 @@
             
   <div class="section" id="rtree-spatial-indexing-for-python">
 <h1>Rtree: Spatial indexing for Python<a class="headerlink" href="#rtree-spatial-indexing-for-python" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="http://rtree.github.com">Rtree</a> is a <a class="reference external" href="http://docs.python.org/library/ctypes.html">ctypes</a> Python wrapper of <a class="reference external" href="http://libspatialindex.github.com">libspatialindex</a> that provides a
+<p><a class="reference external" href="http://toblerity.github.com/rtree/">Rtree</a> is a <a class="reference external" href="http://docs.python.org/library/ctypes.html">ctypes</a> Python wrapper of <a class="reference external" href="http://libspatialindex.github.com">libspatialindex</a> that provides a
 number of advanced spatial indexing features for the spatially curious Python
 user.  These features include:</p>
 <ul class="simple">
@@ -55,8 +55,12 @@ user.  These features include:</p>
 <li>Bulk loading</li>
 <li>Deletion</li>
 <li>Disk serialization</li>
-<li>Custom backend implementation</li>
+<li>Custom storage implementation (to implement spatial indexing in ZODB, for example)</li>
 </ul>
+<div class="section" id="documentation-and-website">
+<h2>Documentation and Website<a class="headerlink" href="#documentation-and-website" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://toblerity.github.com/rtree/">http://toblerity.github.com/rtree/</a></p>
+</div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -86,6 +90,7 @@ user.  These features include:</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Rtree: Spatial indexing for Python</a><ul>
+<li><a class="reference internal" href="#documentation-and-website">Documentation and Website</a></li>
 <li><a class="reference internal" href="#requirements">Requirements</a></li>
 <li><a class="reference internal" href="#download">Download</a></li>
 <li><a class="reference internal" href="#development">Development</a></li>
@@ -101,7 +106,7 @@ user.  These features include:</p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -126,7 +131,7 @@ user.  These features include:</p>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Howard Butler, Brent Pedersen, Sean Gilles, and others..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1pre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2pre/65e4c29a24e4.
     </div>
   </body>
 </html>

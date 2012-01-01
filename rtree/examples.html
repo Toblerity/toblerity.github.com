@@ -225,8 +225,9 @@ will be invalid</p>
 </div>
 <p>Test invalid name</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">inv</span> <span class="o">=</span> <span class="n">Rtree</span><span class="p">(</span><span class="s">&quot;bogus/foo&quot;</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="go">IOError: Unable to open file &#39;bogus/foo.idx&#39; for index storage</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="c">...</span>
+<span class="gr">IOError</span>: <span class="n">Unable to open file &#39;bogus/foo.idx&#39; for index storage</span>
 </pre></div>
 </div>
 <p>Load a persisted index</p>
@@ -443,7 +444,7 @@ constructor.</p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -474,7 +475,7 @@ constructor.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Howard Butler, Brent Pedersen, Sean Gilles, and others..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1pre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2pre/65e4c29a24e4.
     </div>
   </body>
 </html>

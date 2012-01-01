@@ -48,7 +48,7 @@
             
   <div class="section" id="rtree-spatial-indexing-for-python">
 <span id="home"></span><h1>Rtree: Spatial indexing for Python<a class="headerlink" href="#rtree-spatial-indexing-for-python" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="http://rtree.github.com">Rtree</a> is a <a class="reference external" href="http://docs.python.org/library/ctypes.html">ctypes</a> Python wrapper of <a class="reference external" href="http://libspatialindex.github.com">libspatialindex</a> that provides a
+<p><a class="reference external" href="http://toblerity.github.com/rtree/">Rtree</a> is a <a class="reference external" href="http://docs.python.org/library/ctypes.html">ctypes</a> Python wrapper of <a class="reference external" href="http://libspatialindex.github.com">libspatialindex</a> that provides a
 number of advanced spatial indexing features for the spatially curious Python
 user.  These features include:</p>
 <ul class="simple">
@@ -59,26 +59,8 @@ user.  These features include:</p>
 <li>Bulk loading</li>
 <li>Deletion</li>
 <li>Disk serialization</li>
-<li>Custom backend implementation</li>
+<li>Custom storage implementation (to implement spatial indexing in ZODB, for example)</li>
 </ul>
-<div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://libspatialindex.github.com">libspatialindex</a> 1.7.0+.</li>
-</ul>
-</div>
-<div class="section" id="download">
-<h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>PyPI <a class="reference external" href="http://pypi.python.org/pypi/Rtree/">http://pypi.python.org/pypi/Rtree/</a></li>
-</ul>
-</div>
-<div class="section" id="development">
-<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/Toblerity/Rtree">https://github.com/Toblerity/Rtree</a></li>
-</ul>
-</div>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -99,14 +81,15 @@ user.  These features include:</p>
 <li class="toctree-l1"><a class="reference external" href="http://lists.gispython.org/mailman/listinfo/community">Mailing List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="class.html">Class Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changes.html">Changes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changes.html#id2">0.6.0: 2010-04-13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#id2">0.7.0: 2011-12-29</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#id3">0.6.0: 2010-04-13</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changes.html#xx">0.5.0: 2009-08-XX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changes.html#id3">0.4.3: 2009-06-05</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changes.html#id4">0.4.2: 2009-05-25</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changes.html#id5">0.4.1: 2008-03-24</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changes.html#id6">0.4: 2008-01-24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#id4">0.4.3: 2009-06-05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#id5">0.4.2: 2009-05-25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#id6">0.4.1: 2008-03-24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#id7">0.4: 2008-01-24</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changes.html#november-2007">0.3: 26 November 2007</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changes.html#id7">0.2:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#id8">0.2:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changes.html#april-2007">0.1: 13 April 2007</a></li>
 </ul>
 </li>
@@ -140,9 +123,6 @@ user.  These features include:</p>
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Rtree: Spatial indexing for Python</a><ul>
-<li><a class="reference internal" href="#requirements">Requirements</a></li>
-<li><a class="reference internal" href="#download">Download</a></li>
-<li><a class="reference internal" href="#development">Development</a></li>
 <li><a class="reference internal" href="#documentation">Documentation</a><ul>
 </ul>
 </li>
@@ -161,7 +141,7 @@ user.  These features include:</p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -189,7 +169,7 @@ user.  These features include:</p>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Howard Butler, Brent Pedersen, Sean Gilles, and others..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1pre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2pre/65e4c29a24e4.
     </div>
   </body>
 </html>
