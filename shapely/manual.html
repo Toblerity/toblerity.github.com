@@ -1,65 +1,139 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>The Shapely User Manual &mdash; Shapely 1.2.13 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <title>The Shapely User Manual &mdash; Shapely v1.2.14 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/print.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.2.13',
-        COLLAPSE_INDEX: false,
+        URL_ROOT:    '#',
+        VERSION:     '1.2.14',
+        COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/theme_extras.js"></script>
-    <link rel="top" title="Shapely 1.2.13 documentation" href="index.html" />
-    <link rel="prev" title="Shapely" href="README.html" /> 
+    <link rel="top" title="Shapely v1.2.14 documentation" href="index.html" />
+    <link rel="prev" title="README" href="README.html" /> 
   </head>
   <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
-          <span>Shapely 1.2.13 documentation</span></a></h1>
-        <h2 class="heading"><span>The Shapely User Manual</span></h2>
-      </div>
-      <div class="topnav">
-      
-        <p>
-        «&#160;&#160;<a href="README.html">Shapely</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        </p>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="README.html" title="README"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Shapely v1.2.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">The Shapely User Manual</a><ul>
+<li><a class="reference external" href="#introduction">Introduction</a><ul>
+<li><a class="reference external" href="#spatial-data-model">Spatial Data Model</a></li>
+<li><a class="reference external" href="#relationships">Relationships</a></li>
+<li><a class="reference external" href="#operations">Operations</a></li>
+<li><a class="reference external" href="#coordinate-systems">Coordinate Systems</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#geometric-objects">Geometric Objects</a><ul>
+<li><a class="reference external" href="#general-attributes-and-methods">General Attributes and Methods</a></li>
+<li><a class="reference external" href="#points">Points</a></li>
+<li><a class="reference external" href="#linestrings">LineStrings</a></li>
+<li><a class="reference external" href="#linearrings">LinearRings</a></li>
+<li><a class="reference external" href="#polygons">Polygons</a></li>
+<li><a class="reference external" href="#collections">Collections</a></li>
+<li><a class="reference external" href="#collections-of-points">Collections of Points</a></li>
+<li><a class="reference external" href="#collections-of-lines">Collections of Lines</a></li>
+<li><a class="reference external" href="#collections-of-polygons">Collections of Polygons</a></li>
+<li><a class="reference external" href="#empty-features">Empty features</a></li>
+<li><a class="reference external" href="#linear-referencing-methods">Linear Referencing Methods</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#predicates-and-relationships">Predicates and Relationships</a><ul>
+<li><a class="reference external" href="#unary-predicates">Unary Predicates</a></li>
+<li><a class="reference external" href="#binary-predicates">Binary Predicates</a></li>
+<li><a class="reference external" href="#de-9im-relationships">DE-9IM Relationships</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#spatial-analysis-methods">Spatial Analysis Methods</a><ul>
+<li><a class="reference external" href="#set-theoretic-methods">Set-theoretic Methods</a></li>
+<li><a class="reference external" href="#constructive-methods">Constructive Methods</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#other-operations">Other Operations</a><ul>
+<li><a class="reference external" href="#merging-linear-features">Merging Linear Features</a></li>
+<li><a class="reference external" href="#cascading-unions">Cascading Unions</a></li>
+<li><a class="reference external" href="#prepared-geometry-operations">Prepared Geometry Operations</a></li>
+<li><a class="reference external" href="#diagnostics">Diagnostics</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#interoperation">Interoperation</a><ul>
+<li><a class="reference external" href="#well-known-formats">Well-known Formats</a></li>
+<li><a class="reference external" href="#numpy-and-python-arrays">Numpy and Python Arrays</a></li>
+<li><a class="reference external" href="#python-geo-interface">Python Geo Interface</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#performance">Performance</a></li>
+<li><a class="reference external" href="#conclusion">Conclusion</a></li>
+<li><a class="reference external" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
 
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="README.html"
+                                  title="previous chapter">README</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/manual.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
       </div>
-      <div class="content">
-        
-        
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
   <div class="section" id="the-shapely-user-manual">
 <span id="manual"></span><h1>The Shapely User Manual<a class="headerlink" href="#the-shapely-user-manual" title="Permalink to this headline">¶</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
+<tr class="field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Revision:</th><td class="field-body">1.2.13</td>
+<tr class="field"><th class="field-name">Revision:</th><td class="field-body">1.2.14</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">15 September 2011</td>
+<tr class="field"><th class="field-name">Date:</th><td class="field-body">21 January 2012</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
+<tr class="field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
 United States License</a>.</td>
 </tr>
 </tbody>
@@ -68,7 +142,7 @@ United States License</a>.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Abstract:</th><td class="field-body">This document explains how to use the Shapely Python package for
+<tr class="field"><th class="field-name">Abstract:</th><td class="field-body">This document explains how to use the Shapely Python package for
 computational geometry.</td>
 </tr>
 </tbody>
@@ -86,7 +160,7 @@ identified zones of location based spam? These are just a few of the possible
 questions addressable using non-statistical spatial analysis, and more
 specifically, computational geometry.</p>
 <p>Shapely is a Python package for set-theoretic analysis and manipulation of
-planar features using (via Python&#8217;s <tt class="xref py py-mod docutils literal"><span class="pre">ctypes</span></tt> module) functions from the
+planar features using (via Python&#8217;s <tt class="xref docutils literal"><span class="pre">ctypes</span></tt> module) functions from the
 well known and widely deployed <a class="reference external" href="http://trac.osgeo.org/geos/">GEOS</a> library. GEOS, a port of the <a class="reference external" href="http://www.vividsolutions.com/jts/jtshome.htm">Java
 Topology Suite</a> (JTS), is the geometry engine of the <a class="reference external" href="http://postgis.refractions.net">PostGIS</a> spatial
 extension for the PostgreSQL RDBMS. The designs of JTS and GEOS are largely
@@ -196,62 +270,56 @@ operations are performed in the <cite>x-y</cite> plane.</p>
 words, <tt class="docutils literal"><span class="pre">Point(0,</span> <span class="pre">0)</span></tt> and <tt class="docutils literal"><span class="pre">Point(0.0,</span> <span class="pre">0.0)</span></tt> produce geometrically equivalent
 instances. Shapely does not check the topological simplicity or validity of
 instances when they are constructed as the cost is unwarranted in most cases.
-Validating factories are trivially implemented, using the <tt class="xref py py-attr docutils literal"><span class="pre">is_valid</span></tt>
+Validating factories are trivially implemented, using the <tt class="xref docutils literal"><span class="pre">is_valid</span></tt>
 predicate, by users that require them.</p>
 <div class="section" id="general-attributes-and-methods">
 <h3>General Attributes and Methods<a class="headerlink" href="#general-attributes-and-methods" title="Permalink to this headline">¶</a></h3>
 <dl class="attribute">
 <dt id="object.area">
 <tt class="descclassname">object.</tt><tt class="descname">area</tt><a class="headerlink" href="#object.area" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the area (<tt class="docutils literal"><span class="pre">float</span></tt>) of the object.</p>
-</dd></dl>
+<dd>Returns the area (<tt class="docutils literal"><span class="pre">float</span></tt>) of the object.</dd></dl>
 
 <dl class="attribute">
 <dt id="object.bounds">
 <tt class="descclassname">object.</tt><tt class="descname">bounds</tt><a class="headerlink" href="#object.bounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a <tt class="docutils literal"><span class="pre">(minx,</span> <span class="pre">miny,</span> <span class="pre">maxx,</span> <span class="pre">maxy)</span></tt> tuple (<tt class="docutils literal"><span class="pre">float</span></tt> values) that bounds
-the object.</p>
-</dd></dl>
+<dd>Returns a <tt class="docutils literal"><span class="pre">(minx,</span> <span class="pre">miny,</span> <span class="pre">maxx,</span> <span class="pre">maxy)</span></tt> tuple (<tt class="docutils literal"><span class="pre">float</span></tt> values) that bounds
+the object.</dd></dl>
 
 <dl class="attribute">
 <dt id="object.length">
 <tt class="descclassname">object.</tt><tt class="descname">length</tt><a class="headerlink" href="#object.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the length (<tt class="docutils literal"><span class="pre">float</span></tt>) of the object.</p>
-</dd></dl>
+<dd>Returns the length (<tt class="docutils literal"><span class="pre">float</span></tt>) of the object.</dd></dl>
 
 <dl class="attribute">
 <dt id="object.geom_type">
 <tt class="descclassname">object.</tt><tt class="descname">geom_type</tt><a class="headerlink" href="#object.geom_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a string specifying the <cite>Geometry Type</cite> of the object in accordance
-with <a class="footnote-reference" href="#id21" id="id7">[1]</a>.</p>
-</dd></dl>
+<dd>Returns a string specifying the <cite>Geometry Type</cite> of the object in accordance
+with <a class="footnote-reference" href="#id21" id="id7">[1]</a>.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">geom_type</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">geom_type</span>
 <span class="go">Point</span>
 </pre></div>
 </div>
 <dl class="method">
 <dt id="object.distance">
 <tt class="descclassname">object.</tt><tt class="descname">distance</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.distance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the minimum distance (<tt class="docutils literal"><span class="pre">float</span></tt>) to the <cite>other</cite> geometric object.</p>
-</dd></dl>
+<dd>Returns the minimum distance (<tt class="docutils literal"><span class="pre">float</span></tt>) to the <cite>other</cite> geometric object.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">))</span>
 <span class="go">1.4142135623730951</span>
 </pre></div>
 </div>
 <dl class="method">
 <dt id="object.representative_point">
 <tt class="descclassname">object.</tt><tt class="descname">representative_point</tt><big>(</big><big>)</big><a class="headerlink" href="#object.representative_point" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a cheaply computed point that is guaranteed to be within the
-geometric object.</p>
-</dd></dl>
+<dd>Returns a cheaply computed point that is guaranteed to be within the
+geometric object.</dd></dl>
 
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This is not in general the same as the centroid.</p>
 </div>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">donut</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">donut</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">donut</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">wkt</span>
 <span class="go">&#39;POINT (-0.0000000000000001 -0.0000000000000000)&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">donut</span><span class="o">.</span><span class="n">representative_point</span><span class="p">()</span><span class="o">.</span><span class="n">wkt</span>
@@ -264,9 +332,8 @@ geometric object.</p>
 <dl class="class">
 <dt id="Point">
 <em class="property">class </em><tt class="descname">Point</tt><big>(</big><em>coordinates</em><big>)</big><a class="headerlink" href="#Point" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <cite>Point</cite> constructor takes positional coordinate values or point tuple
-parameters.</p>
-</dd></dl>
+<dd>The <cite>Point</cite> constructor takes positional coordinate values or point tuple
+parameters.</dd></dl>
 
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
@@ -294,6 +361,11 @@ parameters.</p>
 <span class="go">0.0</span>
 </pre></div>
 </div>
+<p>Coordinates may also be sliced. <cite>New in version 1.2.14</cite>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="o">.</span><span class="n">coords</span><span class="p">[:]</span>
+<span class="go">[(0.0, 0.0)]</span>
+</pre></div>
+</div>
 <p>The <cite>Point</cite> constructor also accepts another <cite>Point</cite> instance, thereby making
 a copy.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
@@ -306,24 +378,21 @@ a copy.</p>
 <dl class="class">
 <dt id="LineString">
 <em class="property">class </em><tt class="descname">LineString</tt><big>(</big><em>coordinates</em><big>)</big><a class="headerlink" href="#LineString" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <cite>LineString</cite> constructor takes an ordered sequence of 2 or more
-<tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y[,</span> <span class="pre">z])</span></tt> point tuples.</p>
-</dd></dl>
+<dd>The <cite>LineString</cite> constructor takes an ordered sequence of 2 or more
+<tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y[,</span> <span class="pre">z])</span></tt> point tuples.</dd></dl>
 
 <p>The constructed <cite>LineString</cite> object represents one or more connected linear
 splines between the points. Repeated points in the ordered sequence are
 allowed, but may incur performance penalties and should be avoided. A
 <cite>LineString</cite> may cross itself (<em>i.e.</em> be <cite>complex</cite> and not <cite>simple</cite>).</p>
-<p>[<a class="reference external" href="./plot_directive/code/linestring.py">source code</a>, <a class="reference external" href="./plot_directive/code/linestring.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/linestring.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/linestring.py">source code</a>, <a class="reference external" href="plot_directive/code/linestring.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/linestring.pdf">pdf</a>]</p>
 <img alt="_images/linestring.png" src="_images/linestring.png" />
-</div>
 <p>Figure 1: a simple <cite>LineString</cite> on the left, a complex <cite>LineString</cite> on the
 right. The (<cite>MultiPoint</cite>) boundary of each is shown in black, the other points
 that describe the lines are shown in grey.</p>
 <p>A <cite>LineString</cite> has zero area and non-zero length.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">LineString</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">area</span>
 <span class="go">0.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">length</span>
@@ -342,6 +411,13 @@ that describe the lines are shown in grey.</p>
 <span class="go">[(0.0, 0.0), (1.0, 1.0)]</span>
 </pre></div>
 </div>
+<p>Coordinates may also be sliced. <cite>New in version 1.2.14</cite>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="o">.</span><span class="n">coords</span><span class="p">[:]</span>
+<span class="go">[(0.0, 0.0), (1.0, 1.0)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">point</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mf">1</span><span class="p">:]</span>
+<span class="go">[(1.0, 1.0)]</span>
+</pre></div>
+</div>
 <p>The constructor also accepts another <cite>LineString</cite> instance, thereby making a
 copy.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
@@ -356,9 +432,8 @@ copy.</p>
 <dl class="class">
 <dt id="LinearRing">
 <em class="property">class </em><tt class="descname">LinearRing</tt><big>(</big><em>coordinates</em><big>)</big><a class="headerlink" href="#LinearRing" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <cite>LinearRing</cite> constructor takes an ordered sequence of <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y[,</span> <span class="pre">z])</span></tt>
-point tuples.</p>
-</dd></dl>
+<dd>The <cite>LinearRing</cite> constructor takes an ordered sequence of <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y[,</span> <span class="pre">z])</span></tt>
+point tuples.</dd></dl>
 
 <p>The sequence may be explicitly closed by passing identical values in the first
 and last indices. Otherwise, the sequence will be implicitly closed by copying
@@ -366,10 +441,8 @@ the first tuple to the last index. As with a <cite>LineString</cite>, repeated p
 the ordered sequence are allowed, but may incur performance penalties and
 should be avoided. A <cite>LinearRing</cite> may not cross itself, and may not touch
 itself at a single point.</p>
-<p>[<a class="reference external" href="./plot_directive/code/linearring.py">source code</a>, <a class="reference external" href="./plot_directive/code/linearring.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/linearring.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/linearring.py">source code</a>, <a class="reference external" href="plot_directive/code/linearring.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/linearring.pdf">pdf</a>]</p>
 <img alt="_images/linearring.png" src="_images/linearring.png" />
-</div>
 <p>Figure 1: a valid <cite>LinearRing</cite> on the left, an invalid self-touching
 <cite>LinearRing</cite> on the right. The points that describe the rings are shown in
 grey. A ring&#8217;s boundary is <cite>empty</cite>.</p>
@@ -380,7 +453,7 @@ raised when they are operated on.</p>
 </div>
 <p>A <cite>LinearRing</cite> has zero area and non-zero length.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry.polygon</span> <span class="kn">import</span> <span class="n">LinearRing</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span> <span class="o">=</span> <span class="n">LinearRing</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span> <span class="o">=</span> <span class="n">LinearRing</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span><span class="o">.</span><span class="n">area</span>
 <span class="go">0.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span><span class="o">.</span><span class="n">length</span>
@@ -413,34 +486,29 @@ constructor parameter.</p>
 <dl class="class">
 <dt id="Polygon">
 <em class="property">class </em><tt class="descname">Polygon</tt><big>(</big><em>exterior</em><span class="optional">[</span>, <em>interiors=None</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#Polygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <cite>Polygon</cite> constructor takes two positional parameters. The first is an
+<dd>The <cite>Polygon</cite> constructor takes two positional parameters. The first is an
 ordered sequence of <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y[,</span> <span class="pre">z])</span></tt> point tuples and is treated exactly as in
 the <cite>LinearRing</cite> case. The second is an optional unordered sequence of
 ring-like sequences specifying the interior boundaries or &#8220;holes&#8221; of the
-feature.</p>
-</dd></dl>
+feature.</dd></dl>
 
 <p>Rings of a <cite>valid</cite> <cite>Polygon</cite> may not cross each other, but may touch at a
 single point only.  Again, Shapely will not prevent the creation of invalid
 features, but exceptions will be raised when they are operated on.</p>
-<p>[<a class="reference external" href="./plot_directive/code/polygon.py">source code</a>, <a class="reference external" href="./plot_directive/code/polygon.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/polygon.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/polygon.py">source code</a>, <a class="reference external" href="plot_directive/code/polygon.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/polygon.pdf">pdf</a>]</p>
 <img alt="_images/polygon.png" src="_images/polygon.png" />
-</div>
 <p>Figure 1: On the left, a valid <cite>Polygon</cite> with one interior ring that touches
 the exterior ring at one point, and on the right a <cite>Polygon</cite> that is <cite>invalid</cite>
 because its interior ring touches the exterior ring at more than one point. The
 points that describe the rings are shown in grey.</p>
-<p>[<a class="reference external" href="./plot_directive/code/polygon2.py">source code</a>, <a class="reference external" href="./plot_directive/code/polygon2.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/polygon2.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/polygon2.py">source code</a>, <a class="reference external" href="plot_directive/code/polygon2.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/polygon2.pdf">pdf</a>]</p>
 <img alt="_images/polygon2.png" src="_images/polygon2.png" />
-</div>
 <p>Figure 1: On the left, a <cite>Polygon</cite> that is <cite>invalid</cite> because its exterior and
 interior rings touch along a line, and on the right, a <cite>Polygon</cite> that is
 <cite>invalid</cite> because its interior rings touch along a line.</p>
 <p>A <cite>Polygon</cite> has non-zero area and non-zero length.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">polygon</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">polygon</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">polygon</span><span class="o">.</span><span class="n">area</span>
 <span class="go">0.5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">polygon</span><span class="o">.</span><span class="n">length</span>
@@ -461,7 +529,7 @@ interior rings touch along a line, and on the right, a <cite>Polygon</cite> that
 </div>
 <p>The <cite>Polygon</cite> constructor also accepts instances of <cite>LineString</cite> and
 <cite>LinearRing</cite>.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">LinearRing</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">area</span>
@@ -472,7 +540,7 @@ interior rings touch along a line, and on the right, a <cite>Polygon</cite> that
 </pre></div>
 </div>
 <p>Rectangular polygons occur commonly, and can be conveniently constructed using
-the <a class="reference internal" href="#shapely.geometry.box" title="shapely.geometry.box"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.box()</span></tt></a> function.</p>
+the <a title="shapely.geometry.box" class="reference internal" href="#shapely.geometry.box"><tt class="xref docutils literal"><span class="pre">shapely.geometry.box()</span></tt></a> function.</p>
 <dl class="function">
 <dt id="shapely.geometry.box">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">box</tt><big>(</big><em>minx</em>, <em>miny</em>, <em>maxx</em>, <em>maxy</em>, <em>ccw=True</em><big>)</big><a class="headerlink" href="#shapely.geometry.box" title="Permalink to this definition">¶</a></dt>
@@ -492,7 +560,7 @@ counter-clockwise order by default.</p>
 </div>
 <p>This is the first appearance of an explicit polygon handedness in Shapely.</p>
 <p>To obtain a polygon with a known orientation, use
-<a class="reference internal" href="#shapely.geometry.polygon.orient" title="shapely.geometry.polygon.orient"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.polygon.orient()</span></tt></a>:</p>
+<a title="shapely.geometry.polygon.orient" class="reference internal" href="#shapely.geometry.polygon.orient"><tt class="xref docutils literal"><span class="pre">shapely.geometry.polygon.orient()</span></tt></a>:</p>
 <dl class="function">
 <dt id="shapely.geometry.polygon.orient">
 <tt class="descclassname">shapely.geometry.polygon.</tt><tt class="descname">orient</tt><big>(</big><em>polygon</em>, <em>sign=1.0</em><big>)</big><a class="headerlink" href="#shapely.geometry.polygon.orient" title="Permalink to this definition">¶</a></dt>
@@ -505,13 +573,13 @@ product&#8217;s exterior ring will be oriented counter-clockwise.</p>
 </div>
 <div class="section" id="collections">
 <span id="id12"></span><h3>Collections<a class="headerlink" href="#collections" title="Permalink to this headline">¶</a></h3>
-<p>Shapely provides <a class="reference external" href="http://docs.python.org/library/stdtypes.html#frozenset">frozenset</a>-like, immutable collections of geometric objects.
-The collections may be homogeneous (<cite>MultiPoint</cite> etc.) or heterogeneous.</p>
 <p>Heterogeneous collections of geometric objects may result from some Shapely
 operations. For example, two <cite>LineStrings</cite> may intersect along a line and at a
-point.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span>
+point. To represent these kind of results, Shapely provides <a class="reference external" href="http://docs.python.org/library/stdtypes.html#frozenset">frozenset</a>-like,
+immutable collections of geometric objects.  The collections may be homogeneous
+(<cite>MultiPoint</cite> etc.) or heterogeneous.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="mf">2</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="mf">2</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">&lt;shapely.geometry.collection.GeometryCollection object at 0x...&gt;</span>
@@ -521,10 +589,8 @@ point.</p>
 <span class="go"> &lt;shapely.geometry.linestring.LineString object at 0x...&gt;]</span>
 </pre></div>
 </div>
-<p>[<a class="reference external" href="./plot_directive/code/geometrycollection.py">source code</a>, <a class="reference external" href="./plot_directive/code/geometrycollection.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/geometrycollection.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/geometrycollection.py">source code</a>, <a class="reference external" href="plot_directive/code/geometrycollection.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/geometrycollection.pdf">pdf</a>]</p>
 <img alt="_images/geometrycollection.png" class="figure" src="_images/geometrycollection.png" />
-</div>
 <p>Figure 1: a) a green and a yellow line that intersect along a line and at a
 single point; b) the intersection (in blue) is a collection containing one
 <cite>LineString</cite> and one <cite>Point</cite>.</p>
@@ -538,6 +604,19 @@ the iterator protocol using <tt class="docutils literal"><span class="pre">in</s
 <span class="go"> &lt;shapely.geometry.linestring.LineString object at 0x...&gt;]</span>
 </pre></div>
 </div>
+<p>Homogeneous collections can also be sliced, resulting in a new object of the
+same type.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">MultiPoint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">MultiPoint</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="mf">2</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="p">[:</span><span class="mf">1</span><span class="p">]</span><span class="o">.</span><span class="n">wkt</span>
+<span class="go">&#39;MULTIPOINT (0.0000000000000000 0.0000000000000000)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="p">[</span><span class="mf">3</span><span class="p">:]</span><span class="o">.</span><span class="n">wkt</span>
+<span class="go">&#39;MULTIPOINT (2.0000000000000000 2.0000000000000000)&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="p">[</span><span class="mf">4</span><span class="p">:]</span><span class="o">.</span><span class="n">wkt</span>
+<span class="go">&#39;GEOMETRYCOLLECTION EMPTY&#39;</span>
+</pre></div>
+</div>
+<p><cite>New in version 1.2.14</cite>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">When possible, it is better to use one of the homogeneous collection types
@@ -549,9 +628,8 @@ described below.</p>
 <dl class="class">
 <dt id="MultiPoint">
 <em class="property">class </em><tt class="descname">MultiPoint</tt><big>(</big><em>points</em><big>)</big><a class="headerlink" href="#MultiPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <cite>MultiPoint</cite> constructor takes a sequence of <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y[,z</span> <span class="pre">])</span></tt> point
-tuples.</p>
-</dd></dl>
+<dd>The <cite>MultiPoint</cite> constructor takes a sequence of <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y[,z</span> <span class="pre">])</span></tt> point
+tuples.</dd></dl>
 
 <p>A <cite>MultiPoint</cite> has zero area and zero length.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">MultiPoint</span>
@@ -568,7 +646,7 @@ tuples.</p>
 </pre></div>
 </div>
 <p>Members of a multi-point collection are accessed via the <tt class="docutils literal"><span class="pre">geoms</span></tt> property or
-via the iterator protocol using <tt class="docutils literal"><span class="pre">in</span></tt> or <tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt>.</p>
+via the iterator protocol using <tt class="docutils literal"><span class="pre">in</span></tt> or <tt class="xref docutils literal"><span class="pre">list()</span></tt>.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pprint</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">geoms</span><span class="p">))</span>
 <span class="go">[&lt;shapely.geometry.point.Point object at 0x...&gt;,</span>
@@ -580,7 +658,7 @@ via the iterator protocol using <tt class="docutils literal"><span class="pre">i
 </div>
 <p>The constructor also accepts another <cite>MultiPoint</cite> instance or an unordered
 sequence of <cite>Point</cite> instances, thereby making copies.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPoint</span><span class="p">([</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPoint</span><span class="p">([</span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span>
 <span class="go">&lt;shapely.geometry.multipoint.MultiPoint object at 0x...&gt;</span>
 </pre></div>
 </div>
@@ -590,20 +668,17 @@ sequence of <cite>Point</cite> instances, thereby making copies.</p>
 <dl class="class">
 <dt id="MultiLineString">
 <em class="property">class </em><tt class="descname">MultiLineString</tt><big>(</big><em>lines</em><big>)</big><a class="headerlink" href="#MultiLineString" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <cite>MultiLineString</cite> constructor takes a sequence of line-like sequences or
-objects.</p>
-</dd></dl>
+<dd>The <cite>MultiLineString</cite> constructor takes a sequence of line-like sequences or
+objects.</dd></dl>
 
-<p>[<a class="reference external" href="./plot_directive/code/multilinestring.py">source code</a>, <a class="reference external" href="./plot_directive/code/multilinestring.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/multilinestring.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/multilinestring.py">source code</a>, <a class="reference external" href="plot_directive/code/multilinestring.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/multilinestring.pdf">pdf</a>]</p>
 <img alt="_images/multilinestring.png" src="_images/multilinestring.png" />
-</div>
 <p>Figure 1: On the left, a <cite>simple</cite>, disconnected <cite>MultiLineString</cite>, and on the
 right, a non-simple <cite>MultiLineString</cite>. The points defining the objects are
 shownb in gray, the boundaries of the objects in black.</p>
 <p>A <cite>MultiLineString</cite> has zero area and non-zero length.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">MultiLineString</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[((</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)),</span> <span class="p">((</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">))]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lines</span> <span class="o">=</span> <span class="n">MultiLineString</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lines</span><span class="o">.</span><span class="n">area</span>
 <span class="go">0.0</span>
@@ -642,9 +717,8 @@ unordered sequence of <cite>LineString</cite> instances, thereby making copies.<
 <dl class="class">
 <dt id="MultiPolygon">
 <em class="property">class </em><tt class="descname">MultiPolygon</tt><big>(</big><em>polygons</em><big>)</big><a class="headerlink" href="#MultiPolygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <cite>MultiPolygon</cite> constructor takes a sequence of exterior ring and
-hole list tuples: [((a1, ..., aM), [(b1, ..., bN), ...]), ...].</p>
-</dd></dl>
+<dd>The <cite>MultiPolygon</cite> constructor takes a sequence of exterior ring and
+hole list tuples: [((a1, ..., aM), [(b1, ..., bN), ...]), ...].</dd></dl>
 
 <p>More clearly, the constructor also accepts an unordered sequence of <cite>Polygon</cite>
 instances, thereby making copies.</p>
@@ -653,10 +727,8 @@ instances, thereby making copies.</p>
 <span class="go">3</span>
 </pre></div>
 </div>
-<p>[<a class="reference external" href="./plot_directive/code/multipolygon.py">source code</a>, <a class="reference external" href="./plot_directive/code/multipolygon.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/multipolygon.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/multipolygon.py">source code</a>, <a class="reference external" href="plot_directive/code/multipolygon.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/multipolygon.pdf">pdf</a>]</p>
 <img alt="_images/multipolygon.png" src="_images/multipolygon.png" />
-</div>
 <p>Figure 1: On the right, a <cite>valid</cite> <cite>MultiPolygon</cite> with 2 members, and on the
 right, a <cite>MultiPolygon</cite> that is invalid because its members touch at an
 infinite number of points (along a line).</p>
@@ -677,7 +749,7 @@ property or via the iterator protocol using <tt class="docutils literal"><span c
 <div class="section" id="empty-features">
 <span id="empties"></span><h3>Empty features<a class="headerlink" href="#empty-features" title="Permalink to this headline">¶</a></h3>
 <p>An &#8220;empty&#8221; feature is one with a point set that coincides with the empty set;
-not <tt class="docutils literal"><span class="pre">None</span></tt>, but like <tt class="docutils literal"><span class="pre">set([])</span></tt>. Empty features can be created by calling
+not <tt class="xref docutils literal"><span class="pre">None</span></tt>, but like <tt class="docutils literal"><span class="pre">set([])</span></tt>. Empty features can be created by calling
 the various constructors with no arguments. Almost no operations are supported
 by empty features.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">()</span>
@@ -693,7 +765,7 @@ by empty features.</p>
 </div>
 <p>The coordinates of a empty feature can be set, after which the geometry is no
 longer empty.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">is_empty</span>
 <span class="go">False</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">line</span><span class="o">.</span><span class="n">length</span>
@@ -714,38 +786,36 @@ point at a given distance along the object.</p>
 <p class="first admonition-title">Note</p>
 <p class="last">Linear referencing methods require the support of GEOS version &gt;= 3.2 or more
 specifically, a GEOS C API version &gt; (1, 6, 0). This version tuple is
-surfaced in Shapely as <tt class="xref py py-data docutils literal"><span class="pre">shapely.geos.geos_capi_version</span></tt>.</p>
+surfaced in Shapely as <tt class="xref docutils literal"><span class="pre">shapely.geos.geos_capi_version</span></tt>.</p>
 </div>
 <dl class="method">
 <dt id="object.interpolate">
 <tt class="descclassname">object.</tt><tt class="descname">interpolate</tt><big>(</big><em>distance</em><span class="optional">[</span>, <em>normalized=False</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#object.interpolate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a point at the specified distance along a linear geometric object.</p>
-</dd></dl>
+<dd>Return a point at the specified distance along a linear geometric object.</dd></dl>
 
-<p>If the <cite>normalized</cite> arg is <tt class="docutils literal"><span class="pre">True</span></tt>, the distance will be interpreted as a
+<p>If the <cite>normalized</cite> arg is <tt class="xref docutils literal"><span class="pre">True</span></tt>, the distance will be interpreted as a
 fraction of the geometric object&#8217;s length.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ip</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ip</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ip</span>
 <span class="go">&lt;shapely.geometry.point.Point object at 0x740570&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ip</span><span class="o">.</span><span class="n">wkt</span>
 <span class="go">&#39;POINT (0.5000000000000000 1.0000000000000000)&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">wkt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">wkt</span>
 <span class="go">&#39;POINT (0.5000000000000000 1.0000000000000000)&#39;</span>
 </pre></div>
 </div>
 <dl class="method">
 <dt id="object.project">
 <tt class="descclassname">object.</tt><tt class="descname">project</tt><big>(</big><em>other</em><span class="optional">[</span>, <em>normalized=False</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#object.project" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the distance along this geometric object to a point nearest the
-<cite>other</cite> object`.</p>
-</dd></dl>
+<dd>Returns the distance along this geometric object to a point nearest the
+<cite>other</cite> object`.</dd></dl>
 
-<p>If the <cite>normalized</cite> arg is <tt class="docutils literal"><span class="pre">True</span></tt>, return the distance normalized to the
-length of the object. The <a class="reference internal" href="#object.project" title="object.project"><tt class="xref py py-meth docutils literal"><span class="pre">project()</span></tt></a> method is the inverse of
-<a class="reference internal" href="#object.interpolate" title="object.interpolate"><tt class="xref py py-meth docutils literal"><span class="pre">interpolate()</span></tt></a>.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+<p>If the <cite>normalized</cite> arg is <tt class="xref docutils literal"><span class="pre">True</span></tt>, return the distance normalized to the
+length of the object. The <a title="object.project" class="reference internal" href="#object.project"><tt class="xref docutils literal"><span class="pre">project()</span></tt></a> method is the inverse of
+<a title="object.interpolate" class="reference internal" href="#object.interpolate"><tt class="xref docutils literal"><span class="pre">interpolate()</span></tt></a>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
 <span class="go">1.5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="go">0.75</span>
 </pre></div>
 </div>
@@ -760,7 +830,7 @@ specified distance.</p>
         <span class="n">pd</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">pd</span> <span class="o">==</span> <span class="n">distance</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span>
-                <span class="n">LineString</span><span class="p">(</span><span class="n">coords</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="n">LineString</span><span class="p">(</span><span class="n">coords</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mf">1</span><span class="p">]),</span>
                 <span class="n">LineString</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">i</span><span class="p">:])]</span>
         <span class="k">if</span> <span class="n">pd</span> <span class="o">&gt;</span> <span class="n">distance</span><span class="p">:</span>
             <span class="n">cp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
@@ -769,7 +839,7 @@ specified distance.</p>
                 <span class="n">LineString</span><span class="p">([(</span><span class="n">cp</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cp</span><span class="o">.</span><span class="n">y</span><span class="p">)]</span> <span class="o">+</span> <span class="n">coords</span><span class="p">[</span><span class="n">i</span><span class="p">:])]</span>
 </pre></div>
 </div>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)])</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">4</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">5</span><span class="p">,</span> <span class="mf">0</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cut</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)])</span>
 <span class="go">[[(0.0, 0.0), (1.0, 0.0)],</span>
 <span class="go"> [(1.0, 0.0), (2.0, 0.0), (3.0, 0.0), (4.0, 0.0), (5.0, 0.0)]]</span>
@@ -784,7 +854,7 @@ specified distance.</p>
 <span id="predicates"></span><h2>Predicates and Relationships<a class="headerlink" href="#predicates-and-relationships" title="Permalink to this headline">¶</a></h2>
 <p>Objects of the types explained in <a class="reference internal" href="#objects"><em>Geometric Objects</em></a> provide standard <a class="footnote-reference" href="#id21" id="id13">[1]</a>
 predicates as attributes (for unary predicates) and methods (for binary
-predicates). Whether unary or binary, all return <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+predicates). Whether unary or binary, all return <tt class="xref docutils literal"><span class="pre">True</span></tt> or <tt class="xref docutils literal"><span class="pre">False</span></tt>.</p>
 <div class="section" id="unary-predicates">
 <span id="id14"></span><h3>Unary Predicates<a class="headerlink" href="#unary-predicates" title="Permalink to this headline">¶</a></h3>
 <p>Standard unary predicates are implemented as read-only property attributes. An
@@ -792,33 +862,32 @@ example will be shown for each.</p>
 <dl class="attribute">
 <dt id="object.has_z">
 <tt class="descclassname">object.</tt><tt class="descname">has_z</tt><a class="headerlink" href="#object.has_z" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the feature has not only <cite>x</cite> and <cite>y</cite>, but also <cite>z</cite>
-coordinates.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the feature has not only <cite>x</cite> and <cite>y</cite>, but also <cite>z</cite>
+coordinates.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">has_z</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">has_z</span>
 <span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">has_z</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">has_z</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <dl class="attribute">
 <dt id="object.is_ccw">
 <tt class="descclassname">object.</tt><tt class="descname">is_ccw</tt><a class="headerlink" href="#object.is_ccw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if coordinates are in counter-clockwise order (bounding a region
+<dd><p>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if coordinates are in counter-clockwise order (bounding a region
 with positive signed area). This method applies to <cite>LinearRing</cite> objects only.</p>
 <p><cite>New in version 1.2.10</cite>.</p>
 </dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LinearRing</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)])</span><span class="o">.</span><span class="n">is_ccw</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LinearRing</span><span class="p">([(</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">)])</span><span class="o">.</span><span class="n">is_ccw</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <p>A ring with an undesired orientation can be reversed like this:</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span> <span class="o">=</span> <span class="n">LinearRing</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)])</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span> <span class="o">=</span> <span class="n">LinearRing</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="mf">0</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span><span class="o">.</span><span class="n">is_ccw</span>
 <span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span><span class="o">.</span><span class="n">coords</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ring</span><span class="o">.</span><span class="n">coords</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span><span class="o">.</span><span class="n">coords</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ring</span><span class="o">.</span><span class="n">coords</span><span class="p">)[::</span><span class="o">-</span><span class="mf">1</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span><span class="o">.</span><span class="n">is_ccw</span>
 <span class="go">True</span>
 </pre></div>
@@ -826,24 +895,23 @@ with positive signed area). This method applies to <cite>LinearRing</cite> objec
 <dl class="attribute">
 <dt id="object.is_empty">
 <tt class="descclassname">object.</tt><tt class="descname">is_empty</tt><a class="headerlink" href="#object.is_empty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the feature&#8217;s <cite>interior</cite> and <cite>boundary</cite> (in point set
-terms) coincide with the empty set.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the feature&#8217;s <cite>interior</cite> and <cite>boundary</cite> (in point set
+terms) coincide with the empty set.</dd></dl>
 
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">()</span><span class="o">.</span><span class="n">is_empty</span>
 <span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">is_empty</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">is_empty</span>
 <span class="go">False</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">With the help of the <tt class="xref py py-mod docutils literal"><span class="pre">operator</span></tt> module&#8217;s <tt class="xref py py-func docutils literal"><span class="pre">attrgetter()</span></tt> function,
+<p class="last">With the help of the <tt class="xref docutils literal"><span class="pre">operator</span></tt> module&#8217;s <tt class="xref docutils literal"><span class="pre">attrgetter()</span></tt> function,
 unary predicates such as <tt class="docutils literal"><span class="pre">is_empty</span></tt> can be easily used as predicates for
-the built in <tt class="xref py py-func docutils literal"><span class="pre">filter()</span></tt> or <tt class="xref py py-func docutils literal"><span class="pre">itertools.ifilter()</span></tt>.</p>
+the built in <tt class="xref docutils literal"><span class="pre">filter()</span></tt> or <tt class="xref docutils literal"><span class="pre">itertools.ifilter()</span></tt>.</p>
 </div>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">attrgetter</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">empties</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">attrgetter</span><span class="p">(</span><span class="s">&#39;is_empty&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">Point</span><span class="p">(),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">empties</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">attrgetter</span><span class="p">(</span><span class="s">&#39;is_empty&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">Point</span><span class="p">(),</span> <span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">empties</span><span class="p">)</span>
 <span class="go">1</span>
 </pre></div>
@@ -851,13 +919,12 @@ the built in <tt class="xref py py-func docutils literal"><span class="pre">filt
 <dl class="attribute">
 <dt id="object.is_ring">
 <tt class="descclassname">object.</tt><tt class="descname">is_ring</tt><a class="headerlink" href="#object.is_ring" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the feature is closed. A closed feature&#8217;s <cite>boundary</cite>
-coincides with the empty set.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the feature is closed. A closed feature&#8217;s <cite>boundary</cite>
+coincides with the empty set.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">is_ring</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">is_ring</span>
 <span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">LinearRing</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">is_ring</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">LinearRing</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">is_ring</span>
 <span class="go">True</span>
 </pre></div>
 </div>
@@ -866,10 +933,9 @@ meaningless for others.</p>
 <dl class="attribute">
 <dt id="object.is_simple">
 <tt class="descclassname">object.</tt><tt class="descname">is_simple</tt><a class="headerlink" href="#object.is_simple" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the feature does not cross itself.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the feature does not cross itself.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">is_simple</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">is_simple</span>
 <span class="go">False</span>
 </pre></div>
 </div>
@@ -877,14 +943,13 @@ meaningless for others.</p>
 <dl class="attribute">
 <dt id="object.is_valid">
 <tt class="descclassname">object.</tt><tt class="descname">is_valid</tt><a class="headerlink" href="#object.is_valid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if a feature is &#8220;valid&#8221; in the sense of <a class="footnote-reference" href="#id21" id="id15">[1]</a>.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if a feature is &#8220;valid&#8221; in the sense of <a class="footnote-reference" href="#id21" id="id15">[1]</a>.</dd></dl>
 
 <p>A valid <cite>LinearRing</cite> may not cross itself or touch itself at a single point. A
 valid <cite>Polygon</cite> may not possess any overlapping exterior or interior rings. A
 valid <cite>MultiPolygon</cite> may not collect any overlapping polygons. Operations on
 invalid features may fail.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPolygon</span><span class="p">([</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">2.0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)])</span><span class="o">.</span><span class="n">is_valid</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPolygon</span><span class="p">([</span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">2.0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)])</span><span class="o">.</span><span class="n">is_valid</span>
 <span class="go">False</span>
 </pre></div>
 </div>
@@ -912,7 +977,7 @@ function.</p>
 <span class="gp">... </span><span class="k">def</span> <span class="nf">ring</span><span class="p">(</span><span class="n">coordinates</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">LinearRing</span><span class="p">(</span><span class="n">coordinates</span><span class="p">)</span>
 <span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n-Identifier">&lt;module&gt;</span>
@@ -926,25 +991,23 @@ function.</p>
 <p>Standard binary predicates are implemented as methods. These predicates
 evaluate topological, set-theoretic relationships. In a few cases the results
 may not be what one might expect starting from different assumptions. All take
-another geometric object as argument and return <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+another geometric object as argument and return <tt class="xref docutils literal"><span class="pre">True</span></tt> or <tt class="xref docutils literal"><span class="pre">False</span></tt>.</p>
 <dl class="method">
 <dt id="object.almost_equals">
 <tt class="descclassname">object.</tt><tt class="descname">almost_equals</tt><big>(</big><em>other</em><span class="optional">[</span>, <em>decimal=6</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#object.almost_equals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the object is approximately equal to the <cite>other</cite> at all
-points to specified <cite>decimal</cite> place precision.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the object is approximately equal to the <cite>other</cite> at all
+points to specified <cite>decimal</cite> place precision.</dd></dl>
 
-<p>See also <a class="reference internal" href="#object.equals" title="object.equals"><tt class="xref py py-meth docutils literal"><span class="pre">equals()</span></tt></a>.</p>
+<p>See also <a title="object.equals" class="reference internal" href="#object.equals"><tt class="xref docutils literal"><span class="pre">equals()</span></tt></a>.</p>
 <dl class="method">
 <dt id="object.contains">
 <tt class="descclassname">object.</tt><tt class="descname">contains</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.contains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the object&#8217;s <cite>interior</cite> contains the <cite>boundary</cite> and
-<cite>interior</cite> of the other object and their boundaries do not touch at all.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the object&#8217;s <cite>interior</cite> contains the <cite>boundary</cite> and
+<cite>interior</cite> of the other object and their boundaries do not touch at all.</dd></dl>
 
-<p>This predicate applies to all types, and is inverse to <a class="reference internal" href="#object.within" title="object.within"><tt class="xref py py-meth docutils literal"><span class="pre">within()</span></tt></a>. The
-expression <tt class="docutils literal"><span class="pre">a.contains(b)</span> <span class="pre">==</span> <span class="pre">b.within(a)</span></tt> always evaluates to <tt class="docutils literal"><span class="pre">True</span></tt>.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<p>This predicate applies to all types, and is inverse to <a title="object.within" class="reference internal" href="#object.within"><tt class="xref docutils literal"><span class="pre">within()</span></tt></a>. The
+expression <tt class="docutils literal"><span class="pre">a.contains(b)</span> <span class="pre">==</span> <span class="pre">b.within(a)</span></tt> always evaluates to <tt class="xref docutils literal"><span class="pre">True</span></tt>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">LineString</span><span class="p">(</span><span class="n">coords</span><span class="p">))</span>
@@ -972,12 +1035,11 @@ expression <tt class="docutils literal"><span class="pre">a.contains(b)</span> <
 <dl class="method">
 <dt id="object.crosses">
 <tt class="descclassname">object.</tt><tt class="descname">crosses</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.crosses" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the <cite>interior</cite> of the object intersects the <cite>interior</cite> of
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the <cite>interior</cite> of the object intersects the <cite>interior</cite> of
 the other but does not contain it, and the dimension of the intersection is
-less than the dimension of the one or the other.</p>
-</dd></dl>
+less than the dimension of the one or the other.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span><span class="o">.</span><span class="n">crosses</span><span class="p">(</span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]))</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span><span class="o">.</span><span class="n">crosses</span><span class="p">(</span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">)]))</span>
 <span class="go">True</span>
 </pre></div>
 </div>
@@ -989,29 +1051,27 @@ less than the dimension of the one or the other.</p>
 <dl class="method">
 <dt id="object.disjoint">
 <tt class="descclassname">object.</tt><tt class="descname">disjoint</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.disjoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the <cite>boundary</cite> and <cite>interior</cite> of the object do not
-intersect at all with those of the other.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the <cite>boundary</cite> and <cite>interior</cite> of the object do not
+intersect at all with those of the other.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">disjoint</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">disjoint</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">))</span>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>This predicate applies to all types and is the inverse of <a class="reference internal" href="#object.intersects" title="object.intersects"><tt class="xref py py-meth docutils literal"><span class="pre">intersects()</span></tt></a>.</p>
+<p>This predicate applies to all types and is the inverse of <a title="object.intersects" class="reference internal" href="#object.intersects"><tt class="xref docutils literal"><span class="pre">intersects()</span></tt></a>.</p>
 <dl class="method">
 <dt id="object.equals">
 <tt class="descclassname">object.</tt><tt class="descname">equals</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.equals" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the set-theoretic <cite>boundary</cite>, <cite>interior</cite>, and <cite>exterior</cite>
-of the object coincide with those of the other.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the set-theoretic <cite>boundary</cite>, <cite>interior</cite>, and <cite>exterior</cite>
+of the object coincide with those of the other.</dd></dl>
 
 <p>The coordinates passed to the object constructors are of these sets, and
 determine them, but are not the entirety of the sets. This is a potential
 &#8220;gotcha&#8221; for new users.  Equivalent lines, for example, can be constructed
 differently.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
@@ -1023,24 +1083,22 @@ constructions.</p>
 <dl class="method">
 <dt id="object.intersects">
 <tt class="descclassname">object.</tt><tt class="descname">intersects</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.intersects" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the <cite>boundary</cite> and <cite>interior</cite> of the object intersect in
-any way with those of the other.</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the <cite>boundary</cite> and <cite>interior</cite> of the object intersect in
+any way with those of the other.</dd></dl>
 
-<p>This predicate is equivalent to the OR-ing of <a class="reference internal" href="#object.contains" title="object.contains"><tt class="xref py py-meth docutils literal"><span class="pre">contains()</span></tt></a>, <a class="reference internal" href="#object.crosses" title="object.crosses"><tt class="xref py py-meth docutils literal"><span class="pre">crosses()</span></tt></a>,
-<a class="reference internal" href="#object.equals" title="object.equals"><tt class="xref py py-meth docutils literal"><span class="pre">equals()</span></tt></a>, <a class="reference internal" href="#object.touches" title="object.touches"><tt class="xref py py-meth docutils literal"><span class="pre">touches()</span></tt></a>, and <a class="reference internal" href="#object.within" title="object.within"><tt class="xref py py-meth docutils literal"><span class="pre">within()</span></tt></a>.</p>
+<p>This predicate is equivalent to the OR-ing of <a title="object.contains" class="reference internal" href="#object.contains"><tt class="xref docutils literal"><span class="pre">contains()</span></tt></a>, <a title="object.crosses" class="reference internal" href="#object.crosses"><tt class="xref docutils literal"><span class="pre">crosses()</span></tt></a>,
+<a title="object.equals" class="reference internal" href="#object.equals"><tt class="xref docutils literal"><span class="pre">equals()</span></tt></a>, <a title="object.touches" class="reference internal" href="#object.touches"><tt class="xref docutils literal"><span class="pre">touches()</span></tt></a>, and <a title="object.within" class="reference internal" href="#object.within"><tt class="xref docutils literal"><span class="pre">within()</span></tt></a>.</p>
 <dl class="method">
 <dt id="object.touches">
 <tt class="descclassname">object.</tt><tt class="descname">touches</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.touches" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the <cite>boundary</cite> of the object intersects only the
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the <cite>boundary</cite> of the object intersects only the
 <cite>boundary</cite> of the other, and their interiors do not intersect with any part
-of the other.</p>
-</dd></dl>
+of the other.</dd></dl>
 
 <p>Overlapping features do not therefore <cite>touch</cite>, another potential &#8220;gotcha&#8221;. For
 example, the following lines touch at <tt class="docutils literal"><span class="pre">(1,</span> <span class="pre">1)</span></tt>, but do not overlap.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">touches</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
@@ -1048,19 +1106,18 @@ example, the following lines touch at <tt class="docutils literal"><span class="
 <dl class="method">
 <dt id="object.within">
 <tt class="descclassname">object.</tt><tt class="descname">within</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.within" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns <tt class="docutils literal"><span class="pre">True</span></tt> if the object&#8217;s <cite>boundary</cite> and <cite>interior</cite> intersect only
-with the <cite>interior</cite> of the other (not its <cite>boundary</cite> or <cite>exterior</cite>).</p>
-</dd></dl>
+<dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the object&#8217;s <cite>boundary</cite> and <cite>interior</cite> intersect only
+with the <cite>interior</cite> of the other (not its <cite>boundary</cite> or <cite>exterior</cite>).</dd></dl>
 
-<p>This applies to all types and is the inverse of <a class="reference internal" href="#object.contains" title="object.contains"><tt class="xref py py-meth docutils literal"><span class="pre">contains()</span></tt></a>.</p>
-<p>Used in a <tt class="docutils literal"><span class="pre">sorted()</span></tt> <cite>key</cite>, <a class="reference internal" href="#object.within" title="object.within"><tt class="xref py py-meth docutils literal"><span class="pre">within()</span></tt></a> makes it easy to spatially sort
+<p>This applies to all types and is the inverse of <a title="object.contains" class="reference internal" href="#object.contains"><tt class="xref docutils literal"><span class="pre">contains()</span></tt></a>.</p>
+<p>Used in a <tt class="docutils literal"><span class="pre">sorted()</span></tt> <cite>key</cite>, <a title="object.within" class="reference internal" href="#object.within"><tt class="xref docutils literal"><span class="pre">within()</span></tt></a> makes it easy to spatially sort
 objects. Let&#8217;s say we have 4 stereotypic features: a point that is contained by
 a polygon which is itself contained by another polygon, and a free spirited
 point contained by none</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">3</span><span class="p">,</span> <span class="mf">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">3</span><span class="p">,</span> <span class="mf">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([[</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0</span><span class="p">,</span> <span class="mf">4</span><span class="p">],</span> <span class="p">[</span><span class="mf">4</span><span class="p">,</span> <span class="mf">4</span><span class="p">],</span> <span class="p">[</span><span class="mf">4</span><span class="p">,</span> <span class="mf">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>and that copies of these are collected into a list</p>
@@ -1071,7 +1128,7 @@ point contained by none</p>
 order. As explained in the Python <a class="reference external" href="http://wiki.python.org/moin/HowTo/Sorting/">Sorting HowTo</a>, we can define a key
 function that operates on each list element and returns a value for comparison.
 Our key function will be a wrapper class that implements <tt class="docutils literal"><span class="pre">__lt__()</span></tt> using
-Shapely&#8217;s binary <a class="reference internal" href="#object.within" title="object.within"><tt class="xref py py-meth docutils literal"><span class="pre">within()</span></tt></a> predicate.</p>
+Shapely&#8217;s binary <a title="object.within" class="reference internal" href="#object.within"><tt class="xref docutils literal"><span class="pre">within()</span></tt></a> predicate.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">asShape</span>
 
 <span class="k">class</span> <span class="nc">Within</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1083,7 +1140,7 @@ Shapely&#8217;s binary <a class="reference internal" href="#object.within" title
 </div>
 <p>As the howto says, the <cite>less than</cite> comparison is guaranteed to be used in
 sorting. That&#8217;s what we&#8217;ll rely on to spatially sort, and the reason why we use
-<a class="reference internal" href="#object.within" title="object.within"><tt class="xref py py-meth docutils literal"><span class="pre">within()</span></tt></a> in reverse instead of <a class="reference internal" href="#object.contains" title="object.contains"><tt class="xref py py-meth docutils literal"><span class="pre">contains()</span></tt></a>. Trying it out on features
+<a title="object.within" class="reference internal" href="#object.within"><tt class="xref docutils literal"><span class="pre">within()</span></tt></a> in reverse instead of <a title="object.contains" class="reference internal" href="#object.contains"><tt class="xref docutils literal"><span class="pre">contains()</span></tt></a>. Trying it out on features
 <cite>d</cite> and <cite>c</cite>, we see that it works.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">&lt;</span> <span class="n">c</span>
 <span class="go">True</span>
@@ -1092,37 +1149,36 @@ sorting. That&#8217;s what we&#8217;ll rely on to spatially sort, and the reason
 </pre></div>
 </div>
 <p>It also works on the list of features, producing the order we want.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">Within</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="n">sorted</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">Within</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="de-9im-relationships">
 <h3>DE-9IM Relationships<a class="headerlink" href="#de-9im-relationships" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="#object.relate" title="object.relate"><tt class="xref py py-meth docutils literal"><span class="pre">relate()</span></tt></a> method tests all the DE-9IM <a class="footnote-reference" href="#id24" id="id17">[4]</a> relationships between
+<p>The <a title="object.relate" class="reference internal" href="#object.relate"><tt class="xref docutils literal"><span class="pre">relate()</span></tt></a> method tests all the DE-9IM <a class="footnote-reference" href="#id24" id="id17">[4]</a> relationships between
 objects, of which the named relationship predicates above are a subset.</p>
 <dl class="method">
 <dt id="object.relate">
 <tt class="descclassname">object.</tt><tt class="descname">relate</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.relate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a string representation of the DE-9IM matrix of relationships
+<dd>Returns a string representation of the DE-9IM matrix of relationships
 between an object&#8217;s <cite>interior</cite>, <cite>boundary</cite>, <cite>exterior</cite> and those of another
-geometric object.</p>
-</dd></dl>
+geometric object.</dd></dl>
 
-<p>The named relationship predicates (<a class="reference internal" href="#object.contains" title="object.contains"><tt class="xref py py-meth docutils literal"><span class="pre">contains()</span></tt></a>, etc.) are typically
-implemented as wrappers around <a class="reference internal" href="#object.relate" title="object.relate"><tt class="xref py py-meth docutils literal"><span class="pre">relate()</span></tt></a>.</p>
+<p>The named relationship predicates (<a title="object.contains" class="reference internal" href="#object.contains"><tt class="xref docutils literal"><span class="pre">contains()</span></tt></a>, etc.) are typically
+implemented as wrappers around <a title="object.relate" class="reference internal" href="#object.relate"><tt class="xref docutils literal"><span class="pre">relate()</span></tt></a>.</p>
 <p>Two different points have mainly <tt class="docutils literal"><span class="pre">F</span></tt> (false) values in their matrix; the
 intersection of their <cite>external</cite> sets (the 9th element) is a <tt class="docutils literal"><span class="pre">2</span></tt> dimensional
 object (the rest of the plane). The intersection of the <cite>interior</cite> of one with
 the <cite>exterior</cite> of the other is a <tt class="docutils literal"><span class="pre">0</span></tt> dimensional object (3rd and 7th elements
 of the matrix).</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">relate</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">relate</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">))</span>
 <span class="go">&#39;FF0FFF0F2&#39;</span>
 </pre></div>
 </div>
 <p>The matrix for a line and a point on the line has more &#8220;true&#8221; (not <tt class="docutils literal"><span class="pre">F</span></tt>)
 elements.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">relate</span><span class="p">(</span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">relate</span><span class="p">(</span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)]))</span>
 <span class="go">&#39;F0FFFF102&#39;</span>
 </pre></div>
 </div>
@@ -1142,9 +1198,8 @@ available as a read-only attribute.</p>
 <dl class="attribute">
 <dt id="object.boundary">
 <tt class="descclassname">object.</tt><tt class="descname">boundary</tt><a class="headerlink" href="#object.boundary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a lower dimensional object representing the object&#8217;s set-theoretic
-<cite>boundary</cite>.</p>
-</dd></dl>
+<dd>Returns a lower dimensional object representing the object&#8217;s set-theoretic
+<cite>boundary</cite>.</dd></dl>
 
 <p>The boundary of a polygon is a line, the boundary of a line is a collection of
 points. The boundary of a point is an empty (null) collection.</p>
@@ -1168,12 +1223,11 @@ illustration of lines and their boundaries.</p>
 <dl class="attribute">
 <dt id="object.centroid">
 <tt class="descclassname">object.</tt><tt class="descname">centroid</tt><a class="headerlink" href="#object.centroid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a representation of the object&#8217;s geometric centroid (point).</p>
-</dd></dl>
+<dd>Returns a representation of the object&#8217;s geometric centroid (point).</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">centroid</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">centroid</span>
 <span class="go">&lt;shapely.geometry.point.Point object at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">wkt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">wkt</span>
 <span class="go">&#39;POINT (0.5000000000000000 0.5000000000000000)&#39;</span>
 </pre></div>
 </div>
@@ -1185,26 +1239,23 @@ guaranteed.</p>
 <dl class="method">
 <dt id="object.difference">
 <tt class="descclassname">object.</tt><tt class="descname">difference</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.difference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a representation of the points making up this geometric object that
-do not make up the <em>other</em> object.</p>
-</dd></dl>
+<dd>Returns a representation of the points making up this geometric object that
+do not make up the <em>other</em> object.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="go">&lt;shapely.geometry.polygon.Polygon object at 0x...&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The <a class="reference internal" href="#object.buffer" title="object.buffer"><tt class="xref py py-meth docutils literal"><span class="pre">buffer()</span></tt></a> method is used to produce approximately circular polygons
+<p class="last">The <a title="object.buffer" class="reference internal" href="#object.buffer"><tt class="xref docutils literal"><span class="pre">buffer()</span></tt></a> method is used to produce approximately circular polygons
 in the examples of this section; it will be explained in detail later in this
 manual.</p>
 </div>
-<p>[<a class="reference external" href="./plot_directive/code/difference.py">source code</a>, <a class="reference external" href="./plot_directive/code/difference.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/difference.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/difference.py">source code</a>, <a class="reference external" href="plot_directive/code/difference.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/difference.pdf">pdf</a>]</p>
 <img alt="_images/difference.png" src="_images/difference.png" />
-</div>
 <p>Figure 1: differences between two approximately circular polygons.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -1216,46 +1267,41 @@ copy of the object named <tt class="docutils literal"><span class="pre">self</sp
 <dl class="method">
 <dt id="object.intersection">
 <tt class="descclassname">object.</tt><tt class="descname">intersection</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.intersection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a representation of the intersection of this object with the <cite>other</cite>
-geometric object.</p>
-</dd></dl>
+<dd>Returns a representation of the intersection of this object with the <cite>other</cite>
+geometric object.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="go">&lt;shapely.geometry.polygon.Polygon object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>See the figure under <a class="reference internal" href="#object.symmetric_difference" title="object.symmetric_difference"><tt class="xref py py-meth docutils literal"><span class="pre">symmetric_difference()</span></tt></a> below.</p>
+<p>See the figure under <a title="object.symmetric_difference" class="reference internal" href="#object.symmetric_difference"><tt class="xref docutils literal"><span class="pre">symmetric_difference()</span></tt></a> below.</p>
 <dl class="method">
 <dt id="object.symmetric_difference">
 <tt class="descclassname">object.</tt><tt class="descname">symmetric_difference</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.symmetric_difference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a representation of the points in this object not in the <cite>other</cite>
-geometric object, and the points in the <cite>other</cite> not in this geometric object.</p>
-</dd></dl>
+<dd>Returns a representation of the points in this object not in the <cite>other</cite>
+geometric object, and the points in the <cite>other</cite> not in this geometric object.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="go">&lt;shapely.geometry.multipolygon.MultiPolygon object at ...&gt;</span>
 </pre></div>
 </div>
-<p>[<a class="reference external" href="./plot_directive/code/intersection-sym-difference.py">source code</a>, <a class="reference external" href="./plot_directive/code/intersection-sym-difference.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/intersection-sym-difference.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/intersection-sym-difference.py">source code</a>, <a class="reference external" href="plot_directive/code/intersection-sym-difference.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/intersection-sym-difference.pdf">pdf</a>]</p>
 <img alt="_images/intersection-sym-difference.png" src="_images/intersection-sym-difference.png" />
-</div>
 <dl class="method">
 <dt id="object.union">
 <tt class="descclassname">object.</tt><tt class="descname">union</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#object.union" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a representation of the union of points from this object and the
-<cite>other</cite> geometric object.</p>
-</dd></dl>
+<dd>Returns a representation of the union of points from this object and the
+<cite>other</cite> geometric object.</dd></dl>
 
 <p>The type of object returned depends on the relationship between the operands.
 The union of polygons (for example) will be a polygon or a multi-polygon
 depending on whether they intersect or not.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="go">&lt;shapely.geometry.polygon.Polygon object at 0x...&gt;</span>
 </pre></div>
@@ -1269,14 +1315,12 @@ boundaries.</p>
 <span class="go">&lt;shapely.geometry.multilinestring.MultiLineString object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>[<a class="reference external" href="./plot_directive/code/union.py">source code</a>, <a class="reference external" href="./plot_directive/code/union.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/union.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/union.py">source code</a>, <a class="reference external" href="plot_directive/code/union.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/union.pdf">pdf</a>]</p>
 <img alt="_images/union.png" src="_images/union.png" />
-</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><a class="reference internal" href="#object.union" title="object.union"><tt class="xref py py-meth docutils literal"><span class="pre">union()</span></tt></a> is an expensive way to find the cumulative union
-of many objects. See <a class="reference internal" href="#shapely.ops.cascaded_union" title="shapely.ops.cascaded_union"><tt class="xref py py-func docutils literal"><span class="pre">shapely.ops.cascaded_union()</span></tt></a> for a more effective
+<p class="last"><a title="object.union" class="reference internal" href="#object.union"><tt class="xref docutils literal"><span class="pre">union()</span></tt></a> is an expensive way to find the cumulative union
+of many objects. See <a title="shapely.ops.cascaded_union" class="reference internal" href="#shapely.ops.cascaded_union"><tt class="xref docutils literal"><span class="pre">shapely.ops.cascaded_union()</span></tt></a> for a more effective
 method.</p>
 </div>
 </div>
@@ -1287,27 +1331,24 @@ derived from set-theoretic analysis.</p>
 <dl class="method">
 <dt id="object.buffer">
 <tt class="descclassname">object.</tt><tt class="descname">buffer</tt><big>(</big><em>distance</em>, <em>resolution=16</em><big>)</big><a class="headerlink" href="#object.buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an approximate representation of all points within a given <cite>distance</cite>
-of the this geometric object.</p>
-</dd></dl>
+<dd>Returns an approximate representation of all points within a given <cite>distance</cite>
+of the this geometric object.</dd></dl>
 
 <p>A positive distance has an effect of dilation; a negative distance, erosion.
 The optional <cite>resolution</cite> argument determines the number of segments used to
 approximate a quarter circle around a point.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)])</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">3</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dilated</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eroded</span> <span class="o">=</span> <span class="n">dilated</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>[<a class="reference external" href="./plot_directive/code/buffer.py">source code</a>, <a class="reference external" href="./plot_directive/code/buffer.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/buffer.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/buffer.py">source code</a>, <a class="reference external" href="plot_directive/code/buffer.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/buffer.pdf">pdf</a>]</p>
 <img alt="_images/buffer.png" src="_images/buffer.png" />
-</div>
 <p>Figure 1. Dilation of a line (left) and erosion of a polygon (right). New
 object is shown in blue.</p>
 <p>The default (<cite>resolution</cite> of 16) buffer of a point is a polygonal patch with
 99.8% of the area of the circular disk it approximates.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
 <span class="go">66</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">area</span>
@@ -1315,29 +1356,29 @@ object is shown in blue.</p>
 </pre></div>
 </div>
 <p>With a <cite>resolution</cite> of 1, the buffer is a square patch.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
 <span class="go">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q</span><span class="o">.</span><span class="n">area</span>
 <span class="go">200.0</span>
 </pre></div>
 </div>
-<p>Passed a <cite>distance</cite> of 0, <a class="reference internal" href="#object.buffer" title="object.buffer"><tt class="xref py py-meth docutils literal"><span class="pre">buffer()</span></tt></a> can be used to &#8220;clean&#8221; self-touching
+<p>Passed a <cite>distance</cite> of 0, <a title="object.buffer" class="reference internal" href="#object.buffer"><tt class="xref docutils literal"><span class="pre">buffer()</span></tt></a> can be used to &#8220;clean&#8221; self-touching
 or self-crossing polygons such as the classic &#8220;bowtie&#8221;.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bowtie</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bowtie</span><span class="o">.</span><span class="n">is_valid</span>
 <span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">clean</span> <span class="o">=</span> <span class="n">bowtie</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clean</span> <span class="o">=</span> <span class="n">bowtie</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clean</span><span class="o">.</span><span class="n">is_valid</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clean</span>
 <span class="go">&lt;shapely.geometry.multipolygon.MultiPolygon object at ...&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">clean</span><span class="p">)</span>
 <span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
 <span class="go">[(0.0, 0.0), (0.0, 2.0), (1.0, 1.0), (0.0, 0.0)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">clean</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
 <span class="go">[(1.0, 1.0), (2.0, 2.0), (2.0, 0.0), (1.0, 1.0)]</span>
 </pre></div>
 </div>
@@ -1345,43 +1386,38 @@ or self-crossing polygons such as the classic &#8220;bowtie&#8221;.</p>
 <dl class="attribute">
 <dt id="object.convex_hull">
 <tt class="descclassname">object.</tt><tt class="descname">convex_hull</tt><a class="headerlink" href="#object.convex_hull" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a representation of the smallest convex <cite>Polygon</cite> containing all the
+<dd>Returns a representation of the smallest convex <cite>Polygon</cite> containing all the
 points in the object unless the number of points in the object is less than
 three. For two points, the convex hull collapses to a <cite>LineString</cite>; for 1, a
-<cite>Point</cite>.</p>
-</dd></dl>
+<cite>Point</cite>.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">convex_hull</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">convex_hull</span>
 <span class="go">&lt;shapely.geometry.point.Point object at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPoint</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">convex_hull</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPoint</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">convex_hull</span>
 <span class="go">&lt;shapely.geometry.linestring.LineString object at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPoint</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">convex_hull</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPoint</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">convex_hull</span>
 <span class="go">&lt;shapely.geometry.polygon.Polygon object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>[<a class="reference external" href="./plot_directive/code/convex_hull.py">source code</a>, <a class="reference external" href="./plot_directive/code/convex_hull.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/convex_hull.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/convex_hull.py">source code</a>, <a class="reference external" href="plot_directive/code/convex_hull.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/convex_hull.pdf">pdf</a>]</p>
 <img alt="_images/convex_hull.png" src="_images/convex_hull.png" />
-</div>
 <p>Figure 1. Convex hull (blue) of 2 points (left) and of 6 points (right).</p>
 <dl class="attribute">
 <dt id="object.envelope">
 <tt class="descclassname">object.</tt><tt class="descname">envelope</tt><a class="headerlink" href="#object.envelope" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a representation of the point or smallest rectangular polygon (with
-sides parallel to the coordinate axes) that contains the object.</p>
-</dd></dl>
+<dd>Returns a representation of the point or smallest rectangular polygon (with
+sides parallel to the coordinate axes) that contains the object.</dd></dl>
 
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">envelope</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">envelope</span>
 <span class="go">&lt;shapely.geometry.point.Point object at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPoint</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">envelope</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">MultiPoint</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">envelope</span>
 <span class="go">&lt;shapely.geometry.polygon.Polygon object at 0x...&gt;</span>
 </pre></div>
 </div>
 <dl class="method">
 <dt id="object.simplify">
 <tt class="descclassname">object.</tt><tt class="descname">simplify</tt><big>(</big><em>tolerance</em>, <em>preserve_topology=True</em><big>)</big><a class="headerlink" href="#object.simplify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a simplified representation of the geometric object.</p>
-</dd></dl>
+<dd>Returns a simplified representation of the geometric object.</dd></dl>
 
 <p>All points in the simplified object will be within the <cite>tolerance</cite> distance of
 the original geometry. By default a slower algorithm is used that preserves
@@ -1400,10 +1436,8 @@ algorithm <a class="footnote-reference" href="#id26" id="id19">[6]</a> is used.<
 <span class="go">17</span>
 </pre></div>
 </div>
-<p>[<a class="reference external" href="./plot_directive/code/simplify.py">source code</a>, <a class="reference external" href="./plot_directive/code/simplify.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/simplify.pdf">pdf</a>]</p>
-<div class="figure">
+<p>[<a class="reference external" href="plot_directive/code/simplify.py">source code</a>, <a class="reference external" href="plot_directive/code/simplify.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/simplify.pdf">pdf</a>]</p>
 <img alt="_images/simplify.png" src="_images/simplify.png" />
-</div>
 <p>Figure 1. Simplification of a nearly circular polygon using a tolerance of 0.2
 (left) and 0.5 (right).</p>
 <div class="admonition note">
@@ -1417,22 +1451,21 @@ preserve topology.</p>
 <h2>Other Operations<a class="headerlink" href="#other-operations" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="merging-linear-features">
 <h3>Merging Linear Features<a class="headerlink" href="#merging-linear-features" title="Permalink to this headline">¶</a></h3>
-<p>Sequences of touching lines can be merged into <cite>MultiLineStrings</cite> or <cite>Polygons</cite> using functions in the <tt class="xref py py-mod docutils literal"><span class="pre">shapely.ops</span></tt> module.</p>
+<p>Sequences of touching lines can be merged into <cite>MultiLineStrings</cite> or <cite>Polygons</cite> using functions in the <tt class="xref docutils literal"><span class="pre">shapely.ops</span></tt> module.</p>
 <dl class="function">
 <dt id="shapely.ops.polygonize">
 <tt class="descclassname">shapely.ops.</tt><tt class="descname">polygonize</tt><big>(</big><em>lines</em><big>)</big><a class="headerlink" href="#shapely.ops.polygonize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an iterator over polygons constructed from the input <cite>lines</cite>.</p>
-</dd></dl>
+<dd>Returns an iterator over polygons constructed from the input <cite>lines</cite>.</dd></dl>
 
-<p>As with the <a class="reference internal" href="#MultiLineString" title="MultiLineString"><tt class="xref py py-class docutils literal"><span class="pre">MultiLineString</span></tt></a> constructor, the input elements may be any
+<p>As with the <a title="MultiLineString" class="reference internal" href="#MultiLineString"><tt class="xref docutils literal"><span class="pre">MultiLineString</span></tt></a> constructor, the input elements may be any
 line-like object.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="kn">import</span> <span class="n">polygonize</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
-<span class="gp">... </span>    <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
-<span class="gp">... </span>    <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
-<span class="gp">... </span>    <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
-<span class="gp">... </span>    <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
-<span class="gp">... </span>    <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mf">1</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">))</span>
 <span class="gp">... </span>    <span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">polygonize</span><span class="p">(</span><span class="n">lines</span><span class="p">)))</span>
 <span class="go">[&lt;shapely.geometry.polygon.Polygon object at 0x...&gt;,</span>
@@ -1442,11 +1475,10 @@ line-like object.</p>
 <dl class="function">
 <dt id="shapely.ops.linemerge">
 <tt class="descclassname">shapely.ops.</tt><tt class="descname">linemerge</tt><big>(</big><em>lines</em><big>)</big><a class="headerlink" href="#shapely.ops.linemerge" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a <cite>LineString</cite> or <cite>MultiLineString</cite> representing the merger of all
-contiguous elements of <cite>lines</cite>.</p>
-</dd></dl>
+<dd>Returns a <cite>LineString</cite> or <cite>MultiLineString</cite> representing the merger of all
+contiguous elements of <cite>lines</cite>.</dd></dl>
 
-<p>As with <a class="reference internal" href="#shapely.ops.polygonize" title="shapely.ops.polygonize"><tt class="xref py py-func docutils literal"><span class="pre">shapely.ops.polygonize()</span></tt></a>, the input elements may be any line-like
+<p>As with <a title="shapely.ops.polygonize" class="reference internal" href="#shapely.ops.polygonize"><tt class="xref docutils literal"><span class="pre">shapely.ops.polygonize()</span></tt></a>, the input elements may be any line-like
 object.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="kn">import</span> <span class="n">linemerge</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">linemerge</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
@@ -1460,20 +1492,17 @@ object.</p>
 </div>
 <div class="section" id="cascading-unions">
 <h3>Cascading Unions<a class="headerlink" href="#cascading-unions" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="xref py py-func docutils literal"><span class="pre">cascaded_union()</span></tt> function in <cite>shapely.ops</cite> is more efficient than
-accumulating with <a class="reference internal" href="#object.union" title="object.union"><tt class="xref py py-meth docutils literal"><span class="pre">union()</span></tt></a>.</p>
-<p>[<a class="reference external" href="./plot_directive/code/cascaded_union.py">source code</a>, <a class="reference external" href="./plot_directive/code/cascaded_union.hires.png">hires.png</a>, <a class="reference external" href="./plot_directive/code/cascaded_union.pdf">pdf</a>]</p>
-<div class="figure">
+<p>The <tt class="xref docutils literal"><span class="pre">cascaded_union()</span></tt> function in <cite>shapely.ops</cite> is more efficient than
+accumulating with <a title="object.union" class="reference internal" href="#object.union"><tt class="xref docutils literal"><span class="pre">union()</span></tt></a>.</p>
+<p>[<a class="reference external" href="plot_directive/code/cascaded_union.py">source code</a>, <a class="reference external" href="plot_directive/code/cascaded_union.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/cascaded_union.pdf">pdf</a>]</p>
 <img alt="_images/cascaded_union.png" src="_images/cascaded_union.png" />
-</div>
 <dl class="function">
 <dt id="shapely.ops.cascaded_union">
 <tt class="descclassname">shapely.ops.</tt><tt class="descname">cascaded_union</tt><big>(</big><em>geoms</em><big>)</big><a class="headerlink" href="#shapely.ops.cascaded_union" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a representation of the union of the given geometric objects.</p>
-</dd></dl>
+<dd>Returns a representation of the union of the given geometric objects.</dd></dl>
 
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="kn">import</span> <span class="n">cascaded_union</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">polygons</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">polygons</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mf">5</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cascaded_union</span><span class="p">(</span><span class="n">polygons</span><span class="p">)</span>
 <span class="go">&lt;shapely.geometry.polygon.Polygon object at 0x...&gt;</span>
 </pre></div>
@@ -1494,11 +1523,10 @@ batches of operations.</p>
 <dl class="function">
 <dt id="prepared.prep">
 <tt class="descclassname">prepared.</tt><tt class="descname">prep</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#prepared.prep" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates and returns a prepared geometric object.</p>
-</dd></dl>
+<dd>Creates and returns a prepared geometric object.</dd></dl>
 
 <p>To test one polygon containment against a large batch of points, one should
-first use the <a class="reference internal" href="#prepared.prep" title="prepared.prep"><tt class="xref py py-func docutils literal"><span class="pre">prepared.prep()</span></tt></a> function.</p>
+first use the <a title="prepared.prep" class="reference internal" href="#prepared.prep"><tt class="xref docutils literal"><span class="pre">prepared.prep()</span></tt></a> function.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.prepared</span> <span class="kn">import</span> <span class="n">prep</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="c"># large list of points</span>
@@ -1525,7 +1553,7 @@ objects.</p>
 
 <p>The messages may or may not have a representation of a problem point that can
 be parsed out.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.validation</span> <span class="kn">import</span> <span class="n">explain_validity</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">explain_validity</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
@@ -1540,12 +1568,12 @@ be parsed out.</p>
 <div class="section" id="well-known-formats">
 <h3>Well-known Formats<a class="headerlink" href="#well-known-formats" title="Permalink to this headline">¶</a></h3>
 <p>A <cite>Well Known Text</cite> (WKT) or <cite>Well Known Binary</cite> (WKB) representation <a class="footnote-reference" href="#id21" id="id20">[1]</a> of
-any geometric object can be had via its <tt class="xref py py-attr docutils literal"><span class="pre">wkt</span></tt> or <tt class="xref py py-attr docutils literal"><span class="pre">wkb</span></tt> attribute.
+any geometric object can be had via its <tt class="xref docutils literal"><span class="pre">wkt</span></tt> or <tt class="xref docutils literal"><span class="pre">wkb</span></tt> attribute.
 These representations allow interchange with many GIS programs. PostGIS, for
 example, trades in hex-encoded WKB.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">wkt</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">wkt</span>
 <span class="go">&#39;POINT (0.0000000000000000 0.0000000000000000)&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">wkb</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;hex&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">wkb</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;hex&#39;</span><span class="p">)</span>
 <span class="go">&#39;010100000000000000000000000000000000000000&#39;</span>
 </pre></div>
 </div>
@@ -1557,17 +1585,15 @@ appropriate type, use <tt class="docutils literal"><span class="pre">loads()</sp
 <dl class="function">
 <dt id="shapely.wkb.dumps">
 <tt class="descclassname">shapely.wkb.</tt><tt class="descname">dumps</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#shapely.wkb.dumps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a WKB representation of <cite>ob</cite>.</p>
-</dd></dl>
+<dd>Returns a WKB representation of <cite>ob</cite>.</dd></dl>
 
 <dl class="function">
 <dt id="shapely.wkb.loads">
 <tt class="descclassname">shapely.wkb.</tt><tt class="descname">loads</tt><big>(</big><em>wkb</em><big>)</big><a class="headerlink" href="#shapely.wkb.loads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a geometric object from a WKB representation <cite>wkb</cite>.</p>
-</dd></dl>
+<dd>Returns a geometric object from a WKB representation <cite>wkb</cite>.</dd></dl>
 
 <div class="highlight-pycon"><div class="highlight"><pre><span class="go">&gt;&gt; from shapely.wkb import dumps, loads</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">wkb</span> <span class="o">=</span> <span class="n">dumps</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wkb</span> <span class="o">=</span> <span class="n">dumps</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">wkb</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;hex&#39;</span><span class="p">)</span>
 <span class="go">010100000000000000000000000000000000000000</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">loads</span><span class="p">(</span><span class="n">wkb</span><span class="p">)</span><span class="o">.</span><span class="n">wkt</span>
@@ -1578,14 +1604,12 @@ appropriate type, use <tt class="docutils literal"><span class="pre">loads()</sp
 <dl class="function">
 <dt id="shapely.wkt.dumps">
 <tt class="descclassname">shapely.wkt.</tt><tt class="descname">dumps</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#shapely.wkt.dumps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a WKT representation of <cite>ob</cite>.</p>
-</dd></dl>
+<dd>Returns a WKT representation of <cite>ob</cite>.</dd></dl>
 
 <dl class="function">
 <dt id="shapely.wkt.loads">
 <tt class="descclassname">shapely.wkt.</tt><tt class="descname">loads</tt><big>(</big><em>wkt</em><big>)</big><a class="headerlink" href="#shapely.wkt.loads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a geometric object from a WKT representation <cite>wkt</cite>.</p>
-</dd></dl>
+<dd>Returns a geometric object from a WKT representation <cite>wkt</cite>.</dd></dl>
 
 <div class="highlight-pycon"><div class="highlight"><pre><span class="go">&gt;&gt; wkt = dumps(Point(0, 0))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">wkt</span>
@@ -1601,28 +1625,28 @@ appropriate type, use <tt class="docutils literal"><span class="pre">loads()</sp
 <cite>LineString</cite>) provide the Numpy array interface and can thereby be converted or
 adapted to Numpy arrays.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">))</span>
 <span class="go">array([ 0.,  0.])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">(</span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array</span><span class="p">(</span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)]))</span>
 <span class="go">array([[ 0.,  0.],</span>
 <span class="go">       [ 1.,  1.]])</span>
 </pre></div>
 </div>
-<p>The <tt class="xref py py-func docutils literal"><span class="pre">numpy.asarray()</span></tt> function does not copy coordinate values – at the
+<p>The <tt class="xref docutils literal"><span class="pre">numpy.asarray()</span></tt> function does not copy coordinate values – at the
 price of slower numpy access to the coordinates of Shapely objects.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The Numpy array interface is provided without a dependency on Numpy itself.</p>
 </div>
 <p>The coordinates of the same types of geometric objects can be had as standard
-Python arrays of <cite>x</cite> and <cite>y</cite> values via the <tt class="xref py py-attr docutils literal"><span class="pre">xy</span></tt> attribute.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">xy</span>
+Python arrays of <cite>x</cite> and <cite>y</cite> values via the <tt class="xref docutils literal"><span class="pre">xy</span></tt> attribute.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span><span class="o">.</span><span class="n">xy</span>
 <span class="go">(array(&#39;d&#39;, [0.0]), array(&#39;d&#39;, [0.0]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span><span class="o">.</span><span class="n">xy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">xy</span>
 <span class="go">(array(&#39;d&#39;, [0.0, 1.0]), array(&#39;d&#39;, [0.0, 1.0]))</span>
 </pre></div>
 </div>
-<p>The <a class="reference internal" href="#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> family of functions can be used to wrap
+<p>The <a title="shapely.geometry.asShape" class="reference internal" href="#shapely.geometry.asShape"><tt class="xref docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> family of functions can be used to wrap
 numpy coordinate arrays so that they can then be analyzed using Shapely while
 maintaining their original storage. A 1 x 2 array can be adapted to a point</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">asPoint</span>
@@ -1644,20 +1668,18 @@ maintaining their original storage. A 1 x 2 array can be adapted to a point</p>
 <h3>Python Geo Interface<a class="headerlink" href="#python-geo-interface" title="Permalink to this headline">¶</a></h3>
 <p>Any object that provides the GeoJSON-like <a class="reference external" href="http://trac.gispython.org/projects/PCL/wiki/PythonGeoInterface">Python geo interface</a> can be
 adapted and used as a Shapely geometry using the
-<a class="reference internal" href="#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> or <a class="reference internal" href="#shapely.geometry.shape" title="shapely.geometry.shape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.shape()</span></tt></a> functions.</p>
+<a title="shapely.geometry.asShape" class="reference internal" href="#shapely.geometry.asShape"><tt class="xref docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> or <a title="shapely.geometry.shape" class="reference internal" href="#shapely.geometry.shape"><tt class="xref docutils literal"><span class="pre">shapely.geometry.shape()</span></tt></a> functions.</p>
 <dl class="function">
 <dt id="shapely.geometry.asShape">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">asShape</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asShape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adapts the context to a geometry interface. The coordinates remain stored in
-the context.</p>
-</dd></dl>
+<dd>Adapts the context to a geometry interface. The coordinates remain stored in
+the context.</dd></dl>
 
 <dl class="function">
 <dt id="shapely.geometry.shape">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">shape</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.shape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a new, independent geometry with coordinates <cite>copied</cite> from the
-context.</p>
-</dd></dl>
+<dd>Return a new, independent geometry with coordinates <cite>copied</cite> from the
+context.</dd></dl>
 
 <p>For example, a dictionary:</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">asShape</span>
@@ -1682,7 +1704,7 @@ context.</p>
 </pre></div>
 </div>
 <p>The GeoJSON-like mapping of a geometric object can be obtained using
-<a class="reference internal" href="#shapely.geometry.mapping" title="shapely.geometry.mapping"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.mapping()</span></tt></a>.</p>
+<a title="shapely.geometry.mapping" class="reference internal" href="#shapely.geometry.mapping"><tt class="xref docutils literal"><span class="pre">shapely.geometry.mapping()</span></tt></a>.</p>
 <dl class="function">
 <dt id="shapely.geometry.mapping">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">mapping</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#shapely.geometry.mapping" title="Permalink to this definition">¶</a></dt>
@@ -1709,15 +1731,15 @@ context.</p>
 used in many applications and you can expect that all operations are highly
 optimized. The creation of new geometries with many coordinates, however,
 involves some overhead that might slow down your code.</p>
-<p class="versionadded">
+<p>
 <span class="versionmodified">New in version 1.2.10.</span></p>
-<p>The <tt class="xref py py-mod docutils literal"><span class="pre">shapely.speedups</span></tt> module contains performance enhancements written in
+<p>The <tt class="xref docutils literal"><span class="pre">shapely.speedups</span></tt> module contains performance enhancements written in
 C. They are automaticaly installed when Python has access to a compiler during
 installation.</p>
-<p>You can check if the speedups are installed with the <tt class="xref py py-attr docutils literal"><span class="pre">available</span></tt>
+<p>You can check if the speedups are installed with the <tt class="xref docutils literal"><span class="pre">available</span></tt>
 attribute. The constructor speedups are disabled by default. To enable the
-speedups call <tt class="xref py py-func docutils literal"><span class="pre">enable()</span></tt>. You can revert to the default implementation with
-<tt class="xref py py-func docutils literal"><span class="pre">disable()</span></tt>.</p>
+speedups call <tt class="xref docutils literal"><span class="pre">enable()</span></tt>. You can revert to the default implementation with
+<tt class="xref docutils literal"><span class="pre">disable()</span></tt>.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely</span> <span class="kn">import</span> <span class="n">speedups</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">speedups</span><span class="o">.</span><span class="n">available</span>
 <span class="go">True</span>
@@ -1730,7 +1752,7 @@ speedups call <tt class="xref py py-func docutils literal"><span class="pre">ena
 <p>We hope that you will enjoy and profit from using Shapely. Questions and
 comments are welcome on the GIS-Python email <a class="reference external" href="http://lists.gispython.org/mailman/listinfo/community">list</a>. This manual will be updated
 and improved regularly. Its source is available at
-<a class="reference external" href="http://github.com/sgillies/shapely/tree/master/docs/">http://github.com/sgillies/shapely/tree/master/docs/</a>.</p>
+<a class="reference external" href="http://github.com/Toblerity/Shapely/tree/master/docs/">http://github.com/Toblerity/Shapely/tree/master/docs/</a>.</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
@@ -1788,20 +1810,26 @@ Journal for Geographic Information and Geovisualization,  vol. 10, Dec.
 </div>
 
 
+          </div>
+        </div>
       </div>
-      <div class="bottomnav">
-      
-        <p>
-        «&#160;&#160;<a href="README.html">Shapely</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        </p>
-
-      </div>
-
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="README.html" title="README"
+             >previous</a> |</li>
+        <li><a href="index.html">Shapely v1.2.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
     <div class="footer">
-        &copy; Copyright 2011, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1pre.
+      &copy; Copyright 2011, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.5.
     </div>
   </body>
 </html>

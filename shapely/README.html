@@ -1,58 +1,96 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Shapely &mdash; Shapely 1.2.13 documentation</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <title>README &mdash; Shapely v1.2.14 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/print.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.2.13',
-        COLLAPSE_INDEX: false,
+        URL_ROOT:    '#',
+        VERSION:     '1.2.14',
+        COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/theme_extras.js"></script>
-    <link rel="top" title="Shapely 1.2.13 documentation" href="index.html" />
+    <link rel="top" title="Shapely v1.2.14 documentation" href="index.html" />
     <link rel="next" title="The Shapely User Manual" href="manual.html" />
     <link rel="prev" title="Welcome to Shapely’s documentation!" href="index.html" /> 
   </head>
   <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
-          <span>Shapely 1.2.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Shapely</span></h2>
-      </div>
-      <div class="topnav">
-      
-        <p>
-        «&#160;&#160;<a href="index.html">Welcome to Shapely&#8217;s documentation!</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="manual.html">The Shapely User Manual</a>&#160;&#160;»
-        </p>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="manual.html" title="The Shapely User Manual"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Shapely’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Shapely v1.2.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">README</a><ul>
+<li><a class="reference external" href="#dependencies">Dependencies</a></li>
+<li><a class="reference external" href="#installation">Installation</a></li>
+<li><a class="reference external" href="#usage">Usage</a></li>
+<li><a class="reference external" href="#integration">Integration</a></li>
+<li><a class="reference external" href="#testing">Testing</a></li>
+<li><a class="reference external" href="#support">Support</a></li>
+<li><a class="reference external" href="#credits">Credits</a></li>
+</ul>
+</li>
+</ul>
 
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="index.html"
+                                  title="previous chapter">Welcome to Shapely&#8217;s documentation!</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="manual.html"
+                                  title="next chapter">The Shapely User Manual</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/README.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
       </div>
-      <div class="content">
-        
-        
-  <div class="section" id="shapely">
-<h1>Shapely<a class="headerlink" href="#shapely" title="Permalink to this headline">¶</a></h1>
-<p>PostGIS-ish operations outside a database context for Pythoneers and Pythonistas</p>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="readme">
+<h1>README<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h1>
+<p>PostGIS-ish operations outside a database context for Pythoneers and
+Pythonistas.</p>
 <img alt="http://farm3.static.flickr.com/2738/4511827859_b5822043b7_o_d.png" src="http://farm3.static.flickr.com/2738/4511827859_b5822043b7_o_d.png" style="width: 800px; height: 400px;" />
 <p>Shapely is a BSD-licensed Python package for manipulation and analysis of
 planar geometric objects. It is based on the widely deployed <a class="reference external" href="http://trac.osgeo.org/geos/">GEOS</a> (the engine
@@ -159,6 +197,7 @@ supported well by nose.</p>
 <li>Sean Gillies</li>
 <li>Aron Bierbaum</li>
 <li>Kai Lautaportti</li>
+<li>Oliver Tonnhofer</li>
 </ul>
 <p>Patches contributed by:</p>
 <ul class="simple">
@@ -167,7 +206,7 @@ supported well by nose.</p>
 <li>Éric Lemoine</li>
 <li>Jonathan Tartley</li>
 <li>Kristian Thy</li>
-<li>Oliver Tonnhofer</li>
+<li>Mike Toews (<a class="reference external" href="https://github.com/mwtoews">https://github.com/mwtoews</a>)</li>
 </ul>
 <p>Additional help from:</p>
 <ul class="simple">
@@ -182,22 +221,29 @@ U.S. National Endowment for the Humanities (<a class="reference external" href="
 </div>
 
 
+          </div>
+        </div>
       </div>
-      <div class="bottomnav">
-      
-        <p>
-        «&#160;&#160;<a href="index.html">Welcome to Shapely&#8217;s documentation!</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="manual.html">The Shapely User Manual</a>&#160;&#160;»
-        </p>
-
-      </div>
-
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="manual.html" title="The Shapely User Manual"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Shapely’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">Shapely v1.2.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
     <div class="footer">
-        &copy; Copyright 2011, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1pre.
+      &copy; Copyright 2011, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.5.
     </div>
   </body>
 </html>
