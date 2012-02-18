@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>README &mdash; Fiona 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Fiona 1.0 documentation" href="index.html" />
+    <link rel="next" title="1   The Fiona User Manual" href="manual.html" />
+    <link rel="prev" title="Welcome to Fiona’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="manual.html" title="1   The Fiona User Manual"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Fiona’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="readme">
+<h1>README<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h1>
+<p>Fiona is OGR&#8217;s neater API – sleek and elegant on the outside, indomitable power
+on the inside.</p>
+<p>Fiona provides a minimal, uncomplicated Python interface to the open source GIS
+community&#8217;s most trusted geodata access library and integrates readily with
+other Python GIS packages such as <a class="reference external" href="http://pypi.python.org/pypi/pyproj/">pyproj</a>, <a class="reference external" href="http://pypi.python.org/pypi/Rtree/">Rtree</a>, and <a class="reference external" href="http://pypi.python.org/pypi/Shapely/">Shapely</a>.</p>
+<p>How minimal? Fiona can read features as mappings from shapefiles or other GIS
+vector formats and write mappings as features to files using the same formats.
+That&#8217;s all. There aren&#8217;t any feature or geometry classes. Features and their
+geometries are just data.</p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Fiona requires Python 2.6+ and libgdal 1.3.2+. To build from a source
+distribution or repository clone you will need a C compiler and GDAL and Python
+development headers and libraries. There are no binary distributions or Windows
+support at this time.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Assuming you&#8217;re using a virtualenv (if not, skip to the 4th command) and
+GDAL/OGR libraries, headers, and <a class="reference external" href="http://www.gdal.org/gdal-config.html">gdal-config</a> program are installed to well
+known locations on your system (via your system&#8217;s package manager),
+installation is this simple:</p>
+<div class="highlight-python"><pre>$ mkdir fiona_env
+$ virtualenv fiona_env
+$ source fiona_env/bin/activate
+(fiona_env)$ pip install Fiona</pre>
+</div>
+<p>If gdal-config is not available or if GDAL/OGR headers and libs aren&#8217;t
+installed to a well known location, you must set include dirs, library dirs,
+and libraries options via the setup.cfg file or setup command line as shown
+below (using <tt class="docutils literal"><span class="pre">git</span></tt>):</p>
+<div class="highlight-python"><pre>(fiona_env)$ git clone git://github.com/Toblerity/Fiona.git
+(fiona_env)$ cd Fiona
+(fiona_env)$ python setup.py build_ext -I/path/to/gdal/include -L/path/to/gdal/lib -lgdal install</pre>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Collections are much like <tt class="docutils literal"><span class="pre">file</span></tt> objects. Features are mappings modeled on
+the GeoJSON format and if you want to do anything fancy with them you will
+probably need Shapely or something like it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">fiona</span> <span class="kn">import</span> <span class="n">collection</span>
+
+<span class="c"># Open a source of features</span>
+<span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
+
+    <span class="c"># Define a schema for the feature sink</span>
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">schema</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Point&#39;</span>
+
+    <span class="c"># Open a new sink for features, using the same format driver</span>
+    <span class="c"># and coordinate reference system as the source.</span>
+    <span class="k">with</span> <span class="n">collection</span><span class="p">(</span>
+            <span class="s">&quot;test_write.shp&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
+            <span class="n">driver</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">crs</span>
+            <span class="p">)</span> <span class="k">as</span> <span class="n">sink</span><span class="p">:</span>
+
+        <span class="c"># Process only the features intersecting a box</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">source</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">bbox</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">)):</span>
+
+            <span class="c"># Get point on the boundary of the feature</span>
+            <span class="n">f</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Point&#39;</span><span class="p">,</span>
+                <span class="s">&#39;coordinates&#39;</span><span class="p">:</span> <span class="n">f</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">}</span>
+
+            <span class="c"># Stage feature for writing</span>
+            <span class="n">sink</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c"># The sink shapefile is written to disk when its ``with`` block ends</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="development-and-testing">
+<h2>Development and testing<a class="headerlink" href="#development-and-testing" title="Permalink to this headline">¶</a></h2>
+<p>Building from the source requires Cython. Tests require Nose. If the GDAL/OGR
+libraries, headers, and <a class="reference external" href="http://www.gdal.org/gdal-config.html">gdal-config</a> program are installed to well known
+locations on your system (via your system&#8217;s package manager), you can do this:</p>
+<div class="highlight-python"><pre>(fiona_env)$ git clone git://github.com/Toblerity/Fiona.git
+(fiona_env)$ cd Fiona
+(fiona_env)$ ./cypsrc
+(fiona_env)$ python setup.py develop
+(fiona_env)$ python setup.py nosetests</pre>
+</div>
+<p>If you have a non-standard environment, you&#8217;ll need to specify the include and
+lib dirs and GDAL library on the command line:</p>
+<div class="highlight-python"><pre>(fiona_env)$ python setup.py build_ext -I/path/to/gdal/include -L/path/to/gdal/lib -lgdal develop
+(fiona_env)$ python setup.py nosetests</pre>
+</div>
+</div>
+<div class="section" id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<p>Fiona is written by:</p>
+<ul class="simple">
+<li>Sean Gillies (<a class="reference external" href="https://github.com/sgillies">https://github.com/sgillies</a>)</li>
+</ul>
+<p>With contributions by:</p>
+<ul class="simple">
+<li>Frédéric Junod (<a class="reference external" href="https://github.com/fredj">https://github.com/fredj</a>)</li>
+<li>Ariel Núñez (<a class="reference external" href="https://github.com/ingenieroariel">https://github.com/ingenieroariel</a>)</li>
+<li>Michael Weisman (<a class="reference external" href="https://github.com/mweisman">https://github.com/mweisman</a>)</li>
+</ul>
+<p>Fiona would not be possible without the great work of Frank Warmerdam and other
+GDAL/OGR developers.</p>
+<p>Some portions of this work were supported by a grant (for <a class="reference external" href="http://pleiades.stoa.org">Pleiades</a>) from the
+U.S. National Endowment for the Humanities (<a class="reference external" href="http://www.neh.gov">http://www.neh.gov</a>).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">README</a><ul>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#development-and-testing">Development and testing</a></li>
+<li><a class="reference internal" href="#credits">Credits</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Fiona&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="manual.html"
+                        title="next chapter">1&nbsp;&nbsp;&nbsp;The Fiona User Manual</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/README.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="manual.html" title="1   The Fiona User Manual"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Fiona’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Sean Gillies.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>
