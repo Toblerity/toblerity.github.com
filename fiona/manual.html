@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1   The Fiona User Manual &mdash; Fiona 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Fiona 1.0 documentation" href="index.html" />
+    <link rel="prev" title="README" href="README.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="README.html" title="README"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-fiona-user-manual">
+<h1>1&nbsp;&nbsp;&nbsp;The Fiona User Manual<a class="headerlink" href="#the-fiona-user-manual" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Revision:</th><td class="field-body">1.0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">18 February 2012</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
+United States License</a>.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Abstract:</th><td class="field-body">Fiona is OGR&#8217;s neater API. This document explains how to use the Fiona
+package for reading and writing geospatial data files.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="introduction">
+<span id="intro"></span><h2>1.1&nbsp;&nbsp;&nbsp;Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The data in geographic information systems (GIS) is roughly divided into
+<em class="dfn">rasters</em> representing continuous scalar fields (land surface temperature or
+elevation, for example) and <em class="dfn">vectors</em> representing discrete entities like
+roads and administrative boundaries. Concerned exclusively with the latter,
+Fiona is a Python wrapper for vector data access functions from the <a class="reference external" href="http://www.gdal.org/ogr/">OGR</a> library.  A very simple wrapper for minimalists.
+It reads data records from files as GeoJSON-like mappings and writes the same
+kind of mappings as records back to files. That&#8217;s it. There are no layers, no
+cursors, no geometric operations, no transformations between coordinate
+systems, no remote method calls; all these concerns are left to other Python
+packages such as <tt class="xref py py-mod docutils literal"><span class="pre">Shapely</span></tt> and
+<tt class="xref py py-mod docutils literal"><span class="pre">pyproj</span></tt> and Python language
+protocols. Why? To eliminate unnecessary complication. Fiona is simple to
+understand and use, with no gotchas.</p>
+<p>Please understand this: Fiona is designed to excel in a certain range of tasks
+and is less optimal in others. Fiona trades memory and speed for simplicity and
+reliability. Where OGR&#8217;s Python bindings (for example) use C pointers, Fiona
+copies vector data from the data source to Python objects.  These are simpler
+and safer to use, but more memory intensive. Fiona&#8217;s performance is relatively
+more slow if you only need access to a single record field – and of course
+if you just want to reproject or filter data files, nothing beats the
+<strong class="command">ogr2ogr</strong> program – but Fiona&#8217;s performance is much better than OGR&#8217;s
+Python bindings if you want <em>all</em> fields and coordinates of a record. The
+copying is a constraint, yes, but it simplifies things.  With Fiona, you don&#8217;t
+have to track references to C objects to avoid crashes, and you can work with
+vector data using familiar Python mapping accessors.  Less worry, less time
+spent reading API documentation.</p>
+<div class="section" id="guidance">
+<h3>1.1.1&nbsp;&nbsp;&nbsp;Guidance<a class="headerlink" href="#guidance" title="Permalink to this headline">¶</a></h3>
+<p>In what cases would you benefit from using Fiona?</p>
+<ul class="simple">
+<li>If the features of interest are from or destined for a file in a non-text
+format like ESRI Shapefiles, Mapinfo TAB files, etc.</li>
+<li>If you&#8217;re more interested in the values of many feature properties than in
+a single property&#8217;s value.</li>
+<li>If you&#8217;re more interested in all the coordinate values of a feature&#8217;s
+geometry than in a single value.</li>
+<li>If your processing system is distributed or not contained to a single
+process.</li>
+</ul>
+<p>In what cases would you not benefit from using Fiona?</p>
+<ul class="simple">
+<li>If your data is in or destined for a JSON document you should use Python&#8217;s
+<tt class="xref py py-mod docutils literal"><span class="pre">json</span></tt> or <tt class="xref py py-mod docutils literal"><span class="pre">simplejson</span></tt> modules.</li>
+<li>If your data is in a RDBMS like PostGIS, use a Python DB package or ORM like
+<tt class="xref py py-mod docutils literal"><span class="pre">SQLAlchemy</span></tt> or <tt class="xref py py-mod docutils literal"><span class="pre">GeoAlchemy</span></tt>. Maybe you&#8217;re using
+<tt class="xref py py-mod docutils literal"><span class="pre">GeoDjango</span></tt> in this already. If so, carry on.</li>
+<li>If your data is served via HTTP from CouchDB or CartoDB, etc, use an HTTP
+package (<tt class="xref py py-mod docutils literal"><span class="pre">httplib2</span></tt>, <tt class="xref py py-mod docutils literal"><span class="pre">Requests</span></tt>, etc) or the provider&#8217;s
+Python API.</li>
+<li>If you can use <strong class="command">ogr2ogr</strong>, do so.</li>
+</ul>
+</div>
+<div class="section" id="example">
+<h3>1.1.2&nbsp;&nbsp;&nbsp;Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>The first example of using Fiona is this: copying records from one file to
+another, adding two attributes and making sure that all polygons are facing
+&#8220;up&#8221;. Orientation of polygons is significant in some applications, extruded
+polygons in Google Earth for one. No other library (like <tt class="xref py py-mod docutils literal"><span class="pre">Shapely</span></tt>) is
+needed here, which keeps it uncomplicated. There&#8217;s a <tt class="file docutils literal"><span class="pre">test_uk</span></tt> file in
+the Fiona repository that we&#8217;ll use in this and other examples.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">fiona</span> <span class="kn">import</span> <span class="n">collection</span>
+
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">signed_area</span><span class="p">(</span><span class="n">coords</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the signed area enclosed by a ring using the linear time</span>
+<span class="sd">    algorithm at http://www.cgafaq.info/wiki/Polygon_Area. A value &gt;= 0</span>
+<span class="sd">    indicates a counter-clockwise oriented ring.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">coords</span><span class="p">))</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ys</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">)))</span><span class="o">/</span><span class="mf">2.0</span>
+
+
+<span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
+
+    <span class="c"># Copy the source schema and add two new properties.</span>
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;s_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;float&#39;</span>
+    <span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;str&#39;</span>
+
+    <span class="c"># Create a sink for processed features with the same format and</span>
+    <span class="c"># coordinate reference system as the source.</span>
+    <span class="k">with</span> <span class="n">collection</span><span class="p">(</span>
+            <span class="s">&quot;oriented-ccw.shp&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
+            <span class="n">driver</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span>
+            <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span>
+            <span class="n">crs</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">crs</span>
+            <span class="p">)</span> <span class="k">as</span> <span class="n">sink</span><span class="p">:</span>
+
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+
+            <span class="k">try</span><span class="p">:</span>
+
+                <span class="c"># If any feature&#39;s polygon is facing &quot;down&quot; (has rings</span>
+                <span class="c"># wound clockwise), its rings will be reordered to flip</span>
+                <span class="c"># it &quot;up&quot;.</span>
+                <span class="n">g</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span>
+                <span class="k">assert</span> <span class="n">g</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&quot;Polygon&quot;</span>
+                <span class="n">rings</span> <span class="o">=</span> <span class="n">g</span><span class="p">[</span><span class="s">&#39;coordinates&#39;</span><span class="p">]</span>
+                <span class="n">sa</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">signed_area</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rings</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">sa</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+                    <span class="n">rings</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rings</span><span class="p">]</span>
+                    <span class="n">g</span><span class="p">[</span><span class="s">&#39;coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rings</span>
+                    <span class="n">f</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span>
+
+                <span class="c"># Add the signed area of the polygon and a timestamp</span>
+                <span class="c"># to the feature properties map.</span>
+                <span class="n">f</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="n">s_area</span><span class="o">=</span><span class="n">sa</span><span class="p">,</span>
+                    <span class="n">timestamp</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span> <span class="p">)</span>
+
+                <span class="n">sink</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&quot;Error processing feature </span><span class="si">%s</span><span class="s">:&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">])</span>
+
+        <span class="c"># The sink collection is written to disk when its block ends</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="data-model">
+<h2>1.2&nbsp;&nbsp;&nbsp;Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h2>
+<p>Discrete geographic features are usually represented in geographic information
+systems by <em class="dfn">records</em>. The characteristics of records and their semantic
+implications are well known <a class="reference internal" href="#kent1978">[Kent1978]</a>. Among those most significant for
+geographic data: records have a single type, all records of that type have the
+same fields, and a record&#8217;s fields concern a single geographic feature.
+Different systems model records in different ways, but the various models have
+enough in common that programmers have been able to create useful abstract data
+models.  The <a class="reference external" href="http://www.gdal.org/ogr/ogr_arch.html">OGR model</a> is one. Its
+primary entities are <em class="dfn">Data Sources</em>, <em class="dfn">Layers</em>, and <em class="dfn">Features</em>.
+Features have not fields, but attributes and a <em class="dfn">Geometry</em>. An OGR Layer
+contains Features of a single type (&#8220;roads&#8221; or &#8220;wells&#8221;, for example). The
+GeoJSON model is a bit more simple, keeping Features and substituting
+<em class="dfn">Feature Collections</em> for OGR Data Sources and Layers. The term &#8220;Feature&#8221;
+is thus overloaded in GIS modeling, denoting entities in both our conceptual
+and data models.</p>
+<p>Various formats for record files exist. The <em class="dfn">ESRI Shapefile</em> <a class="reference internal" href="#esri1998">[ESRI1998]</a>
+has been, at least in the United States, the most significant of these up to
+about 2005 and remains popular today. It is a binary format. The shape fields
+are stored in one .shp file and the other fields in another .dbf file. The
+GeoJSON <a class="reference internal" href="#geojson">[GeoJSON]</a> format, from 2008, proposed a human readable text format in
+which geometry and other attribute fields are encoded together using
+<em class="dfn">Javascript Object Notation</em> <a class="reference internal" href="#json">[JSON]</a>. In GeoJSON, there&#8217;s a uniformity of
+data access.  Attributes of features are accessed in the same manner as
+attributes of a feature collection.  Coordinates of a geometry are accessed in
+the same manner as features of a collection.</p>
+<p>The GeoJSON format turns out to be a good model for a Python API. JSON objects
+and Python dictionaries are semantically and syntactically similar. Replacing
+object-oriented Layer and Feature APIs with interfaces based on Python mappings
+provides a uniformity of access to data and reduces the amount of time spent
+reading documentation. A Python programmer knows how to use a mapping, so why
+not treat features as dictionaries? Use of existing Python idioms is one of
+Fiona&#8217;s major design principles.</p>
+<p>TL;DR: Fiona subscribes to the conventional record model of data, but provides
+GeoJSON-like access to the data via Python file-like and mapping protocols.</p>
+</div>
+<div class="section" id="reading-vector-data">
+<h2>1.3&nbsp;&nbsp;&nbsp;Reading Vector Data<a class="headerlink" href="#reading-vector-data" title="Permalink to this headline">¶</a></h2>
+<p>Reading a GIS vector file begins by opening it in mode <tt class="docutils literal"><span class="pre">&quot;r&quot;</span></tt> using Fiona&#8217;s
+<tt class="xref py py-func docutils literal"><span class="pre">collection()</span></tt> function. It returns an opened
+<tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> object.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fiona</span> <span class="kn">import</span> <span class="n">collection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">opened</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Fiona&#8217;s <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> is like a Python
+<tt class="xref py py-class docutils literal"><span class="pre">file</span></tt>, but is iterable for records rather than lines.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">iter</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="go">{&#39;geometry&#39;: {&#39;type&#39;: &#39;Polygon&#39;, &#39;coordinates&#39;: ...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="go">47</span>
+</pre></div>
+</div>
+<p>Note that <tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt> iterates over the entire collection, effectively
+emptying it as with a Python <tt class="xref py py-class docutils literal"><span class="pre">file</span></tt>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">iter</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="c">...</span>
+<span class="gr">StopIteration</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>A future version of Fiona may (should?) allow you to seek records by their index,
+but for now you must <tt class="xref py py-meth docutils literal"><span class="pre">reopen()</span></tt> the
+collection to get back to the beginning.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">reopen</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="go">48</span>
+</pre></div>
+</div>
+<p>A <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> involves external resources. There&#8217;s
+no guarantee that these will be released unless you explictly
+<tt class="xref py py-meth docutils literal"><span class="pre">close()</span></tt> the
+object or use a <tt class="xref std std-keyword docutils literal"><span class="pre">with</span></tt> statement. When
+a <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> is a context guard, it is closed at
+the end of the <tt class="xref std std-keyword docutils literal"><span class="pre">with</span></tt> block no matter what happens within the block.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="bp">True</span> <span class="ow">is</span> <span class="bp">False</span>
+<span class="gp">...</span>
+<span class="go">48</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="c">...</span>
+<span class="gr">AssertionError</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">closed</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Call <tt class="xref py py-meth docutils literal"><span class="pre">close()</span></tt> or use <tt class="xref std std-keyword docutils literal"><span class="pre">with</span></tt> and
+you&#8217;ll never stumble over tied-up external resources, locked files, etc.</p>
+<div class="section" id="collection-schema-and-crs">
+<h3>1.3.1&nbsp;&nbsp;&nbsp;Collection Schema and CRS<a class="headerlink" href="#collection-schema-and-crs" title="Permalink to this headline">¶</a></h3>
+<p>In addition to some attributes like those of <tt class="xref py py-class docutils literal"><span class="pre">file</span></tt>
+(<tt class="xref py py-attr docutils literal"><span class="pre">mode</span></tt>, <tt class="xref py py-attr docutils literal"><span class="pre">closed</span></tt>),
+a <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> has
+a read-only <tt class="xref py py-attr docutils literal"><span class="pre">driver</span></tt> attribute which
+names the <strong class="program">OGR</strong> <em class="dfn">driver</em> used to open the vector file.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">driver</span>
+<span class="go">&#39;ESRI Shapefile&#39;</span>
+</pre></div>
+</div>
+<p>The <em class="dfn">coordinate reference system</em> (CRS) of the collection&#8217;s vector data is
+accessed via a read-only <tt class="xref py py-attr docutils literal"><span class="pre">crs</span></tt> attribute.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">crs</span>
+<span class="go">{&#39;no_defs&#39;: True, &#39;ellps&#39;: &#39;WGS84&#39;, &#39;datum&#39;: &#39;WGS84&#39;, &#39;proj&#39;: &#39;longlat&#39;}</span>
+</pre></div>
+</div>
+<p>The CRS is represented by a mapping of <strong class="program">PROJ.4</strong> parameters.</p>
+<p>Finally, the schema of a <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt>&#8216;s record type
+(a vector file has a single type of record, remember) is accessed via
+a read-only <tt class="xref py py-attr docutils literal"><span class="pre">schema</span></tt> attribute.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+<span class="go">{&#39;geometry&#39;: &#39;Polygon&#39;,</span>
+<span class="go"> &#39;properties&#39;: {&#39;AREA&#39;: &#39;float&#39;,</span>
+<span class="go">                &#39;CAT&#39;: &#39;float&#39;,</span>
+<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;FIPS_CNTRY&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;POP_CNTRY&#39;: &#39;float&#39;}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="records">
+<h3>1.3.2&nbsp;&nbsp;&nbsp;Records<a class="headerlink" href="#records" title="Permalink to this headline">¶</a></h3>
+<p>A record you get from a collection is a Python <cite>dict</cite> structured exactly like
+a GeoJSON <a class="reference internal" href="#geojson">[GeoJSON]</a> <cite>Feature</cite>. It is self-describing; the names of its fields
+are contained within the data structure and the values in the fields are typed
+properly for the type of record. Numeric field values are type <tt class="docutils literal"><span class="pre">int</span></tt> and
+<tt class="docutils literal"><span class="pre">float</span></tt>, for example, not strings.</p>
+<p>It has no references to the <cite>Collection</cite> from which it originates or any other
+external resource.</p>
+</div>
+<div class="section" id="attributes">
+<h3>1.3.3&nbsp;&nbsp;&nbsp;Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<p>The mode the file was opened in ...</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">mode</span>
+<span class="go">&#39;r&#39;</span>
+</pre></div>
+</div>
+<p>The name of the OGR driver used to open the file ...</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">driver</span>
+<span class="go">&#39;ESRI Shapefile&#39;</span>
+</pre></div>
+</div>
+<p>The coordinate reference system of the file ...</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">crs</span>
+<span class="go">{&#39;no_defs&#39;: True, &#39;ellps&#39;: &#39;WGS84&#39;, &#39;datum&#39;: &#39;WGS84&#39;, &#39;proj&#39;: &#39;longlat&#39;}</span>
+</pre></div>
+</div>
+<p>And finally, the schema of the file, a description of the geometries and
+attributes of all its records.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+<span class="go">{&#39;geometry&#39;: &#39;Polygon&#39;,</span>
+<span class="go"> &#39;properties&#39;: {&#39;AREA&#39;: &#39;float&#39;,</span>
+<span class="go">                &#39;CAT&#39;: &#39;float&#39;,</span>
+<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;FIPS_CNTRY&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;POP_CNTRY&#39;: &#39;float&#39;}}</span>
+
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">collection</span><span class="p">(</span><span class="s">&quot;PG:dbname=databasename&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">OSError</span>: <span class="n">Nonexistent path &#39;PG:dbname=databasename&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">collection</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">Path must be a file</span>
+</pre></div>
+</div>
+<table class="docutils citation" frame="void" id="kent1978" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[Kent1978]</a></td><td>William Kent, Data and Reality, North Holland, 1978.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="esri1998" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[ESRI1998]</a></td><td>ESRI Shapefile Technical Description. July 1998. <a class="reference external" href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="geojson" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[GeoJSON]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> <a class="reference external" href="http://geojson.org">http://geojson.org</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="json" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[JSON]</a></td><td><a class="reference external" href="http://www.ietf.org/rfc/rfc4627">http://www.ietf.org/rfc/rfc4627</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1&nbsp;&nbsp;&nbsp;The Fiona User Manual</a><ul>
+<li><a class="reference internal" href="#introduction">1.1&nbsp;&nbsp;&nbsp;Introduction</a><ul>
+<li><a class="reference internal" href="#guidance">1.1.1&nbsp;&nbsp;&nbsp;Guidance</a></li>
+<li><a class="reference internal" href="#example">1.1.2&nbsp;&nbsp;&nbsp;Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-model">1.2&nbsp;&nbsp;&nbsp;Data Model</a></li>
+<li><a class="reference internal" href="#reading-vector-data">1.3&nbsp;&nbsp;&nbsp;Reading Vector Data</a><ul>
+<li><a class="reference internal" href="#collection-schema-and-crs">1.3.1&nbsp;&nbsp;&nbsp;Collection Schema and CRS</a></li>
+<li><a class="reference internal" href="#records">1.3.2&nbsp;&nbsp;&nbsp;Records</a></li>
+<li><a class="reference internal" href="#attributes">1.3.3&nbsp;&nbsp;&nbsp;Attributes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="README.html"
+                        title="previous chapter">README</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/manual.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="README.html" title="README"
+             >previous</a> |</li>
+        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Sean Gillies.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+  </body>
+</html>
