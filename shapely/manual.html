@@ -5,13 +5,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>The Shapely User Manual &mdash; Shapely v1.2.14 documentation</title>
+    <title>The Shapely User Manual &mdash; Shapely v1.2.15 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '#',
-        VERSION:     '1.2.14',
+        VERSION:     '1.2.15',
         COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -19,7 +19,7 @@
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Shapely v1.2.14 documentation" href="index.html" />
+    <link rel="top" title="Shapely v1.2.15 documentation" href="index.html" />
     <link rel="prev" title="README" href="README.html" /> 
   </head>
   <body>
@@ -32,7 +32,7 @@
         <li class="right" >
           <a href="README.html" title="README"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Shapely v1.2.14 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Shapely v1.2.15 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -1415,6 +1415,36 @@ sides parallel to the coordinate axes) that contains the object.</dd></dl>
 </pre></div>
 </div>
 <dl class="method">
+<dt id="object.parallel_offset">
+<tt class="descclassname">object.</tt><tt class="descname">parallel_offset</tt><big>(</big><em>distance</em>, <em>side</em>, <em>resolution=16</em>, <em>join_style=1</em>, <em>mitre_limit=1.0</em><big>)</big><a class="headerlink" href="#object.parallel_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a LineString or MultiLineString geometry at a distance from the
+object on its right or its left side.</p>
+<p>Distance must be a positive float value. The side parameter may be &#8216;left&#8217; or
+&#8216;right&#8217;. The resolution of the offset around each vertex of the object is
+parameterized as in the buffer method.</p>
+<p>The styles of joins between offset segments are: 1 (round, the default),
+2 (mitre or miter), and 3 (bevel).</p>
+<p>Severely mitered corners can be controlled by the mitre_limit parameter
+(spelled in British English, en-gb). The ratio of the distance from the
+corner to the end of the mitred offset corner is the miter ratio. Corners
+with a ratio which exceed the limit will be beveled.</p>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This method is only available for <cite>LinearRing</cite>, <cite>LineString</cite>, and
+<cite>MultiLineString</cite> objects.</p>
+</div>
+<p>[<a class="reference external" href="plot_directive/code/parallel_offset.py">source code</a>, <a class="reference external" href="plot_directive/code/parallel_offset.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/parallel_offset.pdf">pdf</a>]</p>
+<img alt="_images/parallel_offset.png" src="_images/parallel_offset.png" />
+<p>Figure 1. Three styles of parallel offset lines on the left side of a simple
+line string (its starting point shown as a circle) and one offset on the right
+side, a multipart.</p>
+<p>The effect of the <cite>mitre_limit</cite> parameter is shown below.</p>
+<p>[<a class="reference external" href="plot_directive/code/parallel_offset_mitre.py">source code</a>, <a class="reference external" href="plot_directive/code/parallel_offset_mitre.hires.png">hires.png</a>, <a class="reference external" href="plot_directive/code/parallel_offset_mitre.pdf">pdf</a>]</p>
+<img alt="_images/parallel_offset_mitre.png" src="_images/parallel_offset_mitre.png" />
+<p>Figure 1. Large and small mitre_limit values for left and right offsets.</p>
+<dl class="method">
 <dt id="object.simplify">
 <tt class="descclassname">object.</tt><tt class="descname">simplify</tt><big>(</big><em>tolerance</em>, <em>preserve_topology=True</em><big>)</big><a class="headerlink" href="#object.simplify" title="Permalink to this definition">¶</a></dt>
 <dd>Returns a simplified representation of the geometric object.</dd></dl>
@@ -1824,7 +1854,7 @@ Journal for Geographic Information and Geovisualization,  vol. 10, Dec.
         <li class="right" >
           <a href="README.html" title="README"
              >previous</a> |</li>
-        <li><a href="index.html">Shapely v1.2.14 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Shapely v1.2.15 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
