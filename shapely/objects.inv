@@ -1,6 +1,6 @@
 # Sphinx inventory version 1
 # Project: Shapely
-# Version: 1.2.14
+# Version: 1.2.15
 object.boundary attribute manual.html
 shapely.wkt.dumps function manual.html
 object.intersects method manual.html
@@ -17,6 +17,7 @@ MultiPolygon class manual.html
 shapely.wkb.loads function manual.html
 object.symmetric_difference method manual.html
 object.interpolate method manual.html
+object.parallel_offset method manual.html
 object.geom_type attribute manual.html
 shapely.geometry.box function manual.html
 object.crosses method manual.html
