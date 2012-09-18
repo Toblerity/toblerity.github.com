@@ -5,13 +5,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>The Shapely User Manual &mdash; Shapely v1.2.15 documentation</title>
+    <title>The Shapely User Manual &mdash; Shapely v1.2.16 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '#',
-        VERSION:     '1.2.15',
+        VERSION:     '1.2.16',
         COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -19,8 +19,8 @@
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Shapely v1.2.15 documentation" href="index.html" />
-    <link rel="prev" title="README" href="README.html" /> 
+    <link rel="top" title="Shapely v1.2.16 documentation" href="index.html" />
+    <link rel="prev" title="README" href="project.html" /> 
   </head>
   <body>
     <div class="related">
@@ -30,9 +30,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="README.html" title="README"
+          <a href="project.html" title="README"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Shapely v1.2.15 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Shapely v1.2.16 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -93,7 +93,7 @@
 </ul>
 
             <h4>Previous topic</h4>
-            <p class="topless"><a href="README.html"
+            <p class="topless"><a href="project.html"
                                   title="previous chapter">README</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
@@ -129,9 +129,9 @@
 <tbody valign="top">
 <tr class="field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field"><th class="field-name">Revision:</th><td class="field-body">1.2.14</td>
+<tr class="field"><th class="field-name">Revision:</th><td class="field-body">1.2.15</td>
 </tr>
-<tr class="field"><th class="field-name">Date:</th><td class="field-body">21 January 2012</td>
+<tr class="field"><th class="field-name">Date:</th><td class="field-body">8 July 2012</td>
 </tr>
 <tr class="field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
 United States License</a>.</td>
@@ -935,6 +935,10 @@ meaningless for others.</p>
 <tt class="descclassname">object.</tt><tt class="descname">is_simple</tt><a class="headerlink" href="#object.is_simple" title="Permalink to this definition">¶</a></dt>
 <dd>Returns <tt class="xref docutils literal"><span class="pre">True</span></tt> if the feature does not cross itself.</dd></dl>
 
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The simplicity test is meaningful only for <cite>LineStrings</cite> and <cite>LinearRings</cite>.</p>
+</div>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">LineString</span><span class="p">([(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">1</span><span class="p">)])</span><span class="o">.</span><span class="n">is_simple</span>
 <span class="go">False</span>
 </pre></div>
@@ -1545,6 +1549,18 @@ accumulating with <a title="object.union" class="reference internal" href="#obje
 <span class="go">6.6103013551167971</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In 1.2.16 <a title="shapely.ops.cascaded_union" class="reference internal" href="#shapely.ops.cascaded_union"><tt class="xref docutils literal"><span class="pre">shapely.ops.cascaded_union()</span></tt></a> is superceded by
+<a title="shapely.ops.unary_union" class="reference internal" href="#shapely.ops.unary_union"><tt class="xref docutils literal"><span class="pre">shapely.ops.unary_union()</span></tt></a> if GEOS 3.2+ is used. The unary union
+function can operate on different geometry types, not only polygons as is
+the case for the older cascaded unions.</p>
+</div>
+<dl class="function">
+<dt id="shapely.ops.unary_union">
+<tt class="descclassname">shapely.ops.</tt><tt class="descname">unary_union</tt><big>(</big><em>geoms</em><big>)</big><a class="headerlink" href="#shapely.ops.unary_union" title="Permalink to this definition">¶</a></dt>
+<dd>Returns a representation of the union of the given geometric objects.</dd></dl>
+
 </div>
 <div class="section" id="prepared-geometry-operations">
 <h3>Prepared Geometry Operations<a class="headerlink" href="#prepared-geometry-operations" title="Permalink to this headline">¶</a></h3>
@@ -1583,11 +1599,25 @@ objects.</p>
 
 <p>The messages may or may not have a representation of a problem point that can
 be parsed out.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)]</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">2</span><span class="p">),</span> <span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="mf">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.validation</span> <span class="kn">import</span> <span class="n">explain_validity</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">explain_validity</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="go">&#39;Ring Self-intersection[1 1]&#39;</span>
+</pre></div>
+</div>
+<p>The Shapely version, GEOS library version, and GEOS C API version are
+accessible via <tt class="xref docutils literal"><span class="pre">shapely.__version__</span></tt>,
+<tt class="xref docutils literal"><span class="pre">shapely.geos.geos_version_string</span></tt>, and
+<tt class="xref docutils literal"><span class="pre">shapely.geos.geos_capi_version</span></tt>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shapely</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shapely</span><span class="o">.</span><span class="n">__version__</span>
+<span class="go">&#39;1.2.16&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shapely.geos</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shapely</span><span class="o">.</span><span class="n">geos</span><span class="o">.</span><span class="n">geos_version_string</span>
+<span class="go">&#39;3.3.0-CAPI-1.7.0&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">shapely</span><span class="o">.</span><span class="n">geos</span><span class="o">.</span><span class="n">geos_capi_version</span>
+<span class="go">(1, 7, 0)</span>
 </pre></div>
 </div>
 </div>
@@ -1852,9 +1882,9 @@ Journal for Geographic Information and Geovisualization,  vol. 10, Dec.
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="README.html" title="README"
+          <a href="project.html" title="README"
              >previous</a> |</li>
-        <li><a href="index.html">Shapely v1.2.15 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Shapely v1.2.16 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
