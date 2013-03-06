@@ -93,8 +93,7 @@
             
   <div class="section" id="readme">
 <h1>README<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h1>
-<p>Fiona is OGR&#8217;s neater API – sleek on the outside, indomitable power on the
-inside.</p>
+<p>Fiona is OGR&#8217;s neat, nimble, no-nonsense API.</p>
 <p>Fiona provides a minimal, uncomplicated Python interface to the open source GIS
 community&#8217;s most trusted geodata access library and integrates readily with
 other Python GIS packages such as <a class="reference external" href="http://pypi.python.org/pypi/pyproj/">pyproj</a>, <a class="reference external" href="http://pypi.python.org/pypi/Rtree/">Rtree</a>, and <a class="reference external" href="http://pypi.python.org/pypi/Shapely/">Shapely</a>.</p>
@@ -112,8 +111,9 @@ their geometries are just data.</p>
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p>Fiona requires Python 2.6+ and libgdal 1.3.2+. To build from a source
 distribution or repository clone you will need a C compiler and GDAL and Python
-development headers and libraries. There are no binary distributions or Windows
-support at this time.</p>
+development headers and libraries. While there are no official binary
+distributions or Windows support at this time, you can find Windows installers
+at <a class="reference external" href="http://www.lfd.uci.edu/%7Egohlke/pythonlibs/#fiona">http://www.lfd.uci.edu/%7Egohlke/pythonlibs/#fiona</a>.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -137,37 +137,43 @@ below (using <tt class="docutils literal"><span class="pre">git</span></tt>):</p
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>Records are read from and written to <tt class="docutils literal"><span class="pre">file</span></tt>-like collection objects. Records
-are mappings modeled on the GeoJSON format and if you want to do anything fancy
-with them you will probably need Shapely or something like it:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">fiona</span> <span class="kn">import</span> <span class="n">collection</span>
+<p>Records are read from and written to <tt class="docutils literal"><span class="pre">file</span></tt>-like <cite>Collection</cite> objects. Records
+are mappings modeled on the GeoJSON format. They don&#8217;t have any spatial methods
+of their own, so if you want to do anything fancy with them you will probably
+need Shapely or something like it. Here is an example of using Fiona to read
+some records from one data file, change their geometry attributes, and write
+them to a new data file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">fiona</span>
 
-<span class="c"># Open a source of features</span>
-<span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
+<span class="c"># Open a file for reading. We&#39;ll call this the &quot;source.&quot;</span>
+<span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
 
-    <span class="c"># Define a schema for the feature sink</span>
-    <span class="n">schema</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">schema</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Point&#39;</span>
+    <span class="c"># The file we&#39;ll write to, the &quot;sink&quot;, must be initialized with a</span>
+    <span class="c"># coordinate system, a format driver name, and a record schema.</span>
+    <span class="n">sink_schema</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">sink_schema</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Point&#39;</span>
 
-    <span class="c"># Open a new sink for features, using the same format driver</span>
-    <span class="c"># and coordinate reference system as the source.</span>
-    <span class="k">with</span> <span class="n">collection</span><span class="p">(</span>
-            <span class="s">&quot;test_write.shp&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
-            <span class="n">driver</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">crs</span>
+    <span class="c"># Open an output file, using the same format driver and coordinate</span>
+    <span class="c"># reference system as the source.</span>
+    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+            <span class="s">&#39;test_write.shp&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span>
+            <span class="n">crs</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">sink_schema</span><span class="p">,</span>
             <span class="p">)</span> <span class="k">as</span> <span class="n">sink</span><span class="p">:</span>
 
-        <span class="c"># Process only the features intersecting a box</span>
+        <span class="c"># Process only the records intersecting a box.</span>
         <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">source</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">bbox</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">)):</span>
 
-            <span class="c"># Get point on the boundary of the feature</span>
+            <span class="c"># Get a point on the boundary of the record&#39;s geometry.</span>
             <span class="n">f</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;Point&#39;</span><span class="p">,</span>
-                <span class="s">&#39;coordinates&#39;</span><span class="p">:</span> <span class="n">f</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">}</span>
+                <span class="s">&#39;coordinates&#39;</span><span class="p">:</span> <span class="n">f</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]}</span>
 
-            <span class="c"># Stage feature for writing</span>
+            <span class="c"># Write the record out.</span>
             <span class="n">sink</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-    <span class="c"># The sink shapefile is written to disk when its ``with`` block ends</span>
+    <span class="c"># The sink&#39;s contents are flushed to disk and the file is closed</span>
+    <span class="c"># when its ``with`` block ends. This effectively executes</span>
+    <span class="c"># ``sink.flush(); sink.close()``.</span>
 </pre></div>
 </div>
 </div>
@@ -230,7 +236,7 @@ U.S. National Endowment for the Humanities (<a class="reference external" href="
     </div>
     <div class="footer">
         &copy; Copyright 2011, Sean Gillies.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
