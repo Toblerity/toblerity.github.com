@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -73,6 +74,7 @@
 <li><a class="reference internal" href="#writing-new-files">1.6.2&nbsp;&nbsp;&nbsp;Writing New Files</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#references">1.7&nbsp;&nbsp;&nbsp;References</a></li>
 </ul>
 </li>
 </ul>
@@ -114,9 +116,9 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Revision:</th><td class="field-body">1.0</td>
+<tr class="field-even field"><th class="field-name">Revision:</th><td class="field-body">0.9</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">18 February 2012</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">7 March 2013</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
 United States License</a>.</td>
@@ -127,8 +129,8 @@ United States License</a>.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Abstract:</th><td class="field-body">Fiona is OGR&#8217;s neater API. This document explains how to use the Fiona
-package for reading and writing geospatial data files.</td>
+<tr class="field-odd field"><th class="field-name">Abstract:</th><td class="field-body">Fiona is OGR&#8217;s neat, nimble, no-nonsense API. This document explains how to
+use the Fiona package for reading and writing geospatial data files.</td>
 </tr>
 </tbody>
 </table>
@@ -204,7 +206,7 @@ the Fiona repository that we&#8217;ll use in this and other examples.</p>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="kn">from</span> <span class="nn">fiona</span> <span class="kn">import</span> <span class="n">collection</span>
+<span class="kn">import</span> <span class="nn">fiona</span>
 
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
@@ -220,20 +222,20 @@ the Fiona repository that we&#8217;ll use in this and other examples.</p>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">)))</span><span class="o">/</span><span class="mf">2.0</span>
 
 
-<span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
 
     <span class="c"># Copy the source schema and add two new properties.</span>
-    <span class="n">schema</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;s_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;float&#39;</span>
-    <span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;str&#39;</span>
+    <span class="n">sink_schema</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">sink_schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;s_area&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;float&#39;</span>
+    <span class="n">sink_schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;datetime&#39;</span>
 
     <span class="c"># Create a sink for processed features with the same format and</span>
     <span class="c"># coordinate reference system as the source.</span>
-    <span class="k">with</span> <span class="n">collection</span><span class="p">(</span>
-            <span class="s">&quot;oriented-ccw.shp&quot;</span><span class="p">,</span> <span class="s">&quot;w&quot;</span><span class="p">,</span>
-            <span class="n">driver</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span>
-            <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span>
+    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+            <span class="s">&#39;oriented-ccw.shp&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span>
             <span class="n">crs</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">crs</span>
+            <span class="n">driver</span><span class="o">=</span><span class="n">source</span><span class="o">.</span><span class="n">driver</span><span class="p">,</span>
+            <span class="n">schema</span><span class="o">=</span><span class="n">sink_schema</span><span class="p">,</span>
             <span class="p">)</span> <span class="k">as</span> <span class="n">sink</span><span class="p">:</span>
 
         <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
@@ -263,7 +265,7 @@ the Fiona repository that we&#8217;ll use in this and other examples.</p>
             <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
                 <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&quot;Error processing feature </span><span class="si">%s</span><span class="s">:&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">])</span>
 
-        <span class="c"># The sink collection is written to disk when its block ends</span>
+        <span class="c"># The sink file is written to disk and closed when its block ends.</span>
 </pre></div>
 </div>
 </div>
@@ -310,19 +312,21 @@ GeoJSON-like access to the data via Python file-like and mapping protocols.</p>
 </div>
 <div class="section" id="reading-vector-data">
 <h2>1.3&nbsp;&nbsp;&nbsp;Reading Vector Data<a class="headerlink" href="#reading-vector-data" title="Permalink to this headline">¶</a></h2>
-<p>Reading a GIS vector file begins by opening it in mode <tt class="docutils literal"><span class="pre">&quot;r&quot;</span></tt> using Fiona&#8217;s
-<tt class="xref py py-func docutils literal"><span class="pre">collection()</span></tt> function. It returns an opened
+<p>Reading a GIS vector file begins by opening it in mode <tt class="docutils literal"><span class="pre">'r'</span></tt> using Fiona&#8217;s
+<tt class="xref py py-func docutils literal"><span class="pre">open()</span></tt> function. It returns an opened
 <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> object.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fiona</span> <span class="kn">import</span> <span class="n">collection</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fiona</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">&lt;open Collection &#39;docs/data/test_uk.shp:test_uk&#39;, mode &#39;r&#39; at 0x3763d0&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">closed</span>
 <span class="go">False</span>
 </pre></div>
 </div>
-<div class="admonition-possible-api-change admonition">
-<p class="first admonition-title">Possible API Change</p>
-<p class="last"><tt class="xref py py-func docutils literal"><span class="pre">fiona.collection()</span></tt> may be renamed (or aliased) to
-<tt class="xref py py-func docutils literal"><span class="pre">fiona.open()</span></tt> in a future version.</p>
+<div class="admonition-api-change admonition">
+<p class="first admonition-title">API Change</p>
+<p class="last"><tt class="xref py py-func docutils literal"><span class="pre">fiona.collection()</span></tt> is deprecated, but aliased to
+<tt class="xref py py-func docutils literal"><span class="pre">fiona.open()</span></tt> in version 0.9.</p>
 </div>
 <p>Fiona&#8217;s <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> is like a Python
 <tt class="xref py py-class docutils literal"><span class="pre">file</span></tt>, but is iterable for records rather than lines.</p>
@@ -342,9 +346,9 @@ emptying it as with a Python <tt class="xref py py-class docutils literal"><span
 <span class="go">0</span>
 </pre></div>
 </div>
-<p>A future version of Fiona may (should?) allow you to seek records by their
-index, but for now you must reopen the collection to get back to the beginning.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+<p>Seeking the beginning of the file is not supported. You must reopen the
+collection to get back to the beginning.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 <span class="go">48</span>
 </pre></div>
@@ -357,7 +361,7 @@ allowing efficient bounding box searches. A collection&#8217;s
 records that intersect a given <tt class="docutils literal"><span class="pre">(minx,</span> <span class="pre">miny,</span> <span class="pre">maxx,</span> <span class="pre">maxy)</span></tt> bounding box. The
 collection&#8217;s own coordinate reference system (see below) is used to interpret
 the box&#8217;s values.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hits</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">bbox</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">hits</span><span class="p">))</span>
 <span class="go">7</span>
@@ -367,12 +371,12 @@ the box&#8217;s values.</p>
 <div class="section" id="closing-files">
 <h3>1.3.2&nbsp;&nbsp;&nbsp;Closing Files<a class="headerlink" href="#closing-files" title="Permalink to this headline">¶</a></h3>
 <p>A <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> involves external resources. There&#8217;s
-no guarantee that these will be released promptly unless you explictly
+no guarantee that these will be released unless you explictly
 <tt class="xref py py-meth docutils literal"><span class="pre">close()</span></tt> the object or use
 a <tt class="xref std std-keyword docutils literal"><span class="pre">with</span></tt> statement. When a <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> is
 a context guard, it is closed no matter what happens within the block.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
 <span class="gp">... </span>        <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 <span class="gp">... </span>        <span class="k">assert</span> <span class="bp">True</span> <span class="ow">is</span> <span class="bp">False</span>
 <span class="gp">... </span><span class="k">except</span><span class="p">:</span>
@@ -400,11 +404,11 @@ locked files, etc.</p>
 <div class="section" id="format-drivers-crs-bounds-and-schema">
 <h2>1.4&nbsp;&nbsp;&nbsp;Format Drivers, CRS, Bounds, and Schema<a class="headerlink" href="#format-drivers-crs-bounds-and-schema" title="Permalink to this headline">¶</a></h2>
 <p>In addition to attributes like those of <tt class="xref py py-class docutils literal"><span class="pre">file</span></tt>
-(<tt class="xref py py-attr docutils literal"><span class="pre">mode</span></tt>, <tt class="xref py py-attr docutils literal"><span class="pre">closed</span></tt>),
+(<tt class="xref py py-attr docutils literal"><span class="pre">name</span></tt>, <tt class="xref py py-attr docutils literal"><span class="pre">mode</span></tt>, <tt class="xref py py-attr docutils literal"><span class="pre">closed</span></tt>),
 a <tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt> has a read-only
 <tt class="xref py py-attr docutils literal"><span class="pre">driver</span></tt> attribute which names the
 <strong class="program">OGR</strong> <em class="dfn">format driver</em> used to open the vector file.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">driver</span>
 <span class="go">&#39;ESRI Shapefile&#39;</span>
 </pre></div>
@@ -429,13 +433,6 @@ records is obtained via a read-only
 <span class="go">(-8.6213890000000006, 49.911659, 1.749444, 60.844444000000003)</span>
 </pre></div>
 </div>
-<div class="admonition-note admonition">
-<p class="first admonition-title">Note</p>
-<p class="last">Getting the length or bounds of a collection (or closing a collection) has
-the side effect of flushing any written records to the file on disk. You
-may also call <tt class="xref py py-meth docutils literal"><span class="pre">flush()</span></tt> in your code.
-It does nothing when there are no written records.</p>
-</div>
 <p>Finally, the schema of its record type (a vector file has a single type of
 record, remember) is accessed via a read-only
 <tt class="xref py py-attr docutils literal"><span class="pre">schema</span></tt> attribute.</p>
@@ -447,24 +444,6 @@ record, remember) is accessed via a read-only
 <span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
 <span class="go">                &#39;FIPS_CNTRY&#39;: &#39;str&#39;,</span>
 <span class="go">                &#39;POP_CNTRY&#39;: &#39;float&#39;}}</span>
-</pre></div>
-</div>
-<p>The <tt class="docutils literal"><span class="pre">bounds</span></tt>, <tt class="docutils literal"><span class="pre">crs</span></tt>, <tt class="docutils literal"><span class="pre">driver</span></tt>, and <tt class="docutils literal"><span class="pre">schema</span></tt> properties are both lazy
-and sticky, meaning that the values stick around even after the file is closed.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">bounds</span>
-<span class="go">(-8.6213890000000006, 49.911659, 1.749444, 60.844444000000003)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">bounds</span>
-<span class="go">(-8.6213890000000006, 49.911659, 1.749444, 60.844444000000003)</span>
-</pre></div>
-</div>
-<p>However, if the file is closed before the property was computed the property
-remains in a meaningless state.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">bounds</span> <span class="ow">is</span> <span class="bp">None</span>
-<span class="go">True</span>
 </pre></div>
 </div>
 <div class="section" id="keeping-schemas-simple">
@@ -507,6 +486,11 @@ field type name is &#8216;str&#8217;.</p>
 <span class="go">&lt;type &#39;unicode&#39;&gt;</span>
 </pre></div>
 </div>
+<p>String type fields may also indicate their maximum width. A value of &#8216;str:25&#8217;
+indicates that all values will be no longer than 25 characters. If this value
+is used in the schema of a file opened for writing, values of that property
+will be truncated at 25 characters. The default width is 80 chars, which means
+&#8216;str&#8217; and &#8216;str:80&#8217; are more or less equivalent.</p>
 </div>
 </div>
 <div class="section" id="records">
@@ -552,7 +536,7 @@ Closing the collection does not affect the record at all.</p>
 <h3>1.5.1&nbsp;&nbsp;&nbsp;Record Id<a class="headerlink" href="#record-id" title="Permalink to this headline">¶</a></h3>
 <p>A record has an <tt class="docutils literal"><span class="pre">id</span></tt> key. As in the GeoJSON specification, its corresponding
 value is a string unique within the data file.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span>
 <span class="go">&#39;0&#39;</span>
@@ -651,7 +635,8 @@ or, for other projected coordinate systems, (easting, northing).</p>
 <div class="admonition-long-lat-not-lat-long admonition">
 <p class="first admonition-title">Long-Lat, not Lat-Long</p>
 <p class="last">Even though most of us say &#8220;lat, long&#8221; out loud, Fiona&#8217;s <tt class="docutils literal"><span class="pre">x,y</span></tt> is always
-easting, northing, which means (long, lat). Longitude first, latitude second.</p>
+easting, northing, which means <tt class="docutils literal"><span class="pre">(long,</span> <span class="pre">lat)</span></tt>. Longitude first and latitude
+second, consistent with the GeoJSON format specification.</p>
 </div>
 </div>
 <div class="section" id="point-set-theory-and-simple-features">
@@ -691,8 +676,8 @@ yours from a clean source.</p>
 </div>
 <div class="section" id="writing-vector-data">
 <h2>1.6&nbsp;&nbsp;&nbsp;Writing Vector Data<a class="headerlink" href="#writing-vector-data" title="Permalink to this headline">¶</a></h2>
-<p>A vector file can be opened for writing in mode <tt class="docutils literal"><span class="pre">&quot;a&quot;</span></tt> (append) or mode
-<tt class="docutils literal"><span class="pre">&quot;w&quot;</span></tt> (write).</p>
+<p>A vector file can be opened for writing in mode <tt class="docutils literal"><span class="pre">'a'</span></tt> (append) or mode
+<tt class="docutils literal"><span class="pre">'w'</span></tt> (write).</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title">Note</p>
 <p class="last">The in situ &#8220;update&#8221; mode of <strong class="program">OGR</strong> is quite format dependent
@@ -700,11 +685,24 @@ and is therefore not supported by Fiona.</p>
 </div>
 <div class="section" id="appending-data-to-existing-files">
 <h3>1.6.1&nbsp;&nbsp;&nbsp;Appending Data to Existing Files<a class="headerlink" href="#appending-data-to-existing-files" title="Permalink to this headline">¶</a></h3>
-<p>Details TODO.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<p>Let&#8217;s start with the simplest if not most common use case, adding new records
+to an existing file. The file is copied before modification and a suitable
+record extracted in the example below.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">rec</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;-1&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">u&#39;Gondor&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;cp docs/data/test_uk.* /tmp&quot;</span><span class="p">)</span>
 <span class="go">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;/tmp/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>The coordinate reference system. format, and schema of the file are already
+defined, so it&#8217;s opened with just two arguments as for reading, but in <tt class="docutils literal"><span class="pre">'a'</span></tt>
+mode. The new record is written to the end of the file using the
+<tt class="xref py py-meth docutils literal"><span class="pre">write()</span></tt> method. Accordingly, the length
+of the file grows from 48 to 49.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;/tmp/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="n">c</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
@@ -713,16 +711,9 @@ and is therefore not supported by Fiona.</p>
 <span class="go">49</span>
 </pre></div>
 </div>
-<p>The count of records remains even after the collection is closed.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">closed</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="go">49</span>
-</pre></div>
-</div>
 <p>The record you write must match the file&#8217;s schema (because a file contains one
 type of record, remember). You&#8217;ll get a <tt class="xref py py-class docutils literal"><span class="pre">ValueError</span></tt> if it doesn&#8217;t.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;/tmp/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;/tmp/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">c</span><span class="o">.</span><span class="n">write</span><span class="p">({</span><span class="s">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="s">&#39;bar&#39;</span><span class="p">}})</span>
 <span class="gp">...</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -730,30 +721,45 @@ type of record, remember). You&#8217;ll get a <tt class="xref py py-class docuti
 <span class="gr">ValueError</span>: <span class="n">Record data not match collection schema</span>
 </pre></div>
 </div>
+<p>Now, what about record ids? The id of a record written to a file is ignored and
+replaced by the next value appropriate for the file. If you read the file just
+appended to above,</p>
+<p>You&#8217;ll see that the id of <tt class="docutils literal"><span class="pre">'-1'</span></tt> which the record had when written is
+replaced by <tt class="docutils literal"><span class="pre">'48'</span></tt>.</p>
 <p>The <tt class="xref py py-meth docutils literal"><span class="pre">write()</span></tt> method writes a single
 record to the collection&#8217;s file. Its sibling
 <tt class="xref py py-meth docutils literal"><span class="pre">writerecords()</span></tt> writes a sequence (or
 iterator) of records.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;/tmp/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;/tmp/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">c</span><span class="o">.</span><span class="n">writerecords</span><span class="p">([</span><span class="n">rec</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="n">rec</span><span class="p">])</span>
 <span class="gp">... </span>    <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">52</span>
 </pre></div>
 </div>
+<div class="admonition-duplication admonition">
+<p class="first admonition-title">Duplication</p>
+<p class="last">Fiona&#8217;s collections do not guard against duplication. The code above will
+write 3 duplicate records to the file, and they will be given unique
+sequential ids.</p>
+</div>
 <div class="admonition-buffering admonition">
 <p class="first admonition-title">Buffering</p>
 <p class="last">Fiona&#8217;s output is buffered. The records passed to <tt class="xref py py-meth docutils literal"><span class="pre">write()</span></tt> and
 <tt class="xref py py-meth docutils literal"><span class="pre">writerecords()</span></tt> are flushed to disk when the collection is closed.
-This means that writing large files is memory intensive. Work is planned to
-make output more efficient by the 1.0 release.</p>
+You may also call <tt class="xref py py-meth docutils literal"><span class="pre">flush()</span></tt> periodically to write the buffer contents
+to disk.</p>
 </div>
 </div>
 <div class="section" id="writing-new-files">
 <h3>1.6.2&nbsp;&nbsp;&nbsp;Writing New Files<a class="headerlink" href="#writing-new-files" title="Permalink to this headline">¶</a></h3>
-<p>Details TODO.</p>
+<p>Writing a new file is more complex than appending to an existing file because
+the file CRS, format, and schema have not yet been defined and must be done so
+by the programmer. Still, it&#8217;s not very complicated. A schema is just a mapping,
+as described above. A CRS is also just a mapping, and the possible formats are
+enumerated in the <tt class="xref py py-attr docutils literal"><span class="pre">fiona.drivers</span></tt> list.</p>
 <p>Copy the parameters of our demo file.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">collection</span><span class="p">(</span><span class="s">&quot;docs/data/test_uk.shp&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">source_driver</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">driver</span>
 <span class="gp">... </span>    <span class="n">source_crs</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">crs</span>
 <span class="gp">... </span>    <span class="n">source_schema</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">schema</span>
@@ -772,9 +778,9 @@ make output more efficient by the 1.0 release.</p>
 </pre></div>
 </div>
 <p>And now create a new file using them.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">collection</span><span class="p">(</span>
-<span class="gp">... </span>        <span class="s">&quot;/tmp/foo.shp&quot;</span><span class="p">,</span>
-<span class="gp">... </span>        <span class="s">&quot;w&quot;</span><span class="p">,</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="s">&#39;/tmp/foo.shp&#39;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="s">&#39;w&#39;</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="n">driver</span><span class="o">=</span><span class="n">source_driver</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="n">crs</span><span class="o">=</span><span class="n">source_crs</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="n">schema</span><span class="o">=</span><span class="n">source_schema</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
@@ -790,6 +796,16 @@ make output more efficient by the 1.0 release.</p>
 <span class="go">1</span>
 </pre></div>
 </div>
+<p>The <tt class="xref py py-attr docutils literal"><span class="pre">meta</span></tt> attribute makes duplication of
+a file&#8217;s meta properties even easier.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sink</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;/tmp/foo.shp&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">source</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>1.7&nbsp;&nbsp;&nbsp;References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <table class="docutils citation" frame="void" id="kent1978" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -822,7 +838,6 @@ make output more efficient by the 1.0 release.</p>
 </table>
 </div>
 </div>
-</div>
 
 
           </div>
@@ -844,7 +859,7 @@ make output more efficient by the 1.0 release.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Sean Gillies.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
