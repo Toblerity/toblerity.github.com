@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>1   The Fiona User Manual &mdash; Fiona 1.0 documentation</title>
+    <title>1   The Fiona User Manual &mdash; Fiona 0.10 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0',
+        VERSION:     '0.10',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Fiona 1.0 documentation" href="index.html" />
+    <link rel="top" title="Fiona 0.10 documentation" href="index.html" />
     <link rel="prev" title="README" href="README.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="README.html" title="README"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Fiona 0.10 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -60,6 +60,7 @@
 <li><a class="reference internal" href="#format-drivers-crs-bounds-and-schema">1.4&nbsp;&nbsp;&nbsp;Format Drivers, CRS, Bounds, and Schema</a><ul>
 <li><a class="reference internal" href="#keeping-schemas-simple">1.4.1&nbsp;&nbsp;&nbsp;Keeping Schemas Simple</a></li>
 <li><a class="reference internal" href="#field-types">1.4.2&nbsp;&nbsp;&nbsp;Field Types</a></li>
+<li><a class="reference internal" href="#geometry-types">1.4.3&nbsp;&nbsp;&nbsp;Geometry Types</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#records">1.5&nbsp;&nbsp;&nbsp;Records</a><ul>
@@ -72,6 +73,7 @@
 <li><a class="reference internal" href="#writing-vector-data">1.6&nbsp;&nbsp;&nbsp;Writing Vector Data</a><ul>
 <li><a class="reference internal" href="#appending-data-to-existing-files">1.6.1&nbsp;&nbsp;&nbsp;Appending Data to Existing Files</a></li>
 <li><a class="reference internal" href="#writing-new-files">1.6.2&nbsp;&nbsp;&nbsp;Writing New Files</a></li>
+<li><a class="reference internal" href="#coordinates-and-geometry-types">1.6.3&nbsp;&nbsp;&nbsp;Coordinates and Geometry Types</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#references">1.7&nbsp;&nbsp;&nbsp;References</a></li>
@@ -116,11 +118,9 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Revision:</th><td class="field-body">0.9</td>
+<tr class="field-even field"><th class="field-name">Date:</th><td class="field-body">23 March 2013</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">7 March 2013</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
+<tr class="field-odd field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
 United States License</a>.</td>
 </tr>
 </tbody>
@@ -353,6 +353,15 @@ collection to get back to the beginning.</p>
 <span class="go">48</span>
 </pre></div>
 </div>
+<div class="admonition-file-encoding admonition">
+<p class="first admonition-title">File Encoding</p>
+<p>The format drivers will attempt to detect the encoding of your data, but may
+fail. In my experience GDAL 1.7.2 (for example) doesn&#8217;t detect that the
+encoding of the Natural Earth dataset is Windows-1252. In this case, the
+proper encoding can be specified explicitly by using the <tt class="docutils literal"><span class="pre">encoding</span></tt>
+keyword parameter of <tt class="xref py py-func docutils literal"><span class="pre">fiona.open()</span></tt>: <tt class="docutils literal"><span class="pre">encoding='Windows-1252'</span></tt>.</p>
+<p class="last">New in version 0.9.1.</p>
+</div>
 <div class="section" id="filtering">
 <h3>1.3.1&nbsp;&nbsp;&nbsp;Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h3>
 <p>With some vector data formats a spatial index accompanies the data file,
@@ -420,14 +429,33 @@ accessed via a read-only <tt class="xref py py-attr docutils literal"><span clas
 </pre></div>
 </div>
 <p>The CRS is represented by a mapping of <strong class="program">PROJ.4</strong> parameters.</p>
-<p>The number of records in the collection&#8217;s file can be obtained via Python&#8217;s built
-in <tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt> function.</p>
+<p>The <tt class="xref py py-mod docutils literal"><span class="pre">fiona.crs</span></tt> module provides 3 functions to assist with these
+mappings. <tt class="xref py py-func docutils literal"><span class="pre">to_string()</span></tt> converts mappings to PROJ.4 strings:</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fiona.crs</span> <span class="kn">import</span> <span class="n">to_string</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="go">+datum=WGS84 +ellps=WGS84 +no_defs +proj=longlat</span>
+</pre></div>
+</div>
+<p><tt class="xref py py-func docutils literal"><span class="pre">from_string()</span></tt> does the inverse.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fiona.crs</span> <span class="kn">import</span> <span class="n">from_string</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">from_string</span><span class="p">(</span><span class="s">&quot;+datum=WGS84 +ellps=WGS84 +no_defs +proj=longlat&quot;</span><span class="p">)</span>
+<span class="go">{&#39;no_defs&#39;: True, &#39;ellps&#39;: &#39;WGS84&#39;, &#39;datum&#39;: &#39;WGS84&#39;, &#39;proj&#39;: &#39;longlat&#39;}</span>
+</pre></div>
+</div>
+<p><tt class="xref py py-func docutils literal"><span class="pre">from_epsg()</span></tt> is a shortcut to CRS mappings from EPSG codes.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fiona.crs</span> <span class="kn">import</span> <span class="n">from_epsg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">from_epsg</span><span class="p">(</span><span class="mi">3857</span><span class="p">)</span>
+<span class="go">{&#39;init&#39;: &#39;epsg:3857&#39;, &#39;no_defs&#39;: True}</span>
+</pre></div>
+</div>
+<p>The number of records in the collection&#8217;s file can be obtained via Python&#8217;s
+built in <tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt> function.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="go">48</span>
 </pre></div>
 </div>
-<p>The <em class="dfn">minimum bounding rectangle</em> (MBR) or <em class="dfn">bounds</em> of the collection&#8217;s
-records is obtained via a read-only
+<p>The <em class="dfn">minimum bounding rectangle</em> (MBR) or <em class="dfn">bounds</em> of the
+collection&#8217;s records is obtained via a read-only
 <tt class="xref py py-attr docutils literal"><span class="pre">bounds</span></tt> attribute.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">bounds</span>
 <span class="go">(-8.6213890000000006, 49.911659, 1.749444, 60.844444000000003)</span>
@@ -474,10 +502,10 @@ be found in a dictionary named <tt class="xref py py-attr docutils literal"><spa
 </div>
 <div class="section" id="field-types">
 <h3>1.4.2&nbsp;&nbsp;&nbsp;Field Types<a class="headerlink" href="#field-types" title="Permalink to this headline">¶</a></h3>
-<p>TODO: details. In a nutshell, the types and their names are as near to what you&#8217;d
-expect in Python (or Javascript) as possible. The &#8216;str&#8217; vs &#8216;unicode&#8217; muddle is
-a fact of life in Python &lt; 3.0. Fiona records have Unicode strings, but their
-field type name is &#8216;str&#8217;.</p>
+<p>TODO: details. In a nutshell, the types and their names are as near to what
+you&#8217;d expect in Python (or Javascript) as possible. The &#8216;str&#8217; vs &#8216;unicode&#8217;
+muddle is a fact of life in Python &lt; 3.0. Fiona records have Unicode strings,
+but their field type name is &#8216;str&#8217;.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">])</span>
 <span class="go">&lt;type &#39;unicode&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]</span>
@@ -491,6 +519,45 @@ indicates that all values will be no longer than 25 characters. If this value
 is used in the schema of a file opened for writing, values of that property
 will be truncated at 25 characters. The default width is 80 chars, which means
 &#8216;str&#8217; and &#8216;str:80&#8217; are more or less equivalent.</p>
+<p>Fiona provides a function to get the width of properties.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fiona</span> <span class="kn">import</span> <span class="n">prop_width</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prop_width</span><span class="p">(</span><span class="s">&#39;str:25&#39;</span><span class="p">)</span>
+<span class="go">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prop_width</span><span class="p">(</span><span class="s">&#39;str&#39;</span><span class="p">)</span>
+<span class="go">80</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="geometry-types">
+<h3>1.4.3&nbsp;&nbsp;&nbsp;Geometry Types<a class="headerlink" href="#geometry-types" title="Permalink to this headline">¶</a></h3>
+<p>Fiona supports the geometry types in GeoJSON and their 3D variants. This means
+that the value of a schema&#8217;s geometry item will be one of the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Point</li>
+<li>LineString</li>
+<li>Polygon</li>
+<li>MultiPoint</li>
+<li>MultiLineString</li>
+<li>MultiPolygon</li>
+<li>GeometryCollection</li>
+<li>3D Point</li>
+<li>3D LineString</li>
+<li>3D Polygon</li>
+<li>3D MultiPoint</li>
+<li>3D MultiLineString</li>
+<li>3D MultiPolygon</li>
+<li>3D GeometryCollection</li>
+</ul>
+</div></blockquote>
+<p>The last seven of these, the 3D types, apply only to collection schema. The
+geometry types of features are always one of the first seven. A &#8216;3D Point&#8217;
+collection, for example, always has features with geometry type &#8216;Point&#8217;. The
+coordinates of those geometries will be (x, y, z) tuples.</p>
+<p>Note that one of the most common vector data formats, Esri&#8217;s Shapefile, has no
+&#8216;MultiLineString&#8217; or &#8216;MultiPolygon&#8217; schema geometries. However, a Shapefile
+that indicates &#8216;Polygon&#8217; in its schema may yield either &#8216;Polygon&#8217; or
+&#8216;MultiPolygon&#8217; features.</p>
 </div>
 </div>
 <div class="section" id="records">
@@ -498,8 +565,8 @@ will be truncated at 25 characters. The default width is 80 chars, which means
 <p>A record you get from a collection is a Python <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt> structured
 exactly like a GeoJSON Feature. Fiona records are self-describing; the names of
 its fields are contained within the data structure and the values in the fields
-are typed properly for the type of record. Numeric field values are instances of
-type <tt class="xref py py-class docutils literal"><span class="pre">int</span></tt> and <tt class="xref py py-class docutils literal"><span class="pre">float</span></tt>, for example, not strings.</p>
+are typed properly for the type of record. Numeric field values are instances
+of type <tt class="xref py py-class docutils literal"><span class="pre">int</span></tt> and <tt class="xref py py-class docutils literal"><span class="pre">float</span></tt>, for example, not strings.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>
 <span class="go">{&#39;geometry&#39;: {&#39;coordinates&#39;: [[(-4.6636110000000004, 51.158332999999999),</span>
 <span class="go">                               (-4.669168, 51.159438999999999),</span>
@@ -666,11 +733,11 @@ Features Access) installed, you can see this in by verifying the following.</p>
 </div>
 <div class="admonition-dirty-data admonition">
 <p class="first admonition-title">Dirty data</p>
-<p class="last">Some files may contain vectors that are <em class="dfn">invalid</em> from a simple features
-standpoint due to accident (inadequate quality control on the producer&#8217;s end)
-or intention (&#8220;dirty&#8221; vectors saved to a file for special treatment). Fiona
-doesn&#8217;t sniff for or attempt to clean dirty data, so make sure you&#8217;re getting
-yours from a clean source.</p>
+<p class="last">Some files may contain vectors that are <em class="dfn">invalid</em> from a simple
+features standpoint due to accident (inadequate quality control on the
+producer&#8217;s end) or intention (&#8220;dirty&#8221; vectors saved to a file for special
+treatment). Fiona doesn&#8217;t sniff for or attempt to clean dirty data, so make
+sure you&#8217;re getting yours from a clean source.</p>
 </div>
 </div>
 </div>
@@ -724,6 +791,14 @@ type of record, remember). You&#8217;ll get a <tt class="xref py py-class docuti
 <p>Now, what about record ids? The id of a record written to a file is ignored and
 replaced by the next value appropriate for the file. If you read the file just
 appended to above,</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;/tmp/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">records</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">records</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">]</span>
+<span class="go">&#39;48&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">records</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]</span>
+<span class="go">u&#39;Gondor&#39;</span>
+</pre></div>
+</div>
 <p>You&#8217;ll see that the id of <tt class="docutils literal"><span class="pre">'-1'</span></tt> which the record had when written is
 replaced by <tt class="docutils literal"><span class="pre">'48'</span></tt>.</p>
 <p>The <tt class="xref py py-meth docutils literal"><span class="pre">write()</span></tt> method writes a single
@@ -755,9 +830,9 @@ to disk.</p>
 <h3>1.6.2&nbsp;&nbsp;&nbsp;Writing New Files<a class="headerlink" href="#writing-new-files" title="Permalink to this headline">¶</a></h3>
 <p>Writing a new file is more complex than appending to an existing file because
 the file CRS, format, and schema have not yet been defined and must be done so
-by the programmer. Still, it&#8217;s not very complicated. A schema is just a mapping,
-as described above. A CRS is also just a mapping, and the possible formats are
-enumerated in the <tt class="xref py py-attr docutils literal"><span class="pre">fiona.drivers</span></tt> list.</p>
+by the programmer. Still, it&#8217;s not very complicated. A schema is just
+a mapping, as described above. A CRS is also just a mapping, and the possible
+formats are enumerated in the <tt class="xref py py-attr docutils literal"><span class="pre">fiona.drivers</span></tt> list.</p>
 <p>Copy the parameters of our demo file.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">source_driver</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">driver</span>
@@ -802,6 +877,13 @@ a file&#8217;s meta properties even easier.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sink</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;/tmp/foo.shp&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">source</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="coordinates-and-geometry-types">
+<h3>1.6.3&nbsp;&nbsp;&nbsp;Coordinates and Geometry Types<a class="headerlink" href="#coordinates-and-geometry-types" title="Permalink to this headline">¶</a></h3>
+<p>If you write 3D coordinates, ones having (x, y, z) tuples, to a 2D file
+(&#8216;Point&#8217; schema geometry, for example) the z values will be lost.</p>
+<p>If you write 2D coordinates, ones having only (x, y) tuples, to a 3D file (&#8216;3D
+Point&#8217; schema geometry, for example) a default z value of 0 will be provided.</p>
 </div>
 </div>
 <div class="section" id="references">
@@ -854,7 +936,7 @@ a file&#8217;s meta properties even easier.</p>
         <li class="right" >
           <a href="README.html" title="README"
              >previous</a> |</li>
-        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Fiona 0.10 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
