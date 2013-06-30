@@ -1,27 +1,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>README &mdash; Shapely v1.2.16 documentation</title>
+    <title>Shapely &mdash; Shapely 1.2.18 documentation</title>
+    
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '#',
-        VERSION:     '1.2.16',
-        COLLAPSE_MODINDEX: false,
+        URL_ROOT:    './',
+        VERSION:     '1.2.18',
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Shapely v1.2.16 documentation" href="index.html" />
+    <link rel="top" title="Shapely 1.2.18 documentation" href="index.html" />
     <link rel="next" title="The Shapely User Manual" href="manual.html" />
-    <link rel="prev" title="Welcome to Shapely’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Shapely Documentation Contents" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -31,100 +35,104 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="manual.html" title="The Shapely User Manual"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Shapely’s documentation!"
+          <a href="index.html" title="Shapely Documentation Contents"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Shapely v1.2.16 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="#">README</a><ul>
-<li><a class="reference external" href="#dependencies">Dependencies</a></li>
-<li><a class="reference external" href="#installation">Installation</a></li>
-<li><a class="reference external" href="#usage">Usage</a></li>
-<li><a class="reference external" href="#integration">Integration</a></li>
-<li><a class="reference external" href="#testing">Testing</a></li>
-<li><a class="reference external" href="#support">Support</a></li>
-<li><a class="reference external" href="#credits">Credits</a></li>
-<li><a class="reference external" href="#changes">Changes</a><ul>
-<li><a class="reference external" href="#id2">1.2.16 (2012-09-18)</a></li>
-<li><a class="reference external" href="#id3">1.2.15 (2012-06-27)</a></li>
-<li><a class="reference external" href="#id4">1.2.14 (2012-01-23)</a></li>
-<li><a class="reference external" href="#id5">1.2.13 (2011-09-16)</a></li>
-<li><a class="reference external" href="#id6">1.2.12 (2011-08-15)</a></li>
-<li><a class="reference external" href="#id7">1.2.11 (2011-08-04)</a></li>
-<li><a class="reference external" href="#id8">1.2.10 (2011-05-09)</a></li>
-<li><a class="reference external" href="#id9">1.2.9 (2011-03-31)</a></li>
-<li><a class="reference external" href="#id10">1.2.8 (2011-12-03)</a></li>
-<li><a class="reference external" href="#id11">1.2.7 (2010-11-05)</a></li>
-<li><a class="reference external" href="#id12">1.2.6 (2010-10-21)</a></li>
-<li><a class="reference external" href="#id13">1.2.5 (2010-09-19)</a></li>
-<li><a class="reference external" href="#id14">1.2.4 (2010-09-09)</a></li>
-<li><a class="reference external" href="#id15">1.2.3 (2010-08-17)</a></li>
-<li><a class="reference external" href="#id16">1.2.2 (2010-07-23)</a></li>
-<li><a class="reference external" href="#id17">1.2.1 (2010-06-23)</a></li>
-<li><a class="reference external" href="#id18">1.2 (2010-05-27)</a></li>
-<li><a class="reference external" href="#rc2-2010-05-26">1.2rc2 (2010-05-26)</a></li>
-<li><a class="reference external" href="#rc1-2010-05-25">1.2rc1 (2010-05-25)</a></li>
-<li><a class="reference external" href="#b7-2010-04-22">1.2b7 (2010-04-22)</a></li>
-<li><a class="reference external" href="#b6-2010-04-13">1.2b6 (2010-04-13)</a></li>
-<li><a class="reference external" href="#b5-2010-04-09">1.2b5 (2010-04-09)</a></li>
-<li><a class="reference external" href="#b4-2010-03-19">1.2b4 (2010-03-19)</a></li>
-<li><a class="reference external" href="#b3-2010-02-28">1.2b3 (2010-02-28)</a></li>
-<li><a class="reference external" href="#b2-2010-02-19">1.2b2 (2010-02-19)</a></li>
-<li><a class="reference external" href="#b1-2010-02-18">1.2b1 (2010-02-18)</a></li>
-<li><a class="reference external" href="#a6-2010-02-09">1.2a6 (2010-02-09)</a></li>
-<li><a class="reference external" href="#a1-2010-01-20">1.2a1 (2010-01-20)</a></li>
-<li><a class="reference external" href="#id19">1.0.12 (2009-04-09)</a></li>
-<li><a class="reference external" href="#id20">1.0.11 (2008-11-20)</a></li>
-<li><a class="reference external" href="#id21">1.0.10 (2008-11-17)</a></li>
-<li><a class="reference external" href="#id22">1.0.9 (2008-11-16)</a></li>
-<li><a class="reference external" href="#id23">1.0.8 (2008-11-01)</a></li>
-<li><a class="reference external" href="#id24">1.0.7 (2008-08-22)</a></li>
-<li><a class="reference external" href="#id25">1.0.6 (2008-07-10)</a></li>
-<li><a class="reference external" href="#id26">1.0.5 (2008-05-20)</a></li>
-<li><a class="reference external" href="#id27">1.0.4 (2008-05-01)</a></li>
-<li><a class="reference external" href="#id28">1.0.3 (2008-04-09)</a></li>
-<li><a class="reference external" href="#id29">1.0.2 (2008-02-26)</a></li>
-<li><a class="reference external" href="#id30">1.0.1 (2008-02-08)</a></li>
-<li><a class="reference external" href="#id31">1.0 (2008-01-18)</a></li>
-<li><a class="reference external" href="#rc2-2008-01-16">1.0 RC2 (2008-01-16)</a></li>
-<li><a class="reference external" href="#rc1-2008-01-14">1.0 RC1 (2008-01-14)</a></li>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Shapely</a><ul>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#integration">Integration</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#support">Support</a></li>
+<li><a class="reference internal" href="#changes">Changes</a><ul>
+<li><a class="reference internal" href="#coming-soon">1.2.18 (Coming Soon)</a></li>
+<li><a class="reference internal" href="#id1">1.2.17 (2013-01-27)</a></li>
+<li><a class="reference internal" href="#id2">1.2.16 (2012-09-18)</a></li>
+<li><a class="reference internal" href="#id3">1.2.15 (2012-06-27)</a></li>
+<li><a class="reference internal" href="#id4">1.2.14 (2012-01-23)</a></li>
+<li><a class="reference internal" href="#id5">1.2.13 (2011-09-16)</a></li>
+<li><a class="reference internal" href="#id6">1.2.12 (2011-08-15)</a></li>
+<li><a class="reference internal" href="#id7">1.2.11 (2011-08-04)</a></li>
+<li><a class="reference internal" href="#id8">1.2.10 (2011-05-09)</a></li>
+<li><a class="reference internal" href="#id9">1.2.9 (2011-03-31)</a></li>
+<li><a class="reference internal" href="#id10">1.2.8 (2011-12-03)</a></li>
+<li><a class="reference internal" href="#id11">1.2.7 (2010-11-05)</a></li>
+<li><a class="reference internal" href="#id12">1.2.6 (2010-10-21)</a></li>
+<li><a class="reference internal" href="#id13">1.2.5 (2010-09-19)</a></li>
+<li><a class="reference internal" href="#id14">1.2.4 (2010-09-09)</a></li>
+<li><a class="reference internal" href="#id15">1.2.3 (2010-08-17)</a></li>
+<li><a class="reference internal" href="#id16">1.2.2 (2010-07-23)</a></li>
+<li><a class="reference internal" href="#id17">1.2.1 (2010-06-23)</a></li>
+<li><a class="reference internal" href="#id18">1.2 (2010-05-27)</a></li>
+<li><a class="reference internal" href="#rc2-2010-05-26">1.2rc2 (2010-05-26)</a></li>
+<li><a class="reference internal" href="#rc1-2010-05-25">1.2rc1 (2010-05-25)</a></li>
+<li><a class="reference internal" href="#b7-2010-04-22">1.2b7 (2010-04-22)</a></li>
+<li><a class="reference internal" href="#b6-2010-04-13">1.2b6 (2010-04-13)</a></li>
+<li><a class="reference internal" href="#b5-2010-04-09">1.2b5 (2010-04-09)</a></li>
+<li><a class="reference internal" href="#b4-2010-03-19">1.2b4 (2010-03-19)</a></li>
+<li><a class="reference internal" href="#b3-2010-02-28">1.2b3 (2010-02-28)</a></li>
+<li><a class="reference internal" href="#b2-2010-02-19">1.2b2 (2010-02-19)</a></li>
+<li><a class="reference internal" href="#b1-2010-02-18">1.2b1 (2010-02-18)</a></li>
+<li><a class="reference internal" href="#a6-2010-02-09">1.2a6 (2010-02-09)</a></li>
+<li><a class="reference internal" href="#a1-2010-01-20">1.2a1 (2010-01-20)</a></li>
+<li><a class="reference internal" href="#id19">1.0.12 (2009-04-09)</a></li>
+<li><a class="reference internal" href="#id20">1.0.11 (2008-11-20)</a></li>
+<li><a class="reference internal" href="#id21">1.0.10 (2008-11-17)</a></li>
+<li><a class="reference internal" href="#id22">1.0.9 (2008-11-16)</a></li>
+<li><a class="reference internal" href="#id23">1.0.8 (2008-11-01)</a></li>
+<li><a class="reference internal" href="#id24">1.0.7 (2008-08-22)</a></li>
+<li><a class="reference internal" href="#id25">1.0.6 (2008-07-10)</a></li>
+<li><a class="reference internal" href="#id26">1.0.5 (2008-05-20)</a></li>
+<li><a class="reference internal" href="#id27">1.0.4 (2008-05-01)</a></li>
+<li><a class="reference internal" href="#id28">1.0.3 (2008-04-09)</a></li>
+<li><a class="reference internal" href="#id29">1.0.2 (2008-02-26)</a></li>
+<li><a class="reference internal" href="#id30">1.0.1 (2008-02-08)</a></li>
+<li><a class="reference internal" href="#id31">1.0 (2008-01-18)</a></li>
+<li><a class="reference internal" href="#rc2-2008-01-16">1.0 RC2 (2008-01-16)</a></li>
+<li><a class="reference internal" href="#rc1-2008-01-14">1.0 RC1 (2008-01-14)</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="index.html"
-                                  title="previous chapter">Welcome to Shapely&#8217;s documentation!</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="manual.html"
-                                  title="next chapter">The Shapely User Manual</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/project.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Shapely Documentation Contents</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="manual.html"
+                        title="next chapter">The Shapely User Manual</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/project.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -133,11 +141,11 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="readme">
-<h1>README<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="shapely">
+<h1>Shapely<a class="headerlink" href="#shapely" title="Permalink to this headline">¶</a></h1>
 <p>PostGIS-ish operations outside a database context for Pythoneers and
 Pythonistas.</p>
-<img alt="_images/4511827859_b5822043b7_o.png" src="_images/4511827859_b5822043b7_o.png" style="width: 800px; height: 400px;" />
+<a class="reference internal image-reference" href="http://farm3.staticflickr.com/2738/4511827859_b5822043b7_o_d.png"><img alt="http://farm3.staticflickr.com/2738/4511827859_b5822043b7_o_d.png" src="http://farm3.staticflickr.com/2738/4511827859_b5822043b7_o_d.png" style="width: 800px; height: 400px;" /></a>
 <p>Shapely is a BSD-licensed Python package for manipulation and analysis of
 planar geometric objects. It is based on the widely deployed <a class="reference external" href="http://trac.osgeo.org/geos/">GEOS</a> (the engine
 of <a class="reference external" href="http://postgis.org">PostGIS</a>) and <a class="reference external" href="http://www.vividsolutions.com/jts/jtshome.htm">JTS</a> (from which GEOS is ported) libraries. This C dependency
@@ -145,9 +153,8 @@ is traded for the ability to execute with blazing speed. Shapely is not
 concerned with data formats or coordinate systems, but can be readily
 integrated with packages that are. For more details, see:</p>
 <ul class="simple">
-<li>Shapely <a class="reference external" href="http://trac.gispython.org/lab/wiki/Shapely">wiki</a></li>
 <li>Shapely <a class="reference external" href="http://toblerity.github.com/shapely/manual.html">manual</a></li>
-<li>Shapely <a class="reference external" href="http://trac.gispython.org/lab/wiki/Examples">example apps</a></li>
+<li>Shapely <a class="reference external" href="https://github.com/sgillies/shapely/tree/master/shapely/examples">example apps</a></li>
 </ul>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
@@ -167,6 +174,14 @@ is on the system library path, and install from the Python package index:</p>
 <p>or from a source distribution with the setup script:</p>
 <div class="highlight-python"><pre>$ python setup.py install</pre>
 </div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Windows users:
+do not under any circumstances use pip (or easy_install) to uninstall
+Shapely versions &lt; 1.2.17. Due to the way Shapely used to install its GEOS
+DLL and a distribute or setuptools bug, your Python installation may be
+broken by an uninstall command. Shapely 1.2.17 will uninstall safely.</p>
+</div>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
@@ -181,7 +196,7 @@ buffering a point:</p>
 </pre></div>
 </div>
 <p>See the <a class="reference external" href="http://toblerity.github.com/shapely/manual.html">manual</a> for comprehensive usage snippets and the dissolve.py and
-intersect.py <a class="reference external" href="http://trac.gispython.org/lab/wiki/Examples">example apps</a>.</p>
+intersect.py <a class="reference external" href="https://github.com/sgillies/shapely/tree/master/shapely/examples">example apps</a>.</p>
 </div>
 <div class="section" id="integration">
 <h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
@@ -205,7 +220,7 @@ provide the Numpy array interface.:</p>
 <span class="go">       [  1.00000000e+01,   0.00000000e+00]])</span>
 </pre></div>
 </div>
-<p>That yields a numpy array of [x, y] arrays. This is not always exactly what one
+<p>That yields a Numpy array of [x, y] arrays. This is not always exactly what one
 wants for plotting shapes with Matplotlib (for example), so Shapely 1.2 adds
 a <cite>xy</cite> property for obtaining separate arrays of coordinate x and y values.:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">xy</span>
@@ -222,6 +237,17 @@ a <cite>xy</cite> property for obtaining separate arrays of coordinate x and y v
 <span class="go">&#39;LINESTRING (10.0000000000000000 0.0000000000000000, ...)&#39;</span>
 </pre></div>
 </div>
+<p>Shapely can also integrate with other Python GIS packages using data modeled
+after GeoJSON.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">json</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">shape</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">shape</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s">&#39;{&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [0.0, 0.0]}&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">&lt;shapely.geometry.point.Point object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">mapping</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span>
+<span class="go">{&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [0.0, 0.0]}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
@@ -234,38 +260,32 @@ supported well by nose.</p>
 </div>
 <div class="section" id="support">
 <h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
-<p>Bugs may be reported and questions asked via <a class="reference external" href="https://github.com/Toblerity/Shapely">https://github.com/Toblerity/Shapely</a>.</p>
-</div>
-<div class="section" id="credits">
-<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
-<p>Shapely is written by:</p>
-<ul class="simple">
-<li>Sean Gillies</li>
-<li>Aron Bierbaum</li>
-<li>Kai Lautaportti</li>
-<li>Oliver Tonnhofer</li>
-</ul>
-<p>Patches contributed by:</p>
-<ul class="simple">
-<li>Howard Butler</li>
-<li>Frédéric Junod</li>
-<li>Eric Lemoine</li>
-<li>Jonathan Tartley</li>
-<li>Kristian Thy</li>
-<li>Mike Toews (<a class="reference external" href="https://github.com/mwtoews">https://github.com/mwtoews</a>)</li>
-</ul>
-<p>Additional help from:</p>
-<ul class="simple">
-<li>Justin Bronn (GeoDjango) for ctypes inspiration</li>
-<li>Martin Davis (JTS)</li>
-<li>Jaakko Salli for the Windows distributions</li>
-<li>Sandro Santilli, Mateusz Loskot, Paul Ramsey, et al (GEOS Project)</li>
-</ul>
-<p>Major portions of this work were supported by a grant (for <a class="reference external" href="http://pleiades.stoa.org">Pleiades</a>) from the
-U.S. National Endowment for the Humanities (<a class="reference external" href="http://www.neh.gov">http://www.neh.gov</a>).</p>
+<p>Please discuss Shapely with us at
+<a class="reference external" href="http://lists.gispython.org/mailman/listinfo/community">http://lists.gispython.org/mailman/listinfo/community</a>.</p>
+<p>Bugs may be reported at <a class="reference external" href="https://github.com/Toblerity/Shapely">https://github.com/Toblerity/Shapely</a>.</p>
 </div>
 <div class="section" id="changes">
 <h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="coming-soon">
+<h3>1.2.18 (Coming Soon)<a class="headerlink" href="#coming-soon" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add shapely.ops.transform.</li>
+<li>Permit empty sequences in collection constructors (#49, #50).</li>
+<li>Individual polygons in MultiPolygon.__geo_interface__ are changed to tuples
+to match Polygon.__geo_interface__ (#51).</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>1.2.17 (2013-01-27)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Avoid circular import between wkt/wkb and geometry.base by moving calls
+to GEOS serializers to the latter module.</li>
+<li>Set _ndim when unpickling (issue #6).</li>
+<li>Don&#8217;t install DLLs to Python&#8217;s DLL directory (#37).</li>
+<li>Add affinity module of affine transformation (#31).</li>
+<li>Fix NameError that blocked installation with PyPy (#40, #41).</li>
+</ul>
+</div>
 <div class="section" id="id2">
 <h3>1.2.16 (2012-09-18)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -276,7 +296,7 @@ U.S. National Endowment for the Humanities (<a class="reference external" href="
 <li>Generate _speedups.c using Cython when building from repo when missing,
 stale, or the build target is &#8220;sdist&#8221;.</li>
 <li>The is_simple predicate of invalid, self-intersecting linear rings now
-returns <tt class="xref docutils literal"><span class="pre">False</span></tt>.</li>
+returns <tt class="docutils literal"><span class="pre">False</span></tt>.</li>
 <li>Remove VERSION.txt from repo, it&#8217;s now written by the distutils setup script
 with value of shapely.__version__.</li>
 </ul>
@@ -610,17 +630,20 @@ outside shapely for efficient use in other code.</li>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="manual.html" title="The Shapely User Manual"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Shapely’s documentation!"
+          <a href="index.html" title="Shapely Documentation Contents"
              >previous</a> |</li>
-        <li><a href="index.html">Shapely v1.2.16 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2011, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.5.
+        &copy; Copyright 2011-2013, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

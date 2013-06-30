@@ -1,0 +1,11 @@
+algorithms Package
+==================
+
+:mod:`cga` Module
+-----------------
+
+.. automodule:: shapely.algorithms.cga
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
