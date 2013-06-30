@@ -1,0 +1,203 @@
+tests Package
+=============
+
+:mod:`tests` Package
+--------------------
+
+.. automodule:: shapely.tests
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_affinity` Module
+---------------------------
+
+.. automodule:: shapely.tests.test_affinity
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_box` Module
+----------------------
+
+.. automodule:: shapely.tests.test_box
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_cga` Module
+----------------------
+
+.. automodule:: shapely.tests.test_cga
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_collection` Module
+-----------------------------
+
+.. automodule:: shapely.tests.test_collection
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_delegated` Module
+----------------------------
+
+.. automodule:: shapely.tests.test_delegated
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_dlls` Module
+-----------------------
+
+.. automodule:: shapely.tests.test_dlls
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_doctests` Module
+---------------------------
+
+.. automodule:: shapely.tests.test_doctests
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_emptiness` Module
+----------------------------
+
+.. automodule:: shapely.tests.test_emptiness
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_equality` Module
+---------------------------
+
+.. automodule:: shapely.tests.test_equality
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_geomseq` Module
+--------------------------
+
+.. automodule:: shapely.tests.test_geomseq
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_getitem` Module
+--------------------------
+
+.. automodule:: shapely.tests.test_getitem
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_linear_referencing` Module
+-------------------------------------
+
+.. automodule:: shapely.tests.test_linear_referencing
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_mapping` Module
+--------------------------
+
+.. automodule:: shapely.tests.test_mapping
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_ndarrays` Module
+---------------------------
+
+.. automodule:: shapely.tests.test_ndarrays
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_pickle` Module
+-------------------------
+
+.. automodule:: shapely.tests.test_pickle
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_prepared` Module
+---------------------------
+
+.. automodule:: shapely.tests.test_prepared
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_products_z` Module
+-----------------------------
+
+.. automodule:: shapely.tests.test_products_z
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_singularity` Module
+------------------------------
+
+.. automodule:: shapely.tests.test_singularity
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_speedups` Module
+---------------------------
+
+.. automodule:: shapely.tests.test_speedups
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_transform` Module
+----------------------------
+
+.. automodule:: shapely.tests.test_transform
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_unary_union` Module
+------------------------------
+
+.. automodule:: shapely.tests.test_unary_union
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_validation` Module
+-----------------------------
+
+.. automodule:: shapely.tests.test_validation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_xy` Module
+---------------------
+
+.. automodule:: shapely.tests.test_xy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`threading_test` Module
+----------------------------
+
+.. automodule:: shapely.tests.threading_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

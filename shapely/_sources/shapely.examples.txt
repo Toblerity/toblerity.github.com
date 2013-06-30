@@ -1,0 +1,43 @@
+examples Package
+================
+
+:mod:`examples` Package
+-----------------------
+
+.. automodule:: shapely.examples
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`dissolve` Module
+----------------------
+
+.. automodule:: shapely.examples.dissolve
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`geoms` Module
+-------------------
+
+.. automodule:: shapely.examples.geoms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`intersect` Module
+-----------------------
+
+.. automodule:: shapely.examples.intersect
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`world` Module
+-------------------
+
+.. automodule:: shapely.examples.world
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

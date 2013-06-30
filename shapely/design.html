@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Design Notes &mdash; Shapely 1.2.18 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2.18',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Shapely 1.2.18 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/design.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="design-notes">
+<h1>Design Notes<a class="headerlink" href="#design-notes" title="Permalink to this headline">¶</a></h1>
+<p>Shapely provides classes that implement, more or less, the interfaces in the
+OGC&#8217;s simple feature acess specification <a class="footnote-reference" href="#id2" id="id1">[1]</a>. The classes are defined in
+similarly named modules under <tt class="docutils literal"><span class="pre">shapely.geometry</span></tt>: <tt class="docutils literal"><span class="pre">Point</span></tt> is in
+<tt class="docutils literal"><span class="pre">shapely.geometry.point</span></tt>, <tt class="docutils literal"><span class="pre">MultiPolygon</span></tt> is in
+<tt class="docutils literal"><span class="pre">shapely.geometry.multipolygon</span></tt>. These classes derive from
+<tt class="docutils literal"><span class="pre">shapely.geometry.base.BaseGeometry</span></tt>. The simple features methods of
+<tt class="docutils literal"><span class="pre">BaseGeometry</span></tt> call functions registered in a class variable <tt class="docutils literal"><span class="pre">impl</span></tt>. For
+example, <tt class="docutils literal"><span class="pre">BaseGeometry.area</span></tt> calls <tt class="docutils literal"><span class="pre">BaseGeometry.impl['area']</span></tt>.</p>
+<p>The default registry is in the <tt class="docutils literal"><span class="pre">shapely.impl</span></tt> module. Its items are classes
+that operate on single geometric objects or pairs of geometric objects.
+Pluggability is a goal of this design, but we&#8217;re not there yet. Some work needs
+to be done before anybody can use CGAL as a Shapely backend.</p>
+<p>In sum, Shapely&#8217;s stack is 4 layers:</p>
+<ul class="simple">
+<li>Python geometry classes in <tt class="docutils literal"><span class="pre">shapely.geometry</span></tt></li>
+<li>An implementation registry: an abstraction that permits alternate geometry
+engines, even a mix of geometry engines. The default is in <tt class="docutils literal"><span class="pre">shapely.impl</span></tt>.</li>
+<li>The GEOS implementations of methods for the registry in <tt class="docutils literal"><span class="pre">shapely.geos</span></tt>.</li>
+<li>libgeos: algorithms written in C++.</li>
+</ul>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>John R. Herring, Ed.,
+“OpenGIS Implementation Specification for Geographic information - Simple
+feature access - Part 1: Common architecture,” Oct. 2006.</td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2013, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
