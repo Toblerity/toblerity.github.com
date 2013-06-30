@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+
+
+		<title>libspatialindex + Rtree - Easy spatial indexing </title>
+
+		<meta name="description" content="libspatialindex + Rtree - Easy spatial indexingL">
+		<meta name="author" content="Howard Butler">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+                <style>
+
+        /*        body {
+                  font: 10px sans-serif;
+                }
+        */
+         .chart rect {
+           stroke: white;
+           fill: steelblue;
+         }
+                .axis path,
+                .axis line {
+                  fill: none;
+                  stroke: #000;
+                  shape-rendering: crispEdges;
+                }
+
+                .bar {
+                  fill: steelblue;
+                }
+
+                .axis text {
+                    font: 10px sans-serif;
+                }
+                .x.axis path {
+                  display: none;
+                }
+
+                </style>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+    <script src="./js/d3.js"></script>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>libspatialindex <br /> (and Rtree)</h1>
+					<h3>Fast <s>and fun</s> spatial indexing for bounding boxes</h3>
+					<p>
+						<small><a href="http://twitter.com/howardbutler">@howardbutler</a></small>
+					</p>
+				</section>
+
+				<section>
+					<a href="http://www.hobu.biz"><img src="./images/hobu_logo.png" style="border:0;box-shadow:none;"></img></a><br />
+				</section>
+
+
+				<section>
+					<a href="http://www.pointcloud.org"><img src="./images/pdal_logo.png" style="border:0;box-shadow:none;"></img></a><br />
+					<a href="http://www.liblas.org"><img src="./images/liblas_logo.png" style="border:0;box-shadow:none;"></img></a><br />
+					<a href="http://www.gdal.org"><img src="./images/gdal_logo.png" style="border:0;box-shadow:none;" height="150" width="150"></img></a> <br />
+					<a href="http://www.mapserver.org"><img src="./images/mapserver_logo.png" style="border:0;box-shadow:none;"></img></a><br />
+
+				</section>
+
+    				<section>
+    					<h2><a href="http://libspatialindex.github.com">libspatialindex</a></h2>
+    					<p>
+    						is a C++ library (C API) for spatially indexing kD bounding box data
+    					</p>
+    					<p>
+    					    <small>Practically only 3 or 4, however</small>
+					    </p>
+    					    
+    				</section>
+
+    				<section>
+    					<h2>Features</h2>
+    					<ul>
+    						<li><a href="http://en.wikipedia.org/wiki/R*_tree">R*-tree</a> with quadratic and linear splitting strategies</li>
+    						<li>Range, nearest, and parametric (bbox) queries</li>
+    						<li><a href="http://en.wikipedia.org/wiki/Design_Patterns">GoF</a>-inspired codebase</li>
+    						<li>Bulk loader and clustered storage</li>
+    						<li>In-memory and on-disk serialization</li>
+    						<li>MIT license as of 1.8.0</li>
+    					</ul>
+    				</section>
+
+    				<section>
+    					<h2>Example</h2>
+    					<pre><code >
+    You don't want to see a C++ code example
+    					</code></pre>
+                    </section>
+				    <section>
+				        <p>Notes</p>
+    					<ul>
+    					    <li>Items are not unique (by id or bbox)</li>
+    					    <li>Bulk loading pre-sorts your data -- 10x faster</li>
+    					    <li>Custom storage API</li>
+    					    <li>Linux, OS X, Windows (32 and 64 bit)</li>
+    					    <li><a href="http://en.wikipedia.org/wiki/Visual_C%2B%2B">MSVC</a>, <a href="http://gcc.gnu.org/">g++</a>, <a href="http://clang.llvm.org/">clang</a></li>
+    					</ul>					
+    				</section>
+
+    				<section>
+    					<h2><a href="http://toblerity.com/rtree">Rtree</a></h2>
+    					<p>
+    						is a Python library for spatially indexing kD bounding box data (based on <a href="http://libspatialindex.github.com">libspatialindex</a>)
+    					</p>
+    				</section>
+
+    				<section>
+    					<h2>Features</h2>
+    					<ul>
+    						<li>libspatialindex's features. In Python.</li>
+    						<li>clustered storage -- store pickles alongside your bounds</li>
+    						<li>LGPL license</li>
+    					</ul>
+    				</section>
+
+    				<section>
+    					<h2>Bulk Loading vs. Single Insert</h2>
+                        <div id="loadchart" ></div>
+                        <script src="js/bulk-loading.js"></script>    
+    					<p>Inserting 30k random points (usec)</p>
+    				</section>
+    				<section>
+    					<h3>Use generator-based bulk loader!</h3>
+                        					<pre><code >
+def data_gen():
+    for i, (minx, miny, maxx, maxy) in data:
+        yield (i, (minx, miny, maxx, maxy), None)
+
+idx = index.Rtree('bulk', data_gen())
+
+# after most of the data is loaded, go add a few stragglers 
+idx.add(12345, (minx, miny, maxx, maxy))
+idx.add(42, (minx-1, miny-1, maxx+1, maxy+1))
+
+                    					</code></pre>
+
+    					<h3>Not</h3>
+                        					<pre><code >
+idx = index.Index('single')
+for i in range(data):
+    idx.add(i, data[i])
+
+                    					</code></pre>    	                    					
+                    </section>
+
+
+    				<section>
+    					<h3>Intersection</h3>
+
+                        					<pre><code >
+>>> idx.insert(4321, (34.37, 26.73, 49.37, 41.73), obj=42)
+>>> hits = idx.intersection((0, 0, 60, 60), objects=True)
+>>> for i in hits:
+...     if i.id == 4321:
+...         i.object
+...         i.bbox
+42
+[34.3776829412, 26.737585373400002, 49.3776829412, 41.737585373400002]
+                    					</code></pre>    
+<p><small><code>nearest</code> and <code>intersection</code> only return candidates 
+    that fall within bounds, not those that are <b>perfectly</b> contained. 
+    If you want true intersection, you need to do that with your favorite 
+    geometry algebra library after querying the index for candidates.    </small></p>                    						                    					
+                    </section>
+
+    				<section>
+    					<h3>Nearest</h3>
+
+                        					<pre><code >
+>>> idx.insert(4321, (34.37, 26.73, 49.37, 41.73), obj=42)
+>>> hits = idx.nearest((0, 0, 10, 10), 3, objects=True)
+                    					</code></pre>    	                    					
+
+                    <ul>
+                        <li>Ask for the <code>3</code>-nearest items</li>
+                        <li>If the last two items are the exactly same distance away, both are returned, meaning an 
+                            ask for 3 items might actually return you 4.</li>
+                    </ul>
+                    </section>
+
+    				<section>
+    					<h3>Delete</h3>
+
+                        					<pre><code >
+>>> idx.delete(4321, (34.3776829412, 26.7375853734, 49.3776829412, 41.7375853734) )
+                    					</code></pre>    	                    					
+                        <ul>
+                            <li>id + bbox defines index item</li>
+                            <li>ids need not be unique</li>
+                            <li>bboxes need not be unique</li>
+                            <li>bbox coordinates are equal per <code>std::numeric_limits&lt;double&gt;::epsilon()</code></li>
+                        </ul>
+                        <hr />
+                        <h5>
+                        Data uniqueness is on you to manage
+                    </h5>
+                    </section>
+                   <section>
+<pre>
+<code>
+from fiona import collection
+from shapely.geometry import mapping, shape
+from rtree import index
+
+p = index.Property()
+p.filename='theindex'
+p.overwrite=True
+p.storage=index.RT_Disk
+p.dimension = 2
+
+idx = index.Index(  p.filename, 
+                    build(),  
+                    properties=p, 
+                    interleaved=True, 
+                    overwrite=True)
+                    
+</code>
+</pre>
+</section>                    
+                    <section>
+<pre>
+<code>
+def build():
+    with collection("data/ne_10m_admin_1_states_provinces_shp.shp", "r") as shapes:
+        for s in shapes:
+            geom = shape(s['geometry'])
+            id = int(s['id'])
+            yield (id, geom.bounds, s)
+            
+</code>
+</pre>
+</section>
+
+
+                    <section>
+<pre>
+<code>
+query = idx.nearest((-93.00,42.0,-93.00,42.00), 
+                    3, 
+                    objects=True)
+states = list(query)
+
+print len(airports)
+print states[0].object['properties']['name']
+
+</code>
+</pre>
+</section>
+
+<section>
+    libspatialindex - <a href="http://libspatialindex.github.com/">http://libspatialindex.github.com/</a> <br />
+    Rtree - <a href="http://toblerity.github.com/rtree/">http://toblerity.github.com/rtree/</a> <br />
+    Shapely - <a href="http://toblerity.github.com/shapely/">http://toblerity.github.com/shapely/</a> <br />
+    Fiona - <a href="http://toblerity.github.com/fiona/">http://toblerity.github.com/fiona/</a> <br />
+    
+    irc.freenode.net #geopython
+</section>
+
+<section>
+    <b>toblerity</b>: <i>noun</i> a collection of more related Python geographic software projects.
+
+</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
