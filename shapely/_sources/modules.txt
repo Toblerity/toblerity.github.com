@@ -1,0 +1,7 @@
+shapely
+=======
+
+.. toctree::
+   :maxdepth: 4
+
+   shapely

@@ -1,0 +1,91 @@
+geometry Package
+================
+
+:mod:`geometry` Package
+-----------------------
+
+.. automodule:: shapely.geometry
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`base` Module
+------------------
+
+.. automodule:: shapely.geometry.base
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`collection` Module
+------------------------
+
+.. automodule:: shapely.geometry.collection
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`geo` Module
+-----------------
+
+.. automodule:: shapely.geometry.geo
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`linestring` Module
+------------------------
+
+.. automodule:: shapely.geometry.linestring
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`multilinestring` Module
+-----------------------------
+
+.. automodule:: shapely.geometry.multilinestring
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`multipoint` Module
+------------------------
+
+.. automodule:: shapely.geometry.multipoint
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`multipolygon` Module
+--------------------------
+
+.. automodule:: shapely.geometry.multipolygon
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`point` Module
+-------------------
+
+.. automodule:: shapely.geometry.point
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`polygon` Module
+---------------------
+
+.. automodule:: shapely.geometry.polygon
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`proxy` Module
+-------------------
+
+.. automodule:: shapely.geometry.proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
