@@ -417,6 +417,40 @@ operations on it may fail.</p>
 <dd><p>Returns a GeoJSON-like mapping</p>
 </dd></dl>
 
+<dl class="class">
+<dt id="shapely.geometry.LinearRing">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">LinearRing</tt><big>(</big><em>coordinates=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.LinearRing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.linestring.LineString" title="shapely.geometry.linestring.LineString"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.linestring.LineString</span></tt></a></p>
+<p>A closed one-dimensional feature comprising one or more line segments</p>
+<p>A LinearRing that crosses itself or touches itself at a single point is
+invalid and operations on it may fail.</p>
+<dl class="attribute">
+<dt id="shapely.geometry.LinearRing.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#shapely.geometry.LinearRing.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access to geometry&#8217;s coordinates (CoordinateSequence)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.LinearRing.is_ccw">
+<tt class="descname">is_ccw</tt><a class="headerlink" href="#shapely.geometry.LinearRing.is_ccw" title="Permalink to this definition">¶</a></dt>
+<dd><p>True is the ring is oriented counter clock-wise</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.LinearRing.is_simple">
+<tt class="descname">is_simple</tt><a class="headerlink" href="#shapely.geometry.LinearRing.is_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the geometry is simple, meaning that any self-intersections
+are only at boundary points, else False</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.asLinearRing">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asLinearRing</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asLinearRing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt an object to the LinearRing interface</p>
+</dd></dl>
+
 </div>
 <div class="section" id="module-shapely.geometry.base">
 <span id="base-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">base</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.base" title="Permalink to this headline">¶</a></h2>

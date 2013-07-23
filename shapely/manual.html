@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Shapely 1.2.18 documentation" href="index.html" />
-    <link rel="next" title="&lt;no title&gt;" href="reference.html" />
+    <link rel="next" title="shapely" href="modules.html" />
     <link rel="prev" title="Shapely" href="project.html" /> 
   </head>
   <body>
@@ -38,7 +38,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="reference.html" title="&lt;no title&gt;"
+          <a href="modules.html" title="shapely"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="project.html" title="Shapely"
@@ -84,6 +84,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#affine-transformations">Affine Transformations</a></li>
+<li><a class="reference internal" href="#other-transformations">Other Transformations</a></li>
 <li><a class="reference internal" href="#other-operations">Other Operations</a><ul>
 <li><a class="reference internal" href="#merging-linear-features">Merging Linear Features</a></li>
 <li><a class="reference internal" href="#cascading-unions">Cascading Unions</a></li>
@@ -108,8 +109,8 @@
   <p class="topless"><a href="project.html"
                         title="previous chapter">Shapely</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="reference.html"
-                        title="next chapter">&lt;no title&gt;</a></p>
+  <p class="topless"><a href="modules.html"
+                        title="next chapter">shapely</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/manual.txt"
@@ -144,9 +145,9 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Revision:</th><td class="field-body">1.2.18</td>
+<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.2.18</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">June 29, 2013</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">July 23, 2013</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
 United States License</a>.</td>
@@ -277,9 +278,8 @@ serializations.</p>
 important attribute a finite sequence of coordinates that determines their
 interior, boundary, and exterior point sets. A line string can be determined by
 as few as 2 points, but contains an infinite number of points. Coordinate
-sequences are immutable. Their parent features are mutable in that they can be
-assigned new coordinate sequences. A third <cite>z</cite> coordinate value may be used
-when constructing instances, but has no effect on geometric analysis.  All
+sequences are immutable. A third <cite>z</cite> coordinate value may be used when
+constructing instances, but has no effect on geometric analysis.  All
 operations are performed in the <cite>x-y</cite> plane.</p>
 <p>In all constructors, numeric values are converted to type <tt class="docutils literal"><span class="pre">float</span></tt>. In other
 words, <tt class="docutils literal"><span class="pre">Point(0,</span> <span class="pre">0)</span></tt> and <tt class="docutils literal"><span class="pre">Point(0.0,</span> <span class="pre">0.0)</span></tt> produce geometrically equivalent
@@ -573,7 +573,7 @@ interior rings touch along a line, and on the right, a <cite>Polygon</cite> that
 </pre></div>
 </div>
 <p>Rectangular polygons occur commonly, and can be conveniently constructed using
-the <a class="reference internal" href="reference.html#shapely.geometry.box" title="shapely.geometry.box"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.box()</span></tt></a> function.</p>
+the <a class="reference internal" href="#shapely.geometry.box" title="shapely.geometry.box"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.box()</span></tt></a> function.</p>
 <dl class="function">
 <dt id="shapely.geometry.box">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">box</tt><big>(</big><em>minx</em>, <em>miny</em>, <em>maxx</em>, <em>maxy</em>, <em>ccw=True</em><big>)</big><a class="headerlink" href="#shapely.geometry.box" title="Permalink to this definition">¶</a></dt>
@@ -1567,7 +1567,7 @@ preserve topology.</p>
 </div>
 <div class="section" id="affine-transformations">
 <h2>Affine Transformations<a class="headerlink" href="#affine-transformations" title="Permalink to this headline">¶</a></h2>
-<p>A collection of affine transform functions are in the <tt class="xref py py-mod docutils literal"><span class="pre">shapely.affinity</span></tt>
+<p>A collection of affine transform functions are in the <a class="reference internal" href="shapely.html#module-shapely.affinity" title="shapely.affinity"><tt class="xref py py-mod docutils literal"><span class="pre">shapely.affinity</span></tt></a>
 module, which return transformed geometries by either directly supplying
 coefficients to an affine transformation matrix, or by using a specific, named
 transform (<cite>rotate</cite>, <cite>scale</cite>, etc.). The functions can be used with all
@@ -1734,19 +1734,61 @@ along the y-direction, using default origin.</p>
 </div></dd></dl>
 
 </div>
+<div class="section" id="other-transformations">
+<h2>Other Transformations<a class="headerlink" href="#other-transformations" title="Permalink to this headline">¶</a></h2>
+<p>Shapely supports map projections and other arbitrary transformations of geometric objects.</p>
+<dl class="function">
+<dt id="shapely.ops.transform">
+<tt class="descclassname">shapely.ops.</tt><tt class="descname">transform</tt><big>(</big><em>func</em>, <em>geom</em><big>)</big><a class="headerlink" href="#shapely.ops.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies <cite>func</cite> to all coordinates of <cite>geom</cite> and returns a new
+geometry of the same type from the transformed coordinates.</p>
+<p><cite>func</cite> maps x, y, and optionally z to output xp, yp, zp. The input
+parameters may iterable types like lists or arrays or single values.
+The output shall be of the same type. Scalars in, scalars out.
+Lists in, lists out.</p>
+<p><cite>New in version 1.2.18</cite>.</p>
+</dd></dl>
+
+<p>For example, here is an identity function applicable to both types of input
+(scalar or array).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">id_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">]))</span>
+
+<span class="n">g2</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">id_func</span><span class="p">,</span> <span class="n">g1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A partially applied transform function from pyproj satisfies the requirements
+for <cite>func</cite>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">pyproj</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span>
+    <span class="n">pyproj</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span>
+    <span class="n">pyproj</span><span class="o">.</span><span class="n">Proj</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="s">&#39;espg:4326&#39;</span><span class="p">),</span>
+    <span class="n">pyproj</span><span class="o">.</span><span class="n">Proj</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="s">&#39;epsg:26913&#39;</span><span class="p">))</span>
+
+<span class="n">g2</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">g1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lambda expressions such as the one in</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">g2</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="bp">None</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mf">1.0</span><span class="p">),</span> <span class="n">g1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>also satisfy the requirements for <cite>func</cite>.</p>
+</div>
 <div class="section" id="other-operations">
 <h2>Other Operations<a class="headerlink" href="#other-operations" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="merging-linear-features">
 <h3>Merging Linear Features<a class="headerlink" href="#merging-linear-features" title="Permalink to this headline">¶</a></h3>
 <p>Sequences of touching lines can be merged into <cite>MultiLineStrings</cite> or <cite>Polygons</cite>
-using functions in the <tt class="xref py py-mod docutils literal"><span class="pre">shapely.ops</span></tt> module.</p>
+using functions in the <a class="reference internal" href="shapely.html#module-shapely.ops" title="shapely.ops"><tt class="xref py py-mod docutils literal"><span class="pre">shapely.ops</span></tt></a> module.</p>
 <dl class="function">
 <dt id="shapely.ops.polygonize">
 <tt class="descclassname">shapely.ops.</tt><tt class="descname">polygonize</tt><big>(</big><em>lines</em><big>)</big><a class="headerlink" href="#shapely.ops.polygonize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an iterator over polygons constructed from the input <cite>lines</cite>.</p>
 <p>As with the <a class="reference internal" href="#MultiLineString" title="MultiLineString"><tt class="xref py py-class docutils literal"><span class="pre">MultiLineString</span></tt></a> constructor, the input elements may be
 any line-like object.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="kn">import</span> <span class="n">polygonize</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="kn">import</span> <span class="n">polygonize</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
 <span class="gp">... </span>    <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
 <span class="gp">... </span>    <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
@@ -1762,12 +1804,48 @@ any line-like object.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="shapely.ops.polygonize_full">
+<tt class="descclassname">shapely.ops.</tt><tt class="descname">polygonize_full</tt><big>(</big><em>lines</em><big>)</big><a class="headerlink" href="#shapely.ops.polygonize_full" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates polygons from a source of lines, returning the polygons
+and leftover geometries.</p>
+<p>The source may be a MultiLineString, a sequence of LineString objects,
+or a sequence of objects than can be adapted to LineStrings.</p>
+<p>Returns a tuple of objects: (polygons, dangles, cut edges, invalid ring
+lines). Each are a geometry collection.</p>
+<p>Dangles are edges which have one or both ends which are not incident on
+another edge endpoint. Cut edges are connected at both ends but do not
+form part of polygon. Invalid ring lines form rings which are invalid
+(bowties, etc).</p>
+<p><cite>New in version 1.2.18.</cite></p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="p">,</span> <span class="n">dangles</span><span class="p">,</span> <span class="n">cuts</span><span class="p">,</span> <span class="n">invalids</span> <span class="o">=</span> <span class="n">polygonize_full</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">geoms</span><span class="p">)</span>
+<span class="go">[&lt;shapely.geometry.polygon.Polygon object at ...&gt;, &lt;shapely.geometry.polygon.Polygon object at ...&gt;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">cuts</span><span class="o">.</span><span class="n">geoms</span><span class="p">)</span>
+<span class="go">[&lt;shapely.geometry.linestring.LineString object at ...&gt;, &lt;shapely.geometry.linestring.LineString object at ...&gt;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="shapely.ops.linemerge">
 <tt class="descclassname">shapely.ops.</tt><tt class="descname">linemerge</tt><big>(</big><em>lines</em><big>)</big><a class="headerlink" href="#shapely.ops.linemerge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a <cite>LineString</cite> or <cite>MultiLineString</cite> representing the merger of all
 contiguous elements of <cite>lines</cite>.</p>
 <p>As with <a class="reference internal" href="#shapely.ops.polygonize" title="shapely.ops.polygonize"><tt class="xref py py-func docutils literal"><span class="pre">shapely.ops.polygonize()</span></tt></a>, the input elements may be any
 line-like object.</p>
+</dd></dl>
+
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.ops</span> <span class="kn">import</span> <span class="n">linemerge</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">linemerge</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 <span class="go">&lt;shapely.geometry.multilinestring.MultiLineString object at 0x...&gt;</span>
@@ -1777,8 +1855,6 @@ line-like object.</p>
 <span class="go"> &lt;shapely.geometry.linestring.LineString object at 0x...&gt;]</span>
 </pre></div>
 </div>
-</dd></dl>
-
 </div>
 <div class="section" id="cascading-unions">
 <h3>Cascading Unions<a class="headerlink" href="#cascading-unions" title="Permalink to this headline">¶</a></h3>
@@ -1971,7 +2047,7 @@ Python arrays of <cite>x</cite> and <cite>y</cite> values via the <tt class="xre
 <span class="go">(array(&#39;d&#39;, [0.0, 1.0]), array(&#39;d&#39;, [0.0, 1.0]))</span>
 </pre></div>
 </div>
-<p>The <a class="reference internal" href="reference.html#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> family of functions can be used to wrap
+<p>The <a class="reference internal" href="#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> family of functions can be used to wrap
 Numpy coordinate arrays so that they can then be analyzed using Shapely while
 maintaining their original storage. A 1 x 2 array can be adapted to a point</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">asPoint</span>
@@ -1993,7 +2069,7 @@ maintaining their original storage. A 1 x 2 array can be adapted to a point</p>
 <h3>Python Geo Interface<a class="headerlink" href="#python-geo-interface" title="Permalink to this headline">¶</a></h3>
 <p>Any object that provides the GeoJSON-like <a class="reference external" href="http://gist.github.com/2217756">Python geo interface</a> can be
 adapted and used as a Shapely geometry using the
-<a class="reference internal" href="reference.html#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> or <a class="reference internal" href="reference.html#shapely.geometry.shape" title="shapely.geometry.shape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.shape()</span></tt></a> functions.</p>
+<a class="reference internal" href="#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> or <a class="reference internal" href="#shapely.geometry.shape" title="shapely.geometry.shape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.shape()</span></tt></a> functions.</p>
 <dl class="function">
 <dt id="shapely.geometry.asShape">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">asShape</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asShape" title="Permalink to this definition">¶</a></dt>
@@ -2031,7 +2107,7 @@ context.</p>
 </pre></div>
 </div>
 <p>The GeoJSON-like mapping of a geometric object can be obtained using
-<a class="reference internal" href="reference.html#shapely.geometry.mapping" title="shapely.geometry.mapping"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.mapping()</span></tt></a>.</p>
+<a class="reference internal" href="#shapely.geometry.mapping" title="shapely.geometry.mapping"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.mapping()</span></tt></a>.</p>
 <dl class="function">
 <dt id="shapely.geometry.mapping">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">mapping</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#shapely.geometry.mapping" title="Permalink to this definition">¶</a></dt>
@@ -2061,9 +2137,9 @@ involves some overhead that might slow down your code.</p>
 <div class="versionadded">
 <p><span>New in version 1.2.10.</span></p>
 </div>
-<p>The <tt class="xref py py-mod docutils literal"><span class="pre">shapely.speedups</span></tt> module contains performance enhancements written in
-C. They are automatically installed when Python has access to a compiler during
-installation.</p>
+<p>The <a class="reference internal" href="shapely.speedups.html#module-shapely.speedups" title="shapely.speedups"><tt class="xref py py-mod docutils literal"><span class="pre">shapely.speedups</span></tt></a> module contains performance enhancements written in
+C. They are automaticaly installed when Python has access to a compiler and
+GEOS development headers during installation.</p>
 <p>You can check if the speedups are installed with the <tt class="xref py py-attr docutils literal"><span class="pre">available</span></tt>
 attribute. The constructor speedups are disabled by default. To enable the
 speedups call <tt class="xref py py-func docutils literal"><span class="pre">enable()</span></tt>. You can revert to the default implementation with
@@ -2153,7 +2229,7 @@ Journal for Geographic Information and Geovisualization,  vol. 10, Dec.
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="reference.html" title="&lt;no title&gt;"
+          <a href="modules.html" title="shapely"
              >next</a> |</li>
         <li class="right" >
           <a href="project.html" title="Shapely"
