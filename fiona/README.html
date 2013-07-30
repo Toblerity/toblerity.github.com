@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Fiona &mdash; Fiona 0.16 documentation</title>
+    <title>Fiona: OGR’s neat, nimble, no-nonsense API for Python programmers &mdash; Fiona 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.16',
+        VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Fiona 0.16 documentation" href="index.html" />
+    <link rel="top" title="Fiona 1.0 documentation" href="index.html" />
     <link rel="next" title="1   The Fiona User Manual" href="manual.html" />
     <link rel="prev" title="Fiona Documentation Contents" href="index.html" /> 
   </head>
@@ -35,19 +35,22 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="manual.html" title="1   The Fiona User Manual"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Fiona Documentation Contents"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Fiona 0.16 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Fiona</a><ul>
+<li><a class="reference internal" href="#">Fiona: OGR&#8217;s neat, nimble, no-nonsense API for Python programmers</a><ul>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
 <li><a class="reference internal" href="#requirements">Requirements</a></li>
@@ -65,25 +68,26 @@
 <li><a class="reference internal" href="#dumpgj">Dumpgj</a></li>
 <li><a class="reference internal" href="#development-and-testing">Development and testing</a></li>
 <li><a class="reference internal" href="#changes">Changes</a><ul>
-<li><a class="reference internal" href="#next">Next</a></li>
-<li><a class="reference internal" href="#id1">0.16 (2013-06-24)</a></li>
-<li><a class="reference internal" href="#id2">0.15 (2013-06-06)</a></li>
-<li><a class="reference internal" href="#id3">0.14 (2013-05-04)</a></li>
-<li><a class="reference internal" href="#id4">0.13 (2013-04-30)</a></li>
-<li><a class="reference internal" href="#id5">0.12.1 (2013-04-16)</a></li>
-<li><a class="reference internal" href="#id6">0.12 (2013-04-15)</a></li>
-<li><a class="reference internal" href="#id7">0.11 (2013-04-14)</a></li>
-<li><a class="reference internal" href="#id8">0.10 (2013-03-23)</a></li>
-<li><a class="reference internal" href="#id9">0.9.1 (2013-03-07)</a></li>
-<li><a class="reference internal" href="#id10">0.9 (2013-03-06)</a></li>
-<li><a class="reference internal" href="#id11">0.8 (2012-02-21)</a></li>
-<li><a class="reference internal" href="#id12">0.7 (2012-01-29)</a></li>
-<li><a class="reference internal" href="#id13">0.6.2 (2012-01-10)</a></li>
-<li><a class="reference internal" href="#id14">0.6.1 (2012-01-06)</a></li>
-<li><a class="reference internal" href="#id15">0.6 (2012-01-05)</a></li>
-<li><a class="reference internal" href="#id16">0.5 (2011-12-19)</a></li>
-<li><a class="reference internal" href="#id17">0.2 (2011-09-16)</a></li>
-<li><a class="reference internal" href="#id18">0.1.1 (2008-12-04)</a></li>
+<li><a class="reference internal" href="#next-2013-07-06">Next (2013-07-06)</a></li>
+<li><a class="reference internal" href="#id1">0.16.1 (2013-07-02)</a></li>
+<li><a class="reference internal" href="#id2">0.16 (2013-06-24)</a></li>
+<li><a class="reference internal" href="#id3">0.15 (2013-06-06)</a></li>
+<li><a class="reference internal" href="#id4">0.14 (2013-05-04)</a></li>
+<li><a class="reference internal" href="#id5">0.13 (2013-04-30)</a></li>
+<li><a class="reference internal" href="#id6">0.12.1 (2013-04-16)</a></li>
+<li><a class="reference internal" href="#id7">0.12 (2013-04-15)</a></li>
+<li><a class="reference internal" href="#id8">0.11 (2013-04-14)</a></li>
+<li><a class="reference internal" href="#id9">0.10 (2013-03-23)</a></li>
+<li><a class="reference internal" href="#id10">0.9.1 (2013-03-07)</a></li>
+<li><a class="reference internal" href="#id11">0.9 (2013-03-06)</a></li>
+<li><a class="reference internal" href="#id12">0.8 (2012-02-21)</a></li>
+<li><a class="reference internal" href="#id13">0.7 (2012-01-29)</a></li>
+<li><a class="reference internal" href="#id14">0.6.2 (2012-01-10)</a></li>
+<li><a class="reference internal" href="#id15">0.6.1 (2012-01-06)</a></li>
+<li><a class="reference internal" href="#id16">0.6 (2012-01-05)</a></li>
+<li><a class="reference internal" href="#id17">0.5 (2011-12-19)</a></li>
+<li><a class="reference internal" href="#id18">0.2 (2011-09-16)</a></li>
+<li><a class="reference internal" href="#id19">0.1.1 (2008-12-04)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#credits">Credits</a></li>
@@ -123,16 +127,17 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="fiona">
-<h1>Fiona<a class="headerlink" href="#fiona" title="Permalink to this headline">¶</a></h1>
-<p>Fiona is OGR&#8217;s neat, nimble, no-nonsense API.</p>
-<p>Fiona provides a minimal, uncomplicated Python interface to the open source GIS
-community&#8217;s most trusted geodata access library and integrates readily with
-other Python GIS packages such as <a class="reference external" href="http://pypi.python.org/pypi/pyproj/">pyproj</a>, <a class="reference external" href="http://pypi.python.org/pypi/Rtree/">Rtree</a>, and <a class="reference external" href="http://pypi.python.org/pypi/Shapely/">Shapely</a>.</p>
-<p>How minimal? Fiona can read feature records as mappings from shapefiles or
-other GIS vector formats and write mappings as records to files using the same
-formats. That&#8217;s all. There aren&#8217;t any feature or geometry classes. Records and
-their geometries are just data.</p>
+  <div class="section" id="fiona-ogr-s-neat-nimble-no-nonsense-api-for-python-programmers">
+<h1>Fiona: OGR&#8217;s neat, nimble, no-nonsense API for Python programmers<a class="headerlink" href="#fiona-ogr-s-neat-nimble-no-nonsense-api-for-python-programmers" title="Permalink to this headline">¶</a></h1>
+<p><strong>Fiona</strong> provides uncomplicated Python interfaces to functions in <a class="reference external" href="http://www.gdal.org/ogr">OGR</a>,
+the best open source C/C++ library for reading and writing geographic vector
+data.</p>
+<p>Fiona is designed to be simple and dependable. It focuses on reading and
+writing data in standard Python IO style, and relies upon familiar Python types
+and protocols such as files, dictionaries, mappings, and iterators instead of
+classes specific to OGR. Fiona can read and write real-world data using
+multi-layered GIS formats and zipped virtual file systems and integrates
+readily with other Python GIS packages such as <a class="reference external" href="http://pypi.python.org/pypi/pyproj/">pyproj</a>, <a class="reference external" href="http://pypi.python.org/pypi/Rtree/">Rtree</a>, and <a class="reference external" href="http://pypi.python.org/pypi/Shapely/">Shapely</a>.</p>
 <p>For more details, see:</p>
 <ul class="simple">
 <li>Fiona <a class="reference external" href="https://github.com/Toblerity/Fiona">home page</a></li>
@@ -141,11 +146,11 @@ their geometries are just data.</p>
 </ul>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<p>Fiona requires Python 2.6, 2.7, or 3.3 and libgdal 1.8+. To build from a source
-distribution or repository clone you will need a C compiler and GDAL and Python
-development headers and libraries. While there are no official binary
-distributions or Windows support at this time, you can find Windows installers
-at <a class="reference external" href="http://www.lfd.uci.edu/%7Egohlke/pythonlibs/#fiona">http://www.lfd.uci.edu/%7Egohlke/pythonlibs/#fiona</a>.</p>
+<p>Fiona requires Python 2.6, 2.7, or 3.3 and libgdal (includes OGR) 1.8+. To
+build from a source distribution or repository clone you will need a C compiler
+and GDAL and Python development headers and libraries. While there are no
+official binary distributions or Windows support at this time, you can find
+Windows installers at <a class="reference external" href="http://www.lfd.uci.edu/%7Egohlke/pythonlibs/#fiona">http://www.lfd.uci.edu/%7Egohlke/pythonlibs/#fiona</a>.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -231,15 +236,15 @@ file, change their geometry attributes, and write them to a new data file.</p>
 directories of data. The target layer is specified by name or by its integer
 index within the file or directory. The <tt class="docutils literal"><span class="pre">fiona.listlayers()</span></tt> function
 provides an index ordered list of layer names.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layername</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="s">&#39;docs/data&#39;</span><span class="p">)):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">layername</span> <span class="ow">in</span> <span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="s">&#39;docs/data&#39;</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">layername</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">layername</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">layername</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 
 <span class="c"># Output:</span>
-<span class="c"># 0 test_uk 48</span>
+<span class="c"># test_uk 48</span>
 </pre></div>
 </div>
-<p>Again, the layer can be specified by its index. In this case, <tt class="docutils literal"><span class="pre">layer=0</span></tt> and
+<p>Layer can also be specified by index. In this case, <tt class="docutils literal"><span class="pre">layer=0</span></tt> and
 <tt class="docutils literal"><span class="pre">layer='test_uk'</span></tt> specify the same layer in the data file or directory.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layername</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="s">&#39;docs/data&#39;</span><span class="p">)):</span>
     <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">i</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
@@ -277,6 +282,7 @@ writing.</p>
 <span class="c">#  &#39;AREA&#39;: 244820.0, &#39;CNTRY_NAME&#39;: &#39;United Kingdom&#39;}</span>
 </pre></div>
 </div>
+<p>A view of the /tmp/foo directory will confirm the creation of the new files.</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> ls /tmp/foo
 <span class="go">bar.cpg bar.dbf bar.prj bar.shp bar.shx</span>
 </pre></div>
@@ -313,7 +319,7 @@ usage: dumpgj [-h] [-d] [-n N] [--compact] [--encoding ENC]
               [--add-ld-context-item TERM=URI]
               infile [outfile]
 
-Serialize a file&#x27;s records or description to GeoJSON
+Serialize a file's records or description to GeoJSON
 
 positional arguments:
   infile                input file name
@@ -321,16 +327,16 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -d, --description     serialize file&#x27;s data description (schema) only
+  -d, --description     serialize file's data description (schema) only
   -n N, --indent N      indentation level in N number of chars
-  --compact             use compact separators (&#x27;,&#x27;, &#x27;:&#x27;)
+  --compact             use compact separators (',', ':')
   --encoding ENC        Specify encoding of the input file
   --record-buffered     Economical buffering of writes at record, not
                         collection (default), level
   --ignore-errors       log errors but do not stop serialization
   --use-ld-context      add a JSON-LD context to JSON output
   --add-ld-context-item TERM=URI
-                        map a term to a URI and add it to the output&#x27;s JSON LD
+                        map a term to a URI and add it to the output's JSON LD
                         context</pre>
 </div>
 </div>
@@ -352,21 +358,32 @@ lib dirs and GDAL library on the command line:</p>
 </div>
 <div class="section" id="changes">
 <h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="next">
-<h3>Next<a class="headerlink" href="#next" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="next-2013-07-06">
+<h3>Next (2013-07-06)<a class="headerlink" href="#next-2013-07-06" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Add listlayers, open, prop_width to __init__py:__all__</li>
+<li>Add prop_type() function.</li>
+<li>Allow UTF-8 encoded paths for Python 2 (#51). For Python 3, paths must
+always be str, never bytes.</li>
+<li>Remove encoding from collection.meta, it&#8217;s a file creation option only.</li>
+<li>Support for linking GDAL frameworks (#54).</li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h3>0.16 (2013-06-24)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>0.16.1 (2013-07-02)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Add listlayers, open, prop_width to __init__py:__all__.</li>
+<li>Reset reading of OGR layer whenever we ask for a collection iterator (#49).</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>0.16 (2013-06-24)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add support for writing layers to multi-layer files.</li>
 <li>Add tests to reach 100% Python code coverage.</li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>0.15 (2013-06-06)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>0.15 (2013-06-06)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Get and set numeric field widths (#42).</li>
 <li>Add support for multi-layer data sources (#17).</li>
@@ -376,8 +393,8 @@ lib dirs and GDAL library on the command line:</p>
 <li>Allow selection of layers by index or name.</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>0.14 (2013-05-04)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>0.14 (2013-05-04)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add option to add JSON-LD in the dumpgj program.</li>
 <li>Compare values to six.string_types in Collection constructor.</li>
@@ -385,52 +402,52 @@ lib dirs and GDAL library on the command line:</p>
 <li>Document dumpgj in README.</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3>0.13 (2013-04-30)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>0.13 (2013-04-30)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Python 2/3 compatibility in a single package. Pythons 2.6, 2.7, 3.3 now supported.</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>0.12.1 (2013-04-16)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>0.12.1 (2013-04-16)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fix messed up linking of README in sdist (#39).</li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3>0.12 (2013-04-15)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>0.12 (2013-04-15)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fix broken installation of extension modules (#35).</li>
 <li>Log CPL errors at their matching Python log levels.</li>
 <li>Use upper case for encoding names within OGR, lower case in Python.</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>0.11 (2013-04-14)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>0.11 (2013-04-14)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Cythonize .pyx files (#34).</li>
 <li>Work with or around OGR&#8217;s internal recoding of record data (#35).</li>
 <li>Fix bug in serialization of int/float PROJ.4 params.</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3>0.10 (2013-03-23)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>0.10 (2013-03-23)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add function to get the width of str type properties.</li>
 <li>Handle validation and schema representation of 3D geometry types (#29).</li>
 <li>Return {&#8216;geometry&#8217;: None} in the case of a NULL geometry (#31).</li>
 </ul>
 </div>
-<div class="section" id="id9">
-<h3>0.9.1 (2013-03-07)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>0.9.1 (2013-03-07)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Silence the logger in ogrext.so (can be overridden).</li>
 <li>Allow user specification of record field encoding (like &#8216;Windows-1252&#8217; for
 Natural Earth shapefiles) to help when OGR can&#8217;t detect it.</li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3>0.9 (2013-03-06)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>0.9 (2013-03-06)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Accessing file metadata (crs, schema, bounds) on never inspected closed files
 returns None without exceptions.</li>
@@ -444,8 +461,8 @@ returns None without exceptions.</li>
 <li>Allow users to specify width of shapefile text fields (#20).</li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h3>0.8 (2012-02-21)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>0.8 (2012-02-21)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Replaced .opened attribute with .closed (product of collection() is always
 opened). Also a __del__() which will close a Collection, but still not to be
@@ -456,30 +473,30 @@ depended upon.</li>
 <li>Added a read-only bounds property.</li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3>0.7 (2012-01-29)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>0.7 (2012-01-29)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Initial timezone-naive support for date, time, and datetime fields. Don&#8217;t use
 these field types if you can avoid them. RFC 3339 datetimes in a string field
 are much better.</li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h3>0.6.2 (2012-01-10)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>0.6.2 (2012-01-10)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Diagnose and set the driver property of collection in read mode.</li>
 <li>Fail if collection paths are not to files. Multi-collection workspaces are
 a (maybe) TODO.</li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h3>0.6.1 (2012-01-06)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>0.6.1 (2012-01-06)<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Handle the case of undefined crs for disk collections.</li>
 </ul>
 </div>
-<div class="section" id="id15">
-<h3>0.6 (2012-01-05)<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>0.6 (2012-01-05)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Support for collection coordinate reference systems based on Proj4.</li>
 <li>Redirect OGR warnings and errors to the Fiona log.</li>
@@ -487,22 +504,22 @@ a (maybe) TODO.</li>
 using.</li>
 </ul>
 </div>
-<div class="section" id="id16">
-<h3>0.5 (2011-12-19)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>0.5 (2011-12-19)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Support for reading and writing collections of any geometry type.</li>
 <li>Feature and Geometry classes replaced by mappings (dicts).</li>
 <li>Removal of Workspace class.</li>
 </ul>
 </div>
-<div class="section" id="id17">
-<h3>0.2 (2011-09-16)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>0.2 (2011-09-16)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Rename WorldMill to Fiona.</li>
 </ul>
 </div>
-<div class="section" id="id18">
-<h3>0.1.1 (2008-12-04)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>0.1.1 (2008-12-04)<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Support for features with no geometry.</li>
 </ul>
@@ -516,9 +533,14 @@ using.</li>
 </ul>
 <p>With contributions by:</p>
 <ul class="simple">
+<li>Stefano Costa (<a class="reference external" href="https://github.com/steko">https://github.com/steko</a>)</li>
+<li>Ludovic Delauné (<a class="reference external" href="https://github.com/ldgeo">https://github.com/ldgeo</a>)</li>
 <li>Frédéric Junod (<a class="reference external" href="https://github.com/fredj">https://github.com/fredj</a>)</li>
+<li>lordi (<a class="reference external" href="https://github.com/lordi">https://github.com/lordi</a>)</li>
 <li>Ariel Núñez (<a class="reference external" href="https://github.com/ingenieroariel">https://github.com/ingenieroariel</a>)</li>
+<li>Oliver Tonnhofer (<a class="reference external" href="https://github.com/olt">https://github.com/olt</a>)</li>
 <li>Michael Weisman (<a class="reference external" href="https://github.com/mweisman">https://github.com/mweisman</a>)</li>
+<li>Andy Wilson (<a class="reference external" href="https://github.com/wilsaj">https://github.com/wilsaj</a>)</li>
 </ul>
 <p>Fiona would not be possible without the great work of Frank Warmerdam and other
 GDAL/OGR developers.</p>
@@ -540,12 +562,15 @@ U.S. National Endowment for the Humanities (<a class="reference external" href="
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="manual.html" title="1   The Fiona User Manual"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Fiona Documentation Contents"
              >previous</a> |</li>
-        <li><a href="index.html">Fiona 0.16 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

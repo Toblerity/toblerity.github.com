@@ -22,12 +22,12 @@ The Fiona User Manual
 Introduction
 ============
 
-We make :dfn:`geographic information systems` (GIS) to help us plan, react to,
-and understand changes in our physical, political, economic, and cultural
-landscapes. A generation ago, GIS was something done only by big institutions
-like nations and cities, but it's become ubiquitous today thanks to
-accurate and inexpensive global positioning systems, commoditization of
-satellite imagery, and open source software.
+:dfn:`Geographic information systems` (GIS) help us plan, react to, and
+understand changes in our physical, political, economic, and cultural
+landscapes. A generation ago, GIS was something done only by major institutions
+like nations and cities, but it's become ubiquitous today thanks to accurate
+and inexpensive global positioning systems, commoditization of satellite
+imagery, and open source software.
 
 The kinds of data in GIS are roughly divided into :dfn:`rasters` representing
 continuous scalar fields (land surface temperature or elevation, for example)
@@ -49,14 +49,14 @@ and is less optimal in others. Fiona trades memory and speed for simplicity and
 reliability. Where OGR's Python bindings (for example) use C pointers, Fiona
 copies vector data from the data source to Python objects.  These are simpler
 and safer to use, but more memory intensive. Fiona's performance is relatively
-more slow if you only need access to a single record field – and of course
-if you just want to reproject or filter data files, nothing beats the
+more slow if you only need access to a single record field – and of course if
+you just want to reproject or filter data files, nothing beats the
 :command:`ogr2ogr` program – but Fiona's performance is much better than OGR's
 Python bindings if you want *all* fields and coordinates of a record. The
-copying is a constraint, yes, but it simplifies things.  With Fiona, you don't
-have to track references to C objects to avoid crashes, and you can work with
-vector data using familiar Python mapping accessors.  Less worry, less time
-spent reading API documentation.
+copying is a constraint, but it simplifies programs. With Fiona, you don't have
+to track references to C objects to avoid crashes, and you can work with vector
+data using familiar Python mapping accessors. Less worry, less time spent
+reading API documentation.
 
 Rules of Thumb
 --------------
@@ -92,7 +92,7 @@ another, adding two attributes and making sure that all polygons are facing
 "up". Orientation of polygons is significant in some applications, extruded
 polygons in Google Earth for one. No other library (like :py:mod:`Shapely`) is
 needed here, which keeps it uncomplicated. There's a :file:`test_uk` file in
-the Fiona repository that we'll use in this and other examples.
+the Fiona repository for use in this and other examples.
 
 .. sourcecode:: python
 
@@ -101,7 +101,6 @@ the Fiona repository that we'll use in this and other examples.
   import sys
   
   import fiona
-  
   
   logging.basicConfig(stream=sys.stderr, level=logging.INFO)
   
@@ -114,7 +113,6 @@ the Fiona repository that we'll use in this and other examples.
       xs.append(xs[1])
       ys.append(ys[1]) 
       return sum(xs[i]*(ys[i+1]-ys[i-1]) for i in range(1, len(coords)))/2.0
-  
   
   with fiona.open('docs/data/test_uk.shp', 'r') as source:
       
@@ -230,7 +228,7 @@ Fiona's :py:class:`~fiona.collection.Collection` is like a Python
 
 .. sourcecode:: pycon
 
-  >>> c.next()
+  >>> next(c)
   {'geometry': {'type': 'Polygon', 'coordinates': ...
   >>> len(list(c))
   47
@@ -240,7 +238,7 @@ emptying it as with a Python :py:class:`file`.
 
 .. sourcecode:: pycon
 
-  >>> c.next()
+  >>> next(c)
   Traceback (most recent call last):
   ...
   StopIteration
@@ -287,7 +285,7 @@ Closing Files
 -------------
 
 A :py:class:`~fiona.collection.Collection` involves external resources. There's
-no guarantee that these will be released unless you explictly
+no guarantee that these will be released unless you explicitly
 :py:meth:`~fiona.collection.Collection.close` the object or use
 a :keyword:`with` statement. When a :py:class:`~fiona.collection.Collection` is
 a context guard, it is closed no matter what happens within the block.
@@ -408,7 +406,7 @@ keys of the collection's record mappings.
 
 .. sourcecode:: pycon
 
-  >>> rec = c.next()
+  >>> rec = next(c)
   >>> set(rec.keys()) - set(c.schema.keys())
   set(['id'])
   >>> set(rec['properties'].keys()) == set(c.schema['properties'].keys())
@@ -431,10 +429,10 @@ be found in a dictionary named :py:attr:`fiona.types`.
 Field Types
 -----------
 
-TODO: details. In a nutshell, the types and their names are as near to what
-you'd expect in Python (or Javascript) as possible. The 'str' vs 'unicode'
-muddle is a fact of life in Python < 3.0. Fiona records have Unicode strings,
-but their field type name is 'str'.
+In a nutshell, the types and their names are as near to what you'd expect in
+Python (or Javascript) as possible. The 'str' vs 'unicode' muddle is a fact of
+life in Python < 3.0. Fiona records have Unicode strings, but their field type
+name is 'str' (looking forward to Python 3).
 
 .. sourcecode:: pycon
 
@@ -451,7 +449,7 @@ is used in the schema of a file opened for writing, values of that property
 will be truncated at 25 characters. The default width is 80 chars, which means
 'str' and 'str:80' are more or less equivalent.
 
-Fiona provides a function to get the width of properties.
+Fiona provides a function to get the width of a property.
 
 .. sourcecode:: pycon
 
@@ -460,6 +458,26 @@ Fiona provides a function to get the width of properties.
   25
   >>> prop_width('str')
   80
+
+Another function gets the proper Python type of a property.
+
+.. sourcecode:: pycon
+
+  >>> from fiona import prop_type
+  >>> prop_type('int')
+  <type 'int'>
+  >>> prop_type('float')
+  <type 'float'>
+  >>> prop_type('str:25')
+  <type 'unicode'>
+
+The example above is for Python 2. With Python 3, the type of 'str' properties
+is different.
+
+.. sourcecode:: pycon
+
+  >>> prop_type('str:25')
+  <class 'str'>
 
 Geometry Types
 --------------
@@ -545,7 +563,7 @@ value is a string unique within the data file.
 .. sourcecode:: pycon
 
   >>> c = fiona.open('docs/data/test_uk.shp', 'r')
-  >>> rec = c.next()
+  >>> rec = next(c)
   >>> rec['id']
   '0'
 
@@ -626,7 +644,7 @@ tuples, the ``type`` tells you how to interpret them.
 +-------------------+---------------------------------------------------+
 
 Fiona, like the GeoJSON format, has both Northern Hemisphere "North is up" and
-Cartesian "X-Y" biases. The values within a tuple that we denote as ``(x, y)``
+Cartesian "X-Y" biases. The values within a tuple that denoted as ``(x, y)``
 above are either (longitude E of the prime meridian, latitude N of the equator)
 or, for other projected coordinate systems, (easting, northing).
 
@@ -695,7 +713,7 @@ record extracted in the example below.
 .. sourcecode:: pycon
 
   >>> with fiona.open('docs/data/test_uk.shp', 'r') as c:
-  ...     rec = c.next()
+  ...     rec = next(c)
   >>> rec['id'] = '-1'
   >>> rec['properties']['CNTRY_NAME'] = u'Gondor'
   >>> import os
@@ -839,6 +857,148 @@ If you write 3D coordinates, ones having (x, y, z) tuples, to a 2D file
 
 If you write 2D coordinates, ones having only (x, y) tuples, to a 3D file ('3D
 Point' schema geometry, for example) a default z value of 0 will be provided.
+
+
+Advanced Topics
+===============
+
+Reading Multilayer data
+-----------------------
+
+Up to this point, only simple datasets with one thematic layer or feature type
+per file have been shown and the venerable Esri Shapefile has been the primary
+example. Other GIS data formats can encode multiple layers or feature types
+within a single file or directory. Esri's `File Geodatabase
+<http://www.gdal.org/ogr/drv_filegdb.html>`__ is one example of such a format.
+A more useful example, for the purpose of this manual, is a directory
+comprising multiple shapefiles. The following three shell commands will create
+just such a two layered data source from the test data distributed with Fiona.
+
+.. sourcecode:: console
+
+  $ mkdir /tmp/data
+  $ ogr2ogr /tmp/data/ docs/data/test_uk.shp test_uk -nln foo
+  $ ogr2ogr /tmp/data/ docs/data/test_uk.shp test_uk -nln bar
+
+The layers of a data source can be listed using :py:func:`fiona.listlayers`.
+
+.. sourcecode:: pycon
+
+  >>> fiona.listlayers('/tmp/data')
+  ['bar', 'foo']
+
+Unlike OGR, Fiona has no classes representing layers or data sources. To access
+the features of a layer, open a collection using the path to the data source
+and specify the layer by name using the `layer` keyword.
+
+.. sourcecode:: pycon
+
+  >>> import pprint
+  >>> datasrc_path = '/tmp/data'
+  >>> for name in fiona.listlayers(datasrc_path):
+  ...     with fiona.open(datasrc_path, layer=name) as c:
+  ...         pprint.pprint(c.schema)
+  ...
+  {'geometry': 'Polygon',
+   'properties': {'AREA': 'float:15.2',
+                  'CAT': 'float:16',
+                  'CNTRY_NAME': 'str',
+                  'FIPS_CNTRY': 'str',
+                  'POP_CNTRY': 'float:15.2'}}
+  {'geometry': 'Polygon',
+   'properties': {'AREA': 'float:15.2',
+                  'CAT': 'float:16',
+                  'CNTRY_NAME': 'str',
+                  'FIPS_CNTRY': 'str',
+                  'POP_CNTRY': 'float:15.2'}}
+
+Layers may also be specified by their index.
+
+.. sourcecode:: pycon
+
+  >>> for i, name in enumerate(fiona.listlayers(datasrc_path)):
+  ...     with fiona.open(datasrc_path, layer=i) as c:
+  ...         print(len(c))
+  ...
+  48
+  48
+
+If no layer is specified, :py:func:`fiona.open` returns an open collection using the
+first layer.
+
+.. sourcecode:: pycon
+
+  >>> with fiona.open(datasrc_path) as c:
+  ...     c.name == fiona.listlayers(datasrc_path)[0]
+  ...
+  True
+
+Writing Multilayer data
+-----------------------
+
+To write an entirely new layer to a multilayer data source, simply provide
+a unique name to the `layer` keyword argument.
+
+.. sourcecode:: pycon
+
+  >>> 'wah' not in fiona.listlayers(datasrc_path)
+  True
+  >>> with fiona.open(datasrc_path, layer='bar') as c:
+  ...     with fiona.open(datasrc_path, 'w', layer='wah', **c.meta) as d:
+  ...         d.write(next(c))
+  ...
+  >>> fiona.listlayers(datasrc_path)
+  ['bar', 'foo', 'wah']
+
+In ``'w'`` mode, existing layers will be overwritten if specified, just as normal
+files are overwritten by Python's :py:func:`open` function.
+
+.. sourcode:: pycon
+
+  >>> 'wah' in fiona.listlayers(datasrc_path)
+  True
+  >>> with fiona.open(datasrc_path, layer='bar') as c:
+  ...     with fiona.open(datasrc_path, 'w', layer='wah', **c.meta) as d:
+  ...         # Overwrites the existing layer named 'wah'!
+
+Virtual filesystems
+-------------------
+
+Zip and Tar archives can be treated as virtual filesystems and collections can
+be made from paths and layers within them. In other words, Fiona lets you read
+zipped shapefiles. For example, make a Zip archive from the shapefile
+distributed with Fiona.
+
+.. sourcecode:: console
+
+  $ zip /tmp/zed.zip docs/data/test_uk.*
+  adding: docs/data/test_uk.shp (deflated 48%)
+  adding: docs/data/test_uk.shx (deflated 37%)
+  adding: docs/data/test_uk.dbf (deflated 98%)
+  adding: docs/data/test_uk.prj (deflated 15%)
+
+The `vfs` keyword parameter for :py:func:`fiona.listlayers` and
+:py:func:`fiona.open` may be an Apache Commons VFS style string beginning with
+"zip://" or "tar://" and followed by an absolute or relative path to the
+archive file. When this parameter is used, the first argument to must be an
+absolute path within that archive. The layers in that Zip archive are:
+
+.. sourcecode:: pycon
+
+  >>> import fiona
+  >>> fiona.listlayers('/docs/data', vfs='zip:///tmp/zed.zip')
+  ['test_uk']
+
+The single shapefile may also be accessed like so:
+
+.. sourcecode:: pycon
+
+  >>> with fiona.open(
+  ...         '/docs/data/test_uk.shp', 
+  ...         vfs='zip:///tmp/zed.zip') as c:
+  ...     print(len(c))
+  ...
+  48
 
 References
 ==========

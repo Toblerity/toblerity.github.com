@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>1   The Fiona User Manual &mdash; Fiona 0.16 documentation</title>
+    <title>1   The Fiona User Manual &mdash; Fiona 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.16',
+        VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Fiona 0.16 documentation" href="index.html" />
+    <link rel="top" title="Fiona 1.0 documentation" href="index.html" />
     <link rel="next" title="fiona" href="modules.html" />
-    <link rel="prev" title="Fiona" href="README.html" /> 
+    <link rel="prev" title="Fiona: OGR’s neat, nimble, no-nonsense API for Python programmers" href="README.html" /> 
   </head>
   <body>
     <div class="related">
@@ -41,9 +41,9 @@
           <a href="modules.html" title="fiona"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="README.html" title="Fiona"
+          <a href="README.html" title="Fiona: OGR’s neat, nimble, no-nonsense API for Python programmers"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Fiona 0.16 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -81,14 +81,20 @@
 <li><a class="reference internal" href="#coordinates-and-geometry-types">1.6.3&nbsp;&nbsp;&nbsp;Coordinates and Geometry Types</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#references">1.7&nbsp;&nbsp;&nbsp;References</a></li>
+<li><a class="reference internal" href="#advanced-topics">1.7&nbsp;&nbsp;&nbsp;Advanced Topics</a><ul>
+<li><a class="reference internal" href="#reading-multilayer-data">1.7.1&nbsp;&nbsp;&nbsp;Reading Multilayer data</a></li>
+<li><a class="reference internal" href="#writing-multilayer-data">1.7.2&nbsp;&nbsp;&nbsp;Writing Multilayer data</a></li>
+<li><a class="reference internal" href="#virtual-filesystems">1.7.3&nbsp;&nbsp;&nbsp;Virtual filesystems</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">1.8&nbsp;&nbsp;&nbsp;References</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="README.html"
-                        title="previous chapter">Fiona</a></p>
+                        title="previous chapter">Fiona: OGR&#8217;s neat, nimble, no-nonsense API for Python programmers</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="modules.html"
                         title="next chapter">fiona</a></p>
@@ -126,9 +132,9 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">0.16</td>
+<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.0</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">June 30, 2013</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">July 29, 2013</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
 United States License</a>.</td>
@@ -146,12 +152,12 @@ use the Fiona package for reading and writing geospatial data files.</td>
 </table>
 <div class="section" id="introduction">
 <span id="intro"></span><h2>1.1&nbsp;&nbsp;&nbsp;Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>We make <em class="dfn">geographic information systems</em> (GIS) to help us plan, react to,
-and understand changes in our physical, political, economic, and cultural
-landscapes. A generation ago, GIS was something done only by big institutions
-like nations and cities, but it&#8217;s become ubiquitous today thanks to
-accurate and inexpensive global positioning systems, commoditization of
-satellite imagery, and open source software.</p>
+<p><em class="dfn">Geographic information systems</em> (GIS) help us plan, react to, and
+understand changes in our physical, political, economic, and cultural
+landscapes. A generation ago, GIS was something done only by major institutions
+like nations and cities, but it&#8217;s become ubiquitous today thanks to accurate
+and inexpensive global positioning systems, commoditization of satellite
+imagery, and open source software.</p>
 <p>The kinds of data in GIS are roughly divided into <em class="dfn">rasters</em> representing
 continuous scalar fields (land surface temperature or elevation, for example)
 and <em class="dfn">vectors</em> representing discrete entities like roads and administrative
@@ -170,14 +176,14 @@ and is less optimal in others. Fiona trades memory and speed for simplicity and
 reliability. Where OGR&#8217;s Python bindings (for example) use C pointers, Fiona
 copies vector data from the data source to Python objects.  These are simpler
 and safer to use, but more memory intensive. Fiona&#8217;s performance is relatively
-more slow if you only need access to a single record field – and of course
-if you just want to reproject or filter data files, nothing beats the
+more slow if you only need access to a single record field – and of course if
+you just want to reproject or filter data files, nothing beats the
 <strong class="command">ogr2ogr</strong> program – but Fiona&#8217;s performance is much better than OGR&#8217;s
 Python bindings if you want <em>all</em> fields and coordinates of a record. The
-copying is a constraint, yes, but it simplifies things.  With Fiona, you don&#8217;t
-have to track references to C objects to avoid crashes, and you can work with
-vector data using familiar Python mapping accessors.  Less worry, less time
-spent reading API documentation.</p>
+copying is a constraint, but it simplifies programs. With Fiona, you don&#8217;t have
+to track references to C objects to avoid crashes, and you can work with vector
+data using familiar Python mapping accessors. Less worry, less time spent
+reading API documentation.</p>
 <div class="section" id="rules-of-thumb">
 <h3>1.1.1&nbsp;&nbsp;&nbsp;Rules of Thumb<a class="headerlink" href="#rules-of-thumb" title="Permalink to this headline">¶</a></h3>
 <p>In what cases would you benefit from using Fiona?</p>
@@ -211,13 +217,12 @@ another, adding two attributes and making sure that all polygons are facing
 &#8220;up&#8221;. Orientation of polygons is significant in some applications, extruded
 polygons in Google Earth for one. No other library (like <tt class="xref py py-mod docutils literal"><span class="pre">Shapely</span></tt>) is
 needed here, which keeps it uncomplicated. There&#8217;s a <tt class="file docutils literal"><span class="pre">test_uk</span></tt> file in
-the Fiona repository that we&#8217;ll use in this and other examples.</p>
+the Fiona repository for use in this and other examples.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">import</span> <span class="nn">fiona</span>
-
 
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 
@@ -230,7 +235,6 @@ the Fiona repository that we&#8217;ll use in this and other examples.</p>
     <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ys</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">coords</span><span class="p">)))</span><span class="o">/</span><span class="mf">2.0</span>
-
 
 <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">source</span><span class="p">:</span>
 
@@ -340,7 +344,7 @@ GeoJSON-like access to the data via Python file-like and mapping protocols.</p>
 </div>
 <p>Fiona&#8217;s <a class="reference internal" href="fiona.html#fiona.collection.Collection" title="fiona.collection.Collection"><tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt></a> is like a Python
 <tt class="xref py py-class docutils literal"><span class="pre">file</span></tt>, but is iterable for records rather than lines.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="go">{&#39;geometry&#39;: {&#39;type&#39;: &#39;Polygon&#39;, &#39;coordinates&#39;: ...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 <span class="go">47</span>
@@ -348,7 +352,7 @@ GeoJSON-like access to the data via Python file-like and mapping protocols.</p>
 </div>
 <p>Note that <tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt> iterates over the entire collection, effectively
 emptying it as with a Python <tt class="xref py py-class docutils literal"><span class="pre">file</span></tt>.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
 <span class="c">...</span>
 <span class="gr">StopIteration</span>
@@ -390,7 +394,7 @@ the box&#8217;s values.</p>
 <div class="section" id="closing-files">
 <h3>1.3.2&nbsp;&nbsp;&nbsp;Closing Files<a class="headerlink" href="#closing-files" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference internal" href="fiona.html#fiona.collection.Collection" title="fiona.collection.Collection"><tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt></a> involves external resources. There&#8217;s
-no guarantee that these will be released unless you explictly
+no guarantee that these will be released unless you explicitly
 <a class="reference internal" href="fiona.html#fiona.collection.Collection.close" title="fiona.collection.Collection.close"><tt class="xref py py-meth docutils literal"><span class="pre">close()</span></tt></a> the object or use
 a <tt class="xref std std-keyword docutils literal"><span class="pre">with</span></tt> statement. When a <a class="reference internal" href="fiona.html#fiona.collection.Collection" title="fiona.collection.Collection"><tt class="xref py py-class docutils literal"><span class="pre">Collection</span></tt></a> is
 a context guard, it is closed no matter what happens within the block.</p>
@@ -490,7 +494,7 @@ record, remember) is accessed via a read-only
 record types is structured as closely to data about records as can be done.
 Modulo a record&#8217;s &#8216;id&#8217; key, the keys of a schema mapping are the same as the
 keys of the collection&#8217;s record mappings.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="go">set([&#39;id&#39;])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -512,10 +516,10 @@ be found in a dictionary named <tt class="xref py py-attr docutils literal"><spa
 </div>
 <div class="section" id="field-types">
 <h3>1.4.2&nbsp;&nbsp;&nbsp;Field Types<a class="headerlink" href="#field-types" title="Permalink to this headline">¶</a></h3>
-<p>TODO: details. In a nutshell, the types and their names are as near to what
-you&#8217;d expect in Python (or Javascript) as possible. The &#8216;str&#8217; vs &#8216;unicode&#8217;
-muddle is a fact of life in Python &lt; 3.0. Fiona records have Unicode strings,
-but their field type name is &#8216;str&#8217;.</p>
+<p>In a nutshell, the types and their names are as near to what you&#8217;d expect in
+Python (or Javascript) as possible. The &#8216;str&#8217; vs &#8216;unicode&#8217; muddle is a fact of
+life in Python &lt; 3.0. Fiona records have Unicode strings, but their field type
+name is &#8216;str&#8217; (looking forward to Python 3).</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">])</span>
 <span class="go">&lt;type &#39;unicode&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]</span>
@@ -529,12 +533,28 @@ indicates that all values will be no longer than 25 characters. If this value
 is used in the schema of a file opened for writing, values of that property
 will be truncated at 25 characters. The default width is 80 chars, which means
 &#8216;str&#8217; and &#8216;str:80&#8217; are more or less equivalent.</p>
-<p>Fiona provides a function to get the width of properties.</p>
+<p>Fiona provides a function to get the width of a property.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fiona</span> <span class="kn">import</span> <span class="n">prop_width</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prop_width</span><span class="p">(</span><span class="s">&#39;str:25&#39;</span><span class="p">)</span>
 <span class="go">25</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prop_width</span><span class="p">(</span><span class="s">&#39;str&#39;</span><span class="p">)</span>
 <span class="go">80</span>
+</pre></div>
+</div>
+<p>Another function gets the proper Python type of a property.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fiona</span> <span class="kn">import</span> <span class="n">prop_type</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prop_type</span><span class="p">(</span><span class="s">&#39;int&#39;</span><span class="p">)</span>
+<span class="go">&lt;type &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prop_type</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">)</span>
+<span class="go">&lt;type &#39;float&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prop_type</span><span class="p">(</span><span class="s">&#39;str:25&#39;</span><span class="p">)</span>
+<span class="go">&lt;type &#39;unicode&#39;&gt;</span>
+</pre></div>
+</div>
+<p>The example above is for Python 2. With Python 3, the type of &#8216;str&#8217; properties
+is different.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prop_type</span><span class="p">(</span><span class="s">&#39;str:25&#39;</span><span class="p">)</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -614,7 +634,7 @@ Closing the collection does not affect the record at all.</p>
 <p>A record has an <tt class="docutils literal"><span class="pre">id</span></tt> key. As in the GeoJSON specification, its corresponding
 value is a string unique within the data file.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span>
 <span class="go">&#39;0&#39;</span>
 </pre></div>
@@ -706,7 +726,7 @@ tuples, the <tt class="docutils literal"><span class="pre">type</span></tt> tell
 </tbody>
 </table>
 <p>Fiona, like the GeoJSON format, has both Northern Hemisphere &#8220;North is up&#8221; and
-Cartesian &#8220;X-Y&#8221; biases. The values within a tuple that we denote as <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y)</span></tt>
+Cartesian &#8220;X-Y&#8221; biases. The values within a tuple that denoted as <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y)</span></tt>
 above are either (longitude E of the prime meridian, latitude N of the equator)
 or, for other projected coordinate systems, (easting, northing).</p>
 <div class="admonition-long-lat-not-lat-long admonition">
@@ -766,7 +786,7 @@ and is therefore not supported by Fiona.</p>
 to an existing file. The file is copied before modification and a suitable
 record extracted in the example below.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">rec</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="n">rec</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;-1&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">u&#39;Gondor&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
@@ -896,8 +916,121 @@ a file&#8217;s meta properties even easier.</p>
 Point&#8217; schema geometry, for example) a default z value of 0 will be provided.</p>
 </div>
 </div>
+<div class="section" id="advanced-topics">
+<h2>1.7&nbsp;&nbsp;&nbsp;Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reading-multilayer-data">
+<h3>1.7.1&nbsp;&nbsp;&nbsp;Reading Multilayer data<a class="headerlink" href="#reading-multilayer-data" title="Permalink to this headline">¶</a></h3>
+<p>Up to this point, only simple datasets with one thematic layer or feature type
+per file have been shown and the venerable Esri Shapefile has been the primary
+example. Other GIS data formats can encode multiple layers or feature types
+within a single file or directory. Esri&#8217;s <a class="reference external" href="http://www.gdal.org/ogr/drv_filegdb.html">File Geodatabase</a> is one example of such a format.
+A more useful example, for the purpose of this manual, is a directory
+comprising multiple shapefiles. The following three shell commands will create
+just such a two layered data source from the test data distributed with Fiona.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> mkdir /tmp/data
+<span class="gp">$</span> ogr2ogr /tmp/data/ docs/data/test_uk.shp test_uk -nln foo
+<span class="gp">$</span> ogr2ogr /tmp/data/ docs/data/test_uk.shp test_uk -nln bar
+</pre></div>
+</div>
+<p>The layers of a data source can be listed using <tt class="xref py py-func docutils literal"><span class="pre">fiona.listlayers()</span></tt>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="s">&#39;/tmp/data&#39;</span><span class="p">)</span>
+<span class="go">[&#39;bar&#39;, &#39;foo&#39;]</span>
+</pre></div>
+</div>
+<p>Unlike OGR, Fiona has no classes representing layers or data sources. To access
+the features of a layer, open a collection using the path to the data source
+and specify the layer by name using the <cite>layer</cite> keyword.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datasrc_path</span> <span class="o">=</span> <span class="s">&#39;/tmp/data&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">name</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">{&#39;geometry&#39;: &#39;Polygon&#39;,</span>
+<span class="go"> &#39;properties&#39;: {&#39;AREA&#39;: &#39;float:15.2&#39;,</span>
+<span class="go">                &#39;CAT&#39;: &#39;float:16&#39;,</span>
+<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;FIPS_CNTRY&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;POP_CNTRY&#39;: &#39;float:15.2&#39;}}</span>
+<span class="go">{&#39;geometry&#39;: &#39;Polygon&#39;,</span>
+<span class="go"> &#39;properties&#39;: {&#39;AREA&#39;: &#39;float:15.2&#39;,</span>
+<span class="go">                &#39;CAT&#39;: &#39;float:16&#39;,</span>
+<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;FIPS_CNTRY&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;POP_CNTRY&#39;: &#39;float:15.2&#39;}}</span>
+</pre></div>
+</div>
+<p>Layers may also be specified by their index.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">)):</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">i</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">48</span>
+<span class="go">48</span>
+</pre></div>
+</div>
+<p>If no layer is specified, <tt class="xref py py-func docutils literal"><span class="pre">fiona.open()</span></tt> returns an open collection using the
+first layer.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">...</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-multilayer-data">
+<h3>1.7.2&nbsp;&nbsp;&nbsp;Writing Multilayer data<a class="headerlink" href="#writing-multilayer-data" title="Permalink to this headline">¶</a></h3>
+<p>To write an entirely new layer to a multilayer data source, simply provide
+a unique name to the <cite>layer</cite> keyword argument.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;wah&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s">&#39;bar&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s">&#39;wah&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">c</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">d</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">)</span>
+<span class="go">[&#39;bar&#39;, &#39;foo&#39;, &#39;wah&#39;]</span>
+</pre></div>
+</div>
+<p>In <tt class="docutils literal"><span class="pre">'w'</span></tt> mode, existing layers will be overwritten if specified, just as normal
+files are overwritten by Python&#8217;s <tt class="xref py py-func docutils literal"><span class="pre">open()</span></tt> function.</p>
+</div>
+<div class="section" id="virtual-filesystems">
+<h3>1.7.3&nbsp;&nbsp;&nbsp;Virtual filesystems<a class="headerlink" href="#virtual-filesystems" title="Permalink to this headline">¶</a></h3>
+<p>Zip and Tar archives can be treated as virtual filesystems and collections can
+be made from paths and layers within them. In other words, Fiona lets you read
+zipped shapefiles. For example, make a Zip archive from the shapefile
+distributed with Fiona.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> zip /tmp/zed.zip docs/data/test_uk.*
+<span class="go">adding: docs/data/test_uk.shp (deflated 48%)</span>
+<span class="go">adding: docs/data/test_uk.shx (deflated 37%)</span>
+<span class="go">adding: docs/data/test_uk.dbf (deflated 98%)</span>
+<span class="go">adding: docs/data/test_uk.prj (deflated 15%)</span>
+</pre></div>
+</div>
+<p>The <cite>vfs</cite> keyword parameter for <tt class="xref py py-func docutils literal"><span class="pre">fiona.listlayers()</span></tt> and
+<tt class="xref py py-func docutils literal"><span class="pre">fiona.open()</span></tt> may be an Apache Commons VFS style string beginning with
+&#8220;zip://&#8221; or &#8220;tar://&#8221; and followed by an absolute or relative path to the
+archive file. When this parameter is used, the first argument to must be an
+absolute path within that archive. The layers in that Zip archive are:</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fiona</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="s">&#39;/docs/data&#39;</span><span class="p">,</span> <span class="n">vfs</span><span class="o">=</span><span class="s">&#39;zip:///tmp/zed.zip&#39;</span><span class="p">)</span>
+<span class="go">[&#39;test_uk&#39;]</span>
+</pre></div>
+</div>
+<p>The single shapefile may also be accessed like so:</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="s">&#39;/docs/data/test_uk.shp&#39;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">vfs</span><span class="o">=</span><span class="s">&#39;zip:///tmp/zed.zip&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">48</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="references">
-<h2>1.7&nbsp;&nbsp;&nbsp;References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2>1.8&nbsp;&nbsp;&nbsp;References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <table class="docutils citation" frame="void" id="kent1978" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -950,9 +1083,9 @@ Point&#8217; schema geometry, for example) a default z value of 0 will be provid
           <a href="modules.html" title="fiona"
              >next</a> |</li>
         <li class="right" >
-          <a href="README.html" title="Fiona"
+          <a href="README.html" title="Fiona: OGR’s neat, nimble, no-nonsense API for Python programmers"
              >previous</a> |</li>
-        <li><a href="index.html">Fiona 0.16 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
