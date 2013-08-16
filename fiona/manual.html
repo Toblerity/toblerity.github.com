@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>1   The Fiona User Manual &mdash; Fiona 1.0 documentation</title>
+    <title>1   The Fiona User Manual &mdash; Fiona 1.0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0',
+        VERSION:     '1.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Fiona 1.0 documentation" href="index.html" />
+    <link rel="top" title="Fiona 1.0.1 documentation" href="index.html" />
     <link rel="next" title="fiona" href="modules.html" />
     <link rel="prev" title="Fiona: OGR’s neat, nimble, no-nonsense API for Python programmers" href="README.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="README.html" title="Fiona: OGR’s neat, nimble, no-nonsense API for Python programmers"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Fiona 1.0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -134,9 +134,9 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.0</td>
+<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.0.1</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">July 31, 2013</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">August 16, 2013</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
 United States License</a>.</td>
@@ -148,8 +148,9 @@ United States License</a>.</td>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Abstract:</th><td class="field-body">Fiona is OGR&#8217;s neat, nimble, no-nonsense API. This document explains how to
-use the Fiona package for reading and writing geospatial data files. See the
-<a class="reference external" href="README.html">README</a> for installation and quick start instructions.</td>
+use the Fiona package for reading and writing geospatial data files. Python
+3 is used in examples. See the <a class="reference external" href="README.html">README</a> for installation and
+quick start instructions.</td>
 </tr>
 </tbody>
 </table>
@@ -335,7 +336,7 @@ GeoJSON-like access to the data via Python file-like and mapping protocols.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fiona</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
-<span class="go">&lt;open Collection &#39;docs/data/test_uk.shp:test_uk&#39;, mode &#39;r&#39; at 0x3763d0&gt;</span>
+<span class="go">&lt;open Collection &#39;docs/data/test_uk.shp:test_uk&#39;, mode &#39;r&#39; at 0x...&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">closed</span>
 <span class="go">False</span>
 </pre></div>
@@ -351,7 +352,7 @@ GeoJSON-like access to the data via Python file-like and mapping protocols.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="go">{&#39;geometry&#39;: {&#39;type&#39;: &#39;Polygon&#39;, &#39;coordinates&#39;: ...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-<span class="go">47</span>
+<span class="go">48</span>
 </pre></div>
 </div>
 <p>Note that <tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt> iterates over the entire collection, effectively
@@ -389,10 +390,10 @@ a <tt class="xref std std-keyword docutils literal"><span class="pre">with</span
 is a context guard, it is closed no matter what happens within the block.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span>
 <span class="gp">... </span>        <span class="k">assert</span> <span class="bp">True</span> <span class="ow">is</span> <span class="bp">False</span>
 <span class="gp">... </span><span class="k">except</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span> <span class="n">c</span><span class="o">.</span><span class="n">closed</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="k">raise</span>
 <span class="gp">...</span>
 <span class="go">48</span>
@@ -435,7 +436,7 @@ accessed via a read-only <a class="reference internal" href="fiona.html#fiona.co
 <p>The <a class="reference internal" href="fiona.html#module-fiona.crs" title="fiona.crs"><tt class="xref py py-mod docutils literal"><span class="pre">fiona.crs</span></tt></a> module provides 3 functions to assist with these
 mappings. <a class="reference internal" href="fiona.html#fiona.crs.to_string" title="fiona.crs.to_string"><tt class="xref py py-func docutils literal"><span class="pre">to_string()</span></tt></a> converts mappings to PROJ.4 strings:</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fiona.crs</span> <span class="kn">import</span> <span class="n">to_string</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">to_string</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">crs</span><span class="p">))</span>
 <span class="go">+datum=WGS84 +ellps=WGS84 +no_defs +proj=longlat</span>
 </pre></div>
 </div>
@@ -461,20 +462,22 @@ built in <tt class="xref py py-func docutils literal"><span class="pre">len()</s
 collection&#8217;s records is obtained via a read-only
 <a class="reference internal" href="fiona.html#fiona.collection.Collection.bounds" title="fiona.collection.Collection.bounds"><tt class="xref py py-attr docutils literal"><span class="pre">bounds</span></tt></a> attribute.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">bounds</span>
-<span class="go">(-8.6213890000000006, 49.911659, 1.749444, 60.844444000000003)</span>
+<span class="go">(-8.621389, 49.911659, 1.749444, 60.844444)</span>
 </pre></div>
 </div>
 <p>Finally, the schema of its record type (a vector file has a single type of
 record, remember) is accessed via a read-only
-<a class="reference internal" href="fiona.html#fiona.collection.Collection.schema" title="fiona.collection.Collection.schema"><tt class="xref py py-attr docutils literal"><span class="pre">schema</span></tt></a> attribute.</p>
+<a class="reference internal" href="fiona.html#fiona.collection.Collection.schema" title="fiona.collection.Collection.schema"><tt class="xref py py-attr docutils literal"><span class="pre">schema</span></tt></a> attribute. It has &#8216;geometry&#8217;
+and &#8216;properties&#8217; items. The former is a string and the latter is an ordered
+dict with items having the same order as the fields in the data file.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pprint</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
 <span class="go">{&#39;geometry&#39;: &#39;Polygon&#39;,</span>
-<span class="go"> &#39;properties&#39;: {&#39;AREA&#39;: &#39;float&#39;,</span>
-<span class="go">                &#39;CAT&#39;: &#39;float&#39;,</span>
-<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go"> &#39;properties&#39;: {&#39;CAT&#39;: &#39;float:16&#39;,</span>
 <span class="go">                &#39;FIPS_CNTRY&#39;: &#39;str&#39;,</span>
-<span class="go">                &#39;POP_CNTRY&#39;: &#39;float&#39;}}</span>
+<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;AREA&#39;: &#39;float:15.2&#39;,</span>
+<span class="go">                &#39;POP_CNTRY&#39;: &#39;float:15.2&#39;}}</span>
 </pre></div>
 </div>
 <div class="section" id="keeping-schemas-simple">
@@ -485,21 +488,21 @@ Modulo a record&#8217;s &#8216;id&#8217; key, the keys of a schema mapping are t
 keys of the collection&#8217;s record mappings.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="go">set([&#39;id&#39;])</span>
+<span class="go">{&#39;id&#39;}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <p>The values of the schema mapping are either additional mappings or field type
 names like &#8216;Polygon&#8217;, &#8216;float&#8217;, and &#8216;str&#8217;. The corresponding Python types can
-be found in a dictionary named <tt class="xref py py-attr docutils literal"><span class="pre">fiona.types</span></tt>.</p>
-<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">fiona</span><span class="o">.</span><span class="n">types</span><span class="p">)</span>
-<span class="go">{&#39;date&#39;: &lt;class &#39;fiona.ogrext.FionaDateType&#39;&gt;,</span>
-<span class="go"> &#39;datetime&#39;: &lt;class &#39;fiona.ogrext.FionaDateTimeType&#39;&gt;,</span>
-<span class="go"> &#39;float&#39;: &lt;type &#39;float&#39;&gt;,</span>
-<span class="go"> &#39;int&#39;: &lt;type &#39;int&#39;&gt;,</span>
-<span class="go"> &#39;str&#39;: &lt;type &#39;unicode&#39;&gt;,</span>
-<span class="go"> &#39;time&#39;: &lt;class &#39;fiona.ogrext.FionaTimeType&#39;&gt;}</span>
+be found in a dictionary named <tt class="xref py py-attr docutils literal"><span class="pre">fiona.FIELD_TYPES_MAP</span></tt>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">fiona</span><span class="o">.</span><span class="n">FIELD_TYPES_MAP</span><span class="p">)</span>
+<span class="go">{&#39;date&#39;: &lt;class &#39;fiona.rfc3339.FionaDateType&#39;&gt;,</span>
+<span class="go"> &#39;datetime&#39;: &lt;class &#39;fiona.rfc3339.FionaDateTimeType&#39;&gt;,</span>
+<span class="go"> &#39;float&#39;: &lt;class &#39;float&#39;&gt;,</span>
+<span class="go"> &#39;int&#39;: &lt;class &#39;int&#39;&gt;,</span>
+<span class="go"> &#39;str&#39;: &lt;class &#39;str&#39;&gt;,</span>
+<span class="go"> &#39;time&#39;: &lt;class &#39;fiona.rfc3339.FionaTimeType&#39;&gt;}</span>
 </pre></div>
 </div>
 </div>
@@ -510,11 +513,11 @@ Python (or Javascript) as possible. The &#8216;str&#8217; vs &#8216;unicode&#821
 life in Python &lt; 3.0. Fiona records have Unicode strings, but their field type
 name is &#8216;str&#8217; (looking forward to Python 3).</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">])</span>
-<span class="go">&lt;type &#39;unicode&#39;&gt;</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]</span>
 <span class="go">&#39;str&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fiona</span><span class="o">.</span><span class="n">types</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]]</span>
-<span class="go">&lt;type &#39;unicode&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fiona</span><span class="o">.</span><span class="n">FIELD_TYPES_MAP</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]]</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
 </pre></div>
 </div>
 <p>String type fields may also indicate their maximum width. A value of &#8216;str:25&#8217;
@@ -537,13 +540,13 @@ will be truncated at 25 characters. The default width is 80 chars, which means
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prop_type</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">)</span>
 <span class="go">&lt;type &#39;float&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prop_type</span><span class="p">(</span><span class="s">&#39;str:25&#39;</span><span class="p">)</span>
-<span class="go">&lt;type &#39;unicode&#39;&gt;</span>
+<span class="go">&lt;class &#39;str&#39;&gt;</span>
 </pre></div>
 </div>
-<p>The example above is for Python 2. With Python 3, the type of &#8216;str&#8217; properties
-is different.</p>
+<p>The example above is for Python 3. With Python 2, the type of &#8216;str&#8217; properties
+is &#8216;unicode&#8217;.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prop_type</span><span class="p">(</span><span class="s">&#39;str:25&#39;</span><span class="p">)</span>
-<span class="go">&lt;class &#39;str&#39;&gt;</span>
+<span class="go">&lt;class &#39;unicode&#39;&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -587,25 +590,25 @@ its fields are contained within the data structure and the values in the fields
 are typed properly for the type of record. Numeric field values are instances
 of type <tt class="xref py py-class docutils literal"><span class="pre">int</span></tt> and <tt class="xref py py-class docutils literal"><span class="pre">float</span></tt>, for example, not strings.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>
-<span class="go">{&#39;geometry&#39;: {&#39;coordinates&#39;: [[(-4.6636110000000004, 51.158332999999999),</span>
-<span class="go">                               (-4.669168, 51.159438999999999),</span>
-<span class="go">                               (-4.6733339999999997, 51.161385000000003),</span>
-<span class="go">                               (-4.6744450000000004, 51.165275999999999),</span>
-<span class="go">                               (-4.6713899999999997, 51.185271999999998),</span>
-<span class="go">                               (-4.6694449999999996, 51.193053999999997),</span>
-<span class="go">                               (-4.6655559999999996, 51.195),</span>
-<span class="go">                               (-4.6588900000000004, 51.195),</span>
-<span class="go">                               (-4.6563889999999999, 51.192214999999997),</span>
-<span class="go">                               (-4.6463890000000001, 51.164444000000003),</span>
-<span class="go">                               (-4.6469449999999997, 51.160828000000002),</span>
-<span class="go">                               (-4.6516679999999999, 51.159438999999999),</span>
-<span class="go">                               (-4.6636110000000004, 51.158332999999999)]],</span>
+<span class="go">{&#39;geometry&#39;: {&#39;coordinates&#39;: [[(-4.663611, 51.158333),</span>
+<span class="go">                               (-4.669168, 51.159439),</span>
+<span class="go">                               (-4.673334, 51.161385),</span>
+<span class="go">                               (-4.674445, 51.165276),</span>
+<span class="go">                               (-4.67139, 51.185272),</span>
+<span class="go">                               (-4.669445, 51.193054),</span>
+<span class="go">                               (-4.665556, 51.195),</span>
+<span class="go">                               (-4.65889, 51.195),</span>
+<span class="go">                               (-4.656389, 51.192215),</span>
+<span class="go">                               (-4.646389, 51.164444),</span>
+<span class="go">                               (-4.646945, 51.160828),</span>
+<span class="go">                               (-4.651668, 51.159439),</span>
+<span class="go">                               (-4.663611, 51.158333)]],</span>
 <span class="go">              &#39;type&#39;: &#39;Polygon&#39;},</span>
 <span class="go"> &#39;id&#39;: &#39;1&#39;,</span>
-<span class="go"> &#39;properties&#39;: {&#39;AREA&#39;: 244820.0,</span>
-<span class="go">                &#39;CAT&#39;: 232.0,</span>
-<span class="go">                &#39;CNTRY_NAME&#39;: u&#39;United Kingdom&#39;,</span>
-<span class="go">                &#39;FIPS_CNTRY&#39;: u&#39;UK&#39;,</span>
+<span class="go"> &#39;properties&#39;: {&#39;CAT&#39;: 232.0,</span>
+<span class="go">                &#39;FIPS_CNTRY&#39;: &#39;UK&#39;,</span>
+<span class="go">                &#39;CNTRY_NAME&#39;: &#39;United Kingdom&#39;,</span>
+<span class="go">                &#39;AREA&#39;: 244820.0,</span>
 <span class="go">                &#39;POP_CNTRY&#39;: 60270708.0}}</span>
 </pre></div>
 </div>
@@ -636,14 +639,15 @@ are therefore usually string representations of integer record indexes.</p>
 </div>
 <div class="section" id="record-properties">
 <h3>1.5.2&nbsp;&nbsp;&nbsp;Record Properties<a class="headerlink" href="#record-properties" title="Permalink to this headline">¶</a></h3>
-<p>A record has a <tt class="docutils literal"><span class="pre">properties</span></tt> key. Its corresponding value is a mapping. The
-keys of the properties mapping are the same as the keys of the properties
-mapping in the schema of the collection the record comes from (see above).</p>
+<p>A record has a <tt class="docutils literal"><span class="pre">properties</span></tt> key. Its corresponding value is a mapping: an
+ordered dict to be precise. The keys of the properties mapping are the same as
+the keys of the properties mapping in the schema of the collection the record
+comes from (see above).</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">])</span>
-<span class="go">{&#39;AREA&#39;: 244820.0,</span>
-<span class="go"> &#39;CAT&#39;: 232.0,</span>
-<span class="go"> &#39;CNTRY_NAME&#39;: u&#39;United Kingdom&#39;,</span>
-<span class="go"> &#39;FIPS_CNTRY&#39;: u&#39;UK&#39;,</span>
+<span class="go">{&#39;CAT&#39;: 232.0,</span>
+<span class="go"> &#39;FIPS_CNTRY&#39;: &#39;UK&#39;,</span>
+<span class="go"> &#39;CNTRY_NAME&#39;: &#39;United Kingdom&#39;,</span>
+<span class="go"> &#39;AREA&#39;: 244820.0,</span>
 <span class="go"> &#39;POP_CNTRY&#39;: 60270708.0}</span>
 </pre></div>
 </div>
@@ -653,31 +657,31 @@ mapping in the schema of the collection the record comes from (see above).</p>
 <p>A record has a <tt class="docutils literal"><span class="pre">geometry</span></tt> key. Its corresponding value is a mapping with
 <tt class="docutils literal"><span class="pre">type</span></tt> and <tt class="docutils literal"><span class="pre">coordinates</span></tt> keys.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">])</span>
-<span class="go">{&#39;coordinates&#39;: [[(0.89916700000000005, 51.357216000000001),</span>
-<span class="go">                  (0.88527800000000001, 51.358330000000002),</span>
-<span class="go">                  (0.78749999999999998, 51.369438000000002),</span>
-<span class="go">                  (0.781111, 51.370552000000004),</span>
-<span class="go">                  (0.76611099999999999, 51.375832000000003),</span>
-<span class="go">                  (0.75944400000000001, 51.380828999999999),</span>
-<span class="go">                  (0.745278, 51.394440000000003),</span>
-<span class="go">                  (0.74083299999999996, 51.400275999999998),</span>
-<span class="go">                  (0.73499999999999999, 51.408332999999999),</span>
-<span class="go">                  (0.74055599999999999, 51.429718000000001),</span>
-<span class="go">                  (0.74888900000000003, 51.443604000000001),</span>
-<span class="go">                  (0.76027800000000001, 51.444716999999997),</span>
-<span class="go">                  (0.79111100000000001, 51.439995000000003),</span>
-<span class="go">                  (0.89222199999999996, 51.421387000000003),</span>
-<span class="go">                  (0.90416700000000005, 51.418883999999998),</span>
-<span class="go">                  (0.90888899999999995, 51.416938999999999),</span>
-<span class="go">                  (0.93055500000000002, 51.398887999999999),</span>
-<span class="go">                  (0.93666700000000003, 51.393608),</span>
-<span class="go">                  (0.94388899999999998, 51.384995000000004),</span>
-<span class="go">                  (0.94750000000000001, 51.378608999999997),</span>
-<span class="go">                  (0.94777800000000001, 51.374718000000001),</span>
-<span class="go">                  (0.94694400000000001, 51.371108999999997),</span>
-<span class="go">                  (0.9425, 51.369163999999998),</span>
-<span class="go">                  (0.90472200000000003, 51.358055),</span>
-<span class="go">                  (0.89916700000000005, 51.357216000000001)]],</span>
+<span class="go">{&#39;coordinates&#39;: [[(0.899167, 51.357216),</span>
+<span class="go">                  (0.885278, 51.35833),</span>
+<span class="go">                  (0.7875, 51.369438),</span>
+<span class="go">                  (0.781111, 51.370552),</span>
+<span class="go">                  (0.766111, 51.375832),</span>
+<span class="go">                  (0.759444, 51.380829),</span>
+<span class="go">                  (0.745278, 51.39444),</span>
+<span class="go">                  (0.740833, 51.400276),</span>
+<span class="go">                  (0.735, 51.408333),</span>
+<span class="go">                  (0.740556, 51.429718),</span>
+<span class="go">                  (0.748889, 51.443604),</span>
+<span class="go">                  (0.760278, 51.444717),</span>
+<span class="go">                  (0.791111, 51.439995),</span>
+<span class="go">                  (0.892222, 51.421387),</span>
+<span class="go">                  (0.904167, 51.418884),</span>
+<span class="go">                  (0.908889, 51.416939),</span>
+<span class="go">                  (0.930555, 51.398888),</span>
+<span class="go">                  (0.936667, 51.393608),</span>
+<span class="go">                  (0.943889, 51.384995),</span>
+<span class="go">                  (0.9475, 51.378609),</span>
+<span class="go">                  (0.947778, 51.374718),</span>
+<span class="go">                  (0.946944, 51.371109),</span>
+<span class="go">                  (0.9425, 51.369164),</span>
+<span class="go">                  (0.904722, 51.358055),</span>
+<span class="go">                  (0.899167, 51.357216)]],</span>
 <span class="go"> &#39;type&#39;: &#39;Polygon&#39;}</span>
 </pre></div>
 </div>
@@ -777,7 +781,7 @@ record extracted in the example below.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">rec</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;-1&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">u&#39;Gondor&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Gondor&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;cp docs/data/test_uk.* /tmp&quot;</span><span class="p">)</span>
 <span class="go">0</span>
@@ -789,9 +793,9 @@ mode. The new record is written to the end of the file using the
 <a class="reference internal" href="fiona.html#fiona.collection.Collection.write" title="fiona.collection.Collection.write"><tt class="xref py py-meth docutils literal"><span class="pre">write()</span></tt></a> method. Accordingly, the length
 of the file grows from 48 to 49.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;/tmp/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 <span class="gp">... </span>    <span class="n">c</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 <span class="gp">...</span>
 <span class="go">48</span>
 <span class="go">49</span>
@@ -815,7 +819,7 @@ appended to above,</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">records</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;id&#39;</span><span class="p">]</span>
 <span class="go">&#39;48&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">records</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="s">&#39;CNTRY_NAME&#39;</span><span class="p">]</span>
-<span class="go">u&#39;Gondor&#39;</span>
+<span class="go">&#39;Gondor&#39;</span>
 </pre></div>
 </div>
 <p>You&#8217;ll see that the id of <tt class="docutils literal"><span class="pre">'-1'</span></tt> which the record had when written is
@@ -826,7 +830,7 @@ record to the collection&#8217;s file. Its sibling
 iterator) of records.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;/tmp/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">c</span><span class="o">.</span><span class="n">writerecords</span><span class="p">([</span><span class="n">rec</span><span class="p">,</span> <span class="n">rec</span><span class="p">,</span> <span class="n">rec</span><span class="p">])</span>
-<span class="gp">... </span>    <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 <span class="gp">...</span>
 <span class="go">52</span>
 </pre></div>
@@ -864,11 +868,11 @@ formats are enumerated in the <tt class="xref py py-attr docutils literal"><span
 <span class="go">{&#39;no_defs&#39;: True, &#39;ellps&#39;: &#39;WGS84&#39;, &#39;datum&#39;: &#39;WGS84&#39;, &#39;proj&#39;: &#39;longlat&#39;}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">source_schema</span><span class="p">)</span>
 <span class="go">{&#39;geometry&#39;: &#39;Polygon&#39;,</span>
-<span class="go"> &#39;properties&#39;: {&#39;AREA&#39;: &#39;float&#39;,</span>
-<span class="go">                &#39;CAT&#39;: &#39;float&#39;,</span>
-<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go"> &#39;properties&#39;: {&#39;CAT&#39;: &#39;float:16&#39;,</span>
 <span class="go">                &#39;FIPS_CNTRY&#39;: &#39;str&#39;,</span>
-<span class="go">                &#39;POP_CNTRY&#39;: &#39;float&#39;}}</span>
+<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;AREA&#39;: &#39;float:15.2&#39;,</span>
+<span class="go">                &#39;POP_CNTRY&#39;: &#39;float:15.2&#39;}}</span>
 </pre></div>
 </div>
 <p>And now create a new file using them.</p>
@@ -878,9 +882,9 @@ formats are enumerated in the <tt class="xref py py-attr docutils literal"><span
 <span class="gp">... </span>        <span class="n">driver</span><span class="o">=</span><span class="n">source_driver</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="n">crs</span><span class="o">=</span><span class="n">source_crs</span><span class="p">,</span>
 <span class="gp">... </span>        <span class="n">schema</span><span class="o">=</span><span class="n">source_schema</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 <span class="gp">... </span>    <span class="n">c</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rec</span><span class="p">)</span>
-<span class="gp">... </span>    <span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
 <span class="gp">...</span>
 <span class="go">0</span>
 <span class="go">1</span>
@@ -888,6 +892,28 @@ formats are enumerated in the <tt class="xref py py-attr docutils literal"><span
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="go">1</span>
+</pre></div>
+</div>
+<p>The written file&#8217;s fields are preserved in the specified order.</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> ogrinfo /tmp/foo.shp foo -so
+<span class="go">INFO: Open of `/tmp/foo.shp&#39;</span>
+<span class="go">      using driver `ESRI Shapefile&#39; successful.</span>
+
+<span class="go">Layer name: foo</span>
+<span class="go">Geometry: 3D Polygon</span>
+<span class="go">Feature Count: 1</span>
+<span class="go">Extent: (0.735000, 51.357216) - (0.947778, 51.444717)</span>
+<span class="go">Layer SRS WKT:</span>
+<span class="go">GEOGCS[&quot;GCS_WGS_1984&quot;,</span>
+<span class="go">    DATUM[&quot;WGS_1984&quot;,</span>
+<span class="go">        SPHEROID[&quot;WGS_84&quot;,6378137,298.257223563]],</span>
+<span class="go">    PRIMEM[&quot;Greenwich&quot;,0],</span>
+<span class="go">    UNIT[&quot;Degree&quot;,0.017453292519943295]]</span>
+<span class="go">CAT: Real (16.0)</span>
+<span class="go">FIPS_CNTRY: String (80.0)</span>
+<span class="go">CNTRY_NAME: String (80.0)</span>
+<span class="go">AREA: Real (15.2)</span>
+<span class="go">POP_CNTRY: Real (15.2)</span>
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="fiona.html#fiona.collection.Collection.meta" title="fiona.collection.Collection.meta"><tt class="xref py py-attr docutils literal"><span class="pre">meta</span></tt></a> attribute makes duplication of
@@ -929,7 +955,7 @@ record and returns <tt class="docutils literal"><span class="pre">True</span></t
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hits</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">pass_positive_area</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">hits</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">hits</span><span class="p">))</span>
 <span class="go">48</span>
 </pre></div>
 </div>
@@ -964,16 +990,16 @@ and specify the layer by name using the <cite>layer</cite> keyword.</p>
 <span class="gp">... </span>        <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">{&#39;geometry&#39;: &#39;Polygon&#39;,</span>
-<span class="go"> &#39;properties&#39;: {&#39;AREA&#39;: &#39;float:15.2&#39;,</span>
-<span class="go">                &#39;CAT&#39;: &#39;float:16&#39;,</span>
-<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go"> &#39;properties&#39;: {&#39;CAT&#39;: &#39;float:16&#39;,</span>
 <span class="go">                &#39;FIPS_CNTRY&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;AREA&#39;: &#39;float:15.2&#39;,</span>
 <span class="go">                &#39;POP_CNTRY&#39;: &#39;float:15.2&#39;}}</span>
 <span class="go">{&#39;geometry&#39;: &#39;Polygon&#39;,</span>
-<span class="go"> &#39;properties&#39;: {&#39;AREA&#39;: &#39;float:15.2&#39;,</span>
-<span class="go">                &#39;CAT&#39;: &#39;float:16&#39;,</span>
-<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go"> &#39;properties&#39;: {&#39;CAT&#39;: &#39;float:16&#39;,</span>
 <span class="go">                &#39;FIPS_CNTRY&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;CNTRY_NAME&#39;: &#39;str&#39;,</span>
+<span class="go">                &#39;AREA&#39;: &#39;float:15.2&#39;,</span>
 <span class="go">                &#39;POP_CNTRY&#39;: &#39;float:15.2&#39;}}</span>
 </pre></div>
 </div>
@@ -1164,7 +1190,7 @@ obscurity.</p>
         <li class="right" >
           <a href="README.html" title="Fiona: OGR’s neat, nimble, no-nonsense API for Python programmers"
              >previous</a> |</li>
-        <li><a href="index.html">Fiona 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Fiona 1.0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
