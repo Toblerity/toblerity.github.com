@@ -68,26 +68,27 @@
 <li><a class="reference internal" href="#dumpgj">Dumpgj</a></li>
 <li><a class="reference internal" href="#development-and-testing">Development and testing</a></li>
 <li><a class="reference internal" href="#changes">Changes</a><ul>
-<li><a class="reference internal" href="#id1">1.0 (2013-07-30)</a></li>
-<li><a class="reference internal" href="#id2">0.16.1 (2013-07-02)</a></li>
-<li><a class="reference internal" href="#id3">0.16 (2013-06-24)</a></li>
-<li><a class="reference internal" href="#id4">0.15 (2013-06-06)</a></li>
-<li><a class="reference internal" href="#id5">0.14 (2013-05-04)</a></li>
-<li><a class="reference internal" href="#id6">0.13 (2013-04-30)</a></li>
-<li><a class="reference internal" href="#id7">0.12.1 (2013-04-16)</a></li>
-<li><a class="reference internal" href="#id8">0.12 (2013-04-15)</a></li>
-<li><a class="reference internal" href="#id9">0.11 (2013-04-14)</a></li>
-<li><a class="reference internal" href="#id10">0.10 (2013-03-23)</a></li>
-<li><a class="reference internal" href="#id11">0.9.1 (2013-03-07)</a></li>
-<li><a class="reference internal" href="#id12">0.9 (2013-03-06)</a></li>
-<li><a class="reference internal" href="#id13">0.8 (2012-02-21)</a></li>
-<li><a class="reference internal" href="#id14">0.7 (2012-01-29)</a></li>
-<li><a class="reference internal" href="#id15">0.6.2 (2012-01-10)</a></li>
-<li><a class="reference internal" href="#id16">0.6.1 (2012-01-06)</a></li>
-<li><a class="reference internal" href="#id17">0.6 (2012-01-05)</a></li>
-<li><a class="reference internal" href="#id18">0.5 (2011-12-19)</a></li>
-<li><a class="reference internal" href="#id19">0.2 (2011-09-16)</a></li>
-<li><a class="reference internal" href="#id20">0.1.1 (2008-12-04)</a></li>
+<li><a class="reference internal" href="#id1">1.0.1 (2013-08-16)</a></li>
+<li><a class="reference internal" href="#id2">1.0 (2013-07-30)</a></li>
+<li><a class="reference internal" href="#id3">0.16.1 (2013-07-02)</a></li>
+<li><a class="reference internal" href="#id4">0.16 (2013-06-24)</a></li>
+<li><a class="reference internal" href="#id5">0.15 (2013-06-06)</a></li>
+<li><a class="reference internal" href="#id6">0.14 (2013-05-04)</a></li>
+<li><a class="reference internal" href="#id7">0.13 (2013-04-30)</a></li>
+<li><a class="reference internal" href="#id8">0.12.1 (2013-04-16)</a></li>
+<li><a class="reference internal" href="#id9">0.12 (2013-04-15)</a></li>
+<li><a class="reference internal" href="#id10">0.11 (2013-04-14)</a></li>
+<li><a class="reference internal" href="#id11">0.10 (2013-03-23)</a></li>
+<li><a class="reference internal" href="#id12">0.9.1 (2013-03-07)</a></li>
+<li><a class="reference internal" href="#id13">0.9 (2013-03-06)</a></li>
+<li><a class="reference internal" href="#id14">0.8 (2012-02-21)</a></li>
+<li><a class="reference internal" href="#id15">0.7 (2012-01-29)</a></li>
+<li><a class="reference internal" href="#id16">0.6.2 (2012-01-10)</a></li>
+<li><a class="reference internal" href="#id17">0.6.1 (2012-01-06)</a></li>
+<li><a class="reference internal" href="#id18">0.6 (2012-01-05)</a></li>
+<li><a class="reference internal" href="#id19">0.5 (2011-12-19)</a></li>
+<li><a class="reference internal" href="#id20">0.2 (2011-09-16)</a></li>
+<li><a class="reference internal" href="#id21">0.1.1 (2008-12-04)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#credits">Credits</a></li>
@@ -324,7 +325,7 @@ usage: dumpgj [-h] [-d] [-n N] [--compact] [--encoding ENC]
               [--add-ld-context-item TERM=URI]
               infile [outfile]
 
-Serialize a file&#x27;s records or description to GeoJSON
+Serialize a file's records or description to GeoJSON
 
 positional arguments:
   infile                input file name
@@ -332,16 +333,16 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -d, --description     serialize file&#x27;s data description (schema) only
+  -d, --description     serialize file's data description (schema) only
   -n N, --indent N      indentation level in N number of chars
-  --compact             use compact separators (&#x27;,&#x27;, &#x27;:&#x27;)
+  --compact             use compact separators (',', ':')
   --encoding ENC        Specify encoding of the input file
   --record-buffered     Economical buffering of writes at record, not
                         collection (default), level
   --ignore-errors       log errors but do not stop serialization
   --use-ld-context      add a JSON-LD context to JSON output
   --add-ld-context-item TERM=URI
-                        map a term to a URI and add it to the output&#x27;s JSON LD
+                        map a term to a URI and add it to the output's JSON LD
                         context</pre>
 </div>
 </div>
@@ -364,7 +365,14 @@ lib dirs and GDAL library on the command line:</p>
 <div class="section" id="changes">
 <h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>1.0 (2013-07-30)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>1.0.1 (2013-08-16)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Allow ordering of written fields and preservation of field order when
+reading (#57).</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>1.0 (2013-07-30)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add prop_type() function.</li>
 <li>Allow UTF-8 encoded paths for Python 2 (#51). For Python 3, paths must
@@ -373,22 +381,22 @@ always be str, never bytes.</li>
 <li>Support for linking GDAL frameworks (#54).</li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>0.16.1 (2013-07-02)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>0.16.1 (2013-07-02)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add listlayers, open, prop_width to __init__py:__all__.</li>
 <li>Reset reading of OGR layer whenever we ask for a collection iterator (#49).</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>0.16 (2013-06-24)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>0.16 (2013-06-24)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add support for writing layers to multi-layer files.</li>
 <li>Add tests to reach 100% Python code coverage.</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3>0.15 (2013-06-06)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>0.15 (2013-06-06)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Get and set numeric field widths (#42).</li>
 <li>Add support for multi-layer data sources (#17).</li>
@@ -398,8 +406,8 @@ always be str, never bytes.</li>
 <li>Allow selection of layers by index or name.</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>0.14 (2013-05-04)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>0.14 (2013-05-04)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add option to add JSON-LD in the dumpgj program.</li>
 <li>Compare values to six.string_types in Collection constructor.</li>
@@ -407,52 +415,52 @@ always be str, never bytes.</li>
 <li>Document dumpgj in README.</li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3>0.13 (2013-04-30)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>0.13 (2013-04-30)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Python 2/3 compatibility in a single package. Pythons 2.6, 2.7, 3.3 now supported.</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>0.12.1 (2013-04-16)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>0.12.1 (2013-04-16)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fix messed up linking of README in sdist (#39).</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3>0.12 (2013-04-15)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>0.12 (2013-04-15)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fix broken installation of extension modules (#35).</li>
 <li>Log CPL errors at their matching Python log levels.</li>
 <li>Use upper case for encoding names within OGR, lower case in Python.</li>
 </ul>
 </div>
-<div class="section" id="id9">
-<h3>0.11 (2013-04-14)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>0.11 (2013-04-14)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Cythonize .pyx files (#34).</li>
 <li>Work with or around OGR&#8217;s internal recoding of record data (#35).</li>
 <li>Fix bug in serialization of int/float PROJ.4 params.</li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3>0.10 (2013-03-23)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>0.10 (2013-03-23)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add function to get the width of str type properties.</li>
 <li>Handle validation and schema representation of 3D geometry types (#29).</li>
 <li>Return {&#8216;geometry&#8217;: None} in the case of a NULL geometry (#31).</li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h3>0.9.1 (2013-03-07)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>0.9.1 (2013-03-07)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Silence the logger in ogrext.so (can be overridden).</li>
 <li>Allow user specification of record field encoding (like &#8216;Windows-1252&#8217; for
 Natural Earth shapefiles) to help when OGR can&#8217;t detect it.</li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3>0.9 (2013-03-06)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>0.9 (2013-03-06)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Accessing file metadata (crs, schema, bounds) on never inspected closed files
 returns None without exceptions.</li>
@@ -466,8 +474,8 @@ returns None without exceptions.</li>
 <li>Allow users to specify width of shapefile text fields (#20).</li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h3>0.8 (2012-02-21)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>0.8 (2012-02-21)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Replaced .opened attribute with .closed (product of collection() is always
 opened). Also a __del__() which will close a Collection, but still not to be
@@ -478,30 +486,30 @@ depended upon.</li>
 <li>Added a read-only bounds property.</li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h3>0.7 (2012-01-29)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>0.7 (2012-01-29)<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Initial timezone-naive support for date, time, and datetime fields. Don&#8217;t use
 these field types if you can avoid them. RFC 3339 datetimes in a string field
 are much better.</li>
 </ul>
 </div>
-<div class="section" id="id15">
-<h3>0.6.2 (2012-01-10)<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>0.6.2 (2012-01-10)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Diagnose and set the driver property of collection in read mode.</li>
 <li>Fail if collection paths are not to files. Multi-collection workspaces are
 a (maybe) TODO.</li>
 </ul>
 </div>
-<div class="section" id="id16">
-<h3>0.6.1 (2012-01-06)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>0.6.1 (2012-01-06)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Handle the case of undefined crs for disk collections.</li>
 </ul>
 </div>
-<div class="section" id="id17">
-<h3>0.6 (2012-01-05)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>0.6 (2012-01-05)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Support for collection coordinate reference systems based on Proj4.</li>
 <li>Redirect OGR warnings and errors to the Fiona log.</li>
@@ -509,22 +517,22 @@ a (maybe) TODO.</li>
 using.</li>
 </ul>
 </div>
-<div class="section" id="id18">
-<h3>0.5 (2011-12-19)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>0.5 (2011-12-19)<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Support for reading and writing collections of any geometry type.</li>
 <li>Feature and Geometry classes replaced by mappings (dicts).</li>
 <li>Removal of Workspace class.</li>
 </ul>
 </div>
-<div class="section" id="id19">
-<h3>0.2 (2011-09-16)<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h3>0.2 (2011-09-16)<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Rename WorldMill to Fiona.</li>
 </ul>
 </div>
-<div class="section" id="id20">
-<h3>0.1.1 (2008-12-04)<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h3>0.1.1 (2008-12-04)<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Support for features with no geometry.</li>
 </ul>

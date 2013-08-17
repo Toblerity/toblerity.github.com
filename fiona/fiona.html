@@ -56,7 +56,7 @@
 <li><a class="reference internal" href="#module-fiona.collection"><tt class="docutils literal"><span class="pre">collection</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-fiona.crs"><tt class="docutils literal"><span class="pre">crs</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-fiona.errors"><tt class="docutils literal"><span class="pre">errors</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-fiona.ogrext"><tt class="docutils literal"><span class="pre">ogrext</span></tt> Module</a></li>
+<li><a class="reference internal" href="#ogrext-module"><tt class="docutils literal"><span class="pre">ogrext</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-fiona.ogrinit"><tt class="docutils literal"><span class="pre">ogrinit</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-fiona.ogropts"><tt class="docutils literal"><span class="pre">ogropts</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-fiona.rfc3339"><tt class="docutils literal"><span class="pre">rfc3339</span></tt> Module</a></li>
@@ -239,7 +239,7 @@ within that container.</p>
 <dl class="class">
 <dt id="fiona.collection.Collection">
 <em class="property">class </em><tt class="descclassname">fiona.collection.</tt><tt class="descname">Collection</tt><big>(</big><em>path</em>, <em>mode='r'</em>, <em>driver=None</em>, <em>schema=None</em>, <em>crs=None</em>, <em>encoding=None</em>, <em>layer=None</em>, <em>vsi=None</em>, <em>archive=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#fiona.collection.Collection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>A file-like interface to features in the form of GeoJSON-like
 mappings.</p>
 <dl class="attribute">
@@ -394,7 +394,7 @@ omitted.</p>
 <dl class="exception">
 <dt id="fiona.errors.FionaValueError">
 <em class="property">exception </em><tt class="descclassname">fiona.errors.</tt><tt class="descname">FionaValueError</tt><a class="headerlink" href="#fiona.errors.FionaValueError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.ValueError</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.ValueError</span></tt></p>
 <p>Fiona-specific value errors</p>
 </dd></dl>
 
@@ -406,61 +406,61 @@ omitted.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-fiona.ogrext">
-<span id="ogrext-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">ogrext</span></tt> Module<a class="headerlink" href="#module-fiona.ogrext" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<div class="section" id="ogrext-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">ogrext</span></tt> Module<a class="headerlink" href="#ogrext-module" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-fiona.ogrext"></span><dl class="class">
 <dt id="fiona.ogrext.DimensionsHandler">
 <em class="property">class </em><tt class="descclassname">fiona.ogrext.</tt><tt class="descname">DimensionsHandler</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Determines the number of dimensions of a Fiona geometry.</p>
 <dl class="attribute">
 <dt id="fiona.ogrext.DimensionsHandler.coordinates">
 <tt class="descname">coordinates</tt><em class="property"> = None</em><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.coordinates" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.DimensionsHandler.getNumDims">
-<tt class="descname">getNumDims</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDims" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getNumDims</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDims" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.DimensionsHandler.getNumDimsGeometryCollection">
-<tt class="descname">getNumDimsGeometryCollection</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsGeometryCollection" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getNumDimsGeometryCollection</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsGeometryCollection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.DimensionsHandler.getNumDimsLineString">
-<tt class="descname">getNumDimsLineString</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsLineString" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getNumDimsLineString</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsLineString" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.DimensionsHandler.getNumDimsLinearRing">
-<tt class="descname">getNumDimsLinearRing</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsLinearRing" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getNumDimsLinearRing</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsLinearRing" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.DimensionsHandler.getNumDimsMultiLineString">
-<tt class="descname">getNumDimsMultiLineString</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsMultiLineString" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getNumDimsMultiLineString</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsMultiLineString" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.DimensionsHandler.getNumDimsMultiPoint">
-<tt class="descname">getNumDimsMultiPoint</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsMultiPoint" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getNumDimsMultiPoint</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsMultiPoint" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.DimensionsHandler.getNumDimsMultiPolygon">
-<tt class="descname">getNumDimsMultiPolygon</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsMultiPolygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getNumDimsMultiPolygon</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsMultiPolygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.DimensionsHandler.getNumDimsPoint">
-<tt class="descname">getNumDimsPoint</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsPoint" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getNumDimsPoint</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsPoint" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.DimensionsHandler.getNumDimsPolygon">
-<tt class="descname">getNumDimsPolygon</tt><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsPolygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getNumDimsPolygon</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.DimensionsHandler.getNumDimsPolygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -468,7 +468,7 @@ omitted.</p>
 <dl class="class">
 <dt id="fiona.ogrext.FeatureBuilder">
 <em class="property">class </em><tt class="descclassname">fiona.ogrext.</tt><tt class="descname">FeatureBuilder</tt><a class="headerlink" href="#fiona.ogrext.FeatureBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Build Fiona features from OGR feature pointers.</p>
 <p>No OGR objects are allocated by this function and the feature
 argument is not destroyed.</p>
@@ -477,7 +477,7 @@ argument is not destroyed.</p>
 <dl class="class">
 <dt id="fiona.ogrext.GeomBuilder">
 <em class="property">class </em><tt class="descclassname">fiona.ogrext.</tt><tt class="descname">GeomBuilder</tt><a class="headerlink" href="#fiona.ogrext.GeomBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Builds Fiona (GeoJSON) geometries from an OGR geometry handle.</p>
 <dl class="method">
 <dt id="fiona.ogrext.GeomBuilder.build_wkb">
@@ -489,17 +489,23 @@ argument is not destroyed.</p>
 <dl class="class">
 <dt id="fiona.ogrext.Iterator">
 <em class="property">class </em><tt class="descclassname">fiona.ogrext.</tt><tt class="descname">Iterator</tt><a class="headerlink" href="#fiona.ogrext.Iterator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Provides iterated access to feature data.</p>
+<dl class="attribute">
+<dt id="fiona.ogrext.Iterator.next">
+<tt class="descname">next</tt><a class="headerlink" href="#fiona.ogrext.Iterator.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.next() -&gt; the next value, or raise StopIteration</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="fiona.ogrext.NullHandler">
 <em class="property">class </em><tt class="descclassname">fiona.ogrext.</tt><tt class="descname">NullHandler</tt><big>(</big><em>level=0</em><big>)</big><a class="headerlink" href="#fiona.ogrext.NullHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">logging.Handler</span></tt></p>
-<dl class="attribute">
+<dl class="method">
 <dt id="fiona.ogrext.NullHandler.emit">
-<tt class="descname">emit</tt><a class="headerlink" href="#fiona.ogrext.NullHandler.emit" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">emit</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.NullHandler.emit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -507,7 +513,7 @@ argument is not destroyed.</p>
 <dl class="class">
 <dt id="fiona.ogrext.OGRFeatureBuilder">
 <em class="property">class </em><tt class="descclassname">fiona.ogrext.</tt><tt class="descname">OGRFeatureBuilder</tt><a class="headerlink" href="#fiona.ogrext.OGRFeatureBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Builds an OGR Feature from a Fiona feature mapping.</p>
 <p>Allocates one OGR Feature which should be destroyed by the caller.
 Borrows a layer definition from the collection.</p>
@@ -516,14 +522,14 @@ Borrows a layer definition from the collection.</p>
 <dl class="class">
 <dt id="fiona.ogrext.OGRGeomBuilder">
 <em class="property">class </em><tt class="descclassname">fiona.ogrext.</tt><tt class="descname">OGRGeomBuilder</tt><a class="headerlink" href="#fiona.ogrext.OGRGeomBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Builds OGR geometries from Fiona geometries.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="fiona.ogrext.Session">
 <em class="property">class </em><tt class="descclassname">fiona.ogrext.</tt><tt class="descname">Session</tt><a class="headerlink" href="#fiona.ogrext.Session" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="method">
 <dt id="fiona.ogrext.Session.get_crs">
 <tt class="descname">get_crs</tt><big>(</big><big>)</big><a class="headerlink" href="#fiona.ogrext.Session.get_crs" title="Permalink to this definition">¶</a></dt>
@@ -644,28 +650,28 @@ with measure values are not supported, nor are MULTIPATCH files.</p>
 <dl class="class">
 <dt id="fiona.rfc3339.FionaDateTimeType">
 <em class="property">class </em><tt class="descclassname">fiona.rfc3339.</tt><tt class="descname">FionaDateTimeType</tt><a class="headerlink" href="#fiona.rfc3339.FionaDateTimeType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.str</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">str</span></tt></p>
 <p>Dates and times.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="fiona.rfc3339.FionaDateType">
 <em class="property">class </em><tt class="descclassname">fiona.rfc3339.</tt><tt class="descname">FionaDateType</tt><a class="headerlink" href="#fiona.rfc3339.FionaDateType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.str</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">str</span></tt></p>
 <p>Dates without time.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="fiona.rfc3339.FionaTimeType">
 <em class="property">class </em><tt class="descclassname">fiona.rfc3339.</tt><tt class="descname">FionaTimeType</tt><a class="headerlink" href="#fiona.rfc3339.FionaTimeType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.str</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">str</span></tt></p>
 <p>Times without dates.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="fiona.rfc3339.group_accessor">
 <em class="property">class </em><tt class="descclassname">fiona.rfc3339.</tt><tt class="descname">group_accessor</tt><big>(</big><em>m</em><big>)</big><a class="headerlink" href="#fiona.rfc3339.group_accessor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="method">
 <dt id="fiona.rfc3339.group_accessor.group">
 <tt class="descname">group</tt><big>(</big><em>i</em><big>)</big><a class="headerlink" href="#fiona.rfc3339.group_accessor.group" title="Permalink to this definition">¶</a></dt>

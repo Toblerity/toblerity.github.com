@@ -136,7 +136,7 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.0.1</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">August 16, 2013</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">August 17, 2013</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
 United States License</a>.</td>
@@ -894,7 +894,9 @@ formats are enumerated in the <tt class="xref py py-attr docutils literal"><span
 <span class="go">1</span>
 </pre></div>
 </div>
-<p>The written file&#8217;s fields are preserved in the specified order.</p>
+<p>Because the properties of the source schema are ordered and are passed in the
+same order to the write-mode collection, the written file&#8217;s fields have the
+same order as those of the source file.</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> ogrinfo /tmp/foo.shp foo -so
 <span class="go">INFO: Open of `/tmp/foo.shp&#39;</span>
 <span class="go">      using driver `ESRI Shapefile&#39; successful.</span>
@@ -920,6 +922,41 @@ formats are enumerated in the <tt class="xref py py-attr docutils literal"><span
 a file&#8217;s meta properties even easier.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sink</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;/tmp/foo.shp&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">source</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-ordering-schema-properties admonition">
+<p class="first admonition-title">Ordering schema properties</p>
+<p class="last">Beginning with Fiona 1.0.1, the &#8216;properties&#8217; item of <tt class="xref py py-func docutils literal"><span class="pre">fiona.open()</span></tt>&#8216;s
+&#8216;schema&#8217; keyword argument may be an ordered dict or a list of (key, value)
+pairs, specifying an ordering that carries into written files. If an ordinary
+dict is given, the ordering is determined by the output of that dict&#8217;s
+<tt class="xref py py-func docutils literal"><span class="pre">items()</span></tt> method.</p>
+</div>
+<p>For example, since</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s">&#39;bar&#39;</span><span class="p">:</span> <span class="s">&#39;int&#39;</span><span class="p">,</span> <span class="s">&#39;foo&#39;</span><span class="p">:</span> <span class="s">&#39;str&#39;</span><span class="p">}</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="go">[&#39;foo&#39;, &#39;bar&#39;]</span>
+</pre></div>
+</div>
+<p>a schema of <tt class="docutils literal"><span class="pre">{'properties':</span> <span class="pre">{'bar':</span> <span class="pre">'int',</span> <span class="pre">'foo':</span> <span class="pre">'str'}}</span></tt> will produce
+a shapefile where the first field is &#8216;foo&#8217; and the second field is &#8216;bar&#8217;. If
+you want &#8216;bar&#8217; to be the first field, you must use a list of property items</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+    <span class="s">&#39;/tmp/file.shp&#39;</span><span class="p">,</span>
+    <span class="s">&#39;w&#39;</span><span class="p">,</span>
+    <span class="n">schema</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;properties&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;str&#39;</span><span class="p">)],</span> <span class="o">...</span><span class="p">},</span>
+    <span class="o">...</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>or an ordered dict.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="n">schema_props</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;int&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">,</span> <span class="s">&#39;str&#39;</span><span class="p">)])</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+    <span class="s">&#39;/tmp/file.shp&#39;</span><span class="p">,</span>
+    <span class="s">&#39;w&#39;</span><span class="p">,</span>
+    <span class="n">schema</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;properties&#39;</span><span class="p">:</span> <span class="n">schema_props</span><span class="p">,</span> <span class="o">...</span><span class="p">},</span>
+    <span class="o">...</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1012,8 +1049,8 @@ and specify the layer by name using the <cite>layer</cite> keyword.</p>
 <span class="go">48</span>
 </pre></div>
 </div>
-<p>If no layer is specified, <tt class="xref py py-func docutils literal"><span class="pre">fiona.open()</span></tt> returns an open collection using the
-first layer.</p>
+<p>If no layer is specified, <tt class="xref py py-func docutils literal"><span class="pre">fiona.open()</span></tt> returns an open collection
+using the first layer.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">fiona</span><span class="o">.</span><span class="n">listlayers</span><span class="p">(</span><span class="n">datasrc_path</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gp">...</span>
@@ -1026,7 +1063,8 @@ a named layer.</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s">&#39;test_uk&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In practice, it is fine to rely on the implicit first layer and default <tt class="docutils literal"><span class="pre">'r'</span></tt> mode and open a shapefile like this:</p>
+<p>In practice, it is fine to rely on the implicit first layer and default <tt class="docutils literal"><span class="pre">'r'</span></tt>
+mode and open a shapefile like this:</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;docs/data/test_uk.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
