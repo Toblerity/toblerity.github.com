@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>tests Package &mdash; Shapely 1.2.18 documentation</title>
+    <title>tests Package &mdash; Shapely 1.2.19 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2.18',
+        VERSION:     '1.2.19',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Shapely 1.2.18 documentation" href="index.html" />
+    <link rel="top" title="Shapely 1.2.19 documentation" href="index.html" />
     <link rel="up" title="shapely Package" href="shapely.html" />
     <link rel="prev" title="speedups Package" href="shapely.speedups.html" /> 
   </head>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="shapely.speedups.html" title="speedups Package"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li>
           <li><a href="shapely.html" accesskey="U">shapely Package</a> &raquo;</li> 
       </ul>
@@ -62,6 +62,7 @@
 <li><a class="reference internal" href="#module-shapely.tests.test_equality"><tt class="docutils literal"><span class="pre">test_equality</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_geomseq"><tt class="docutils literal"><span class="pre">test_geomseq</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_getitem"><tt class="docutils literal"><span class="pre">test_getitem</span></tt> Module</a></li>
+<li><a class="reference internal" href="#test-invalid-geometries-module"><tt class="docutils literal"><span class="pre">test_invalid_geometries</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_linear_referencing"><tt class="docutils literal"><span class="pre">test_linear_referencing</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_mapping"><tt class="docutils literal"><span class="pre">test_mapping</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_ndarrays"><tt class="docutils literal"><span class="pre">test_ndarrays</span></tt> Module</a></li>
@@ -70,6 +71,7 @@
 <li><a class="reference internal" href="#module-shapely.tests.test_products_z"><tt class="docutils literal"><span class="pre">test_products_z</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_singularity"><tt class="docutils literal"><span class="pre">test_singularity</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_speedups"><tt class="docutils literal"><span class="pre">test_speedups</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_styles"><tt class="docutils literal"><span class="pre">test_styles</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_transform"><tt class="docutils literal"><span class="pre">test_transform</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_unary_union"><tt class="docutils literal"><span class="pre">test_unary_union</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_validation"><tt class="docutils literal"><span class="pre">test_validation</span></tt> Module</a></li>
@@ -284,7 +286,7 @@
 
 <dl class="attribute">
 <dt id="shapely.tests.test_delegated.Geometry.impl">
-<tt class="descname">impl</tt><em class="property"> = &lt;shapely.impl.BaseImpl object at 0x10542fe50&gt;</em><a class="headerlink" href="#shapely.tests.test_delegated.Geometry.impl" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">impl</tt><em class="property"> = &lt;shapely.impl.BaseImpl object at 0x1107e2d10&gt;</em><a class="headerlink" href="#shapely.tests.test_delegated.Geometry.impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -558,6 +560,9 @@
 <dd></dd></dl>
 
 </div>
+<div class="section" id="test-invalid-geometries-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">test_invalid_geometries</span></tt> Module<a class="headerlink" href="#test-invalid-geometries-module" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="module-shapely.tests.test_linear_referencing">
 <span id="test-linear-referencing-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_linear_referencing</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_linear_referencing" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -801,6 +806,30 @@
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-shapely.tests.test_styles">
+<span id="test-styles-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_styles</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_styles" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_styles.StylesTest">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_styles.</tt><tt class="descname">StylesTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_styles.StylesTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="method">
+<dt id="shapely.tests.test_styles.StylesTest.test_cap">
+<tt class="descname">test_cap</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_styles.StylesTest.test_cap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="shapely.tests.test_styles.StylesTest.test_join">
+<tt class="descname">test_join</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_styles.StylesTest.test_join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_styles.test_suite">
+<tt class="descclassname">shapely.tests.test_styles.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_styles.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-shapely.tests.test_transform">
 <span id="test-transform-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_transform</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_transform" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -874,9 +903,19 @@
 <dt id="shapely.tests.test_unary_union.UnionTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_unary_union.</tt><tt class="descname">UnionTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_unary_union.UnionTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="attribute">
+<dt id="shapely.tests.test_unary_union.UnionTestCase.coords">
+<tt class="descname">coords</tt><em class="property"> = [(0.36, 0.061224489795918366), (0.56, 0.20408163265306123), (0.7600000000000001, 0.3469387755102041), (0.9600000000000001, 0.4897959183673469), (0.008, 0.6326530612244897), (0.20800000000000002, 0.7755102040816325), (0.40800000000000003, 0.9183673469387754), (0.6080000000000001, 0.08163265306122448), (0.808, 0.22448979591836732), (0.048, 0.36734693877551017), (0.24800000000000003, 0.5102040816326531), (0.448, 0.6530612244897959), (0.6480000000000001, 0.7959183673469387), (0.8480000000000001, 0.9387755102040816), (0.088, 0.1020408163265306), (0.28800000000000003, 0.24489795918367346), (0.48800000000000004, 0.3877551020408163), (0.6880000000000001, 0.5306122448979591), (0.888, 0.673469387755102), (0.128, 0.8163265306122448), (0.328, 0.9591836734693877), (0.528, 0.12244897959183673), (0.7280000000000001, 0.26530612244897955), (0.928, 0.40816326530612246), (0.168, 0.5510204081632653), (0.368, 0.6938775510204082), (0.5680000000000001, 0.836734693877551), (0.7680000000000001, 0.9795918367346939), (0.9680000000000001, 0.0029154518950437317), (0.016, 0.14577259475218657), (0.21600000000000003, 0.2886297376093294), (0.41600000000000004, 0.43148688046647227), (0.6160000000000001, 0.5743440233236151), (0.8160000000000001, 0.7172011661807579), (0.056, 0.8600583090379008), (0.256, 0.023323615160349854), (0.456, 0.16618075801749269), (0.6560000000000001, 0.30903790087463556), (0.8560000000000001, 0.4518950437317784), (0.096, 0.5947521865889213), (0.29600000000000004, 0.737609329446064), (0.49600000000000005, 0.880466472303207), (0.6960000000000001, 0.043731778425655975), (0.896, 0.1865889212827988), (0.136, 0.32944606413994165), (0.336, 0.4723032069970845), (0.536, 0.6151603498542274), (0.7360000000000001, 0.7580174927113702), (0.936, 0.9008746355685131), (0.176, 0.0641399416909621), (0.376, 0.20699708454810495), (0.5760000000000001, 0.3498542274052478), (0.7760000000000001, 0.49271137026239065), (0.9760000000000001, 0.6355685131195334), (0.024, 0.7784256559766762), (0.224, 0.9212827988338191), (0.42400000000000004, 0.08454810495626822), (0.6240000000000001, 0.22740524781341104), (0.8240000000000001, 0.3702623906705539), (0.064, 0.5131195335276968), (0.264, 0.6559766763848396), (0.464, 0.7988338192419824), (0.6640000000000001, 0.9416909620991253), (0.8640000000000001, 0.10495626822157433), (0.10400000000000001, 0.24781341107871718), (0.30400000000000005, 0.39067055393586003), (0.504, 0.5335276967930028), (0.7040000000000001, 0.6763848396501457), (0.904, 0.8192419825072885), (0.144, 0.9620991253644314), (0.34400000000000003, 0.12536443148688045), (0.544, 0.2682215743440233), (0.7440000000000001, 0.4110787172011662), (0.9440000000000001, 0.553935860058309), (0.184, 0.6967930029154519), (0.384, 0.8396501457725947), (0.5840000000000001, 0.9825072886297376), (0.7840000000000001, 0.0058309037900874635), (0.9840000000000001, 0.14868804664723032), (0.032, 0.29154518950437314), (0.232, 0.434402332361516), (0.43200000000000005, 0.5772594752186588), (0.6320000000000001, 0.7201166180758016), (0.8320000000000001, 0.8629737609329445), (0.07200000000000001, 0.026239067055393583), (0.272, 0.16909620991253643), (0.472, 0.3119533527696793), (0.6720000000000002, 0.45481049562682213), (0.8720000000000001, 0.597667638483965), (0.112, 0.7405247813411078), (0.31200000000000006, 0.8833819241982507), (0.512, 0.04664723032069971), (0.7120000000000001, 0.18950437317784255), (0.912, 0.33236151603498537), (0.152, 0.4752186588921282), (0.352, 0.6180758017492711), (0.552, 0.7609329446064139), (0.7520000000000001, 0.9037900874635568), (0.9520000000000001, 0.06705539358600583), (0.192, 0.2099125364431487)]</em><a class="headerlink" href="#shapely.tests.test_unary_union.UnionTestCase.coords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="shapely.tests.test_unary_union.UnionTestCase.test_1">
 <tt class="descname">test_1</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_unary_union.UnionTestCase.test_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="shapely.tests.test_unary_union.UnionTestCase.test_multi">
+<tt class="descname">test_multi</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_unary_union.UnionTestCase.test_multi" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -965,14 +1004,14 @@
         <li class="right" >
           <a href="shapely.speedups.html" title="speedups Package"
              >previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li>
           <li><a href="shapely.html" >shapely Package</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011-2013, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
     </div>
   </body>
 </html>

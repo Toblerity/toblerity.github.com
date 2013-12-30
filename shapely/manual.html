@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>The Shapely User Manual &mdash; Shapely 1.2.18 documentation</title>
+    <title>The Shapely User Manual &mdash; Shapely 1.2.19 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2.18',
+        VERSION:     '1.2.19',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Shapely 1.2.18 documentation" href="index.html" />
+    <link rel="top" title="Shapely 1.2.19 documentation" href="index.html" />
     <link rel="next" title="shapely" href="modules.html" />
     <link rel="prev" title="Shapely" href="project.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="project.html" title="Shapely"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -145,9 +145,9 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Sean Gillies, &lt;<a class="reference external" href="mailto:sean&#46;gillies&#37;&#52;&#48;gmail&#46;com">sean<span>&#46;</span>gillies<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.2.18</td>
+<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.2.19</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">July 23, 2013</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">December 29, 2013</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Copyright:</th><td class="field-body">This work is licensed under a <a class="reference external" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attribution 3.0
 United States License</a>.</td>
@@ -573,7 +573,7 @@ interior rings touch along a line, and on the right, a <cite>Polygon</cite> that
 </pre></div>
 </div>
 <p>Rectangular polygons occur commonly, and can be conveniently constructed using
-the <a class="reference internal" href="#shapely.geometry.box" title="shapely.geometry.box"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.box()</span></tt></a> function.</p>
+the <a class="reference internal" href="shapely.geometry.html#shapely.geometry.box" title="shapely.geometry.box"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.box()</span></tt></a> function.</p>
 <dl class="function">
 <dt id="shapely.geometry.box">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">box</tt><big>(</big><em>minx</em>, <em>miny</em>, <em>maxx</em>, <em>maxy</em>, <em>ccw=True</em><big>)</big><a class="headerlink" href="#shapely.geometry.box" title="Permalink to this definition">¶</a></dt>
@@ -1404,11 +1404,78 @@ method.</p>
 derived from set-theoretic analysis.</p>
 <dl class="method">
 <dt id="object.buffer">
-<tt class="descclassname">object.</tt><tt class="descname">buffer</tt><big>(</big><em>distance</em>, <em>resolution=16</em><big>)</big><a class="headerlink" href="#object.buffer" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">object.</tt><tt class="descname">buffer</tt><big>(</big><em>distance</em>, <em>resolution=16</em>, <em>cap_style=1</em>, <em>join_style=1</em>, <em>mitre_limit=1.0</em><big>)</big><a class="headerlink" href="#object.buffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an approximate representation of all points within a given <cite>distance</cite>
 of the this geometric object.</p>
+<p>The styles of caps are specified by integer values: 1 (round), 2 (flat),
+3 (square). These values are also enumerated by the object
+<a class="reference internal" href="shapely.geometry.html#shapely.geometry.CAP_STYLE" title="shapely.geometry.CAP_STYLE"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.CAP_STYLE</span></tt></a> (see below).</p>
+<p>The styles of joins between offset segments are specified by integer values:
+1 (round), 2 (mitre), and 3 (bevel). These values are also enumerated by the
+object <a class="reference internal" href="shapely.geometry.html#shapely.geometry.JOIN_STYLE" title="shapely.geometry.JOIN_STYLE"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.JOIN_STYLE</span></tt></a> (see below).</p>
 </dd></dl>
 
+<dl class="data">
+<dt id="shapely.geometry.CAP_STYLE">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">CAP_STYLE</tt><a class="headerlink" href="#shapely.geometry.CAP_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd><table border="1" class="docutils">
+<colgroup>
+<col width="64%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>round</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>flat</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>square</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="data">
+<dt id="shapely.geometry.JOIN_STYLE">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">JOIN_STYLE</tt><a class="headerlink" href="#shapely.geometry.JOIN_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd><table border="1" class="docutils">
+<colgroup>
+<col width="64%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Attribute</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>round</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>mitre</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>bevel</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">CAP_STYLE</span><span class="p">,</span> <span class="n">JOIN_STYLE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CAP_STYLE</span><span class="o">.</span><span class="n">flat</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">JOIN_STYLE</span><span class="o">.</span><span class="n">bevel</span>
+<span class="go">3</span>
+</pre></div>
+</div>
 <p>A positive distance has an effect of dilation; a negative distance, erosion.
 The optional <cite>resolution</cite> argument determines the number of segments used to
 approximate a quarter circle around a point.</p>
@@ -1503,8 +1570,9 @@ object on its right or its left side.</p>
 <p>Distance must be a positive float value. The side parameter may be &#8216;left&#8217; or
 &#8216;right&#8217;. The resolution of the offset around each vertex of the object is
 parameterized as in the buffer method.</p>
-<p>The styles of joins between offset segments are: 1 (round, the default),
-2 (mitre or miter), and 3 (bevel).</p>
+<p>The join style is for outside corners between line segments. Accepted integer
+values are 1 (round), 2 (mitre), and 3 (bevel). See also
+<a class="reference internal" href="shapely.geometry.html#shapely.geometry.JOIN_STYLE" title="shapely.geometry.JOIN_STYLE"><tt class="xref py py-data docutils literal"><span class="pre">shapely.geometry.JOIN_STYLE</span></tt></a>.</p>
 <p>Severely mitered corners can be controlled by the mitre_limit parameter
 (spelled in British English, en-gb). The ratio of the distance from the
 corner to the end of the mitred offset corner is the miter ratio. Corners
@@ -1513,8 +1581,7 @@ with a ratio which exceed the limit will be beveled.</p>
 
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This method is only available for <cite>LinearRing</cite>, <cite>LineString</cite>, and
-<cite>MultiLineString</cite> objects.</p>
+<p class="last">This method is only available for <cite>LinearRing</cite> and <cite>LineString</cite>  objects.</p>
 </div>
 <p>(<a class="reference external" href="./code/parallel_offset.py">Source code</a>, <a class="reference external" href="./code/parallel_offset.png">png</a>, <a class="reference external" href="./code/parallel_offset.hires.png">hires.png</a>, <a class="reference external" href="./code/parallel_offset.pdf">pdf</a>)</p>
 <div class="figure">
@@ -1585,35 +1652,35 @@ for 2D or 3D transformations, respectively.</p>
 <div><tt class="docutils literal"><span class="pre">[a,</span> <span class="pre">b,</span> <span class="pre">d,</span> <span class="pre">e,</span> <span class="pre">xoff,</span> <span class="pre">yoff]</span></tt></div></blockquote>
 <p>which represents the augmented matrix:</p>
 <div class="math">
-<p><img src="_images/math/aef191c3a0bb728e2ac784dd32c736541ddf7f6e.png" alt="\begin{bmatrix} x' &amp; y' &amp; 1 \end{bmatrix} =
+<p><span class="math">\begin{bmatrix} x' &amp; y' &amp; 1 \end{bmatrix} =
 \begin{bmatrix} x  &amp; y  &amp; 1 \end{bmatrix}
 \begin{bmatrix}
   a &amp; b &amp; x_\mathrm{off} \\
   d &amp; e &amp; y_\mathrm{off} \\
   0 &amp; 0 &amp; 1
-\end{bmatrix}"/></p>
+\end{bmatrix}</span></p>
 </div><p>or the equations for the transformed coordinates:</p>
 <div class="math">
-<p><img src="_images/math/e0de66e2db9e717a38d785beb676b05a41022c13.png" alt="x' &amp;= a x + b y + x_\mathrm{off} \\
-y' &amp;= d x + e y + y_\mathrm{off}."/></p>
+<p><span class="math">x' &amp;= a x + b y + x_\mathrm{off} \\
+y' &amp;= d x + e y + y_\mathrm{off}.</span></p>
 </div><p>For 3D affine transformations, the 12 parameter <tt class="docutils literal"><span class="pre">matrix</span></tt> is:</p>
 <blockquote>
 <div><tt class="docutils literal"><span class="pre">[a,</span> <span class="pre">b,</span> <span class="pre">c,</span> <span class="pre">d,</span> <span class="pre">e,</span> <span class="pre">f,</span> <span class="pre">g,</span> <span class="pre">h,</span> <span class="pre">i,</span> <span class="pre">xoff,</span> <span class="pre">yoff,</span> <span class="pre">zoff]</span></tt></div></blockquote>
 <p>which represents the augmented matrix:</p>
 <div class="math">
-<p><img src="_images/math/6ad6da878f44334310145309590cde44902164b2.png" alt="\begin{bmatrix} x' &amp; y' &amp; z' &amp; 1 \end{bmatrix} =
+<p><span class="math">\begin{bmatrix} x' &amp; y' &amp; z' &amp; 1 \end{bmatrix} =
 \begin{bmatrix} x  &amp; y  &amp; z  &amp; 1 \end{bmatrix}
 \begin{bmatrix}
   a &amp; b &amp; c &amp; x_\mathrm{off} \\
   d &amp; e &amp; f &amp; y_\mathrm{off} \\
   g &amp; h &amp; i &amp; z_\mathrm{off} \\
   0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}"/></p>
+\end{bmatrix}</span></p>
 </div><p>or the equations for the transformed coordinates:</p>
 <div class="math">
-<p><img src="_images/math/9c38da7107d2ac1e4b358b00d34e4f49eed0c09d.png" alt="x' &amp;= a x + b y + c z + x_\mathrm{off} \\
+<p><span class="math">x' &amp;= a x + b y + c z + x_\mathrm{off} \\
 y' &amp;= d x + e y + f z + y_\mathrm{off} \\
-z' &amp;= g x + h y + i z + z_\mathrm{off}."/></p>
+z' &amp;= g x + h y + i z + z_\mathrm{off}.</span></p>
 </div></dd></dl>
 
 <dl class="function">
@@ -1626,17 +1693,17 @@ counter-clockwise and negative are clockwise rotations.</p>
 <p>The point of origin can be a keyword <tt class="docutils literal"><span class="pre">'center'</span></tt> for the bounding box
 center (default), <tt class="docutils literal"><span class="pre">'centroid'</span></tt> for the geometry&#8217;s centroid, a <cite>Point</cite> object
 or a coordinate tuple <tt class="docutils literal"><span class="pre">(x0,</span> <span class="pre">y0)</span></tt>.</p>
-<p>The affine transformation matrix for 2D rotation with angle <img class="math" src="_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> is:</p>
+<p>The affine transformation matrix for 2D rotation with angle <span class="math">\theta</span> is:</p>
 <div class="math">
-<p><img src="_images/math/4ec20aa8f93835a05799d0b1424e50d9b6cb7538.png" alt="\begin{bmatrix}
+<p><span class="math">\begin{bmatrix}
   \cos{\theta} &amp; -\sin{\theta} &amp; x_\mathrm{off} \\
   \sin{\theta} &amp;  \cos{\theta} &amp; y_\mathrm{off} \\
         0      &amp;        0      &amp; 1
-\end{bmatrix}"/></p>
-</div><p>where the offsets are calculated from the origin <img class="math" src="_images/math/d3ea5ae5f5092b7024a8775d282032dc76120c9d.png" alt="(x_0, y_0)"/>:</p>
+\end{bmatrix}</span></p>
+</div><p>where the offsets are calculated from the origin <span class="math">(x_0, y_0)</span>:</p>
 <div class="math">
-<p><img src="_images/math/ef22a38fb5cb11d017a88f391f427dc2635f7fc0.png" alt="x_\mathrm{off} &amp;= x_0 - x_0 \cos{\theta} + y_0 \sin{\theta} \\
-y_\mathrm{off} &amp;= y_0 - x_0 \sin{\theta} - y_0 \cos{\theta}"/></p>
+<p><span class="math">x_\mathrm{off} &amp;= x_0 - x_0 \cos{\theta} + y_0 \sin{\theta} \\
+y_\mathrm{off} &amp;= y_0 - x_0 \sin{\theta} - y_0 \cos{\theta}</span></p>
 </div><div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely</span> <span class="kn">import</span> <span class="n">affinity</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotated_a</span> <span class="o">=</span> <span class="n">affinity</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
@@ -1661,17 +1728,17 @@ object or a coordinate tuple <tt class="docutils literal"><span class="pre">(x0,
 <p>Negative scale factors will mirror or reflect coordinates.</p>
 <p>The general 3D affine transformation matrix for scaling is:</p>
 <div class="math">
-<p><img src="_images/math/f5e65bd3ee5b0183e6fcf0b12cebbda6a4bc49e1.png" alt="\begin{bmatrix}
+<p><span class="math">\begin{bmatrix}
   x_\mathrm{fact} &amp; 0               &amp; 0               &amp; x_\mathrm{off} \\
   0               &amp; y_\mathrm{fact} &amp; 0               &amp; y_\mathrm{off} \\
   0               &amp; 0               &amp; z_\mathrm{fact} &amp; z_\mathrm{off} \\
   0               &amp; 0               &amp; 0               &amp; 1
-\end{bmatrix}"/></p>
-</div><p>where the offsets are calculated from the origin <img class="math" src="_images/math/2327134553a537191a0135b92eea79788e7c9802.png" alt="(x_0, y_0, z_0)"/>:</p>
+\end{bmatrix}</span></p>
+</div><p>where the offsets are calculated from the origin <span class="math">(x_0, y_0, z_0)</span>:</p>
 <div class="math">
-<p><img src="_images/math/a01bd5e7b7b9405514ff249b11b27c9efd7c9574.png" alt="x_\mathrm{off} &amp;= x_0 - x_0 x_\mathrm{fact} \\
+<p><span class="math">x_\mathrm{off} &amp;= x_0 - x_0 x_\mathrm{fact} \\
 y_\mathrm{off} &amp;= y_0 - y_0 y_\mathrm{fact} \\
-z_\mathrm{off} &amp;= z_0 - z_0 z_\mathrm{fact}"/></p>
+z_\mathrm{off} &amp;= z_0 - z_0 z_\mathrm{fact}</span></p>
 </div><div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">triangle</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">triangle_a</span> <span class="o">=</span> <span class="n">affinity</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">triangle</span><span class="p">,</span> <span class="n">xfact</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">yfact</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">triangle_a</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">[:]</span>
@@ -1701,15 +1768,15 @@ center (default), <tt class="docutils literal"><span class="pre">'centroid'</spa
 object or a coordinate tuple <tt class="docutils literal"><span class="pre">(x0,</span> <span class="pre">y0)</span></tt>.</p>
 <p>The general 2D affine transformation matrix for skewing is:</p>
 <div class="math">
-<p><img src="_images/math/3f6c5b492a8c64f8300a60cad3f7de5d19ef986b.png" alt="\begin{bmatrix}
+<p><span class="math">\begin{bmatrix}
   1 &amp; \tan{x_s} &amp; x_\mathrm{off} \\
   \tan{y_s} &amp; 1 &amp; y_\mathrm{off} \\
   0 &amp; 0 &amp; 1
-\end{bmatrix}"/></p>
-</div><p>where the offsets are calculated from the origin <img class="math" src="_images/math/d3ea5ae5f5092b7024a8775d282032dc76120c9d.png" alt="(x_0, y_0)"/>:</p>
+\end{bmatrix}</span></p>
+</div><p>where the offsets are calculated from the origin <span class="math">(x_0, y_0)</span>:</p>
 <div class="math">
-<p><img src="_images/math/c29f45815c16bce297200b17bbc18ea0086fea92.png" alt="x_\mathrm{off} &amp;= -y_0 \tan{x_s} \\
-y_\mathrm{off} &amp;= -x_0 \tan{y_s}"/></p>
+<p><span class="math">x_\mathrm{off} &amp;= -y_0 \tan{x_s} \\
+y_\mathrm{off} &amp;= -x_0 \tan{y_s}</span></p>
 </div><p>(<a class="reference external" href="./code/skew.py">Source code</a>, <a class="reference external" href="./code/skew.png">png</a>, <a class="reference external" href="./code/skew.hires.png">hires.png</a>, <a class="reference external" href="./code/skew.pdf">pdf</a>)</p>
 <div class="figure">
 <img alt="_images/skew.png" src="_images/skew.png" />
@@ -1725,12 +1792,12 @@ along the y-direction, using default origin.</p>
 <dd><p>Returns a translated geometry shifted by offsets along each dimension.</p>
 <p>The general 3D affine transformation matrix for translation is:</p>
 <div class="math">
-<p><img src="_images/math/6f3d1a0bb0a4bf939ec6cd329df55180e1a88935.png" alt="\begin{bmatrix}
+<p><span class="math">\begin{bmatrix}
   1 &amp; 0 &amp; 0 &amp; x_\mathrm{off} \\
   0 &amp; 1 &amp; 0 &amp; y_\mathrm{off} \\
   0 &amp; 0 &amp; 1 &amp; z_\mathrm{off} \\
   0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}"/></p>
+\end{bmatrix}</span></p>
 </div></dd></dl>
 
 </div>
@@ -1744,8 +1811,8 @@ along the y-direction, using default origin.</p>
 geometry of the same type from the transformed coordinates.</p>
 <p><cite>func</cite> maps x, y, and optionally z to output xp, yp, zp. The input
 parameters may iterable types like lists or arrays or single values.
-The output shall be of the same type. Scalars in, scalars out.
-Lists in, lists out.</p>
+The output shall be of the same type: scalars in, scalars out;
+lists in, lists out.</p>
 <p><cite>New in version 1.2.18</cite>.</p>
 </dd></dl>
 
@@ -2047,7 +2114,7 @@ Python arrays of <cite>x</cite> and <cite>y</cite> values via the <tt class="xre
 <span class="go">(array(&#39;d&#39;, [0.0, 1.0]), array(&#39;d&#39;, [0.0, 1.0]))</span>
 </pre></div>
 </div>
-<p>The <a class="reference internal" href="#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> family of functions can be used to wrap
+<p>The <a class="reference internal" href="shapely.geometry.html#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> family of functions can be used to wrap
 Numpy coordinate arrays so that they can then be analyzed using Shapely while
 maintaining their original storage. A 1 x 2 array can be adapted to a point</p>
 <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">asPoint</span>
@@ -2069,7 +2136,7 @@ maintaining their original storage. A 1 x 2 array can be adapted to a point</p>
 <h3>Python Geo Interface<a class="headerlink" href="#python-geo-interface" title="Permalink to this headline">¶</a></h3>
 <p>Any object that provides the GeoJSON-like <a class="reference external" href="http://gist.github.com/2217756">Python geo interface</a> can be
 adapted and used as a Shapely geometry using the
-<a class="reference internal" href="#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> or <a class="reference internal" href="#shapely.geometry.shape" title="shapely.geometry.shape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.shape()</span></tt></a> functions.</p>
+<a class="reference internal" href="shapely.geometry.html#shapely.geometry.asShape" title="shapely.geometry.asShape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.asShape()</span></tt></a> or <a class="reference internal" href="shapely.geometry.html#shapely.geometry.shape" title="shapely.geometry.shape"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.shape()</span></tt></a> functions.</p>
 <dl class="function">
 <dt id="shapely.geometry.asShape">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">asShape</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asShape" title="Permalink to this definition">¶</a></dt>
@@ -2107,7 +2174,7 @@ context.</p>
 </pre></div>
 </div>
 <p>The GeoJSON-like mapping of a geometric object can be obtained using
-<a class="reference internal" href="#shapely.geometry.mapping" title="shapely.geometry.mapping"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.mapping()</span></tt></a>.</p>
+<a class="reference internal" href="shapely.geometry.html#shapely.geometry.mapping" title="shapely.geometry.mapping"><tt class="xref py py-func docutils literal"><span class="pre">shapely.geometry.mapping()</span></tt></a>.</p>
 <dl class="function">
 <dt id="shapely.geometry.mapping">
 <tt class="descclassname">shapely.geometry.</tt><tt class="descname">mapping</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#shapely.geometry.mapping" title="Permalink to this definition">¶</a></dt>
@@ -2135,7 +2202,7 @@ used in many applications and you can expect that all operations are highly
 optimized. The creation of new geometries with many coordinates, however,
 involves some overhead that might slow down your code.</p>
 <div class="versionadded">
-<p><span>New in version 1.2.10.</span></p>
+<p><span class="versionmodified">New in version 1.2.10.</span></p>
 </div>
 <p>The <a class="reference internal" href="shapely.speedups.html#module-shapely.speedups" title="shapely.speedups"><tt class="xref py py-mod docutils literal"><span class="pre">shapely.speedups</span></tt></a> module contains performance enhancements written in
 C. They are automaticaly installed when Python has access to a compiler and
@@ -2234,12 +2301,12 @@ Journal for Geographic Information and Geovisualization,  vol. 10, Dec.
         <li class="right" >
           <a href="project.html" title="Shapely"
              >previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011-2013, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
     </div>
   </body>
 </html>

@@ -97,6 +97,14 @@ tests Package
     :undoc-members:
     :show-inheritance:
 
+:mod:`test_invalid_geometries` Module
+-------------------------------------
+
+.. automodule:: shapely.tests.test_invalid_geometries
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`test_linear_referencing` Module
 -------------------------------------
 
@@ -157,6 +165,14 @@ tests Package
 ---------------------------
 
 .. automodule:: shapely.tests.test_speedups
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_styles` Module
+-------------------------
+
+.. automodule:: shapely.tests.test_styles
     :members:
     :undoc-members:
     :show-inheritance:

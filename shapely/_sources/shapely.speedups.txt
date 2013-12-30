@@ -9,11 +9,3 @@ speedups Package
     :undoc-members:
     :show-inheritance:
 
-:mod:`_speedups` Module
------------------------
-
-.. automodule:: shapely.speedups._speedups
-    :members:
-    :undoc-members:
-    :show-inheritance:
-

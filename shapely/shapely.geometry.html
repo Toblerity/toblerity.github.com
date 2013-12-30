@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>geometry Package &mdash; Shapely 1.2.18 documentation</title>
+    <title>geometry Package &mdash; Shapely 1.2.19 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2.18',
+        VERSION:     '1.2.19',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Shapely 1.2.18 documentation" href="index.html" />
+    <link rel="top" title="Shapely 1.2.19 documentation" href="index.html" />
     <link rel="up" title="shapely Package" href="shapely.html" />
     <link rel="next" title="speedups Package" href="shapely.speedups.html" />
     <link rel="prev" title="examples Package" href="shapely.examples.html" /> 
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="shapely.examples.html" title="examples Package"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li>
           <li><a href="shapely.html" accesskey="U">shapely Package</a> &raquo;</li> 
       </ul>
@@ -241,7 +241,8 @@ the object on its right or its left side.</p>
 the object increases by increasing the resolution keyword parameter or
 third positional parameter.</p>
 <p>The join style is for outside corners between line segments. Accepted
-values are 1 =&gt; ROUND, 2 =&gt; MITRE, 3 =&gt; BEVEL.</p>
+values are JOIN_STYLE.round (1), JOIN_STYLE.mitre (2), and
+JOIN_STYLE.bevel (3).</p>
 <p>The mitre ratio limit is used for very sharp corners. It is the ratio
 of the distance from the corner to the end of the mitred offset corner.
 When two line segments meet at a sharp angle, a miter join will extend
@@ -451,6 +452,48 @@ are only at boundary points, else False</p>
 <dd><p>Adapt an object to the LinearRing interface</p>
 </dd></dl>
 
+<dl class="class">
+<dt id="shapely.geometry.CAP_STYLE">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">CAP_STYLE</tt><a class="headerlink" href="#shapely.geometry.CAP_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="shapely.geometry.CAP_STYLE.flat">
+<tt class="descname">flat</tt><em class="property"> = 2</em><a class="headerlink" href="#shapely.geometry.CAP_STYLE.flat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.CAP_STYLE.round">
+<tt class="descname">round</tt><em class="property"> = 1</em><a class="headerlink" href="#shapely.geometry.CAP_STYLE.round" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.CAP_STYLE.square">
+<tt class="descname">square</tt><em class="property"> = 3</em><a class="headerlink" href="#shapely.geometry.CAP_STYLE.square" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.JOIN_STYLE">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">JOIN_STYLE</tt><a class="headerlink" href="#shapely.geometry.JOIN_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="shapely.geometry.JOIN_STYLE.bevel">
+<tt class="descname">bevel</tt><em class="property"> = 3</em><a class="headerlink" href="#shapely.geometry.JOIN_STYLE.bevel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.JOIN_STYLE.mitre">
+<tt class="descname">mitre</tt><em class="property"> = 2</em><a class="headerlink" href="#shapely.geometry.JOIN_STYLE.mitre" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.JOIN_STYLE.round">
+<tt class="descname">round</tt><em class="property"> = 1</em><a class="headerlink" href="#shapely.geometry.JOIN_STYLE.round" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-shapely.geometry.base">
 <span id="base-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">base</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.base" title="Permalink to this headline">¶</a></h2>
@@ -495,7 +538,7 @@ collection.</p>
 
 <dl class="method">
 <dt id="shapely.geometry.base.BaseGeometry.buffer">
-<tt class="descname">buffer</tt><big>(</big><em>distance</em>, <em>resolution=16</em>, <em>quadsegs=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.base.BaseGeometry.buffer" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">buffer</tt><big>(</big><em>distance</em>, <em>resolution=16</em>, <em>quadsegs=None</em>, <em>cap_style=1</em>, <em>join_style=1</em>, <em>mitre_limit=0</em><big>)</big><a class="headerlink" href="#shapely.geometry.base.BaseGeometry.buffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a geometry with an envelope at a distance from the object&#8217;s
 envelope</p>
 <p>A negative distance has a &#8220;shrink&#8221; effect. A zero distance may be used
@@ -503,6 +546,17 @@ to &#8220;tidy&#8221; a polygon. The resolution of the buffer around each vertex
 the object increases by increasing the resolution keyword parameter
 or second positional parameter. Note: the use of a <cite>quadsegs</cite> parameter
 is deprecated and will be gone from the next major release.</p>
+<p>The styles of caps are: CAP_STYLE.round (1), CAP_STYLE.flat (2), and
+CAP_STYLE.square (3).</p>
+<p>The styles of joins between offset segments are: JOIN_STYLE.round (1),
+JOIN_STYLE.mitre (2), and JOIN_STYLE.bevel (3).</p>
+<p>The mitre limit ratio is used for very sharp corners. The mitre ratio
+is the ratio of the distance from the corner to the end of the mitred
+offset corner. When two line segments meet at a sharp angle, a miter
+join will extend the original geometry. To prevent unreasonable
+geometry, the mitre limit allows controlling the maximum length of the
+join corner. Corners with a ratio which exceed the limit will be
+beveled.</p>
 <p>Example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.wkt</span> <span class="kn">import</span> <span class="n">loads</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">loads</span><span class="p">(</span><span class="s">&#39;POINT (0.0 0.0)&#39;</span><span class="p">)</span>
@@ -512,6 +566,10 @@ is deprecated and will be gone from the next major release.</p>
 <span class="go">3.1415138011443009</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>     <span class="c"># triangle approximation</span>
 <span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cap_style</span><span class="o">=</span><span class="s">&#39;square&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+<span class="go">[(1.0, 1.0), (1.0, -1.0), (-1.0, -1.0), (-1.0, 1.0), (1.0, 1.0)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cap_style</span><span class="o">=</span><span class="s">&#39;square&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+<span class="go">4.0</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -798,6 +856,27 @@ otherwise invalid geometries.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="shapely.geometry.base.CAP_STYLE">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.base.</tt><tt class="descname">CAP_STYLE</tt><a class="headerlink" href="#shapely.geometry.base.CAP_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="shapely.geometry.base.CAP_STYLE.flat">
+<tt class="descname">flat</tt><em class="property"> = 2</em><a class="headerlink" href="#shapely.geometry.base.CAP_STYLE.flat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.base.CAP_STYLE.round">
+<tt class="descname">round</tt><em class="property"> = 1</em><a class="headerlink" href="#shapely.geometry.base.CAP_STYLE.round" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.base.CAP_STYLE.square">
+<tt class="descname">square</tt><em class="property"> = 3</em><a class="headerlink" href="#shapely.geometry.base.CAP_STYLE.square" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="shapely.geometry.base.GeometrySequence">
 <em class="property">class </em><tt class="descclassname">shapely.geometry.base.</tt><tt class="descname">GeometrySequence</tt><big>(</big><em>parent</em>, <em>type</em><big>)</big><a class="headerlink" href="#shapely.geometry.base.GeometrySequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
@@ -814,6 +893,27 @@ otherwise invalid geometries.</p>
 <em class="property">class </em><tt class="descclassname">shapely.geometry.base.</tt><tt class="descname">HeterogeneousGeometrySequence</tt><big>(</big><em>parent</em><big>)</big><a class="headerlink" href="#shapely.geometry.base.HeterogeneousGeometrySequence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.GeometrySequence" title="shapely.geometry.base.GeometrySequence"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.GeometrySequence</span></tt></a></p>
 <p>Iterative access to a heterogeneous sequence of geometries.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.base.JOIN_STYLE">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.base.</tt><tt class="descname">JOIN_STYLE</tt><a class="headerlink" href="#shapely.geometry.base.JOIN_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="shapely.geometry.base.JOIN_STYLE.bevel">
+<tt class="descname">bevel</tt><em class="property"> = 3</em><a class="headerlink" href="#shapely.geometry.base.JOIN_STYLE.bevel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.base.JOIN_STYLE.mitre">
+<tt class="descname">mitre</tt><em class="property"> = 2</em><a class="headerlink" href="#shapely.geometry.base.JOIN_STYLE.mitre" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.base.JOIN_STYLE.round">
+<tt class="descname">round</tt><em class="property"> = 1</em><a class="headerlink" href="#shapely.geometry.base.JOIN_STYLE.round" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -945,7 +1045,8 @@ the object on its right or its left side.</p>
 the object increases by increasing the resolution keyword parameter or
 third positional parameter.</p>
 <p>The join style is for outside corners between line segments. Accepted
-values are 1 =&gt; ROUND, 2 =&gt; MITRE, 3 =&gt; BEVEL.</p>
+values are JOIN_STYLE.round (1), JOIN_STYLE.mitre (2), and
+JOIN_STYLE.bevel (3).</p>
 <p>The mitre ratio limit is used for very sharp corners. It is the ratio
 of the distance from the corner to the end of the mitred offset corner.
 When two line segments meet at a sharp angle, a miter join will extend
@@ -1294,14 +1395,14 @@ are only at boundary points, else False</p>
         <li class="right" >
           <a href="shapely.examples.html" title="examples Package"
              >previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.18 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li>
           <li><a href="shapely.html" >shapely Package</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011-2013, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
     </div>
   </body>
 </html>
