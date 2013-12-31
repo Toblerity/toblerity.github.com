@@ -81,6 +81,14 @@ tests Package
     :undoc-members:
     :show-inheritance:
 
+:mod:`test_geointerface` Module
+-------------------------------
+
+.. automodule:: shapely.tests.test_geointerface
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`test_geomseq` Module
 --------------------------
 
@@ -105,10 +113,42 @@ tests Package
     :undoc-members:
     :show-inheritance:
 
+:mod:`test_iterops` Module
+--------------------------
+
+.. automodule:: shapely.tests.test_iterops
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`test_linear_referencing` Module
 -------------------------------------
 
 .. automodule:: shapely.tests.test_linear_referencing
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_linemerge` Module
+----------------------------
+
+.. automodule:: shapely.tests.test_linemerge
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_linestring` Module
+-----------------------------
+
+.. automodule:: shapely.tests.test_linestring
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_locale` Module
+-------------------------
+
+.. automodule:: shapely.tests.test_locale
     :members:
     :undoc-members:
     :show-inheritance:
@@ -121,6 +161,30 @@ tests Package
     :undoc-members:
     :show-inheritance:
 
+:mod:`test_multilinestring` Module
+----------------------------------
+
+.. automodule:: shapely.tests.test_multilinestring
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_multipoint` Module
+-----------------------------
+
+.. automodule:: shapely.tests.test_multipoint
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_multipolygon` Module
+-------------------------------
+
+.. automodule:: shapely.tests.test_multipolygon
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`test_ndarrays` Module
 ---------------------------
 
@@ -129,10 +193,66 @@ tests Package
     :undoc-members:
     :show-inheritance:
 
+:mod:`test_operations` Module
+-----------------------------
+
+.. automodule:: shapely.tests.test_operations
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_operators` Module
+----------------------------
+
+.. automodule:: shapely.tests.test_operators
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_persist` Module
+--------------------------
+
+.. automodule:: shapely.tests.test_persist
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 :mod:`test_pickle` Module
 -------------------------
 
 .. automodule:: shapely.tests.test_pickle
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_point` Module
+------------------------
+
+.. automodule:: shapely.tests.test_point
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_polygon` Module
+--------------------------
+
+.. automodule:: shapely.tests.test_polygon
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_polygonize` Module
+-----------------------------
+
+.. automodule:: shapely.tests.test_polygonize
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_predicates` Module
+-----------------------------
+
+.. automodule:: shapely.tests.test_predicates
     :members:
     :undoc-members:
     :show-inheritance:
@@ -185,10 +305,10 @@ tests Package
     :undoc-members:
     :show-inheritance:
 
-:mod:`test_unary_union` Module
-------------------------------
+:mod:`test_union` Module
+------------------------
 
-.. automodule:: shapely.tests.test_unary_union
+.. automodule:: shapely.tests.test_union
     :members:
     :undoc-members:
     :show-inheritance:

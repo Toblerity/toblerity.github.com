@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -6,15 +8,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>shapely Package &mdash; Shapely 1.2.19 documentation</title>
+    <title>shapely Package &mdash; Shapely 1.3.0 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.19',
+        URL_ROOT:    '',
+        VERSION:     '1.3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Shapely 1.2.19 documentation" href="index.html" />
+    <link rel="top" title="Shapely 1.3.0 documentation" href="index.html" />
     <link rel="up" title="shapely" href="modules.html" />
     <link rel="next" title="algorithms Package" href="shapely.algorithms.html" />
     <link rel="prev" title="shapely" href="modules.html" /> 
@@ -44,7 +46,7 @@
         <li class="right" >
           <a href="modules.html" title="shapely"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.3.0 documentation</a> &raquo;</li>
           <li><a href="modules.html" accesskey="U">shapely</a> &raquo;</li> 
       </ul>
     </div>
@@ -248,7 +250,7 @@ yoff = -x0 * tan(ys)</div></blockquote>
 <dl class="class">
 <dt id="shapely.coords.CoordinateSequence">
 <em class="property">class </em><tt class="descclassname">shapely.coords.</tt><tt class="descname">CoordinateSequence</tt><big>(</big><em>parent</em><big>)</big><a class="headerlink" href="#shapely.coords.CoordinateSequence" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
 <p>Iterative access to coordinate tuples from the parent geometry&#8217;s coordinate
 sequence.</p>
 <p>Example:</p>
@@ -258,9 +260,9 @@ sequence.</p>
 <span class="go">[(0.0, 0.0)]</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.coords.CoordinateSequence.array_interface">
-<tt class="descname">array_interface</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.coords.CoordinateSequence.array_interface" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">array_interface</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.coords.CoordinateSequence.array_interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide the Numpy array protocol.</p>
 </dd></dl>
 
@@ -288,16 +290,27 @@ object.</p>
 </div>
 <div class="section" id="module-shapely.ctypes_declarations">
 <span id="ctypes-declarations-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">ctypes_declarations</span></tt> Module<a class="headerlink" href="#module-shapely.ctypes_declarations" title="Permalink to this headline">¶</a></h2>
+<p>Prototyping of the GEOS C API</p>
+<p>See header file: geos-x.y.z/capi/geos_c.h</p>
 <dl class="class">
 <dt id="shapely.ctypes_declarations.allocated_c_char_p">
 <em class="property">class </em><tt class="descclassname">shapely.ctypes_declarations.</tt><tt class="descname">allocated_c_char_p</tt><a class="headerlink" href="#shapely.ctypes_declarations.allocated_c_char_p" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ctypes.c_char_p</span></tt></p>
+<p>char pointer return type</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.ctypes_declarations.c_size_t_p">
+<tt class="descclassname">shapely.ctypes_declarations.</tt><tt class="descname">c_size_t_p</tt><a class="headerlink" href="#shapely.ctypes_declarations.c_size_t_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">LP_c_ulong</span></tt></p>
 </dd></dl>
 
 <dl class="function">
 <dt id="shapely.ctypes_declarations.prototype">
-<tt class="descclassname">shapely.ctypes_declarations.</tt><tt class="descname">prototype</tt><big>(</big><em>lgeos</em>, <em>geosVersion</em><big>)</big><a class="headerlink" href="#shapely.ctypes_declarations.prototype" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">shapely.ctypes_declarations.</tt><tt class="descname">prototype</tt><big>(</big><em>lgeos</em>, <em>geos_version</em><big>)</big><a class="headerlink" href="#shapely.ctypes_declarations.prototype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Protype functions in geos_c.h for different version of GEOS</p>
+<p>Use the GEOS version, not the C API version.</p>
+</dd></dl>
 
 </div>
 <div class="section" id="module-shapely.ftools">
@@ -309,72 +322,96 @@ object.</p>
 <dl class="exception">
 <dt id="shapely.geos.DimensionError">
 <em class="property">exception </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">DimensionError</tt><a class="headerlink" href="#shapely.geos.DimensionError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.Exception</span></tt></p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="shapely.geos.L">
 <tt class="descclassname">shapely.geos.</tt><tt class="descname">L</tt><a class="headerlink" href="#shapely.geos.L" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#shapely.geos.LGEOS17" title="shapely.geos.LGEOS17"><tt class="xref py py-class docutils literal"><span class="pre">LGEOS17</span></tt></a></p>
+<dd><p>alias of <a class="reference internal" href="#shapely.geos.LGEOS330" title="shapely.geos.LGEOS330"><tt class="xref py py-class docutils literal"><span class="pre">LGEOS330</span></tt></a></p>
 </dd></dl>
 
 <dl class="class">
-<dt id="shapely.geos.LGEOS14">
-<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS14</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS14" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.geos.LGEOS300">
+<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS300</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS300" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#shapely.geos.LGEOSBase" title="shapely.geos.LGEOSBase"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geos.LGEOSBase</span></tt></a></p>
-<p>Proxy for the GEOS_C DLL/SO API version 1.4</p>
+<p>Proxy for GEOS 3.0.0-CAPI-1.4.1</p>
 <dl class="attribute">
-<dt id="shapely.geos.LGEOS14.geos_capi_version">
-<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 4, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS14.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.geos.LGEOS300.geos_capi_version">
+<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 4, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS300.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.LGEOS300.geos_version">
+<tt class="descname">geos_version</tt><em class="property"> = (3, 0, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS300.geos_version" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="shapely.geos.LGEOS15">
-<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS15</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS15" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.geos.LGEOS310">
+<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS310</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS310" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#shapely.geos.LGEOSBase" title="shapely.geos.LGEOSBase"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geos.LGEOSBase</span></tt></a></p>
-<p>Proxy for the reentrant GEOS_C DLL/SO API version 1.5</p>
+<p>Proxy for GEOS 3.1.0-CAPI-1.5.0</p>
 <dl class="attribute">
-<dt id="shapely.geos.LGEOS15.geos_capi_version">
-<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 5, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS15.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.geos.LGEOS310.geos_capi_version">
+<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 5, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS310.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.LGEOS310.geos_version">
+<tt class="descname">geos_version</tt><em class="property"> = (3, 1, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS310.geos_version" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="shapely.geos.LGEOS16">
-<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS16</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS16" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geos.LGEOS15" title="shapely.geos.LGEOS15"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geos.LGEOS15</span></tt></a></p>
-<p>Proxy for the reentrant GEOS_C DLL/SO API version 1.6</p>
+<dt id="shapely.geos.LGEOS311">
+<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS311</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS311" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geos.LGEOS310" title="shapely.geos.LGEOS310"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geos.LGEOS310</span></tt></a></p>
+<p>Proxy for GEOS 3.1.1-CAPI-1.6.0</p>
 <dl class="attribute">
-<dt id="shapely.geos.LGEOS16.geos_capi_version">
-<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 6, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS16.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.geos.LGEOS311.geos_capi_version">
+<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 6, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS311.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.LGEOS311.geos_version">
+<tt class="descname">geos_version</tt><em class="property"> = (3, 1, 1)</em><a class="headerlink" href="#shapely.geos.LGEOS311.geos_version" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="shapely.geos.LGEOS16LR">
-<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS16LR</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS16LR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geos.LGEOS16" title="shapely.geos.LGEOS16"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geos.LGEOS16</span></tt></a></p>
-<p>Proxy for the reentrant GEOS_C DLL/SO API version 1.6 with linear
-referencing</p>
+<dt id="shapely.geos.LGEOS320">
+<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS320</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS320" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geos.LGEOS311" title="shapely.geos.LGEOS311"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geos.LGEOS311</span></tt></a></p>
+<p>Proxy for GEOS 3.2.0-CAPI-1.6.0</p>
 <dl class="attribute">
-<dt id="shapely.geos.LGEOS16LR.geos_capi_version">
-<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 8, 2)</em><a class="headerlink" href="#shapely.geos.LGEOS16LR.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.geos.LGEOS320.geos_capi_version">
+<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 6, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS320.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.LGEOS320.geos_version">
+<tt class="descname">geos_version</tt><em class="property"> = (3, 2, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS320.geos_version" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="shapely.geos.LGEOS17">
-<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS17</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS17" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geos.LGEOS16LR" title="shapely.geos.LGEOS16LR"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geos.LGEOS16LR</span></tt></a></p>
-<p>Proxy for the reentrant GEOS_C DLL/SO API version 1.7</p>
+<dt id="shapely.geos.LGEOS330">
+<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOS330</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOS330" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geos.LGEOS320" title="shapely.geos.LGEOS320"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geos.LGEOS320</span></tt></a></p>
+<p>Proxy for GEOS 3.3.0-CAPI-1.7.0</p>
 <dl class="attribute">
-<dt id="shapely.geos.LGEOS17.geos_capi_version">
-<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 7, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS17.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.geos.LGEOS330.geos_capi_version">
+<tt class="descname">geos_capi_version</tt><em class="property"> = (1, 7, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS330.geos_capi_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.LGEOS330.geos_version">
+<tt class="descname">geos_version</tt><em class="property"> = (3, 3, 0)</em><a class="headerlink" href="#shapely.geos.LGEOS330.geos_version" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -382,12 +419,12 @@ referencing</p>
 <dl class="class">
 <dt id="shapely.geos.LGEOSBase">
 <em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">LGEOSBase</tt><big>(</big><em>dll</em><big>)</big><a class="headerlink" href="#shapely.geos.LGEOSBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">thread._local</span></tt></p>
-<p>Proxy for the GEOS_C DLL/SO</p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">_thread._local</span></tt></p>
+<p>Proxy for GEOS C API</p>
 <p>This is a base class. Do not instantiate.</p>
 <dl class="attribute">
 <dt id="shapely.geos.LGEOSBase.methods">
-<tt class="descname">methods</tt><em class="property"> = {'topology_preserve_simplify': &lt;functools.partial object at 0x10c09c050&gt;, 'intersects': &lt;functools.partial object at 0x10c09c4c8&gt;, 'relate': &lt;functools.partial object at 0x10c09cba8&gt;, 'within': &lt;functools.partial object at 0x10c099af8&gt;, 'is_simple': &lt;functools.partial object at 0x10c09caf8&gt;, 'buffer_with_style': &lt;functools.partial object at 0x10c099838&gt;, 'disjoint': &lt;functools.partial object at 0x10c09cb50&gt;, 'cascaded_union': &lt;functools.partial object at 0x10c09c9f0&gt;, 'convex_hull': &lt;functools.partial object at 0x10c09ce68&gt;, 'touches': &lt;functools.partial object at 0x10c09c6d8&gt;, 'intersection': &lt;functools.partial object at 0x10c09c7e0&gt;, 'area': &lt;functools.partial object at 0x10c0a02b8&gt;, 'union': &lt;functools.partial object at 0x10c09cfc8&gt;, 'contains': &lt;functools.partial object at 0x10c09c730&gt;, 'representative_point': &lt;functools.partial object at 0x10c09c628&gt;, 'prepared_covers': &lt;functools.partial object at 0x10c099fc8&gt;, 'is_valid': &lt;functools.partial object at 0x10c09caa0&gt;, 'centroid': &lt;functools.partial object at 0x10c09c310&gt;, 'symmetric_difference': &lt;functools.partial object at 0x10c099788&gt;, 'interpolate_normalized': &lt;functools.partial object at 0x10c09c5d0&gt;, 'boundary': &lt;functools.partial object at 0x10c099f70&gt;, 'prepared_contains_properly': &lt;functools.partial object at 0x10c09cc00&gt;, 'parallel_offset': &lt;functools.partial object at 0x10c09c890&gt;, 'overlaps': &lt;functools.partial object at 0x10c099c58&gt;, 'unary_union': &lt;functools.partial object at 0x10c09c9f0&gt;, 'buffer': &lt;functools.partial object at 0x10c09c260&gt;, 'envelope': &lt;functools.partial object at 0x10c09c1b0&gt;, 'equals': &lt;functools.partial object at 0x10c0997e0&gt;, 'is_ring': &lt;functools.partial object at 0x10c09ca48&gt;, 'simplify': &lt;functools.partial object at 0x10c09c680&gt;, 'is_empty': &lt;functools.partial object at 0x10c09c470&gt;, 'equals_exact': &lt;functools.partial object at 0x10c099578&gt;, 'interpolate': &lt;functools.partial object at 0x10c099520&gt;, 'prepared_contains': &lt;functools.partial object at 0x10c099680&gt;, 'has_z': &lt;functools.partial object at 0x10c099cb0&gt;, 'difference': &lt;functools.partial object at 0x10c09cdb8&gt;, 'distance': &lt;functools.partial object at 0x10c09c520&gt;, 'crosses': &lt;functools.partial object at 0x10c09c208&gt;, 'prepared_intersects': &lt;functools.partial object at 0x10c09c838&gt;, 'project': &lt;functools.partial object at 0x10c09c3c0&gt;, 'length': &lt;functools.partial object at 0x10c09c8e8&gt;, 'project_normalized': &lt;functools.partial object at 0x10c099d08&gt;}</em><a class="headerlink" href="#shapely.geos.LGEOSBase.methods" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">methods</tt><em class="property"> = {'topology_preserve_simplify': functools.partial(&lt;_FuncPtr object at 0x1047ef600&gt;, 140459541072816), 'project': functools.partial(&lt;_FuncPtr object at 0x1047f2e20&gt;, 140459541072816), 'is_valid': functools.partial(&lt;_FuncPtr object at 0x1047f2120&gt;, 140459541072816), 'is_ring': functools.partial(&lt;_FuncPtr object at 0x1047ec6d0&gt;, 140459541072816), 'union': functools.partial(&lt;_FuncPtr object at 0x1047e71f0&gt;, 140459541072816), 'project_normalized': functools.partial(&lt;_FuncPtr object at 0x1047e7e20&gt;, 140459541072816), 'envelope': functools.partial(&lt;_FuncPtr object at 0x1047f62c0&gt;, 140459541072816), 'is_simple': functools.partial(&lt;_FuncPtr object at 0x1047f2a10&gt;, 140459541072816), 'difference': functools.partial(&lt;_FuncPtr object at 0x1047f9050&gt;, 140459541072816), 'unary_union': functools.partial(&lt;_FuncPtr object at 0x1047e72c0&gt;, 140459541072816), 'symmetric_difference': functools.partial(&lt;_FuncPtr object at 0x1047ecae0&gt;, 140459541072816), 'buffer_with_style': functools.partial(&lt;_FuncPtr object at 0x1047f6d50&gt;, 140459541072816), 'representative_point': functools.partial(&lt;_FuncPtr object at 0x1047efd50&gt;, 140459541072816), 'parallel_offset': functools.partial(&lt;_FuncPtr object at 0x1047f2050&gt;, 140459541072816), 'prepared_contains': functools.partial(&lt;_FuncPtr object at 0x1047f2940&gt;, 140459541072816), 'contains': functools.partial(&lt;_FuncPtr object at 0x1047f6940&gt;, 140459541072816), 'convex_hull': functools.partial(&lt;_FuncPtr object at 0x1047e7390&gt;, 140459541072816), 'prepared_contains_properly': functools.partial(&lt;_FuncPtr object at 0x1047efae0&gt;, 140459541072816), 'has_z': functools.partial(&lt;_FuncPtr object at 0x1047ec050&gt;, 140459541072816), 'area': functools.partial(&lt;_FuncPtr object at 0x1047ef870&gt;, 140459541072816), 'centroid': functools.partial(&lt;_FuncPtr object at 0x1047f6c80&gt;, 140459541072816), 'crosses': functools.partial(&lt;_FuncPtr object at 0x1047ec7a0&gt;, 140459541072816), 'disjoint': functools.partial(&lt;_FuncPtr object at 0x1047ecd50&gt;, 140459541072816), 'intersection': functools.partial(&lt;_FuncPtr object at 0x1047f97a0&gt;, 140459541072816), 'prepared_covers': functools.partial(&lt;_FuncPtr object at 0x1047efef0&gt;, 140459541072816), 'interpolate': functools.partial(&lt;_FuncPtr object at 0x1047f6600&gt;, 140459541072816), 'prepared_intersects': functools.partial(&lt;_FuncPtr object at 0x1047ec600&gt;, 140459541072816), 'relate': functools.partial(&lt;_FuncPtr object at 0x1047f61f0&gt;, 140459541072816), 'buffer': functools.partial(&lt;_FuncPtr object at 0x1047f6e20&gt;, 140459541072816), 'distance': functools.partial(&lt;_FuncPtr object at 0x1047ef120&gt;, 140459541072816), 'boundary': functools.partial(&lt;_FuncPtr object at 0x1047ef2c0&gt;, 140459541072816), 'within': functools.partial(&lt;_FuncPtr object at 0x1047f26d0&gt;, 140459541072816), 'touches': functools.partial(&lt;_FuncPtr object at 0x1047ec2c0&gt;, 140459541072816), 'simplify': functools.partial(&lt;_FuncPtr object at 0x1047f2ef0&gt;, 140459541072816), 'interpolate_normalized': functools.partial(&lt;_FuncPtr object at 0x1047e7ef0&gt;, 140459541072816), 'overlaps': functools.partial(&lt;_FuncPtr object at 0x1047ec530&gt;, 140459541072816), 'intersects': functools.partial(&lt;_FuncPtr object at 0x1047f6390&gt;, 140459541072816), 'equals_exact': functools.partial(&lt;_FuncPtr object at 0x1047f66d0&gt;, 140459541072816), 'equals': functools.partial(&lt;_FuncPtr object at 0x1047efa10&gt;, 140459541072816), 'cascaded_union': functools.partial(&lt;_FuncPtr object at 0x1047e72c0&gt;, 140459541072816), 'length': functools.partial(&lt;_FuncPtr object at 0x1047f6120&gt;, 140459541072816), 'is_empty': functools.partial(&lt;_FuncPtr object at 0x1047f92c0&gt;, 140459541072816)}</em><a class="headerlink" href="#shapely.geos.LGEOSBase.methods" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -396,9 +433,9 @@ referencing</p>
 <dt id="shapely.geos.NullHandler">
 <em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">NullHandler</tt><big>(</big><em>level=0</em><big>)</big><a class="headerlink" href="#shapely.geos.NullHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">logging.Handler</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.geos.NullHandler.emit">
-<tt class="descname">emit</tt><big>(</big><em>record</em><big>)</big><a class="headerlink" href="#shapely.geos.NullHandler.emit" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">emit</tt><big>(</big><em>self</em>, <em>record</em><big>)</big><a class="headerlink" href="#shapely.geos.NullHandler.emit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -406,19 +443,132 @@ referencing</p>
 <dl class="exception">
 <dt id="shapely.geos.PredicateError">
 <em class="property">exception </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">PredicateError</tt><a class="headerlink" href="#shapely.geos.PredicateError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.Exception</span></tt></p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="shapely.geos.ReadingError">
 <em class="property">exception </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">ReadingError</tt><a class="headerlink" href="#shapely.geos.ReadingError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.Exception</span></tt></p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="shapely.geos.TopologicalError">
 <em class="property">exception </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">TopologicalError</tt><a class="headerlink" href="#shapely.geos.TopologicalError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.Exception</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geos.WKBReader">
+<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">WKBReader</tt><big>(</big><em>lgeos</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dl class="function">
+<dt id="shapely.geos.WKBReader.read">
+<tt class="descname">read</tt><big>(</big><em>self</em>, <em>data</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBReader.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns geometry from WKB</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geos.WKBReader.read_hex">
+<tt class="descname">read_hex</tt><big>(</big><em>self</em>, <em>data</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBReader.read_hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns geometry from WKB hex</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geos.WKBWriter">
+<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">WKBWriter</tt><big>(</big><em>lgeos</em>, <em>**settings</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBWriter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dl class="attribute">
+<dt id="shapely.geos.WKBWriter.big_endian">
+<tt class="descname">big_endian</tt><a class="headerlink" href="#shapely.geos.WKBWriter.big_endian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Byte order is big endian, True (default) or False</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.WKBWriter.defaults">
+<tt class="descname">defaults</tt><em class="property"> = {'output_dimension': 3}</em><a class="headerlink" href="#shapely.geos.WKBWriter.defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.WKBWriter.include_srid">
+<tt class="descname">include_srid</tt><a class="headerlink" href="#shapely.geos.WKBWriter.include_srid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include SRID, True or False (default)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.WKBWriter.output_dimension">
+<tt class="descname">output_dimension</tt><a class="headerlink" href="#shapely.geos.WKBWriter.output_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output dimension, either 2 or 3 (default)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geos.WKBWriter.write">
+<tt class="descname">write</tt><big>(</big><em>self</em>, <em>geom</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBWriter.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns WKB byte string for geometry</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geos.WKBWriter.write_hex">
+<tt class="descname">write_hex</tt><big>(</big><em>self</em>, <em>geom</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBWriter.write_hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns WKB hex string for geometry</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geos.WKTReader">
+<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">WKTReader</tt><big>(</big><em>lgeos</em><big>)</big><a class="headerlink" href="#shapely.geos.WKTReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dl class="function">
+<dt id="shapely.geos.WKTReader.read">
+<tt class="descname">read</tt><big>(</big><em>self</em>, <em>text</em><big>)</big><a class="headerlink" href="#shapely.geos.WKTReader.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns geometry from WKT</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geos.WKTWriter">
+<em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">WKTWriter</tt><big>(</big><em>lgeos</em>, <em>**settings</em><big>)</big><a class="headerlink" href="#shapely.geos.WKTWriter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dl class="attribute">
+<dt id="shapely.geos.WKTWriter.defaults">
+<tt class="descname">defaults</tt><em class="property"> = {'trim': True, 'output_dimension': 3}</em><a class="headerlink" href="#shapely.geos.WKTWriter.defaults" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.WKTWriter.old_3d">
+<tt class="descname">old_3d</tt><a class="headerlink" href="#shapely.geos.WKTWriter.old_3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show older style for 3D WKT, without &#8216;Z&#8217; (default: False)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.WKTWriter.output_dimension">
+<tt class="descname">output_dimension</tt><a class="headerlink" href="#shapely.geos.WKTWriter.output_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output dimension, either 2 or 3 (default)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.WKTWriter.rounding_precision">
+<tt class="descname">rounding_precision</tt><a class="headerlink" href="#shapely.geos.WKTWriter.rounding_precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rounding precision when writing the WKT.
+A precision of -1 (default) disables it.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geos.WKTWriter.trim">
+<tt class="descname">trim</tt><a class="headerlink" href="#shapely.geos.WKTWriter.trim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trimming of unnecessary decimals (default: True)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geos.WKTWriter.write">
+<tt class="descname">write</tt><big>(</big><em>self</em>, <em>geom</em><big>)</big><a class="headerlink" href="#shapely.geos.WKTWriter.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns WKT string for geometry</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="function">
@@ -429,21 +579,24 @@ referencing</p>
 <dl class="function">
 <dt id="shapely.geos.errcheck_just_free">
 <tt class="descclassname">shapely.geos.</tt><tt class="descname">errcheck_just_free</tt><big>(</big><em>result</em>, <em>func</em>, <em>argtuple</em><big>)</big><a class="headerlink" href="#shapely.geos.errcheck_just_free" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns string from a C pointer</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="shapely.geos.errcheck_predicate">
 <tt class="descclassname">shapely.geos.</tt><tt class="descname">errcheck_predicate</tt><big>(</big><em>result</em>, <em>func</em>, <em>argtuple</em><big>)</big><a class="headerlink" href="#shapely.geos.errcheck_predicate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Result is 2 on exception, 1 on True, 0 on False</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="shapely.geos.errcheck_wkb">
 <tt class="descclassname">shapely.geos.</tt><tt class="descname">errcheck_wkb</tt><big>(</big><em>result</em>, <em>func</em>, <em>argtuple</em><big>)</big><a class="headerlink" href="#shapely.geos.errcheck_wkb" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns bytes from a C pointer</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="shapely.geos.error_handler">
-<tt class="descclassname">shapely.geos.</tt><tt class="descname">error_handler</tt><big>(</big><em>fmt</em>, <em>list</em><big>)</big><a class="headerlink" href="#shapely.geos.error_handler" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">shapely.geos.</tt><tt class="descname">error_handler</tt><big>(</big><em>fmt</em>, <em>*args</em><big>)</big><a class="headerlink" href="#shapely.geos.error_handler" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -453,7 +606,7 @@ referencing</p>
 
 <dl class="function">
 <dt id="shapely.geos.notice_handler">
-<tt class="descclassname">shapely.geos.</tt><tt class="descname">notice_handler</tt><big>(</big><em>fmt</em>, <em>list</em><big>)</big><a class="headerlink" href="#shapely.geos.notice_handler" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">shapely.geos.</tt><tt class="descname">notice_handler</tt><big>(</big><em>fmt</em>, <em>args</em><big>)</big><a class="headerlink" href="#shapely.geos.notice_handler" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -472,10 +625,10 @@ and, with GEOS as a backend, translate them to C data structures.</li>
 <dl class="class">
 <dt id="shapely.impl.BaseImpl">
 <em class="property">class </em><tt class="descclassname">shapely.impl.</tt><tt class="descname">BaseImpl</tt><big>(</big><em>values</em><big>)</big><a class="headerlink" href="#shapely.impl.BaseImpl" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<dl class="method">
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dl class="function">
 <dt id="shapely.impl.BaseImpl.update">
-<tt class="descname">update</tt><big>(</big><em>values</em><big>)</big><a class="headerlink" href="#shapely.impl.BaseImpl.update" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">update</tt><big>(</big><em>self</em>, <em>values</em><big>)</big><a class="headerlink" href="#shapely.impl.BaseImpl.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -505,7 +658,7 @@ support.</p>
 <dl class="class">
 <dt id="shapely.iterops.IterOp">
 <em class="property">class </em><tt class="descclassname">shapely.iterops.</tt><tt class="descname">IterOp</tt><big>(</big><em>fn</em><big>)</big><a class="headerlink" href="#shapely.iterops.IterOp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
 <p>A generating non-data descriptor.</p>
 </dd></dl>
 
@@ -543,11 +696,11 @@ support.</p>
 <dl class="function">
 <dt id="shapely.ops.transform">
 <tt class="descclassname">shapely.ops.</tt><tt class="descname">transform</tt><big>(</big><em>func</em>, <em>geom</em><big>)</big><a class="headerlink" href="#shapely.ops.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Applies <cite>func</cite> to all coordinates of <cite>geom</cite> and returns a new 
+<dd><p>Applies <cite>func</cite> to all coordinates of <cite>geom</cite> and returns a new
 geometry of the same type from the transformed coordinates.</p>
 <p><cite>func</cite> maps x, y, and optionally z to output xp, yp, zp. The input
 parameters may iterable types like lists or arrays or single values.
-The output shall be of the same type. Scalars in, scalars out. 
+The output shall be of the same type. Scalars in, scalars out.
 Lists in, lists out.</p>
 <p>For example, here is an identity function applicable to both types
 of input.</p>
@@ -565,8 +718,8 @@ requirements for <cite>func</cite>.</p>
 import pyproj</p>
 <dl class="docutils">
 <dt>project = partial(</dt>
-<dd>pyproj.transform, 
-pyproj.Proj(init=&#8217;espg:4326&#8217;), 
+<dd>pyproj.transform,
+pyproj.Proj(init=&#8217;espg:4326&#8217;),
 pyproj.Proj(init=&#8217;epsg:26913&#8217;))</dd>
 </dl>
 <p>g2 = transform(project, g1)</p>
@@ -606,7 +759,7 @@ pyproj.Proj(init=&#8217;epsg:26913&#8217;))</dd>
 <dl class="class">
 <dt id="shapely.prepared.PreparedGeometry">
 <em class="property">class </em><tt class="descclassname">shapely.prepared.</tt><tt class="descname">PreparedGeometry</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.prepared.PreparedGeometry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
 <p>A geometry prepared for efficient comparison to a set of other geometries.</p>
 <p>Example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span>
@@ -616,17 +769,17 @@ pyproj.Proj(init=&#8217;epsg:26913&#8217;))</dd>
 <span class="go">True</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.prepared.PreparedGeometry.contains">
 <tt class="descname">contains</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.prepared.PreparedGeometry.contains" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.prepared.PreparedGeometry.contains_properly">
 <tt class="descname">contains_properly</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.prepared.PreparedGeometry.contains_properly" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.prepared.PreparedGeometry.covers">
 <tt class="descname">covers</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.prepared.PreparedGeometry.covers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -636,7 +789,7 @@ pyproj.Proj(init=&#8217;epsg:26913&#8217;))</dd>
 <tt class="descname">impl</tt><em class="property"> = &lt;GEOSImpl object: GEOS C API version (1, 7, 0)&gt;</em><a class="headerlink" href="#shapely.prepared.PreparedGeometry.impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.prepared.PreparedGeometry.intersects">
 <tt class="descname">intersects</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.prepared.PreparedGeometry.intersects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -689,7 +842,7 @@ to GEOS functions via ctypes.</p>
 <dl class="class">
 <dt id="shapely.topology.Validating">
 <em class="property">class </em><tt class="descclassname">shapely.topology.</tt><tt class="descname">Validating</tt><a class="headerlink" href="#shapely.topology.Validating" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
 </dd></dl>
 
 </div>
@@ -706,26 +859,29 @@ to GEOS functions via ctypes.</p>
 <p>Load/dump geometries using the well-known binary (WKB) format</p>
 <dl class="function">
 <dt id="shapely.wkb.dump">
-<tt class="descclassname">shapely.wkb.</tt><tt class="descname">dump</tt><big>(</big><em>ob</em>, <em>fp</em><big>)</big><a class="headerlink" href="#shapely.wkb.dump" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">shapely.wkb.</tt><tt class="descname">dump</tt><big>(</big><em>ob</em>, <em>fp</em>, <em>hex=False</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#shapely.wkb.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump a geometry to an open file.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="shapely.wkb.dumps">
-<tt class="descclassname">shapely.wkb.</tt><tt class="descname">dumps</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#shapely.wkb.dumps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dump a WKB representation of a geometry to a byte string.</p>
+<tt class="descclassname">shapely.wkb.</tt><tt class="descname">dumps</tt><big>(</big><em>ob</em>, <em>hex=False</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#shapely.wkb.dumps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump a WKB representation of a geometry to a byte string, or a
+hex-encoded string if <tt class="docutils literal"><span class="pre">hex=True</span></tt>.</p>
+<p>See available keyword output settings in <tt class="docutils literal"><span class="pre">shapely.geos.WKBWriter</span></tt>.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="shapely.wkb.load">
-<tt class="descclassname">shapely.wkb.</tt><tt class="descname">load</tt><big>(</big><em>fp</em><big>)</big><a class="headerlink" href="#shapely.wkb.load" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">shapely.wkb.</tt><tt class="descname">load</tt><big>(</big><em>fp</em>, <em>hex=False</em><big>)</big><a class="headerlink" href="#shapely.wkb.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a geometry from an open file.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="shapely.wkb.loads">
-<tt class="descclassname">shapely.wkb.</tt><tt class="descname">loads</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#shapely.wkb.loads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a geometry from a WKB string.</p>
+<tt class="descclassname">shapely.wkb.</tt><tt class="descname">loads</tt><big>(</big><em>data</em>, <em>hex=False</em><big>)</big><a class="headerlink" href="#shapely.wkb.loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a geometry from a WKB byte string, or hex-encoded string if
+<tt class="docutils literal"><span class="pre">hex=True</span></tt>.</p>
 </dd></dl>
 
 </div>
@@ -734,14 +890,15 @@ to GEOS functions via ctypes.</p>
 <p>Load/dump geometries using the well-known text (WKT) format</p>
 <dl class="function">
 <dt id="shapely.wkt.dump">
-<tt class="descclassname">shapely.wkt.</tt><tt class="descname">dump</tt><big>(</big><em>ob</em>, <em>fp</em><big>)</big><a class="headerlink" href="#shapely.wkt.dump" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">shapely.wkt.</tt><tt class="descname">dump</tt><big>(</big><em>ob</em>, <em>fp</em>, <em>**settings</em><big>)</big><a class="headerlink" href="#shapely.wkt.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump a geometry to an open file.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="shapely.wkt.dumps">
-<tt class="descclassname">shapely.wkt.</tt><tt class="descname">dumps</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#shapely.wkt.dumps" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dump a WKB representation of a geometry to a byte string.</p>
+<tt class="descclassname">shapely.wkt.</tt><tt class="descname">dumps</tt><big>(</big><em>ob</em>, <em>**kw</em><big>)</big><a class="headerlink" href="#shapely.wkt.dumps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump a WKT representation of a geometry to a string.</p>
+<p>See available keyword output settings in <tt class="docutils literal"><span class="pre">shapely.geos.WKTWriter</span></tt>.</p>
 </dd></dl>
 
 <dl class="function">
@@ -802,20 +959,35 @@ to GEOS functions via ctypes.</p>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_doctests"><tt class="docutils literal"><span class="pre">test_doctests</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_emptiness"><tt class="docutils literal"><span class="pre">test_emptiness</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_equality"><tt class="docutils literal"><span class="pre">test_equality</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_geointerface"><tt class="docutils literal"><span class="pre">test_geointerface</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_geomseq"><tt class="docutils literal"><span class="pre">test_geomseq</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_getitem"><tt class="docutils literal"><span class="pre">test_getitem</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#test-invalid-geometries-module"><tt class="docutils literal"><span class="pre">test_invalid_geometries</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_invalid_geometries"><tt class="docutils literal"><span class="pre">test_invalid_geometries</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_iterops"><tt class="docutils literal"><span class="pre">test_iterops</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_linear_referencing"><tt class="docutils literal"><span class="pre">test_linear_referencing</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_linemerge"><tt class="docutils literal"><span class="pre">test_linemerge</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_linestring"><tt class="docutils literal"><span class="pre">test_linestring</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_locale"><tt class="docutils literal"><span class="pre">test_locale</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_mapping"><tt class="docutils literal"><span class="pre">test_mapping</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_multilinestring"><tt class="docutils literal"><span class="pre">test_multilinestring</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_multipoint"><tt class="docutils literal"><span class="pre">test_multipoint</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_multipolygon"><tt class="docutils literal"><span class="pre">test_multipolygon</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_ndarrays"><tt class="docutils literal"><span class="pre">test_ndarrays</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_operations"><tt class="docutils literal"><span class="pre">test_operations</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_operators"><tt class="docutils literal"><span class="pre">test_operators</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_persist"><tt class="docutils literal"><span class="pre">test_persist</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_pickle"><tt class="docutils literal"><span class="pre">test_pickle</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_point"><tt class="docutils literal"><span class="pre">test_point</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_polygon"><tt class="docutils literal"><span class="pre">test_polygon</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_polygonize"><tt class="docutils literal"><span class="pre">test_polygonize</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_predicates"><tt class="docutils literal"><span class="pre">test_predicates</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_prepared"><tt class="docutils literal"><span class="pre">test_prepared</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_products_z"><tt class="docutils literal"><span class="pre">test_products_z</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_singularity"><tt class="docutils literal"><span class="pre">test_singularity</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_speedups"><tt class="docutils literal"><span class="pre">test_speedups</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_styles"><tt class="docutils literal"><span class="pre">test_styles</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_transform"><tt class="docutils literal"><span class="pre">test_transform</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_unary_union"><tt class="docutils literal"><span class="pre">test_unary_union</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_union"><tt class="docutils literal"><span class="pre">test_union</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_validation"><tt class="docutils literal"><span class="pre">test_validation</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.test_xy"><tt class="docutils literal"><span class="pre">test_xy</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapely.tests.html#module-shapely.tests.threading_test"><tt class="docutils literal"><span class="pre">threading_test</span></tt> Module</a></li>
@@ -847,13 +1019,13 @@ to GEOS functions via ctypes.</p>
         <li class="right" >
           <a href="modules.html" title="shapely"
              >previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.3.0 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011-2013, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -6,15 +8,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>tests Package &mdash; Shapely 1.2.19 documentation</title>
+    <title>tests Package &mdash; Shapely 1.3.0 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.19',
+        URL_ROOT:    '',
+        VERSION:     '1.3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Shapely 1.2.19 documentation" href="index.html" />
+    <link rel="top" title="Shapely 1.3.0 documentation" href="index.html" />
     <link rel="up" title="shapely Package" href="shapely.html" />
     <link rel="prev" title="speedups Package" href="shapely.speedups.html" /> 
   </head>
@@ -40,7 +42,7 @@
         <li class="right" >
           <a href="shapely.speedups.html" title="speedups Package"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.3.0 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li>
           <li><a href="shapely.html" accesskey="U">shapely Package</a> &raquo;</li> 
       </ul>
@@ -60,20 +62,35 @@
 <li><a class="reference internal" href="#module-shapely.tests.test_doctests"><tt class="docutils literal"><span class="pre">test_doctests</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_emptiness"><tt class="docutils literal"><span class="pre">test_emptiness</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_equality"><tt class="docutils literal"><span class="pre">test_equality</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_geointerface"><tt class="docutils literal"><span class="pre">test_geointerface</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_geomseq"><tt class="docutils literal"><span class="pre">test_geomseq</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_getitem"><tt class="docutils literal"><span class="pre">test_getitem</span></tt> Module</a></li>
-<li><a class="reference internal" href="#test-invalid-geometries-module"><tt class="docutils literal"><span class="pre">test_invalid_geometries</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_invalid_geometries"><tt class="docutils literal"><span class="pre">test_invalid_geometries</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_iterops"><tt class="docutils literal"><span class="pre">test_iterops</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_linear_referencing"><tt class="docutils literal"><span class="pre">test_linear_referencing</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_linemerge"><tt class="docutils literal"><span class="pre">test_linemerge</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_linestring"><tt class="docutils literal"><span class="pre">test_linestring</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_locale"><tt class="docutils literal"><span class="pre">test_locale</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_mapping"><tt class="docutils literal"><span class="pre">test_mapping</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_multilinestring"><tt class="docutils literal"><span class="pre">test_multilinestring</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_multipoint"><tt class="docutils literal"><span class="pre">test_multipoint</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_multipolygon"><tt class="docutils literal"><span class="pre">test_multipolygon</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_ndarrays"><tt class="docutils literal"><span class="pre">test_ndarrays</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_operations"><tt class="docutils literal"><span class="pre">test_operations</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_operators"><tt class="docutils literal"><span class="pre">test_operators</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_persist"><tt class="docutils literal"><span class="pre">test_persist</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_pickle"><tt class="docutils literal"><span class="pre">test_pickle</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_point"><tt class="docutils literal"><span class="pre">test_point</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_polygon"><tt class="docutils literal"><span class="pre">test_polygon</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_polygonize"><tt class="docutils literal"><span class="pre">test_polygonize</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_predicates"><tt class="docutils literal"><span class="pre">test_predicates</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_prepared"><tt class="docutils literal"><span class="pre">test_prepared</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_products_z"><tt class="docutils literal"><span class="pre">test_products_z</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_singularity"><tt class="docutils literal"><span class="pre">test_singularity</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_speedups"><tt class="docutils literal"><span class="pre">test_speedups</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_styles"><tt class="docutils literal"><span class="pre">test_styles</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_transform"><tt class="docutils literal"><span class="pre">test_transform</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.tests.test_unary_union"><tt class="docutils literal"><span class="pre">test_unary_union</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-shapely.tests.test_union"><tt class="docutils literal"><span class="pre">test_union</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_validation"><tt class="docutils literal"><span class="pre">test_validation</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.test_xy"><tt class="docutils literal"><span class="pre">test_xy</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-shapely.tests.threading_test"><tt class="docutils literal"><span class="pre">threading_test</span></tt> Module</a></li>
@@ -126,24 +143,24 @@
 <dt id="shapely.tests.test_affinity.AffineTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_affinity.</tt><tt class="descname">AffineTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.AffineTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_affinity.AffineTestCase.test_affine_2d">
-<tt class="descname">test_affine_2d</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.AffineTestCase.test_affine_2d" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_affine_2d</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.AffineTestCase.test_affine_2d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_affinity.AffineTestCase.test_affine_3d">
-<tt class="descname">test_affine_3d</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.AffineTestCase.test_affine_3d" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_affine_3d</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.AffineTestCase.test_affine_3d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_affinity.AffineTestCase.test_affine_geom_types">
-<tt class="descname">test_affine_geom_types</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.AffineTestCase.test_affine_geom_types" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_affine_geom_types</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.AffineTestCase.test_affine_geom_types" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_affinity.AffineTestCase.test_affine_params">
-<tt class="descname">test_affine_params</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.AffineTestCase.test_affine_params" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_affine_params</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.AffineTestCase.test_affine_params" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -152,24 +169,24 @@
 <dt id="shapely.tests.test_affinity.TransformOpsTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_affinity.</tt><tt class="descname">TransformOpsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.TransformOpsTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_affinity.TransformOpsTestCase.test_rotate">
-<tt class="descname">test_rotate</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.TransformOpsTestCase.test_rotate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_rotate</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.TransformOpsTestCase.test_rotate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_affinity.TransformOpsTestCase.test_scale">
-<tt class="descname">test_scale</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.TransformOpsTestCase.test_scale" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_scale</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.TransformOpsTestCase.test_scale" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_affinity.TransformOpsTestCase.test_skew">
-<tt class="descname">test_skew</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.TransformOpsTestCase.test_skew" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_skew</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.TransformOpsTestCase.test_skew" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_affinity.TransformOpsTestCase.test_translate">
-<tt class="descname">test_translate</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.TransformOpsTestCase.test_translate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_translate</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_affinity.TransformOpsTestCase.test_translate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -186,19 +203,19 @@
 <dt id="shapely.tests.test_box.BoxTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_box.</tt><tt class="descname">BoxTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_box.BoxTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_box.BoxTestCase.test_ccw">
-<tt class="descname">test_ccw</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_box.BoxTestCase.test_ccw" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_ccw</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_box.BoxTestCase.test_ccw" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_box.BoxTestCase.test_ccw_default">
-<tt class="descname">test_ccw_default</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_box.BoxTestCase.test_ccw_default" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_ccw_default</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_box.BoxTestCase.test_ccw_default" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_box.BoxTestCase.test_cw">
-<tt class="descname">test_cw</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_box.BoxTestCase.test_cw" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_cw</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_box.BoxTestCase.test_cw" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -215,14 +232,14 @@
 <dt id="shapely.tests.test_cga.PolygonOrienterTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_cga.</tt><tt class="descname">PolygonOrienterTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.PolygonOrienterTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_cga.PolygonOrienterTestCase.test_holes">
-<tt class="descname">test_holes</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.PolygonOrienterTestCase.test_holes" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_holes</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.PolygonOrienterTestCase.test_holes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_cga.PolygonOrienterTestCase.test_no_holes">
-<tt class="descname">test_no_holes</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.PolygonOrienterTestCase.test_no_holes" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_no_holes</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.PolygonOrienterTestCase.test_no_holes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -231,14 +248,14 @@
 <dt id="shapely.tests.test_cga.RingOrientationTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_cga.</tt><tt class="descname">RingOrientationTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.RingOrientationTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_cga.RingOrientationTestCase.test_ccw">
-<tt class="descname">test_ccw</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.RingOrientationTestCase.test_ccw" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_ccw</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.RingOrientationTestCase.test_ccw" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_cga.RingOrientationTestCase.test_cw">
-<tt class="descname">test_cw</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.RingOrientationTestCase.test_cw" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_cw</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_cga.RingOrientationTestCase.test_cw" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -255,14 +272,14 @@
 <dt id="shapely.tests.test_collection.CollectionTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_collection.</tt><tt class="descname">CollectionTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_collection.CollectionTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_collection.CollectionTestCase.test_array_interface">
-<tt class="descname">test_array_interface</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_collection.CollectionTestCase.test_array_interface" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_array_interface</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_collection.CollectionTestCase.test_array_interface" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_collection.CollectionTestCase.test_child_with_deleted_parent">
-<tt class="descname">test_child_with_deleted_parent</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_collection.CollectionTestCase.test_child_with_deleted_parent" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_child_with_deleted_parent</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_collection.CollectionTestCase.test_child_with_deleted_parent" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -278,7 +295,7 @@
 <dl class="class">
 <dt id="shapely.tests.test_delegated.Geometry">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_delegated.</tt><tt class="descname">Geometry</tt><a class="headerlink" href="#shapely.tests.test_delegated.Geometry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
 <dl class="attribute">
 <dt id="shapely.tests.test_delegated.Geometry.foo">
 <tt class="descname">foo</tt><a class="headerlink" href="#shapely.tests.test_delegated.Geometry.foo" title="Permalink to this definition">¶</a></dt>
@@ -286,7 +303,7 @@
 
 <dl class="attribute">
 <dt id="shapely.tests.test_delegated.Geometry.impl">
-<tt class="descname">impl</tt><em class="property"> = &lt;shapely.impl.BaseImpl object at 0x1107e2d10&gt;</em><a class="headerlink" href="#shapely.tests.test_delegated.Geometry.impl" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">impl</tt><em class="property"> = &lt;shapely.impl.BaseImpl object at 0x1077e5610&gt;</em><a class="headerlink" href="#shapely.tests.test_delegated.Geometry.impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -296,14 +313,14 @@
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_delegated.</tt><tt class="descname">WrapperTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_delegated.WrapperTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
 <p>When the backend has no support for a method, we get an AttributeError</p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_delegated.WrapperTestCase.test_defaultimpl">
-<tt class="descname">test_defaultimpl</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_delegated.WrapperTestCase.test_defaultimpl" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_defaultimpl</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_delegated.WrapperTestCase.test_defaultimpl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_delegated.WrapperTestCase.test_delegated">
-<tt class="descname">test_delegated</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_delegated.WrapperTestCase.test_delegated" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_delegated</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_delegated.WrapperTestCase.test_delegated" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -320,14 +337,14 @@
 <dt id="shapely.tests.test_dlls.LoadingTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_dlls.</tt><tt class="descname">LoadingTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_dlls.LoadingTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_dlls.LoadingTestCase.test_fallbacks">
-<tt class="descname">test_fallbacks</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_dlls.LoadingTestCase.test_fallbacks" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_fallbacks</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_dlls.LoadingTestCase.test_fallbacks" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_dlls.LoadingTestCase.test_load">
-<tt class="descname">test_load</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_dlls.LoadingTestCase.test_load" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_load</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_dlls.LoadingTestCase.test_load" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -368,59 +385,59 @@
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_emptiness.</tt><tt class="descname">EmptinessTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_empty_base">
-<tt class="descname">test_empty_base</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_base" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_empty_base</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_base" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_empty_geometry_collection">
-<tt class="descname">test_empty_geometry_collection</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_geometry_collection" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_empty_geometry_collection</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_geometry_collection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_empty_linear_ring">
-<tt class="descname">test_empty_linear_ring</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_linear_ring" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_empty_linear_ring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_linear_ring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_empty_linestring">
-<tt class="descname">test_empty_linestring</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_linestring" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_empty_linestring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_linestring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_empty_multilinestring">
-<tt class="descname">test_empty_multilinestring</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_multilinestring" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_empty_multilinestring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_multilinestring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_empty_multipoint">
-<tt class="descname">test_empty_multipoint</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_multipoint" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_empty_multipoint</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_multipoint" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_empty_multipolygon">
-<tt class="descname">test_empty_multipolygon</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_multipolygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_empty_multipolygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_multipolygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_empty_point">
-<tt class="descname">test_empty_point</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_point" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_empty_point</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_point" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_empty_polygon">
-<tt class="descname">test_empty_polygon</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_polygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_empty_polygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_empty_polygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_emptying_point">
-<tt class="descname">test_emptying_point</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_emptying_point" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_emptying_point</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_emptying_point" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_emptiness.EmptinessTestCase.test_none_geom">
-<tt class="descname">test_none_geom</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_none_geom" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_none_geom</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_emptiness.EmptinessTestCase.test_none_geom" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -437,19 +454,19 @@
 <dt id="shapely.tests.test_equality.PointEqualityTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_equality.</tt><tt class="descname">PointEqualityTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_equality.PointEqualityTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_equality.PointEqualityTestCase.test_almost_equals">
-<tt class="descname">test_almost_equals</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_equality.PointEqualityTestCase.test_almost_equals" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_almost_equals</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_equality.PointEqualityTestCase.test_almost_equals" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_equality.PointEqualityTestCase.test_almost_equals_default">
-<tt class="descname">test_almost_equals_default</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_equality.PointEqualityTestCase.test_almost_equals_default" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_almost_equals_default</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_equality.PointEqualityTestCase.test_almost_equals_default" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_equality.PointEqualityTestCase.test_equals_exact">
-<tt class="descname">test_equals_exact</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_equality.PointEqualityTestCase.test_equals_exact" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_equals_exact</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_equality.PointEqualityTestCase.test_equals_exact" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -460,15 +477,40 @@
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-shapely.tests.test_geointerface">
+<span id="test-geointerface-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_geointerface</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_geointerface" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_geointerface.GeoInterfaceTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_geointerface.</tt><tt class="descname">GeoInterfaceTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_geointerface.GeoInterfaceTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_geointerface.GeoInterfaceTestCase.test_geointerface">
+<tt class="descname">test_geointerface</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_geointerface.GeoInterfaceTestCase.test_geointerface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.tests.test_geointerface.GeoThing">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_geointerface.</tt><tt class="descname">GeoThing</tt><big>(</big><em>d</em><big>)</big><a class="headerlink" href="#shapely.tests.test_geointerface.GeoThing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_geointerface.test_suite">
+<tt class="descclassname">shapely.tests.test_geointerface.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_geointerface.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-shapely.tests.test_geomseq">
 <span id="test-geomseq-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_geomseq</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_geomseq" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="shapely.tests.test_geomseq.MultiLineTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_geomseq.</tt><tt class="descname">MultiLineTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_geomseq.MultiLineTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_geomseq.MultiLineTestCase.test_array_interface">
-<tt class="descname">test_array_interface</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_geomseq.MultiLineTestCase.test_array_interface" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_array_interface</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_geomseq.MultiLineTestCase.test_array_interface" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -485,29 +527,29 @@
 <dt id="shapely.tests.test_getitem.CoordsGetItemTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_getitem.</tt><tt class="descname">CoordsGetItemTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.CoordsGetItemTestCase.test_index_2d_coords">
-<tt class="descname">test_index_2d_coords</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_index_2d_coords" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_index_2d_coords</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_index_2d_coords" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.CoordsGetItemTestCase.test_index_3d_coords">
-<tt class="descname">test_index_3d_coords</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_index_3d_coords" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_index_3d_coords</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_index_3d_coords" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.CoordsGetItemTestCase.test_index_coords_misc">
-<tt class="descname">test_index_coords_misc</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_index_coords_misc" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_index_coords_misc</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_index_coords_misc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.CoordsGetItemTestCase.test_slice_2d_coords">
-<tt class="descname">test_slice_2d_coords</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_slice_2d_coords" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_slice_2d_coords</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_slice_2d_coords" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.CoordsGetItemTestCase.test_slice_3d_coords">
-<tt class="descname">test_slice_3d_coords</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_slice_3d_coords" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_slice_3d_coords</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.CoordsGetItemTestCase.test_slice_3d_coords" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -516,19 +558,19 @@
 <dt id="shapely.tests.test_getitem.LinearRingGetItemTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_getitem.</tt><tt class="descname">LinearRingGetItemTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.LinearRingGetItemTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.LinearRingGetItemTestCase.test_index_linearring">
-<tt class="descname">test_index_linearring</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.LinearRingGetItemTestCase.test_index_linearring" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_index_linearring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.LinearRingGetItemTestCase.test_index_linearring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.LinearRingGetItemTestCase.test_index_linearring_misc">
-<tt class="descname">test_index_linearring_misc</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.LinearRingGetItemTestCase.test_index_linearring_misc" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_index_linearring_misc</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.LinearRingGetItemTestCase.test_index_linearring_misc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.LinearRingGetItemTestCase.test_slice_linearring">
-<tt class="descname">test_slice_linearring</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.LinearRingGetItemTestCase.test_slice_linearring" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_slice_linearring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.LinearRingGetItemTestCase.test_slice_linearring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -537,19 +579,19 @@
 <dt id="shapely.tests.test_getitem.MultiGeomGetItemTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_getitem.</tt><tt class="descname">MultiGeomGetItemTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.MultiGeomGetItemTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.MultiGeomGetItemTestCase.test_index_multigeom">
-<tt class="descname">test_index_multigeom</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.MultiGeomGetItemTestCase.test_index_multigeom" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_index_multigeom</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.MultiGeomGetItemTestCase.test_index_multigeom" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.MultiGeomGetItemTestCase.test_index_multigeom_misc">
-<tt class="descname">test_index_multigeom_misc</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.MultiGeomGetItemTestCase.test_index_multigeom_misc" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_index_multigeom_misc</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.MultiGeomGetItemTestCase.test_index_multigeom_misc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_getitem.MultiGeomGetItemTestCase.test_slice_multigeom">
-<tt class="descname">test_slice_multigeom</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.MultiGeomGetItemTestCase.test_slice_multigeom" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_slice_multigeom</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_getitem.MultiGeomGetItemTestCase.test_slice_multigeom" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -560,8 +602,45 @@
 <dd></dd></dl>
 
 </div>
-<div class="section" id="test-invalid-geometries-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">test_invalid_geometries</span></tt> Module<a class="headerlink" href="#test-invalid-geometries-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-shapely.tests.test_invalid_geometries">
+<span id="test-invalid-geometries-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_invalid_geometries</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_invalid_geometries" title="Permalink to this headline">¶</a></h2>
+<p>Test recovery from operation on invalid geometries</p>
+<dl class="class">
+<dt id="shapely.tests.test_invalid_geometries.InvalidGeometriesTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_invalid_geometries.</tt><tt class="descname">InvalidGeometriesTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_invalid_geometries.InvalidGeometriesTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_invalid_geometries.InvalidGeometriesTestCase.test_invalid_intersection">
+<tt class="descname">test_invalid_intersection</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_invalid_geometries.InvalidGeometriesTestCase.test_invalid_intersection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_invalid_geometries.test_suite">
+<tt class="descclassname">shapely.tests.test_invalid_geometries.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_invalid_geometries.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_iterops">
+<span id="test-iterops-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_iterops</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_iterops" title="Permalink to this headline">¶</a></h2>
+<p>Test operator iterations</p>
+<dl class="class">
+<dt id="shapely.tests.test_iterops.IterOpsTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_iterops.</tt><tt class="descname">IterOpsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_iterops.IterOpsTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_iterops.IterOpsTestCase.test_iterops">
+<tt class="descname">test_iterops</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_iterops.IterOpsTestCase.test_iterops" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_iterops.test_suite">
+<tt class="descclassname">shapely.tests.test_iterops.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_iterops.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="module-shapely.tests.test_linear_referencing">
 <span id="test-linear-referencing-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_linear_referencing</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_linear_referencing" title="Permalink to this headline">¶</a></h2>
@@ -569,54 +648,54 @@
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_linear_referencing.</tt><tt class="descname">LinearReferencingTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.setUp">
-<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">setUp</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.setUp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line1_interpolate">
-<tt class="descname">test_line1_interpolate</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line1_interpolate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_line1_interpolate</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line1_interpolate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line1_project">
-<tt class="descname">test_line1_project</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line1_project" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_line1_project</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line1_project" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line2_interpolate">
-<tt class="descname">test_line2_interpolate</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line2_interpolate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_line2_interpolate</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line2_interpolate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line2_project">
-<tt class="descname">test_line2_project</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line2_project" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_line2_project</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line2_project" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line_ends_interpolate">
-<tt class="descname">test_line_ends_interpolate</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line_ends_interpolate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_line_ends_interpolate</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_line_ends_interpolate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_multiline_interpolate">
-<tt class="descname">test_multiline_interpolate</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_multiline_interpolate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_multiline_interpolate</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_multiline_interpolate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_multiline_project">
-<tt class="descname">test_multiline_project</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_multiline_project" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_multiline_project</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_multiline_project" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_not_on_line_project">
-<tt class="descname">test_not_on_line_project</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_not_on_line_project" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_not_on_line_project</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_not_on_line_project" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_not_supported_project">
-<tt class="descname">test_not_supported_project</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_not_supported_project" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_not_supported_project</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linear_referencing.LinearReferencingTestCase.test_not_supported_project" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -627,15 +706,88 @@
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-shapely.tests.test_linemerge">
+<span id="test-linemerge-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_linemerge</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_linemerge" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_linemerge.LineMergeTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_linemerge.</tt><tt class="descname">LineMergeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linemerge.LineMergeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_linemerge.LineMergeTestCase.test_linemerge">
+<tt class="descname">test_linemerge</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linemerge.LineMergeTestCase.test_linemerge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_linemerge.test_suite">
+<tt class="descclassname">shapely.tests.test_linemerge.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linemerge.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_linestring">
+<span id="test-linestring-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_linestring</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_linestring" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_linestring.LineStringTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_linestring.</tt><tt class="descname">LineStringTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linestring.LineStringTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_linestring.LineStringTestCase.test_linestring">
+<tt class="descname">test_linestring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linestring.LineStringTestCase.test_linestring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_linestring.LineStringTestCase.test_numpy">
+<tt class="descname">test_numpy</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_linestring.LineStringTestCase.test_numpy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_linestring.test_suite">
+<tt class="descclassname">shapely.tests.test_linestring.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_linestring.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_locale">
+<span id="test-locale-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_locale</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_locale" title="Permalink to this headline">¶</a></h2>
+<p>Test locale independence of WKT</p>
+<dl class="class">
+<dt id="shapely.tests.test_locale.LocaleTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_locale.</tt><tt class="descname">LocaleTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_locale.LocaleTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_locale.LocaleTestCase.test_wkt_locale">
+<tt class="descname">test_wkt_locale</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_locale.LocaleTestCase.test_wkt_locale" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_locale.setUpModule">
+<tt class="descclassname">shapely.tests.test_locale.</tt><tt class="descname">setUpModule</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_locale.setUpModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_locale.tearDownModule">
+<tt class="descclassname">shapely.tests.test_locale.</tt><tt class="descname">tearDownModule</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_locale.tearDownModule" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_locale.test_suite">
+<tt class="descclassname">shapely.tests.test_locale.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_locale.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-shapely.tests.test_mapping">
 <span id="test-mapping-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_mapping</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_mapping" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="shapely.tests.test_mapping.MappingTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_mapping.</tt><tt class="descname">MappingTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_mapping.MappingTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_mapping.MappingTestCase.test_point">
-<tt class="descname">test_point</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_mapping.MappingTestCase.test_point" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_point</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_mapping.MappingTestCase.test_point" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -646,25 +798,92 @@
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-shapely.tests.test_multilinestring">
+<span id="test-multilinestring-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_multilinestring</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_multilinestring" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_multilinestring.MultiLineStringTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_multilinestring.</tt><tt class="descname">MultiLineStringTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_multilinestring.MultiLineStringTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_multilinestring.MultiLineStringTestCase.test_multipoint">
+<tt class="descname">test_multipoint</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_multilinestring.MultiLineStringTestCase.test_multipoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_multilinestring.MultiLineStringTestCase.test_numpy">
+<tt class="descname">test_numpy</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_multilinestring.MultiLineStringTestCase.test_numpy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_multilinestring.test_suite">
+<tt class="descclassname">shapely.tests.test_multilinestring.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_multilinestring.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_multipoint">
+<span id="test-multipoint-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_multipoint</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_multipoint" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_multipoint.MultiPointTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_multipoint.</tt><tt class="descname">MultiPointTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_multipoint.MultiPointTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_multipoint.MultiPointTestCase.test_multipoint">
+<tt class="descname">test_multipoint</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_multipoint.MultiPointTestCase.test_multipoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_multipoint.MultiPointTestCase.test_numpy">
+<tt class="descname">test_numpy</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_multipoint.MultiPointTestCase.test_numpy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_multipoint.test_suite">
+<tt class="descclassname">shapely.tests.test_multipoint.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_multipoint.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_multipolygon">
+<span id="test-multipolygon-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_multipolygon</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_multipolygon" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_multipolygon.MultiPolygonTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_multipolygon.</tt><tt class="descname">MultiPolygonTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_multipolygon.MultiPolygonTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_multipolygon.MultiPolygonTestCase.test_multipolygon">
+<tt class="descname">test_multipolygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_multipolygon.MultiPolygonTestCase.test_multipolygon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_multipolygon.test_suite">
+<tt class="descclassname">shapely.tests.test_multipolygon.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_multipolygon.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-shapely.tests.test_ndarrays">
 <span id="test-ndarrays-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_ndarrays</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_ndarrays" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="shapely.tests.test_ndarrays.TransposeTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_ndarrays.</tt><tt class="descname">TransposeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_ndarrays.TransposeTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_ndarrays.TransposeTestCase.test_linestring">
-<tt class="descname">test_linestring</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_ndarrays.TransposeTestCase.test_linestring" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_linestring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_ndarrays.TransposeTestCase.test_linestring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_ndarrays.TransposeTestCase.test_multipoint">
-<tt class="descname">test_multipoint</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_ndarrays.TransposeTestCase.test_multipoint" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_multipoint</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_ndarrays.TransposeTestCase.test_multipoint" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_ndarrays.TransposeTestCase.test_polygon">
-<tt class="descname">test_polygon</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_ndarrays.TransposeTestCase.test_polygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_polygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_ndarrays.TransposeTestCase.test_polygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -675,16 +894,83 @@
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-shapely.tests.test_operations">
+<span id="test-operations-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_operations</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_operations" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_operations.OperationsTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_operations.</tt><tt class="descname">OperationsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_operations.OperationsTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_operations.OperationsTestCase.test_operations">
+<tt class="descname">test_operations</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_operations.OperationsTestCase.test_operations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_operations.test_suite">
+<tt class="descclassname">shapely.tests.test_operations.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_operations.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_operators">
+<span id="test-operators-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_operators</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_operators" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_operators.OperatorsTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_operators.</tt><tt class="descname">OperatorsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_operators.OperatorsTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_operators.OperatorsTestCase.test_point">
+<tt class="descname">test_point</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_operators.OperatorsTestCase.test_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_operators.test_suite">
+<tt class="descclassname">shapely.tests.test_operators.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_operators.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_persist">
+<span id="test-persist-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_persist</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_persist" title="Permalink to this headline">¶</a></h2>
+<p>Persistence tests</p>
+<dl class="class">
+<dt id="shapely.tests.test_persist.PersistTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_persist.</tt><tt class="descname">PersistTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_persist.PersistTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_persist.PersistTestCase.test_pickle">
+<tt class="descname">test_pickle</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_persist.PersistTestCase.test_pickle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_persist.PersistTestCase.test_wkb">
+<tt class="descname">test_wkb</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_persist.PersistTestCase.test_wkb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_persist.PersistTestCase.test_wkt">
+<tt class="descname">test_wkt</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_persist.PersistTestCase.test_wkt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_persist.test_suite">
+<tt class="descclassname">shapely.tests.test_persist.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_persist.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-shapely.tests.test_pickle">
 <span id="test-pickle-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_pickle</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_pickle" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="shapely.tests.test_pickle.TwoDeeTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_pickle.</tt><tt class="descname">TwoDeeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_pickle.TwoDeeTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<p>.</p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_pickle.TwoDeeTestCase.test_linestring">
-<tt class="descname">test_linestring</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_pickle.TwoDeeTestCase.test_linestring" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_linestring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_pickle.TwoDeeTestCase.test_linestring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -695,25 +981,133 @@
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-shapely.tests.test_point">
+<span id="test-point-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_point</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_point" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_point.LineStringTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_point.</tt><tt class="descname">LineStringTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_point.LineStringTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_point.LineStringTestCase.test_numpy">
+<tt class="descname">test_numpy</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_point.LineStringTestCase.test_numpy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_point.LineStringTestCase.test_point">
+<tt class="descname">test_point</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_point.LineStringTestCase.test_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_point.test_suite">
+<tt class="descclassname">shapely.tests.test_point.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_point.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_polygon">
+<span id="test-polygon-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_polygon</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_polygon" title="Permalink to this headline">¶</a></h2>
+<p>Polygons and Linear Rings</p>
+<dl class="class">
+<dt id="shapely.tests.test_polygon.PolygonTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_polygon.</tt><tt class="descname">PolygonTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_polygon.PolygonTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_polygon.PolygonTestCase.test_attribute_chains">
+<tt class="descname">test_attribute_chains</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_polygon.PolygonTestCase.test_attribute_chains" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_polygon.PolygonTestCase.test_dimensions">
+<tt class="descname">test_dimensions</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_polygon.PolygonTestCase.test_dimensions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_polygon.PolygonTestCase.test_numpy">
+<tt class="descname">test_numpy</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_polygon.PolygonTestCase.test_numpy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_polygon.PolygonTestCase.test_polygon">
+<tt class="descname">test_polygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_polygon.PolygonTestCase.test_polygon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_polygon.test_suite">
+<tt class="descclassname">shapely.tests.test_polygon.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_polygon.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_polygonize">
+<span id="test-polygonize-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_polygonize</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_polygonize" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="shapely.tests.test_polygonize.PolygonizeTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_polygonize.</tt><tt class="descname">PolygonizeTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_polygonize.PolygonizeTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_polygonize.PolygonizeTestCase.test_polygonize">
+<tt class="descname">test_polygonize</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_polygonize.PolygonizeTestCase.test_polygonize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_polygonize.PolygonizeTestCase.test_polygonize_full">
+<tt class="descname">test_polygonize_full</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_polygonize.PolygonizeTestCase.test_polygonize_full" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_polygonize.test_suite">
+<tt class="descclassname">shapely.tests.test_polygonize.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_polygonize.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-shapely.tests.test_predicates">
+<span id="test-predicates-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_predicates</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_predicates" title="Permalink to this headline">¶</a></h2>
+<p>Test GEOS predicates</p>
+<dl class="class">
+<dt id="shapely.tests.test_predicates.PredicatesTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_predicates.</tt><tt class="descname">PredicatesTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_predicates.PredicatesTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
+<dl class="function">
+<dt id="shapely.tests.test_predicates.PredicatesTestCase.test_binary_predicates">
+<tt class="descname">test_binary_predicates</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_predicates.PredicatesTestCase.test_binary_predicates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_predicates.PredicatesTestCase.test_unary_predicates">
+<tt class="descname">test_unary_predicates</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_predicates.PredicatesTestCase.test_unary_predicates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_predicates.test_suite">
+<tt class="descclassname">shapely.tests.test_predicates.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_predicates.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 <div class="section" id="module-shapely.tests.test_prepared">
 <span id="test-prepared-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_prepared</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_prepared" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="shapely.tests.test_prepared.PreparedGeometryTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_prepared.</tt><tt class="descname">PreparedGeometryTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_prepared.PreparedGeometryTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_prepared.PreparedGeometryTestCase.test_op_not_allowed">
-<tt class="descname">test_op_not_allowed</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_prepared.PreparedGeometryTestCase.test_op_not_allowed" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_op_not_allowed</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_prepared.PreparedGeometryTestCase.test_op_not_allowed" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_prepared.PreparedGeometryTestCase.test_predicate_not_allowed">
-<tt class="descname">test_predicate_not_allowed</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_prepared.PreparedGeometryTestCase.test_predicate_not_allowed" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_predicate_not_allowed</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_prepared.PreparedGeometryTestCase.test_predicate_not_allowed" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_prepared.PreparedGeometryTestCase.test_prepared">
-<tt class="descname">test_prepared</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_prepared.PreparedGeometryTestCase.test_prepared" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_prepared</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_prepared.PreparedGeometryTestCase.test_prepared" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -730,9 +1124,9 @@
 <dt id="shapely.tests.test_products_z.ProductZTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_products_z.</tt><tt class="descname">ProductZTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_products_z.ProductZTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_products_z.ProductZTestCase.test_line_intersection">
-<tt class="descname">test_line_intersection</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_products_z.ProductZTestCase.test_line_intersection" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_line_intersection</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_products_z.ProductZTestCase.test_line_intersection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -749,14 +1143,14 @@
 <dt id="shapely.tests.test_singularity.PolygonTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_singularity.</tt><tt class="descname">PolygonTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_singularity.PolygonTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_singularity.PolygonTestCase.test_polygon_3">
-<tt class="descname">test_polygon_3</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_singularity.PolygonTestCase.test_polygon_3" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_polygon_3</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_singularity.PolygonTestCase.test_polygon_3" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_singularity.PolygonTestCase.test_polygon_5">
-<tt class="descname">test_polygon_5</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_singularity.PolygonTestCase.test_polygon_5" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_polygon_5</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_singularity.PolygonTestCase.test_polygon_5" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -773,29 +1167,29 @@
 <dt id="shapely.tests.test_speedups.SpeedupsTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_speedups.</tt><tt class="descname">SpeedupsTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_speedups.SpeedupsTestCase.setUp">
-<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.setUp" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">setUp</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.setUp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_speedups.SpeedupsTestCase.tearDown">
-<tt class="descname">tearDown</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">tearDown</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.tearDown" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_speedups.SpeedupsTestCase.test_create_linestring">
-<tt class="descname">test_create_linestring</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.test_create_linestring" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_create_linestring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.test_create_linestring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_speedups.SpeedupsTestCase.test_create_polygon">
-<tt class="descname">test_create_polygon</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.test_create_polygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_create_polygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.test_create_polygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_speedups.SpeedupsTestCase.test_create_polygon_from_linestring">
-<tt class="descname">test_create_polygon_from_linestring</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.test_create_polygon_from_linestring" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_create_polygon_from_linestring</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_speedups.SpeedupsTestCase.test_create_polygon_from_linestring" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -812,14 +1206,14 @@
 <dt id="shapely.tests.test_styles.StylesTest">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_styles.</tt><tt class="descname">StylesTest</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_styles.StylesTest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_styles.StylesTest.test_cap">
-<tt class="descname">test_cap</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_styles.StylesTest.test_cap" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_cap</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_styles.StylesTest.test_cap" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_styles.StylesTest.test_join">
-<tt class="descname">test_join</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_styles.StylesTest.test_join" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_join</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_styles.StylesTest.test_join" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -837,29 +1231,34 @@
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_transform.</tt><tt class="descname">IdentityTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
 <p>New geometry/coordseq method &#8216;xy&#8217; makes numpy interop easier</p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_transform.IdentityTestCase.func">
-<tt class="descname">func</tt><big>(</big><em>x</em>, <em>y</em>, <em>z=None</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.func" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">func</tt><big>(</big><em>self</em>, <em>x</em>, <em>y</em>, <em>z=None</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.func" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
+<dt id="shapely.tests.test_transform.IdentityTestCase.test_empty">
+<tt class="descname">test_empty</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.test_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="shapely.tests.test_transform.IdentityTestCase.test_line">
-<tt class="descname">test_line</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.test_line" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_line</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.test_line" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_transform.IdentityTestCase.test_multipolygon">
-<tt class="descname">test_multipolygon</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.test_multipolygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_multipolygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.test_multipolygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_transform.IdentityTestCase.test_point">
-<tt class="descname">test_point</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.test_point" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_point</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.test_point" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_transform.IdentityTestCase.test_polygon">
-<tt class="descname">test_polygon</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.test_polygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_polygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.IdentityTestCase.test_polygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -869,24 +1268,24 @@
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_transform.</tt><tt class="descname">LambdaTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.LambdaTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
 <p>New geometry/coordseq method &#8216;xy&#8217; makes numpy interop easier</p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_transform.LambdaTestCase.test_line">
-<tt class="descname">test_line</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.LambdaTestCase.test_line" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_line</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.LambdaTestCase.test_line" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_transform.LambdaTestCase.test_multipolygon">
-<tt class="descname">test_multipolygon</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.LambdaTestCase.test_multipolygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_multipolygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.LambdaTestCase.test_multipolygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_transform.LambdaTestCase.test_point">
-<tt class="descname">test_point</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.LambdaTestCase.test_point" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_point</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.LambdaTestCase.test_point" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_transform.LambdaTestCase.test_polygon">
-<tt class="descname">test_polygon</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.LambdaTestCase.test_polygon" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_polygon</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_transform.LambdaTestCase.test_polygon" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -897,38 +1296,43 @@
 <dd></dd></dl>
 
 </div>
-<div class="section" id="module-shapely.tests.test_unary_union">
-<span id="test-unary-union-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_unary_union</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_unary_union" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-shapely.tests.test_union">
+<span id="test-union-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">test_union</span></tt> Module<a class="headerlink" href="#module-shapely.tests.test_union" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="shapely.tests.test_unary_union.UnionTestCase">
-<em class="property">class </em><tt class="descclassname">shapely.tests.test_unary_union.</tt><tt class="descname">UnionTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_unary_union.UnionTestCase" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.tests.test_union.UnionTestCase">
+<em class="property">class </em><tt class="descclassname">shapely.tests.test_union.</tt><tt class="descname">UnionTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_union.UnionTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="attribute">
-<dt id="shapely.tests.test_unary_union.UnionTestCase.coords">
-<tt class="descname">coords</tt><em class="property"> = [(0.36, 0.061224489795918366), (0.56, 0.20408163265306123), (0.7600000000000001, 0.3469387755102041), (0.9600000000000001, 0.4897959183673469), (0.008, 0.6326530612244897), (0.20800000000000002, 0.7755102040816325), (0.40800000000000003, 0.9183673469387754), (0.6080000000000001, 0.08163265306122448), (0.808, 0.22448979591836732), (0.048, 0.36734693877551017), (0.24800000000000003, 0.5102040816326531), (0.448, 0.6530612244897959), (0.6480000000000001, 0.7959183673469387), (0.8480000000000001, 0.9387755102040816), (0.088, 0.1020408163265306), (0.28800000000000003, 0.24489795918367346), (0.48800000000000004, 0.3877551020408163), (0.6880000000000001, 0.5306122448979591), (0.888, 0.673469387755102), (0.128, 0.8163265306122448), (0.328, 0.9591836734693877), (0.528, 0.12244897959183673), (0.7280000000000001, 0.26530612244897955), (0.928, 0.40816326530612246), (0.168, 0.5510204081632653), (0.368, 0.6938775510204082), (0.5680000000000001, 0.836734693877551), (0.7680000000000001, 0.9795918367346939), (0.9680000000000001, 0.0029154518950437317), (0.016, 0.14577259475218657), (0.21600000000000003, 0.2886297376093294), (0.41600000000000004, 0.43148688046647227), (0.6160000000000001, 0.5743440233236151), (0.8160000000000001, 0.7172011661807579), (0.056, 0.8600583090379008), (0.256, 0.023323615160349854), (0.456, 0.16618075801749269), (0.6560000000000001, 0.30903790087463556), (0.8560000000000001, 0.4518950437317784), (0.096, 0.5947521865889213), (0.29600000000000004, 0.737609329446064), (0.49600000000000005, 0.880466472303207), (0.6960000000000001, 0.043731778425655975), (0.896, 0.1865889212827988), (0.136, 0.32944606413994165), (0.336, 0.4723032069970845), (0.536, 0.6151603498542274), (0.7360000000000001, 0.7580174927113702), (0.936, 0.9008746355685131), (0.176, 0.0641399416909621), (0.376, 0.20699708454810495), (0.5760000000000001, 0.3498542274052478), (0.7760000000000001, 0.49271137026239065), (0.9760000000000001, 0.6355685131195334), (0.024, 0.7784256559766762), (0.224, 0.9212827988338191), (0.42400000000000004, 0.08454810495626822), (0.6240000000000001, 0.22740524781341104), (0.8240000000000001, 0.3702623906705539), (0.064, 0.5131195335276968), (0.264, 0.6559766763848396), (0.464, 0.7988338192419824), (0.6640000000000001, 0.9416909620991253), (0.8640000000000001, 0.10495626822157433), (0.10400000000000001, 0.24781341107871718), (0.30400000000000005, 0.39067055393586003), (0.504, 0.5335276967930028), (0.7040000000000001, 0.6763848396501457), (0.904, 0.8192419825072885), (0.144, 0.9620991253644314), (0.34400000000000003, 0.12536443148688045), (0.544, 0.2682215743440233), (0.7440000000000001, 0.4110787172011662), (0.9440000000000001, 0.553935860058309), (0.184, 0.6967930029154519), (0.384, 0.8396501457725947), (0.5840000000000001, 0.9825072886297376), (0.7840000000000001, 0.0058309037900874635), (0.9840000000000001, 0.14868804664723032), (0.032, 0.29154518950437314), (0.232, 0.434402332361516), (0.43200000000000005, 0.5772594752186588), (0.6320000000000001, 0.7201166180758016), (0.8320000000000001, 0.8629737609329445), (0.07200000000000001, 0.026239067055393583), (0.272, 0.16909620991253643), (0.472, 0.3119533527696793), (0.6720000000000002, 0.45481049562682213), (0.8720000000000001, 0.597667638483965), (0.112, 0.7405247813411078), (0.31200000000000006, 0.8833819241982507), (0.512, 0.04664723032069971), (0.7120000000000001, 0.18950437317784255), (0.912, 0.33236151603498537), (0.152, 0.4752186588921282), (0.352, 0.6180758017492711), (0.552, 0.7609329446064139), (0.7520000000000001, 0.9037900874635568), (0.9520000000000001, 0.06705539358600583), (0.192, 0.2099125364431487)]</em><a class="headerlink" href="#shapely.tests.test_unary_union.UnionTestCase.coords" title="Permalink to this definition">¶</a></dt>
+<dl class="function">
+<dt id="shapely.tests.test_union.UnionTestCase.setUp">
+<tt class="descname">setUp</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_union.UnionTestCase.setUp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="shapely.tests.test_unary_union.UnionTestCase.test_1">
-<tt class="descname">test_1</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_unary_union.UnionTestCase.test_1" title="Permalink to this definition">¶</a></dt>
+<dl class="function">
+<dt id="shapely.tests.test_union.UnionTestCase.test_cascaded_union">
+<tt class="descname">test_cascaded_union</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_union.UnionTestCase.test_cascaded_union" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="shapely.tests.test_unary_union.UnionTestCase.test_multi">
-<tt class="descname">test_multi</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_unary_union.UnionTestCase.test_multi" title="Permalink to this definition">¶</a></dt>
+<dl class="function">
+<dt id="shapely.tests.test_union.UnionTestCase.test_unary_union">
+<tt class="descname">test_unary_union</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_union.UnionTestCase.test_unary_union" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="shapely.tests.test_union.UnionTestCase.test_unary_union_multi">
+<tt class="descname">test_unary_union_multi</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_union.UnionTestCase.test_unary_union_multi" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="function">
-<dt id="shapely.tests.test_unary_union.halton">
-<tt class="descclassname">shapely.tests.test_unary_union.</tt><tt class="descname">halton</tt><big>(</big><em>base</em><big>)</big><a class="headerlink" href="#shapely.tests.test_unary_union.halton" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.tests.test_union.halton">
+<tt class="descclassname">shapely.tests.test_union.</tt><tt class="descname">halton</tt><big>(</big><em>base</em><big>)</big><a class="headerlink" href="#shapely.tests.test_union.halton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an iterator over an infinite Halton sequence</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="shapely.tests.test_unary_union.test_suite">
-<tt class="descclassname">shapely.tests.test_unary_union.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_unary_union.test_suite" title="Permalink to this definition">¶</a></dt>
+<dt id="shapely.tests.test_union.test_suite">
+<tt class="descclassname">shapely.tests.test_union.</tt><tt class="descname">test_suite</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_union.test_suite" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -938,9 +1342,9 @@
 <dt id="shapely.tests.test_validation.ValidationTestCase">
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_validation.</tt><tt class="descname">ValidationTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_validation.ValidationTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_validation.ValidationTestCase.test_valid">
-<tt class="descname">test_valid</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_validation.ValidationTestCase.test_valid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_valid</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_validation.ValidationTestCase.test_valid" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -958,9 +1362,9 @@
 <em class="property">class </em><tt class="descclassname">shapely.tests.test_xy.</tt><tt class="descname">XYTestCase</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="headerlink" href="#shapely.tests.test_xy.XYTestCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">unittest.case.TestCase</span></tt></p>
 <p>New geometry/coordseq method &#8216;xy&#8217; makes numpy interop easier</p>
-<dl class="method">
+<dl class="function">
 <dt id="shapely.tests.test_xy.XYTestCase.test_arrays">
-<tt class="descname">test_arrays</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.tests.test_xy.XYTestCase.test_arrays" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">test_arrays</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.tests.test_xy.XYTestCase.test_arrays" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1004,14 +1408,14 @@
         <li class="right" >
           <a href="shapely.speedups.html" title="speedups Package"
              >previous</a> |</li>
-        <li><a href="index.html">Shapely 1.2.19 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.3.0 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li>
           <li><a href="shapely.html" >shapely Package</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011-2013, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
