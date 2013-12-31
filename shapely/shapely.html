@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>shapely Package &mdash; Shapely 1.3.0 documentation</title>
+    <title>shapely Package &mdash; Shapely 1.2 and 1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Shapely 1.3.0 documentation" href="index.html" />
+    <link rel="top" title="Shapely 1.2 and 1.3 documentation" href="index.html" />
     <link rel="up" title="shapely" href="modules.html" />
     <link rel="next" title="algorithms Package" href="shapely.algorithms.html" />
     <link rel="prev" title="shapely" href="modules.html" /> 
@@ -46,7 +46,7 @@
         <li class="right" >
           <a href="modules.html" title="shapely"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Shapely 1.3.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.2 and 1.3 documentation</a> &raquo;</li>
           <li><a href="modules.html" accesskey="U">shapely</a> &raquo;</li> 
       </ul>
     </div>
@@ -260,9 +260,9 @@ sequence.</p>
 <span class="go">[(0.0, 0.0)]</span>
 </pre></div>
 </div>
-<dl class="function">
+<dl class="method">
 <dt id="shapely.coords.CoordinateSequence.array_interface">
-<tt class="descname">array_interface</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#shapely.coords.CoordinateSequence.array_interface" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">array_interface</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.coords.CoordinateSequence.array_interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide the Numpy array protocol.</p>
 </dd></dl>
 
@@ -424,7 +424,7 @@ object.</p>
 <p>This is a base class. Do not instantiate.</p>
 <dl class="attribute">
 <dt id="shapely.geos.LGEOSBase.methods">
-<tt class="descname">methods</tt><em class="property"> = {'topology_preserve_simplify': functools.partial(&lt;_FuncPtr object at 0x1047ef600&gt;, 140459541072816), 'project': functools.partial(&lt;_FuncPtr object at 0x1047f2e20&gt;, 140459541072816), 'is_valid': functools.partial(&lt;_FuncPtr object at 0x1047f2120&gt;, 140459541072816), 'is_ring': functools.partial(&lt;_FuncPtr object at 0x1047ec6d0&gt;, 140459541072816), 'union': functools.partial(&lt;_FuncPtr object at 0x1047e71f0&gt;, 140459541072816), 'project_normalized': functools.partial(&lt;_FuncPtr object at 0x1047e7e20&gt;, 140459541072816), 'envelope': functools.partial(&lt;_FuncPtr object at 0x1047f62c0&gt;, 140459541072816), 'is_simple': functools.partial(&lt;_FuncPtr object at 0x1047f2a10&gt;, 140459541072816), 'difference': functools.partial(&lt;_FuncPtr object at 0x1047f9050&gt;, 140459541072816), 'unary_union': functools.partial(&lt;_FuncPtr object at 0x1047e72c0&gt;, 140459541072816), 'symmetric_difference': functools.partial(&lt;_FuncPtr object at 0x1047ecae0&gt;, 140459541072816), 'buffer_with_style': functools.partial(&lt;_FuncPtr object at 0x1047f6d50&gt;, 140459541072816), 'representative_point': functools.partial(&lt;_FuncPtr object at 0x1047efd50&gt;, 140459541072816), 'parallel_offset': functools.partial(&lt;_FuncPtr object at 0x1047f2050&gt;, 140459541072816), 'prepared_contains': functools.partial(&lt;_FuncPtr object at 0x1047f2940&gt;, 140459541072816), 'contains': functools.partial(&lt;_FuncPtr object at 0x1047f6940&gt;, 140459541072816), 'convex_hull': functools.partial(&lt;_FuncPtr object at 0x1047e7390&gt;, 140459541072816), 'prepared_contains_properly': functools.partial(&lt;_FuncPtr object at 0x1047efae0&gt;, 140459541072816), 'has_z': functools.partial(&lt;_FuncPtr object at 0x1047ec050&gt;, 140459541072816), 'area': functools.partial(&lt;_FuncPtr object at 0x1047ef870&gt;, 140459541072816), 'centroid': functools.partial(&lt;_FuncPtr object at 0x1047f6c80&gt;, 140459541072816), 'crosses': functools.partial(&lt;_FuncPtr object at 0x1047ec7a0&gt;, 140459541072816), 'disjoint': functools.partial(&lt;_FuncPtr object at 0x1047ecd50&gt;, 140459541072816), 'intersection': functools.partial(&lt;_FuncPtr object at 0x1047f97a0&gt;, 140459541072816), 'prepared_covers': functools.partial(&lt;_FuncPtr object at 0x1047efef0&gt;, 140459541072816), 'interpolate': functools.partial(&lt;_FuncPtr object at 0x1047f6600&gt;, 140459541072816), 'prepared_intersects': functools.partial(&lt;_FuncPtr object at 0x1047ec600&gt;, 140459541072816), 'relate': functools.partial(&lt;_FuncPtr object at 0x1047f61f0&gt;, 140459541072816), 'buffer': functools.partial(&lt;_FuncPtr object at 0x1047f6e20&gt;, 140459541072816), 'distance': functools.partial(&lt;_FuncPtr object at 0x1047ef120&gt;, 140459541072816), 'boundary': functools.partial(&lt;_FuncPtr object at 0x1047ef2c0&gt;, 140459541072816), 'within': functools.partial(&lt;_FuncPtr object at 0x1047f26d0&gt;, 140459541072816), 'touches': functools.partial(&lt;_FuncPtr object at 0x1047ec2c0&gt;, 140459541072816), 'simplify': functools.partial(&lt;_FuncPtr object at 0x1047f2ef0&gt;, 140459541072816), 'interpolate_normalized': functools.partial(&lt;_FuncPtr object at 0x1047e7ef0&gt;, 140459541072816), 'overlaps': functools.partial(&lt;_FuncPtr object at 0x1047ec530&gt;, 140459541072816), 'intersects': functools.partial(&lt;_FuncPtr object at 0x1047f6390&gt;, 140459541072816), 'equals_exact': functools.partial(&lt;_FuncPtr object at 0x1047f66d0&gt;, 140459541072816), 'equals': functools.partial(&lt;_FuncPtr object at 0x1047efa10&gt;, 140459541072816), 'cascaded_union': functools.partial(&lt;_FuncPtr object at 0x1047e72c0&gt;, 140459541072816), 'length': functools.partial(&lt;_FuncPtr object at 0x1047f6120&gt;, 140459541072816), 'is_empty': functools.partial(&lt;_FuncPtr object at 0x1047f92c0&gt;, 140459541072816)}</em><a class="headerlink" href="#shapely.geos.LGEOSBase.methods" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">methods</tt><em class="property"> = {'buffer_with_style': functools.partial(&lt;_FuncPtr object at 0x110101a10&gt;, 140549768936176), 'area': functools.partial(&lt;_FuncPtr object at 0x11010dbb0&gt;, 140549768936176), 'union': functools.partial(&lt;_FuncPtr object at 0x110101940&gt;, 140549768936176), 'has_z': functools.partial(&lt;_FuncPtr object at 0x11010d460&gt;, 140549768936176), 'length': functools.partial(&lt;_FuncPtr object at 0x110108870&gt;, 140549768936176), 'unary_union': functools.partial(&lt;_FuncPtr object at 0x110108e20&gt;, 140549768936176), 'interpolate_normalized': functools.partial(&lt;_FuncPtr object at 0x11010de20&gt;, 140549768936176), 'equals_exact': functools.partial(&lt;_FuncPtr object at 0x110113e20&gt;, 140549768936176), 'relate': functools.partial(&lt;_FuncPtr object at 0x11010dd50&gt;, 140549768936176), 'intersection': functools.partial(&lt;_FuncPtr object at 0x110108d50&gt;, 140549768936176), 'centroid': functools.partial(&lt;_FuncPtr object at 0x110113c80&gt;, 140549768936176), 'topology_preserve_simplify': functools.partial(&lt;_FuncPtr object at 0x110108940&gt;, 140549768936176), 'within': functools.partial(&lt;_FuncPtr object at 0x110113530&gt;, 140549768936176), 'prepared_intersects': functools.partial(&lt;_FuncPtr object at 0x110105e20&gt;, 140549768936176), 'crosses': functools.partial(&lt;_FuncPtr object at 0x110113a10&gt;, 140549768936176), 'equals': functools.partial(&lt;_FuncPtr object at 0x1101017a0&gt;, 140549768936176), 'intersects': functools.partial(&lt;_FuncPtr object at 0x110108ae0&gt;, 140549768936176), 'project': functools.partial(&lt;_FuncPtr object at 0x1101106d0&gt;, 140549768936176), 'contains': functools.partial(&lt;_FuncPtr object at 0x110108ef0&gt;, 140549768936176), 'is_ring': functools.partial(&lt;_FuncPtr object at 0x110105ef0&gt;, 140549768936176), 'prepared_contains': functools.partial(&lt;_FuncPtr object at 0x110101530&gt;, 140549768936176), 'distance': functools.partial(&lt;_FuncPtr object at 0x110113460&gt;, 140549768936176), 'representative_point': functools.partial(&lt;_FuncPtr object at 0x110108530&gt;, 140549768936176), 'disjoint': functools.partial(&lt;_FuncPtr object at 0x1101086d0&gt;, 140549768936176), 'difference': functools.partial(&lt;_FuncPtr object at 0x110108120&gt;, 140549768936176), 'boundary': functools.partial(&lt;_FuncPtr object at 0x110101600&gt;, 140549768936176), 'parallel_offset': functools.partial(&lt;_FuncPtr object at 0x1101012c0&gt;, 140549768936176), 'cascaded_union': functools.partial(&lt;_FuncPtr object at 0x110108e20&gt;, 140549768936176), 'touches': functools.partial(&lt;_FuncPtr object at 0x110101bb0&gt;, 140549768936176), 'is_valid': functools.partial(&lt;_FuncPtr object at 0x11010dc80&gt;, 140549768936176), 'overlaps': functools.partial(&lt;_FuncPtr object at 0x11010d940&gt;, 140549768936176), 'simplify': functools.partial(&lt;_FuncPtr object at 0x110105a10&gt;, 140549768936176), 'project_normalized': functools.partial(&lt;_FuncPtr object at 0x110113050&gt;, 140549768936176), 'is_empty': functools.partial(&lt;_FuncPtr object at 0x110110d50&gt;, 140549768936176), 'is_simple': functools.partial(&lt;_FuncPtr object at 0x1101136d0&gt;, 140549768936176), 'envelope': functools.partial(&lt;_FuncPtr object at 0x110105390&gt;, 140549768936176), 'prepared_covers': functools.partial(&lt;_FuncPtr object at 0x110110a10&gt;, 140549768936176), 'interpolate': functools.partial(&lt;_FuncPtr object at 0x110105530&gt;, 140549768936176), 'buffer': functools.partial(&lt;_FuncPtr object at 0x1101081f0&gt;, 140549768936176), 'symmetric_difference': functools.partial(&lt;_FuncPtr object at 0x110105460&gt;, 140549768936176), 'convex_hull': functools.partial(&lt;_FuncPtr object at 0x11010d7a0&gt;, 140549768936176), 'prepared_contains_properly': functools.partial(&lt;_FuncPtr object at 0x11010d6d0&gt;, 140549768936176)}</em><a class="headerlink" href="#shapely.geos.LGEOSBase.methods" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -433,9 +433,9 @@ object.</p>
 <dt id="shapely.geos.NullHandler">
 <em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">NullHandler</tt><big>(</big><em>level=0</em><big>)</big><a class="headerlink" href="#shapely.geos.NullHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">logging.Handler</span></tt></p>
-<dl class="function">
+<dl class="method">
 <dt id="shapely.geos.NullHandler.emit">
-<tt class="descname">emit</tt><big>(</big><em>self</em>, <em>record</em><big>)</big><a class="headerlink" href="#shapely.geos.NullHandler.emit" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">emit</tt><big>(</big><em>record</em><big>)</big><a class="headerlink" href="#shapely.geos.NullHandler.emit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -462,15 +462,15 @@ object.</p>
 <dt id="shapely.geos.WKBReader">
 <em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">WKBReader</tt><big>(</big><em>lgeos</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
-<dl class="function">
+<dl class="method">
 <dt id="shapely.geos.WKBReader.read">
-<tt class="descname">read</tt><big>(</big><em>self</em>, <em>data</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBReader.read" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">read</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBReader.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns geometry from WKB</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="method">
 <dt id="shapely.geos.WKBReader.read_hex">
-<tt class="descname">read_hex</tt><big>(</big><em>self</em>, <em>data</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBReader.read_hex" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">read_hex</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBReader.read_hex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns geometry from WKB hex</p>
 </dd></dl>
 
@@ -503,15 +503,15 @@ object.</p>
 <dd><p>Output dimension, either 2 or 3 (default)</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="method">
 <dt id="shapely.geos.WKBWriter.write">
-<tt class="descname">write</tt><big>(</big><em>self</em>, <em>geom</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBWriter.write" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">write</tt><big>(</big><em>geom</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBWriter.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns WKB byte string for geometry</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="method">
 <dt id="shapely.geos.WKBWriter.write_hex">
-<tt class="descname">write_hex</tt><big>(</big><em>self</em>, <em>geom</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBWriter.write_hex" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">write_hex</tt><big>(</big><em>geom</em><big>)</big><a class="headerlink" href="#shapely.geos.WKBWriter.write_hex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns WKB hex string for geometry</p>
 </dd></dl>
 
@@ -521,9 +521,9 @@ object.</p>
 <dt id="shapely.geos.WKTReader">
 <em class="property">class </em><tt class="descclassname">shapely.geos.</tt><tt class="descname">WKTReader</tt><big>(</big><em>lgeos</em><big>)</big><a class="headerlink" href="#shapely.geos.WKTReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
-<dl class="function">
+<dl class="method">
 <dt id="shapely.geos.WKTReader.read">
-<tt class="descname">read</tt><big>(</big><em>self</em>, <em>text</em><big>)</big><a class="headerlink" href="#shapely.geos.WKTReader.read" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">read</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#shapely.geos.WKTReader.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns geometry from WKT</p>
 </dd></dl>
 
@@ -535,7 +535,7 @@ object.</p>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
 <dl class="attribute">
 <dt id="shapely.geos.WKTWriter.defaults">
-<tt class="descname">defaults</tt><em class="property"> = {'trim': True, 'output_dimension': 3}</em><a class="headerlink" href="#shapely.geos.WKTWriter.defaults" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">defaults</tt><em class="property"> = {'output_dimension': 3, 'trim': True}</em><a class="headerlink" href="#shapely.geos.WKTWriter.defaults" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -563,9 +563,9 @@ A precision of -1 (default) disables it.</p>
 <dd><p>Trimming of unnecessary decimals (default: True)</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="method">
 <dt id="shapely.geos.WKTWriter.write">
-<tt class="descname">write</tt><big>(</big><em>self</em>, <em>geom</em><big>)</big><a class="headerlink" href="#shapely.geos.WKTWriter.write" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">write</tt><big>(</big><em>geom</em><big>)</big><a class="headerlink" href="#shapely.geos.WKTWriter.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns WKT string for geometry</p>
 </dd></dl>
 
@@ -626,9 +626,9 @@ and, with GEOS as a backend, translate them to C data structures.</li>
 <dt id="shapely.impl.BaseImpl">
 <em class="property">class </em><tt class="descclassname">shapely.impl.</tt><tt class="descname">BaseImpl</tt><big>(</big><em>values</em><big>)</big><a class="headerlink" href="#shapely.impl.BaseImpl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
-<dl class="function">
+<dl class="method">
 <dt id="shapely.impl.BaseImpl.update">
-<tt class="descname">update</tt><big>(</big><em>self</em>, <em>values</em><big>)</big><a class="headerlink" href="#shapely.impl.BaseImpl.update" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">update</tt><big>(</big><em>values</em><big>)</big><a class="headerlink" href="#shapely.impl.BaseImpl.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -769,17 +769,17 @@ pyproj.Proj(init=&#8217;epsg:26913&#8217;))</dd>
 <span class="go">True</span>
 </pre></div>
 </div>
-<dl class="function">
+<dl class="method">
 <dt id="shapely.prepared.PreparedGeometry.contains">
 <tt class="descname">contains</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.prepared.PreparedGeometry.contains" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="method">
 <dt id="shapely.prepared.PreparedGeometry.contains_properly">
 <tt class="descname">contains_properly</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.prepared.PreparedGeometry.contains_properly" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="method">
 <dt id="shapely.prepared.PreparedGeometry.covers">
 <tt class="descname">covers</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.prepared.PreparedGeometry.covers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -789,7 +789,7 @@ pyproj.Proj(init=&#8217;epsg:26913&#8217;))</dd>
 <tt class="descname">impl</tt><em class="property"> = &lt;GEOSImpl object: GEOS C API version (1, 7, 0)&gt;</em><a class="headerlink" href="#shapely.prepared.PreparedGeometry.impl" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="method">
 <dt id="shapely.prepared.PreparedGeometry.intersects">
 <tt class="descname">intersects</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.prepared.PreparedGeometry.intersects" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1019,7 +1019,7 @@ hex-encoded string if <tt class="docutils literal"><span class="pre">hex=True</s
         <li class="right" >
           <a href="modules.html" title="shapely"
              >previous</a> |</li>
-        <li><a href="index.html">Shapely 1.3.0 documentation</a> &raquo;</li>
+        <li><a href="index.html">Shapely 1.2 and 1.3 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li> 
       </ul>
     </div>
