@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,14 +6,14 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>geometry Package &mdash; Shapely 1.2 and 1.3 documentation</title>
+    <title>shapely.geometry package &mdash; Shapely 1.2 and 1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -26,9 +24,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Shapely 1.2 and 1.3 documentation" href="index.html" />
-    <link rel="up" title="shapely Package" href="shapely.html" />
-    <link rel="next" title="speedups Package" href="shapely.speedups.html" />
-    <link rel="prev" title="examples Package" href="shapely.examples.html" /> 
+    <link rel="up" title="shapely package" href="shapely.html" />
+    <link rel="next" title="shapely.speedups package" href="shapely.speedups.html" />
+    <link rel="prev" title="shapely.examples package" href="shapely.examples.html" /> 
   </head>
   <body>
     <div class="related">
@@ -41,42 +39,43 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="shapely.speedups.html" title="speedups Package"
+          <a href="shapely.speedups.html" title="shapely.speedups package"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="shapely.examples.html" title="examples Package"
+          <a href="shapely.examples.html" title="shapely.examples package"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Shapely 1.2 and 1.3 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li>
-          <li><a href="shapely.html" accesskey="U">shapely Package</a> &raquo;</li> 
+          <li><a href="shapely.html" accesskey="U">shapely package</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">geometry Package</a><ul>
-<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">geometry</span></tt> Package</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.base"><tt class="docutils literal"><span class="pre">base</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.collection"><tt class="docutils literal"><span class="pre">collection</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.geo"><tt class="docutils literal"><span class="pre">geo</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.linestring"><tt class="docutils literal"><span class="pre">linestring</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.multilinestring"><tt class="docutils literal"><span class="pre">multilinestring</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.multipoint"><tt class="docutils literal"><span class="pre">multipoint</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.multipolygon"><tt class="docutils literal"><span class="pre">multipolygon</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.point"><tt class="docutils literal"><span class="pre">point</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.polygon"><tt class="docutils literal"><span class="pre">polygon</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-shapely.geometry.proxy"><tt class="docutils literal"><span class="pre">proxy</span></tt> Module</a></li>
+<li><a class="reference internal" href="#">shapely.geometry package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.base">shapely.geometry.base module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.collection">shapely.geometry.collection module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.geo">shapely.geometry.geo module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.linestring">shapely.geometry.linestring module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.multilinestring">shapely.geometry.multilinestring module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.multipoint">shapely.geometry.multipoint module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.multipolygon">shapely.geometry.multipolygon module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.point">shapely.geometry.point module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.polygon">shapely.geometry.polygon module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry.proxy">shapely.geometry.proxy module</a></li>
+<li><a class="reference internal" href="#module-shapely.geometry">Module contents</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="shapely.examples.html"
-                        title="previous chapter">examples Package</a></p>
+                        title="previous chapter">shapely.examples package</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="shapely.speedups.html"
-                        title="next chapter">speedups Package</a></p>
+                        title="next chapter">shapely.speedups package</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/shapely.geometry.txt"
@@ -103,410 +102,18 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="geometry-package">
-<h1>geometry Package<a class="headerlink" href="#geometry-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">geometry</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-shapely.geometry"></span><p>Geometry classes and factories</p>
-<dl class="function">
-<dt id="shapely.geometry.box">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">box</tt><big>(</big><em>minx</em>, <em>miny</em>, <em>maxx</em>, <em>maxy</em>, <em>ccw=True</em><big>)</big><a class="headerlink" href="#shapely.geometry.box" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a rectangular polygon with configurable normal vector</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.shape">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">shape</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.shape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a new, independent geometry with coordinates <em>copied</em> from the
-context.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.asShape">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asShape</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asShape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adapts the context to a geometry interface. The coordinates remain
-stored in the context.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.Point">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">Point</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#shapely.geometry.Point" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseGeometry" title="shapely.geometry.base.BaseGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseGeometry</span></tt></a></p>
-<p>A zero dimensional feature</p>
-<p>A point has zero length and zero area.</p>
-<dl class="docutils">
-<dt>x, y, z <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
-<dd>Coordinate values</dd>
-</dl>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="go">POINT (1.0000000000000000 -1.0000000000000000)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">y</span>
-<span class="go">-1.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">x</span>
-<span class="go">1.0</span>
-</pre></div>
-</div>
-<dl class="method">
-<dt id="shapely.geometry.Point.array_interface">
-<tt class="descname">array_interface</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.geometry.Point.array_interface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provide the Numpy array protocol.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Point.bounds">
-<tt class="descname">bounds</tt><a class="headerlink" href="#shapely.geometry.Point.bounds" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Point.coords">
-<tt class="descname">coords</tt><a class="headerlink" href="#shapely.geometry.Point.coords" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access to geometry&#8217;s coordinates (CoordinateSequence)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Point.ctypes">
-<tt class="descname">ctypes</tt><a class="headerlink" href="#shapely.geometry.Point.ctypes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Point.x">
-<tt class="descname">x</tt><a class="headerlink" href="#shapely.geometry.Point.x" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return x coordinate.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Point.xy">
-<tt class="descname">xy</tt><a class="headerlink" href="#shapely.geometry.Point.xy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Separate arrays of X and Y coordinate values</p>
-<dl class="docutils">
-<dt>Example:</dt>
-<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">xy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">[0.0]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="go">[0.0]</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Point.y">
-<tt class="descname">y</tt><a class="headerlink" href="#shapely.geometry.Point.y" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return y coordinate.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Point.z">
-<tt class="descname">z</tt><a class="headerlink" href="#shapely.geometry.Point.z" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return z coordinate.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.asPoint">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asPoint</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adapt an object to the Point interface</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.LineString">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">LineString</tt><big>(</big><em>coordinates=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.LineString" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseGeometry" title="shapely.geometry.base.BaseGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseGeometry</span></tt></a></p>
-<p>A one-dimensional figure comprising one or more line segments</p>
-<p>A LineString has non-zero length and zero area. It may approximate a curve
-and need not be straight. Unlike a LinearRing, a LineString is not closed.</p>
-<dl class="method">
-<dt id="shapely.geometry.LineString.array_interface">
-<tt class="descname">array_interface</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.geometry.LineString.array_interface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provide the Numpy array protocol.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.LineString.coords">
-<tt class="descname">coords</tt><a class="headerlink" href="#shapely.geometry.LineString.coords" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access to geometry&#8217;s coordinates (CoordinateSequence)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.LineString.ctypes">
-<tt class="descname">ctypes</tt><a class="headerlink" href="#shapely.geometry.LineString.ctypes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="shapely.geometry.LineString.parallel_offset">
-<tt class="descname">parallel_offset</tt><big>(</big><em>distance</em>, <em>side</em>, <em>resolution=16</em>, <em>join_style=1</em>, <em>mitre_limit=1.0</em><big>)</big><a class="headerlink" href="#shapely.geometry.LineString.parallel_offset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a LineString or MultiLineString geometry at a distance from
-the object on its right or its left side.</p>
-<p>Distance must be a positive float value. The side parameter may be
-&#8216;left&#8217; or &#8216;right&#8217;. The resolution of the buffer around each vertex of
-the object increases by increasing the resolution keyword parameter or
-third positional parameter.</p>
-<p>The join style is for outside corners between line segments. Accepted
-values are JOIN_STYLE.round (1), JOIN_STYLE.mitre (2), and
-JOIN_STYLE.bevel (3).</p>
-<p>The mitre ratio limit is used for very sharp corners. It is the ratio
-of the distance from the corner to the end of the mitred offset corner.
-When two line segments meet at a sharp angle, a miter join will extend
-far beyond the original geometry. To prevent unreasonable geometry, the
-mitre limit allows controlling the maximum length of the join corner.
-Corners with a ratio which exceed the limit will be beveled.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.LineString.xy">
-<tt class="descname">xy</tt><a class="headerlink" href="#shapely.geometry.LineString.xy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Separate arrays of X and Y coordinate values</p>
-<p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">(((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span><span class="o">.</span><span class="n">xy</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">[0.0, 1.0]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="go">[0.0, 1.0]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.asLineString">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asLineString</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asLineString" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adapt an object the LineString interface</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.Polygon">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">Polygon</tt><big>(</big><em>shell=None</em>, <em>holes=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.Polygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseGeometry" title="shapely.geometry.base.BaseGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseGeometry</span></tt></a></p>
-<p>A two-dimensional figure bounded by a linear ring</p>
-<p>A polygon has a non-zero area. It may have one or more negative-space
-&#8220;holes&#8221; which are also bounded by linear rings. If any rings cross each
-other, the feature is invalid and operations on it may fail.</p>
-<dl class="docutils">
-<dt>exterior <span class="classifier-delimiter">:</span> <span class="classifier">LinearRing</span></dt>
-<dd>The ring which bounds the positive space of the polygon.</dd>
-<dt>interiors <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
-<dd>A sequence of rings which bound all existing holes.</dd>
-</dl>
-<dl class="attribute">
-<dt id="shapely.geometry.Polygon.coords">
-<tt class="descname">coords</tt><a class="headerlink" href="#shapely.geometry.Polygon.coords" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Polygon.ctypes">
-<tt class="descname">ctypes</tt><a class="headerlink" href="#shapely.geometry.Polygon.ctypes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Polygon.exterior">
-<tt class="descname">exterior</tt><a class="headerlink" href="#shapely.geometry.Polygon.exterior" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.Polygon.interiors">
-<tt class="descname">interiors</tt><a class="headerlink" href="#shapely.geometry.Polygon.interiors" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.asPolygon">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asPolygon</tt><big>(</big><em>shell</em>, <em>holes=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.asPolygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adapt objects to the Polygon interface</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.MultiPoint">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">MultiPoint</tt><big>(</big><em>points=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseMultipartGeometry" title="shapely.geometry.base.BaseMultipartGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseMultipartGeometry</span></tt></a></p>
-<p>A collection of one or more points</p>
-<p>A MultiPoint has zero area and zero length.</p>
-<dl class="docutils">
-<dt>geoms <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
-<dd>A sequence of Points</dd>
-</dl>
-<dl class="method">
-<dt id="shapely.geometry.MultiPoint.array_interface">
-<tt class="descname">array_interface</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPoint.array_interface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provide the Numpy array protocol.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.MultiPoint.ctypes">
-<tt class="descname">ctypes</tt><a class="headerlink" href="#shapely.geometry.MultiPoint.ctypes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="shapely.geometry.MultiPoint.shape_factory">
-<tt class="descname">shape_factory</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPoint.shape_factory" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.asMultiPoint">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asMultiPoint</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asMultiPoint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adapt a sequence of objects to the MultiPoint interface</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.MultiLineString">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">MultiLineString</tt><big>(</big><em>lines=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiLineString" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseMultipartGeometry" title="shapely.geometry.base.BaseMultipartGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseMultipartGeometry</span></tt></a></p>
-<p>A collection of one or more line strings</p>
-<p>A MultiLineString has non-zero length and zero area.</p>
-<dl class="docutils">
-<dt>geoms <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
-<dd>A sequence of LineStrings</dd>
-</dl>
-<dl class="method">
-<dt id="shapely.geometry.MultiLineString.shape_factory">
-<tt class="descname">shape_factory</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiLineString.shape_factory" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.asMultiLineString">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asMultiLineString</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asMultiLineString" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adapts a sequence of objects to the MultiLineString interface</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.MultiPolygon">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">MultiPolygon</tt><big>(</big><em>polygons=None</em>, <em>context_type='polygons'</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPolygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseMultipartGeometry" title="shapely.geometry.base.BaseMultipartGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseMultipartGeometry</span></tt></a></p>
-<p>A collection of one or more polygons</p>
-<p>If component polygons overlap the collection is <cite>invalid</cite> and some
-operations on it may fail.</p>
-<dl class="docutils">
-<dt>geoms <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
-<dd>A sequence of <cite>Polygon</cite> instances</dd>
-</dl>
-<dl class="method">
-<dt id="shapely.geometry.MultiPolygon.shape_factory">
-<tt class="descname">shape_factory</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPolygon.shape_factory" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.asMultiPolygon">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asMultiPolygon</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asMultiPolygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adapts a sequence of objects to the MultiPolygon interface</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.GeometryCollection">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">GeometryCollection</tt><a class="headerlink" href="#shapely.geometry.GeometryCollection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseMultipartGeometry" title="shapely.geometry.base.BaseMultipartGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseMultipartGeometry</span></tt></a></p>
-<p>A heterogenous collection of geometries</p>
-<dl class="docutils">
-<dt>geoms <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
-<dd>A sequence of Shapely geometry instances</dd>
-</dl>
-<dl class="attribute">
-<dt id="shapely.geometry.GeometryCollection.geoms">
-<tt class="descname">geoms</tt><a class="headerlink" href="#shapely.geometry.GeometryCollection.geoms" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.mapping">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">mapping</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#shapely.geometry.mapping" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a GeoJSON-like mapping</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.LinearRing">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">LinearRing</tt><big>(</big><em>coordinates=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.LinearRing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.linestring.LineString" title="shapely.geometry.linestring.LineString"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.linestring.LineString</span></tt></a></p>
-<p>A closed one-dimensional feature comprising one or more line segments</p>
-<p>A LinearRing that crosses itself or touches itself at a single point is
-invalid and operations on it may fail.</p>
-<dl class="attribute">
-<dt id="shapely.geometry.LinearRing.coords">
-<tt class="descname">coords</tt><a class="headerlink" href="#shapely.geometry.LinearRing.coords" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access to geometry&#8217;s coordinates (CoordinateSequence)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.LinearRing.is_ccw">
-<tt class="descname">is_ccw</tt><a class="headerlink" href="#shapely.geometry.LinearRing.is_ccw" title="Permalink to this definition">¶</a></dt>
-<dd><p>True is the ring is oriented counter clock-wise</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.LinearRing.is_simple">
-<tt class="descname">is_simple</tt><a class="headerlink" href="#shapely.geometry.LinearRing.is_simple" title="Permalink to this definition">¶</a></dt>
-<dd><p>True if the geometry is simple, meaning that any self-intersections
-are only at boundary points, else False</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="shapely.geometry.asLinearRing">
-<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asLinearRing</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asLinearRing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adapt an object to the LinearRing interface</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.CAP_STYLE">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">CAP_STYLE</tt><a class="headerlink" href="#shapely.geometry.CAP_STYLE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
-<dl class="attribute">
-<dt id="shapely.geometry.CAP_STYLE.flat">
-<tt class="descname">flat</tt><em class="property"> = 2</em><a class="headerlink" href="#shapely.geometry.CAP_STYLE.flat" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.CAP_STYLE.round">
-<tt class="descname">round</tt><em class="property"> = 1</em><a class="headerlink" href="#shapely.geometry.CAP_STYLE.round" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.CAP_STYLE.square">
-<tt class="descname">square</tt><em class="property"> = 3</em><a class="headerlink" href="#shapely.geometry.CAP_STYLE.square" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="shapely.geometry.JOIN_STYLE">
-<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">JOIN_STYLE</tt><a class="headerlink" href="#shapely.geometry.JOIN_STYLE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
-<dl class="attribute">
-<dt id="shapely.geometry.JOIN_STYLE.bevel">
-<tt class="descname">bevel</tt><em class="property"> = 3</em><a class="headerlink" href="#shapely.geometry.JOIN_STYLE.bevel" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.JOIN_STYLE.mitre">
-<tt class="descname">mitre</tt><em class="property"> = 2</em><a class="headerlink" href="#shapely.geometry.JOIN_STYLE.mitre" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="shapely.geometry.JOIN_STYLE.round">
-<tt class="descname">round</tt><em class="property"> = 1</em><a class="headerlink" href="#shapely.geometry.JOIN_STYLE.round" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="shapely-geometry-package">
+<h1>shapely.geometry package<a class="headerlink" href="#shapely-geometry-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-shapely.geometry.base">
-<span id="base-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">base</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.base" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-base-module"></span><h2>shapely.geometry.base module<a class="headerlink" href="#module-shapely.geometry.base" title="Permalink to this headline">¶</a></h2>
 <p>Base geometry class and utilities</p>
 <dl class="class">
 <dt id="shapely.geometry.base.BaseGeometry">
 <em class="property">class </em><tt class="descclassname">shapely.geometry.base.</tt><tt class="descname">BaseGeometry</tt><a class="headerlink" href="#shapely.geometry.base.BaseGeometry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Provides GEOS spatial predicates and topological operations.</p>
 <dl class="method">
 <dt id="shapely.geometry.base.BaseGeometry.almost_equals">
@@ -869,7 +476,7 @@ otherwise invalid geometries.</p>
 <dl class="class">
 <dt id="shapely.geometry.base.CAP_STYLE">
 <em class="property">class </em><tt class="descclassname">shapely.geometry.base.</tt><tt class="descname">CAP_STYLE</tt><a class="headerlink" href="#shapely.geometry.base.CAP_STYLE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="attribute">
 <dt id="shapely.geometry.base.CAP_STYLE.flat">
 <tt class="descname">flat</tt><em class="property"> = 2</em><a class="headerlink" href="#shapely.geometry.base.CAP_STYLE.flat" title="Permalink to this definition">¶</a></dt>
@@ -890,7 +497,7 @@ otherwise invalid geometries.</p>
 <dl class="class">
 <dt id="shapely.geometry.base.GeometrySequence">
 <em class="property">class </em><tt class="descclassname">shapely.geometry.base.</tt><tt class="descname">GeometrySequence</tt><big>(</big><em>parent</em>, <em>type</em><big>)</big><a class="headerlink" href="#shapely.geometry.base.GeometrySequence" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Iterative access to members of a homogeneous multipart geometry.</p>
 <dl class="attribute">
 <dt id="shapely.geometry.base.GeometrySequence.shape_factory">
@@ -909,7 +516,7 @@ otherwise invalid geometries.</p>
 <dl class="class">
 <dt id="shapely.geometry.base.JOIN_STYLE">
 <em class="property">class </em><tt class="descclassname">shapely.geometry.base.</tt><tt class="descname">JOIN_STYLE</tt><a class="headerlink" href="#shapely.geometry.base.JOIN_STYLE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="attribute">
 <dt id="shapely.geometry.base.JOIN_STYLE.bevel">
 <tt class="descname">bevel</tt><em class="property"> = 3</em><a class="headerlink" href="#shapely.geometry.base.JOIN_STYLE.bevel" title="Permalink to this definition">¶</a></dt>
@@ -976,7 +583,7 @@ otherwise invalid geometries.</p>
 
 </div>
 <div class="section" id="module-shapely.geometry.collection">
-<span id="collection-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">collection</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.collection" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-collection-module"></span><h2>shapely.geometry.collection module<a class="headerlink" href="#module-shapely.geometry.collection" title="Permalink to this headline">¶</a></h2>
 <p>Multi-part collections of geometries</p>
 <dl class="class">
 <dt id="shapely.geometry.collection.GeometryCollection">
@@ -996,7 +603,7 @@ otherwise invalid geometries.</p>
 
 </div>
 <div class="section" id="module-shapely.geometry.geo">
-<span id="geo-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">geo</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.geo" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-geo-module"></span><h2>shapely.geometry.geo module<a class="headerlink" href="#module-shapely.geometry.geo" title="Permalink to this headline">¶</a></h2>
 <p>Geometry factories based on the geo interface</p>
 <dl class="function">
 <dt id="shapely.geometry.geo.asShape">
@@ -1026,7 +633,7 @@ context.</p>
 
 </div>
 <div class="section" id="module-shapely.geometry.linestring">
-<span id="linestring-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">linestring</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.linestring" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-linestring-module"></span><h2>shapely.geometry.linestring module<a class="headerlink" href="#module-shapely.geometry.linestring" title="Permalink to this headline">¶</a></h2>
 <p>Line strings and related utilities</p>
 <dl class="class">
 <dt id="shapely.geometry.linestring.LineString">
@@ -1096,7 +703,7 @@ Corners with a ratio which exceed the limit will be beveled.</p>
 
 </div>
 <div class="section" id="module-shapely.geometry.multilinestring">
-<span id="multilinestring-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">multilinestring</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.multilinestring" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-multilinestring-module"></span><h2>shapely.geometry.multilinestring module<a class="headerlink" href="#module-shapely.geometry.multilinestring" title="Permalink to this headline">¶</a></h2>
 <p>Collections of linestrings and related utilities</p>
 <dl class="class">
 <dt id="shapely.geometry.multilinestring.MultiLineString">
@@ -1123,7 +730,7 @@ Corners with a ratio which exceed the limit will be beveled.</p>
 
 </div>
 <div class="section" id="module-shapely.geometry.multipoint">
-<span id="multipoint-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">multipoint</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.multipoint" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-multipoint-module"></span><h2>shapely.geometry.multipoint module<a class="headerlink" href="#module-shapely.geometry.multipoint" title="Permalink to this headline">¶</a></h2>
 <p>Collections of points and related utilities</p>
 <dl class="class">
 <dt id="shapely.geometry.multipoint.MultiPoint">
@@ -1161,7 +768,7 @@ Corners with a ratio which exceed the limit will be beveled.</p>
 
 </div>
 <div class="section" id="module-shapely.geometry.multipolygon">
-<span id="multipolygon-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">multipolygon</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.multipolygon" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-multipolygon-module"></span><h2>shapely.geometry.multipolygon module<a class="headerlink" href="#module-shapely.geometry.multipolygon" title="Permalink to this headline">¶</a></h2>
 <p>Collections of polygons and related utilities</p>
 <dl class="class">
 <dt id="shapely.geometry.multipolygon.MultiPolygon">
@@ -1189,7 +796,7 @@ operations on it may fail.</p>
 
 </div>
 <div class="section" id="module-shapely.geometry.point">
-<span id="point-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">point</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.point" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-point-module"></span><h2>shapely.geometry.point module<a class="headerlink" href="#module-shapely.geometry.point" title="Permalink to this headline">¶</a></h2>
 <p>Points and related utilities</p>
 <dl class="class">
 <dt id="shapely.geometry.point.Point">
@@ -1277,7 +884,7 @@ operations on it may fail.</p>
 
 </div>
 <div class="section" id="module-shapely.geometry.polygon">
-<span id="polygon-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">polygon</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.polygon" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-polygon-module"></span><h2>shapely.geometry.polygon module<a class="headerlink" href="#module-shapely.geometry.polygon" title="Permalink to this headline">¶</a></h2>
 <p>Polygons and their linear ring components</p>
 <dl class="class">
 <dt id="shapely.geometry.polygon.Polygon">
@@ -1357,12 +964,12 @@ are only at boundary points, else False</p>
 
 </div>
 <div class="section" id="module-shapely.geometry.proxy">
-<span id="proxy-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">proxy</span></tt> Module<a class="headerlink" href="#module-shapely.geometry.proxy" title="Permalink to this headline">¶</a></h2>
+<span id="shapely-geometry-proxy-module"></span><h2>shapely.geometry.proxy module<a class="headerlink" href="#module-shapely.geometry.proxy" title="Permalink to this headline">¶</a></h2>
 <p>Proxy for coordinates stored outside Shapely geometries</p>
 <dl class="class">
 <dt id="shapely.geometry.proxy.CachingGeometryProxy">
 <em class="property">class </em><tt class="descclassname">shapely.geometry.proxy.</tt><tt class="descname">CachingGeometryProxy</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.proxy.CachingGeometryProxy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <dl class="attribute">
 <dt id="shapely.geometry.proxy.CachingGeometryProxy.context">
 <tt class="descname">context</tt><em class="property"> = None</em><a class="headerlink" href="#shapely.geometry.proxy.CachingGeometryProxy.context" title="Permalink to this definition">¶</a></dt>
@@ -1392,6 +999,401 @@ are only at boundary points, else False</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-shapely.geometry">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-shapely.geometry" title="Permalink to this headline">¶</a></h2>
+<p>Geometry classes and factories</p>
+<dl class="function">
+<dt id="shapely.geometry.box">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">box</tt><big>(</big><em>minx</em>, <em>miny</em>, <em>maxx</em>, <em>maxy</em>, <em>ccw=True</em><big>)</big><a class="headerlink" href="#shapely.geometry.box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a rectangular polygon with configurable normal vector</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.shape">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">shape</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new, independent geometry with coordinates <em>copied</em> from the
+context.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.asShape">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asShape</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapts the context to a geometry interface. The coordinates remain
+stored in the context.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.Point">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">Point</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#shapely.geometry.Point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseGeometry" title="shapely.geometry.base.BaseGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseGeometry</span></tt></a></p>
+<p>A zero dimensional feature</p>
+<p>A point has zero length and zero area.</p>
+<dl class="docutils">
+<dt>x, y, z <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>Coordinate values</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="go">POINT (1.0000000000000000 -1.0000000000000000)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">y</span>
+<span class="go">-1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">x</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="shapely.geometry.Point.array_interface">
+<tt class="descname">array_interface</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.geometry.Point.array_interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the Numpy array protocol.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Point.bounds">
+<tt class="descname">bounds</tt><a class="headerlink" href="#shapely.geometry.Point.bounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Point.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#shapely.geometry.Point.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access to geometry&#8217;s coordinates (CoordinateSequence)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Point.ctypes">
+<tt class="descname">ctypes</tt><a class="headerlink" href="#shapely.geometry.Point.ctypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Point.x">
+<tt class="descname">x</tt><a class="headerlink" href="#shapely.geometry.Point.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return x coordinate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Point.xy">
+<tt class="descname">xy</tt><a class="headerlink" href="#shapely.geometry.Point.xy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate arrays of X and Y coordinate values</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">xy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">[0.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">[0.0]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Point.y">
+<tt class="descname">y</tt><a class="headerlink" href="#shapely.geometry.Point.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return y coordinate.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Point.z">
+<tt class="descname">z</tt><a class="headerlink" href="#shapely.geometry.Point.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return z coordinate.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.asPoint">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asPoint</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt an object to the Point interface</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.LineString">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">LineString</tt><big>(</big><em>coordinates=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.LineString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseGeometry" title="shapely.geometry.base.BaseGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseGeometry</span></tt></a></p>
+<p>A one-dimensional figure comprising one or more line segments</p>
+<p>A LineString has non-zero length and zero area. It may approximate a curve
+and need not be straight. Unlike a LinearRing, a LineString is not closed.</p>
+<dl class="method">
+<dt id="shapely.geometry.LineString.array_interface">
+<tt class="descname">array_interface</tt><big>(</big><big>)</big><a class="headerlink" href="#shapely.geometry.LineString.array_interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the Numpy array protocol.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.LineString.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#shapely.geometry.LineString.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access to geometry&#8217;s coordinates (CoordinateSequence)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.LineString.ctypes">
+<tt class="descname">ctypes</tt><a class="headerlink" href="#shapely.geometry.LineString.ctypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="shapely.geometry.LineString.parallel_offset">
+<tt class="descname">parallel_offset</tt><big>(</big><em>distance</em>, <em>side</em>, <em>resolution=16</em>, <em>join_style=1</em>, <em>mitre_limit=1.0</em><big>)</big><a class="headerlink" href="#shapely.geometry.LineString.parallel_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a LineString or MultiLineString geometry at a distance from
+the object on its right or its left side.</p>
+<p>Distance must be a positive float value. The side parameter may be
+&#8216;left&#8217; or &#8216;right&#8217;. The resolution of the buffer around each vertex of
+the object increases by increasing the resolution keyword parameter or
+third positional parameter.</p>
+<p>The join style is for outside corners between line segments. Accepted
+values are JOIN_STYLE.round (1), JOIN_STYLE.mitre (2), and
+JOIN_STYLE.bevel (3).</p>
+<p>The mitre ratio limit is used for very sharp corners. It is the ratio
+of the distance from the corner to the end of the mitred offset corner.
+When two line segments meet at a sharp angle, a miter join will extend
+far beyond the original geometry. To prevent unreasonable geometry, the
+mitre limit allows controlling the maximum length of the join corner.
+Corners with a ratio which exceed the limit will be beveled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.LineString.xy">
+<tt class="descname">xy</tt><a class="headerlink" href="#shapely.geometry.LineString.xy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate arrays of X and Y coordinate values</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">(((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span><span class="o">.</span><span class="n">xy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">[0.0, 1.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="go">[0.0, 1.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.asLineString">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asLineString</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asLineString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt an object the LineString interface</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.Polygon">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">Polygon</tt><big>(</big><em>shell=None</em>, <em>holes=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.Polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseGeometry" title="shapely.geometry.base.BaseGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseGeometry</span></tt></a></p>
+<p>A two-dimensional figure bounded by a linear ring</p>
+<p>A polygon has a non-zero area. It may have one or more negative-space
+&#8220;holes&#8221; which are also bounded by linear rings. If any rings cross each
+other, the feature is invalid and operations on it may fail.</p>
+<dl class="docutils">
+<dt>exterior <span class="classifier-delimiter">:</span> <span class="classifier">LinearRing</span></dt>
+<dd>The ring which bounds the positive space of the polygon.</dd>
+<dt>interiors <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
+<dd>A sequence of rings which bound all existing holes.</dd>
+</dl>
+<dl class="attribute">
+<dt id="shapely.geometry.Polygon.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#shapely.geometry.Polygon.coords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Polygon.ctypes">
+<tt class="descname">ctypes</tt><a class="headerlink" href="#shapely.geometry.Polygon.ctypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Polygon.exterior">
+<tt class="descname">exterior</tt><a class="headerlink" href="#shapely.geometry.Polygon.exterior" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.Polygon.interiors">
+<tt class="descname">interiors</tt><a class="headerlink" href="#shapely.geometry.Polygon.interiors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.asPolygon">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asPolygon</tt><big>(</big><em>shell</em>, <em>holes=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.asPolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt objects to the Polygon interface</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.MultiPoint">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">MultiPoint</tt><big>(</big><em>points=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseMultipartGeometry" title="shapely.geometry.base.BaseMultipartGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseMultipartGeometry</span></tt></a></p>
+<p>A collection of one or more points</p>
+<p>A MultiPoint has zero area and zero length.</p>
+<dl class="docutils">
+<dt>geoms <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
+<dd>A sequence of Points</dd>
+</dl>
+<dl class="method">
+<dt id="shapely.geometry.MultiPoint.array_interface">
+<tt class="descname">array_interface</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPoint.array_interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the Numpy array protocol.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.MultiPoint.ctypes">
+<tt class="descname">ctypes</tt><a class="headerlink" href="#shapely.geometry.MultiPoint.ctypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="shapely.geometry.MultiPoint.shape_factory">
+<tt class="descname">shape_factory</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPoint.shape_factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.asMultiPoint">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asMultiPoint</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asMultiPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt a sequence of objects to the MultiPoint interface</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.MultiLineString">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">MultiLineString</tt><big>(</big><em>lines=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiLineString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseMultipartGeometry" title="shapely.geometry.base.BaseMultipartGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseMultipartGeometry</span></tt></a></p>
+<p>A collection of one or more line strings</p>
+<p>A MultiLineString has non-zero length and zero area.</p>
+<dl class="docutils">
+<dt>geoms <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
+<dd>A sequence of LineStrings</dd>
+</dl>
+<dl class="method">
+<dt id="shapely.geometry.MultiLineString.shape_factory">
+<tt class="descname">shape_factory</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiLineString.shape_factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.asMultiLineString">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asMultiLineString</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asMultiLineString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapts a sequence of objects to the MultiLineString interface</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.MultiPolygon">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">MultiPolygon</tt><big>(</big><em>polygons=None</em>, <em>context_type='polygons'</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseMultipartGeometry" title="shapely.geometry.base.BaseMultipartGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseMultipartGeometry</span></tt></a></p>
+<p>A collection of one or more polygons</p>
+<p>If component polygons overlap the collection is <cite>invalid</cite> and some
+operations on it may fail.</p>
+<dl class="docutils">
+<dt>geoms <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
+<dd>A sequence of <cite>Polygon</cite> instances</dd>
+</dl>
+<dl class="method">
+<dt id="shapely.geometry.MultiPolygon.shape_factory">
+<tt class="descname">shape_factory</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#shapely.geometry.MultiPolygon.shape_factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.asMultiPolygon">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asMultiPolygon</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asMultiPolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapts a sequence of objects to the MultiPolygon interface</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.GeometryCollection">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">GeometryCollection</tt><a class="headerlink" href="#shapely.geometry.GeometryCollection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.base.BaseMultipartGeometry" title="shapely.geometry.base.BaseMultipartGeometry"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.base.BaseMultipartGeometry</span></tt></a></p>
+<p>A heterogenous collection of geometries</p>
+<dl class="docutils">
+<dt>geoms <span class="classifier-delimiter">:</span> <span class="classifier">sequence</span></dt>
+<dd>A sequence of Shapely geometry instances</dd>
+</dl>
+<dl class="attribute">
+<dt id="shapely.geometry.GeometryCollection.geoms">
+<tt class="descname">geoms</tt><a class="headerlink" href="#shapely.geometry.GeometryCollection.geoms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.mapping">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">mapping</tt><big>(</big><em>ob</em><big>)</big><a class="headerlink" href="#shapely.geometry.mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a GeoJSON-like mapping</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.LinearRing">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">LinearRing</tt><big>(</big><em>coordinates=None</em><big>)</big><a class="headerlink" href="#shapely.geometry.LinearRing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shapely.geometry.linestring.LineString" title="shapely.geometry.linestring.LineString"><tt class="xref py py-class docutils literal"><span class="pre">shapely.geometry.linestring.LineString</span></tt></a></p>
+<p>A closed one-dimensional feature comprising one or more line segments</p>
+<p>A LinearRing that crosses itself or touches itself at a single point is
+invalid and operations on it may fail.</p>
+<dl class="attribute">
+<dt id="shapely.geometry.LinearRing.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#shapely.geometry.LinearRing.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access to geometry&#8217;s coordinates (CoordinateSequence)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.LinearRing.is_ccw">
+<tt class="descname">is_ccw</tt><a class="headerlink" href="#shapely.geometry.LinearRing.is_ccw" title="Permalink to this definition">¶</a></dt>
+<dd><p>True is the ring is oriented counter clock-wise</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.LinearRing.is_simple">
+<tt class="descname">is_simple</tt><a class="headerlink" href="#shapely.geometry.LinearRing.is_simple" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the geometry is simple, meaning that any self-intersections
+are only at boundary points, else False</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="shapely.geometry.asLinearRing">
+<tt class="descclassname">shapely.geometry.</tt><tt class="descname">asLinearRing</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shapely.geometry.asLinearRing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adapt an object to the LinearRing interface</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.CAP_STYLE">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">CAP_STYLE</tt><a class="headerlink" href="#shapely.geometry.CAP_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="shapely.geometry.CAP_STYLE.flat">
+<tt class="descname">flat</tt><em class="property"> = 2</em><a class="headerlink" href="#shapely.geometry.CAP_STYLE.flat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.CAP_STYLE.round">
+<tt class="descname">round</tt><em class="property"> = 1</em><a class="headerlink" href="#shapely.geometry.CAP_STYLE.round" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.CAP_STYLE.square">
+<tt class="descname">square</tt><em class="property"> = 3</em><a class="headerlink" href="#shapely.geometry.CAP_STYLE.square" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shapely.geometry.JOIN_STYLE">
+<em class="property">class </em><tt class="descclassname">shapely.geometry.</tt><tt class="descname">JOIN_STYLE</tt><a class="headerlink" href="#shapely.geometry.JOIN_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="shapely.geometry.JOIN_STYLE.bevel">
+<tt class="descname">bevel</tt><em class="property"> = 3</em><a class="headerlink" href="#shapely.geometry.JOIN_STYLE.bevel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.JOIN_STYLE.mitre">
+<tt class="descname">mitre</tt><em class="property"> = 2</em><a class="headerlink" href="#shapely.geometry.JOIN_STYLE.mitre" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="shapely.geometry.JOIN_STYLE.round">
+<tt class="descname">round</tt><em class="property"> = 1</em><a class="headerlink" href="#shapely.geometry.JOIN_STYLE.round" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -1410,19 +1412,19 @@ are only at boundary points, else False</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="shapely.speedups.html" title="speedups Package"
+          <a href="shapely.speedups.html" title="shapely.speedups package"
              >next</a> |</li>
         <li class="right" >
-          <a href="shapely.examples.html" title="examples Package"
+          <a href="shapely.examples.html" title="shapely.examples package"
              >previous</a> |</li>
         <li><a href="index.html">Shapely 1.2 and 1.3 documentation</a> &raquo;</li>
           <li><a href="modules.html" >shapely</a> &raquo;</li>
-          <li><a href="shapely.html" >shapely Package</a> &raquo;</li> 
+          <li><a href="shapely.html" >shapely package</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011-2013, Sean Gillies, Aron Bierbaum, Kai Lautaportti and others.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
     </div>
   </body>
 </html>

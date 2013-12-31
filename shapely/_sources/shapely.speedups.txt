@@ -1,11 +1,10 @@
-speedups Package
-================
+shapely.speedups package
+========================
 
-:mod:`speedups` Package
------------------------
+Module contents
+---------------
 
 .. automodule:: shapely.speedups
     :members:
     :undoc-members:
     :show-inheritance:
-
